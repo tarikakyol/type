@@ -35,7 +35,7 @@ app.get("/put", function(req, res) {
     if(typeof chat[req.query.channel] == "undefined"){
         mc.get(req.query.channel, function(err, val){
             console.log('!!!!!');
-            console.log(val);
+            console.log(val.toString());
            if(val == null){
                 chat[req.query.channel] = [];
            }else{
