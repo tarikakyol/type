@@ -63,7 +63,6 @@ app.get("/get", function(req, res) {
 
 // hands back a report about the last sync attempt
 app.get("/", function(req, res) {
-    //if(res.query.channel) channel = res.query.channel;
     res.sendfile('index.html');
 });
 
@@ -81,14 +80,16 @@ wss.on('connection', function(ws) {
 
     var id;
     ws.on('message', function(channel) {
-        var data;
-        mc.get(channel, function(err, val){
-           if(val == null){
-                data = typeof chat[req.query.channel] != "undefined" ? chat[req.query.channel] : "['bot','no messages atm','white']";
-           }else{
-                data = val.toString();
-           }
-        });
+        if(typeof chat[channel] == "undefined"){
+            mc.get(channel, function(err, val){
+                if(val == null){
+                    chat[channel] = [];
+                }else{
+                    chat[channel] = JSON.parse(val.toString());
+                }
+            }); 
+        }
+        data = typeof chat[channel] != "undefined" ? chat[channel] : "['bot','no messages atm','white']";
         id = setInterval(function() {
             ws.send(data);
         }, 1000);
