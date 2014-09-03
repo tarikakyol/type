@@ -95,7 +95,9 @@ wss.on('connection', function(ws) {
             }); 
         }
         console.log(chat[channel]);
+
         data = typeof chat[channel] != [] && chat[channel] != "undefined" ? chat[channel] : JSON.stringify([["bot","no messages atm","white"]]);
+        console.log(data);
         ws.send(JSON.stringify(data));
         // id = setInterval(function() {
         //     ws.send(JSON.stringify(data));
