@@ -34,6 +34,7 @@ app.get("/changeColor", function(req, res) {
 app.get("/put", function(req, res) {
     if(typeof chat[req.query.channel] == "undefined"){
         mc.get(req.query.channel, function(err, val){
+            console.log(val);
            if(val == null){
                 chat[req.query.channel] = [];
            }else{
