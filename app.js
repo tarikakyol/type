@@ -37,6 +37,7 @@ app.get("/put", function(req, res) {
            if(val == null){
                 chat[req.query.channel] = [];
            }else{
+            console.log(JSON.parse(val.toString()))
                 chat[req.query.channel] = JSON.parse(val.toString());
            }
         }); 
