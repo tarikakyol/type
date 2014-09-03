@@ -39,17 +39,16 @@ app.get("/put", function(req, res) {
     chat[req.query.channel].push([escapeHtml(req.query.nick), escapeHtml(req.query.text), colors[req.query.nick]]);
     console.log(chat);
     console.log(JSON.stringify(chat));
-    mc.set('chat', JSON.stringify(chat));
+    mc.set(req.query.channel, JSON.stringify(chat[req.query.channel]));
     res.send();
 });
 
 app.get("/get", function(req, res) {
     res.set('Content-Type', 'application/json');
-    mc.get('chat', function(err, val){
+    mc.get(req.query.channel, function(err, val){
        if(val == null){
             res.send(chat[req.query.channel]);
        }else{
-
             var arr = JSON.parse(val.toString());
             res.send(arr);
        }
