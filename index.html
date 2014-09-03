@@ -73,36 +73,31 @@ input[type=text]{
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script>
-$('input').keyup(function(e){
-    if(e.keyCode == 13)
-    {
-        var v = $('input').val();
-        if(v.length < 1) return false;
-
-        var words = v.split(" ");
-        if(words[0] == "name"){
-            localStorage["nick"] = words[1];
-            $('.chat').prepend("<p class='cline warning'>Your nick is now: "+words[1]+"</p>");
+var chat=[], colors = [], channel, ws;
+var post = function(){
+    var v = $('input').val();
+    if(v.length < 1) return false;
+    var words = v.split(" ");
+    if(words[0] == "name"){
+        setNickName(words[1]);
+        $('.chat').prepend("<p class='cline warning'>Your nick is now: "+words[1]+"</p>");
+        $('input').val("");
+        setHeader();
+        return;
+    }else if(words[0] == "color"){
+        var color = words[1];
+        color = color.replace('#','hash');
+        $.get( "/changeColor?nick="+getNickName()+"&color="+color, function(data) {
+            $('.chat').prepend("<p class='cline warning'>Your color is now: "+words[1]+"</p>");
             $('input').val("");
-            setHeader();
-            return;
-        }else if(words[0] == "color"){
-            var color = words[1];
-            color = color.replace('#','hash');
-            $.get( "/changeColor?nick="+localStorage["nick"]+"&color="+color, function(data) {
-                $('.chat').prepend("<p class='cline warning'>Your color is now: "+words[1]+"</p>");
-                $('input').val("");
-            });
-            return;
-        }
-
-        $.get( "/put?nick="+localStorage["nick"]+"&text="+v+"&channel="+channel, function(data) {
-            $('input').val("");
-            print();
         });
+        return;
     }
-});
-var chat=[], colors = [], channel='default';
+    $.get( "/put?nick="+getNickName()+"&text="+v+"&channel="+channel, function(data) {
+        $('input').val("");
+        print();
+    });
+}
 var print = function(){
     $('.chat').html("");
     for(i=0;i<chat.length;i++){
@@ -111,35 +106,23 @@ var print = function(){
 }
 var setHeader = function(){
     $(".hello").html("
-    <span class='orange'>HELLO "+localStorage["nick"]+"</span>
+    <span class='orange'>HELLO "+getNickName()+"</span>
     <p class='green'>Welcome to Splash Chat app. It's so simple!</p>
     <p class='white'>For now you can only -obviously- chat, use 'name' and 'color' commands to change your username and color! Yes this is a feature :)<p>");
 }
-var getUrlParam = function (sParam)
-{
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) 
-        {
-            return sParameterName[1];
-        }
-    }
-}
-var init = function(){
-    if(getUrlParam('channel')){
-        channel = getUrlParam('channel');
-    }
-    if(typeof localStorage["nick"] == "undefined"){
+var setNickName = function(nick){
+    if(nick){
+        localStorage["nick"] = nick;
+    }else{
         localStorage["nick"] = "user_"+Date.now();
     }
-    setHeader();
-    print();
-    $("input").focus();
+}
+var getNickName = function(){
+    return localStorage["nick"];
+}
+var setLogo = function(){
     setInterval(function(){
-    $('.logo span').each(function(){$(this).css(
+        $('.logo span').each(function(){$(this).css(
             {
                 'color':'#'+Math.floor(Math.random()*16777215).toString(16),
                 'letter-spacing': -(Math.floor(Math.random() * 30) + 15),
@@ -147,7 +130,8 @@ var init = function(){
             })
         });
     }, 5000);
-    // handling websocket
+}
+var setupWebSocket = function(){
     var host = location.origin.replace(/^http/, 'ws');
     ws = new WebSocket(host);
     setInterval(function(){
@@ -162,13 +146,50 @@ var init = function(){
         init();
     };
 }
-
-var ws;
+var setChannel = function(){
+    if(getUrlParam('channel')){
+        channel = getUrlParam('channel');
+    }else{
+        channel = "default";
+    }
+}
+var getUrlParam = function (sParam){
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+}
+var init = function(){    
+    // set channel
+    setChannel();
+    // Nickname and header text setter
+    setNickName();
+    setHeader();
+    // LOGO animation
+    setLogo();
+    // handling websocket
+    setupWebSocket();
+}
 $( document ).ready(function() {
+    //initialize
     init();
+
+    // set Listeners
+    $("input").focus();
     $('html').click(function(){
         $('input').focus();
     })
+    $('input').keyup(function(e){
+        if(e.keyCode == 13){
+            post();
+        }
+    });
 });
 </script>
 </html>
