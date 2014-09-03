@@ -22,6 +22,7 @@ var escapeHtml = function(text) {
 }
 
 app.get("/clear", function(req, res) {
+    console.log("!!MC DELETE!!");
     mc.delete(req.query.channel);
     chat = [];
     res.send();
@@ -35,6 +36,7 @@ app.get("/changeColor", function(req, res) {
 
 app.get("/put", function(req, res) {
     if(typeof chat[req.query.channel] == "undefined"){
+        console.log("!!MC GET!!");
         mc.get(req.query.channel, function(err, val){
             if(val == null){
                 chat[req.query.channel] = [];
@@ -45,6 +47,7 @@ app.get("/put", function(req, res) {
                 colors[req.query.nick] = "#"+Math.floor(Math.random()*16777215).toString(16);
             }
             chat[req.query.channel].push([escapeHtml(req.query.nick), escapeHtml(req.query.text), colors[req.query.nick]]);
+            console.log("!!MC SET!!");
             mc.set(req.query.channel, JSON.stringify(chat[req.query.channel]));
             res.send();
         }); 
@@ -53,6 +56,7 @@ app.get("/put", function(req, res) {
             colors[req.query.nick] = "#"+Math.floor(Math.random()*16777215).toString(16);
         }
         chat[req.query.channel].push([escapeHtml(req.query.nick), escapeHtml(req.query.text), colors[req.query.nick]]);
+        console.log("!!MC SET!!");
         mc.set(req.query.channel, JSON.stringify(chat[req.query.channel]));
         res.send();
     }
@@ -60,6 +64,7 @@ app.get("/put", function(req, res) {
 
 app.get("/get", function(req, res) {
     res.set('Content-Type', 'application/json');
+    console.log("!!MC GET!!");
     mc.get(req.query.channel, function(err, val){
        if(val == null){
             res.send(chat[req.query.channel]);
@@ -89,6 +94,7 @@ wss.on('connection', function(ws) {
     var id;
     ws.on('message', function(channel) {
         if(typeof chat[channel] == "undefined"){
+            console.log("!!MC GET!!");
             mc.get(channel, function(err, val){
                 if(val == null){
                     chat[channel] = [];
