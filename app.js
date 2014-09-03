@@ -49,6 +49,9 @@ app.get("/put", function(req, res) {
             res.send();
         }); 
     }else{
+        if(typeof colors[req.query.nick] == "undefined"){
+            colors[req.query.nick] = "#"+Math.floor(Math.random()*16777215).toString(16);
+        }
         chat[req.query.channel].push([escapeHtml(req.query.nick), escapeHtml(req.query.text), colors[req.query.nick]]);
         mc.set(req.query.channel, JSON.stringify(chat[req.query.channel]));
         res.send();
@@ -94,15 +97,13 @@ wss.on('connection', function(ws) {
                 }
             }); 
         }
-        console.log(chat[channel]);
-
         data = (typeof chat[channel] != "undefined" && chat[channel].length > 0) ? chat[channel] : [["bot","no messages atm","white"]];
-        console.log(data);
         ws.send(JSON.stringify(data));
-        // id = setInterval(function() {
+    });
+
+            // id = setInterval(function() {
         //     ws.send(JSON.stringify(data));
         // }, 1000);
-    });
 
     console.log('websocket connection open');
 
