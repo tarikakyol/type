@@ -73,65 +73,70 @@ input[type=text]{
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script>
-var chat=[], chatLen = 0, colors = [], channel, ws;
-var post = function(){
+
+var App = {
+    chat: [],
+    chatLen: 0,
+    channel: null
+}
+App.post = function(){
     var v = $('input').val();
 
     if(v.length < 1) return false;
-    if(checkCommands(v) == false)return false;
+    if(App.checkCommands(v) == false)return false;
 
-    $.get( "/put?nick="+getNickName()+"&text="+v+"&channel="+channel, function(data) {
+    $.get( "/put?nick="+App.getNickName()+"&text="+v+"&channel="+App.channel, function(data) {
         $('input').val("");
-        print();
+        App.print();
     });
 }
-var checkCommands = function(v){
+App.checkCommands = function(v){
     var words = v.split(" "), flag = true;
     switch(words[0]) {
         case "color":
             var color = words[1];
-            setColor(color);
+            App.setColor(color);
             flag = false;
             break;
         case "name":
-            setNickName(words[1]);
-            setHeader();
+            App.setNickName(words[1]);
+            App.setHeader();
             flag = false;
             break;
     }
     return flag;
 }
-var print = function(){
+App.print = function(){
     $('.chat').html("");
-    for(i=0;i<chat.length;i++){
-        $('.chat').prepend("<p class='cline' style='color:"+chat[i][2]+"'>"+chat[i][0]+": "+chat[i][1])+"</p>";
+    for(i=0;i<App.chat.length;i++){
+        $('.chat').prepend("<p class='cline' style='color:"+App.chat[i][2]+"'>"+App.chat[i][0]+": "+App.chat[i][1])+"</p>";
     }
 }
-var setHeader = function(){
-    $(".hello").html("<span class='orange'>HELLO "+getNickName()+"</span><p class='green'>Welcome to Splash Chat app. It's so simple!</p><p class='white'>For now you can only -obviously- chat, use 'name' and 'color' commands to change your username and color! Yes this is a feature :)<p>");
+App.setHeader = function(){
+    $(".hello").html("<span class='orange'>HELLO "+App.getNickName()+"</span><p class='green'>Welcome to Splash Chat app. It's so simple!</p><p class='white'>For now you can only -obviously- chat, use 'name' and 'color' commands to change your username and color! Yes this is a feature :)<p>");
 }
-var setColor = function(color){
+App.setColor = function(color){
     color = color.replace('#','hash');
-    $.get( "/changeColor?nick="+getNickName()+"&color="+color, function(data) {
+    $.get( "/changeColor?nick="+App.getNickName()+"&color="+color, function(data) {
         $('.chat').prepend("<p class='cline warning'>Your color is now: "+color+"</p>");
         $('input').val("");
     });
 }
-var setNickName = function(nick){
+App.setNickName = function(nick){
     if(nick){
-        $.get( "/put?nick=bot&text="+localStorage["nick"]+" changed nickname to "+nick+"&channel="+channel, function(data) {
+        $.get( "/put?nick=bot&text="+localStorage["nick"]+" changed nickname to "+nick+"&channel="+App.channel, function(data) {
             $('input').val("");
-            print();
+            App.print();
         });
         localStorage["nick"] = nick;
     }else{
         if(typeof localStorage["nick"] == "undefined") localStorage["nick"] = "user_"+Date.now();
     }
 }
-var getNickName = function(){
+App.getNickName = function(){
     return localStorage["nick"];
 }
-var setLogo = function(){
+App.setLogo = function(){
     setInterval(function(){
         $('.logo span').each(function(){$(this).css(
             {
@@ -142,40 +147,40 @@ var setLogo = function(){
         });
     }, 5000);
 }
-var setupWebSocket = function(){
+App.setupWebSocket = function(){
     var host = location.origin.replace(/^http/, 'ws');
-    ws = new WebSocket(host);
+    var ws = new WebSocket(host);
     setInterval(function(){
-        ws.send(channel);
+        ws.send(App.channel);
     }, 1000);
     ws.onmessage = function (event) {
-        chat = JSON.parse(event.data);
-        if(chat.length > chatLen){
+        App.chat = JSON.parse(event.data);
+        if(App.chat.length > App.chatLen){
             setTitle("(1) SPLASH Chat");
-            chatLen = chat.length;
+            App.chatLen = App.chat.length;
         }
-        print();
+        App.print();
     };
     ws.onclose = function (){
         console.log("WebSocket closed, restarting..");
         window.location.reload();
     };
 }
-var setChannel = function(){
-    if(getUrlParam('channel')){
-        channel = getUrlParam('channel');
+App.setChannel = function(){
+    if(App.getUrlParam('channel')){
+        App.channel = App.getUrlParam('channel');
     }else{
-        channel = "default";
+        App.channel = "default";
     }
 }
-var setTitle = function(title){
+App.setTitle = function(title){
     if(title){
         document.title = title;
     }else{
         document.title = "SPLASH Chat";
     }
 }
-var getUrlParam = function (sParam){
+App.getUrlParam = function (sParam){
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
     for (var i = 0; i < sURLVariables.length; i++) 
@@ -187,33 +192,33 @@ var getUrlParam = function (sParam){
         }
     }
 }
-var init = function(){    
+App.init = function(){    
     // set channel
-    setChannel();
+    App.setChannel();
     // Nickname and header text setter
-    setNickName();
-    setHeader();
+    App.setNickName();
+    App.setHeader();
     // LOGO animation
-    setLogo();
+    this.setLogo();
     // handling websocket
-    setupWebSocket();
+    this.setupWebSocket();
 }
 $( document ).ready(function() {
     //initialize
-    init();
+    App.init();
     // set Listeners
     $("input").focus();
     $('html').click(function(){
         $('input').focus();
-        setTitle();
+        App.setTitle();
     });
     $('html').mousemove(function(){
-        setTitle();
+        App.setTitle();
     })
     $('input').keyup(function(e){
         if(e.keyCode == 13){
-            post();
-            setTitle();
+            App.post();
+            App.setTitle();
         }
     });
 });
