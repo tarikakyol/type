@@ -110,7 +110,10 @@ var print = function(){
     }
 }
 var setHeader = function(){
-    $(".hello").html("<span class='orange'>HELLO "+localStorage["nick"]+"</span><p class='green'>Welcome to Splash Chat app. It's so simple!</p><p class='white'>For now you can only -obviously- chat, use 'name' and 'color' commands to change your username and color! Yes this is a feature :)<p>");
+    $(".hello").html("
+    <span class='orange'>HELLO "+localStorage["nick"]+"</span>
+    <p class='green'>Welcome to Splash Chat app. It's so simple!</p>
+    <p class='white'>For now you can only -obviously- chat, use 'name' and 'color' commands to change your username and color! Yes this is a feature :)<p>");
 }
 var getUrlParam = function (sParam)
 {
@@ -144,14 +147,6 @@ var init = function(){
             })
         });
     }, 5000);
-    $('html').click(function(){
-        $('input').focus();
-    })
-}
-
-var ws;
-$( document ).ready(function() {
-    init();
     // handling websocket
     var host = location.origin.replace(/^http/, 'ws');
     ws = new WebSocket(host);
@@ -162,6 +157,18 @@ $( document ).ready(function() {
         chat = JSON.parse(event.data);
         print();
     };
+    ws.onclose = function (){
+        console.log("WebSocket closed, restarting..");
+        init();
+    };
+}
+
+var ws;
+$( document ).ready(function() {
+    init();
+    $('html').click(function(){
+        $('input').focus();
+    })
 });
 </script>
 </html>
