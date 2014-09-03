@@ -93,7 +93,8 @@ wss.on('connection', function(ws) {
                 }
             }); 
         }
-        data = typeof chat[channel] != "undefined" ? chat[channel] : "[\"bot\",\"no messages atm\",\"white\"]";
+        console.log(chat[channel]);
+        data = typeof chat[channel] != "undefined" ? chat[channel] : "no messages atm";
         id = setInterval(function() {
             ws.send(JSON.stringify(data));
         }, 1000);
