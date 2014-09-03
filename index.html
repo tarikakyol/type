@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--[if lt IE 10]><html class="lt-ie10"><![endif]-->
+<!--[if gte IE 10]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10.0, minimum-scale=1, user-scalable=no">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>SPLASH Chat</title>
+</head>
+<style type="text/css">
+body{
+    font-family: 'Menlo Regular', 'Lucida Console', Monaco, monospace, 'Courier New', Fixed;
+    font-size: 12px;
+    background: black;
+    color: white;
+}
+input[type=text]{
+    color:white;
+    background: black;
+    border: none;
+    width: calc(100% - 20px);
+    outline: none;
+    font-size: 13px;
+}
+.logo{
+    font-family: 'Arial Black';
+    font-size: 40px;
+}
+.warning{
+    color: red;
+}
+.green{
+    color: #2ecc71;
+}
+.white{
+    color: white;
+}
+.orange{
+    color: #e67e22;
+}
+.cline{
+    line-height: 5px;
+}
+.hr{
+    border-top: dashed 1px;
+    padding-bottom: 5px;
+}
+.logo span{
+    letter-spacing: -21px;
+    transition: all 600ms linear;
+}
+
+</style>
+<body>
+<div class="logo">
+    <span style="color:#32CCFE">S</span>
+    <span style="color:#5D7BB9">P</span>
+    <span style="color:#DD77D3">L</span>
+    <span style="color:#2ecc71">A</span>
+    <span style="color:#e67e22">S</span>
+    <span style="color:#019fde">H</span>
+</div>
+<div class="hello"></div>
+<div class="hr"></div>
+><input type="text"></input>
+<div class="chat"></div>
+
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script>
+$('input').keyup(function(e){
+    if(e.keyCode == 13)
+    {
+        var v = $('input').val();
+        if(v.length < 1) return false;
+
+        var words = v.split(" ");
+        if(words[0] == "name"){
+            localStorage["nick"] = words[1];
+            $('.chat').prepend("<p class='cline warning'>Your nick is now: "+words[1]+"</p>");
+            $('input').val("");
+            setHeader();
+            return;
+        }else if(words[0] == "color"){
+            var color = words[1];
+            color = color.replace('#','hash');
+            $.get( "/changeColor?nick="+localStorage["nick"]+"&color="+color, function(data) {
+                $('.chat').prepend("<p class='cline warning'>Your color is now: "+words[1]+"</p>");
+                $('input').val("");
+            });
+            return;
+        }
+
+        $.get( "/put?nick="+localStorage["nick"]+"&text="+v+"&channel="+channel, function(data) {
+            $('input').val("");
+            print();
+        });
+    }
+});
+var colors = [], channel='default';
+var print = function(){
+    $.get( "/get?channel="+channel, function(chat) {
+        $('.chat').html("");
+        for(i=0;i<chat.length;i++){
+            //if(!colors[chat[i][0]])colors[chat[i][0]] = '#'+Math.floor(Math.random()*16777215).toString(16);
+            $('.chat').prepend("<p class='cline' style='color:"+chat[i][2]+"'>"+chat[i][0]+": "+chat[i][1])+"</p>";
+        }
+    });
+}
+var setHeader = function(){
+    $(".hello").html("<span class='orange'>HELLO "+localStorage["nick"]+"</span><p class='green'>Welcome to Splash Chat app. It's so simple!</p><p class='white'>For now you can only -obviously- chat, use 'name' and 'color' commands to change your username and color! Yes this is a feature :)<p>");
+}
+var getUrlParam = function (sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+}
+var init = function(){
+    if(getUrlParam('channel')){
+        channel = getUrlParam('channel');
+    }
+    if(typeof localStorage["nick"] == "undefined"){
+        localStorage["nick"] = "user_"+Date.now();
+    }
+    setHeader();
+    print();
+    $("input").focus();
+    setInterval(function(){
+    $('.logo span').each(function(){$(this).css(
+            {
+                'color':'#'+Math.floor(Math.random()*16777215).toString(16),
+                'letter-spacing': -(Math.floor(Math.random() * 30) + 15),
+                'opacity': (Math.random() * 1)
+            })
+        });
+    print();
+    }, 5000);
+    $('html').click(function(){
+        $('input').focus();
+    })
+}
+
+$( document ).ready(function() {
+    init();
+});
+
+</script>
+</html>

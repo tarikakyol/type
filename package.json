@@ -1,0 +1,30 @@
+{
+  "name": "splash-chat",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "~3.10.4",
+    "request": "~2.36.0"
+  },
+  "description": "Splash chat",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@heroku.com:splashchat.git"
+  },
+  "keywords": [
+    "Elvis",
+    "Connector",
+    "CloudCMS"
+  ],
+  "author": "tarik@splashinc.co.uk",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}
