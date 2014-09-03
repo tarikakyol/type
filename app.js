@@ -81,9 +81,16 @@ wss.on('connection', function(ws) {
 
     var id;
     ws.on('message', function(channel) {
-        console.log(chat[channel]);
+        var data;
+        mc.get(channel, function(err, val){
+           if(val == null){
+                data = typeof chat[req.query.channel] != "undefined" ? chat[req.query.channel] : "['bot','no messages atm','white']";
+           }else{
+                data = val.toString();
+           }
+        });
         id = setInterval(function() {
-            ws.send("ASDASD");
+            ws.send(data);
         }, 1000);
     });
 
