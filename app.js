@@ -74,12 +74,11 @@ var server = app.listen(port, function() {
 });
 
 
-var ws = new WebSocket('ws://chat.curateng.com');
-ws.on('open', function() {
-    console.log('!!!!!!connected');
-    ws.send('something', function(error) {
-        console.log(error);
-        // if error is null, the send has been completed,
-        // otherwise the error object will indicate what failed.
-    });
+var WebSocketServer = require('ws').Server
+  , wss = new WebSocketServer({port: 8080});
+    wss.on('connection', function(ws) {
+        ws.on('message', function(message) {
+            console.log('received: %s', message);
+        });
+        ws.send('something');
 });
