@@ -78,6 +78,7 @@ var post = function(){
     var v = $('input').val();
     if(v.length < 1) return false;
     var words = v.split(" ");
+    setTitle();
     if(words[0] == "name"){
         setNickName(words[1]);
         setHeader();
@@ -139,7 +140,7 @@ var setupWebSocket = function(){
     ws.onmessage = function (event) {
         chat = JSON.parse(event.data);
         if(chat.length > chatLen){
-            document.title = "(1) SPLASH Chat";
+            setTitle("(1) SPLASH Chat");
             chatLen = chat.length;
         }
         print();
@@ -154,6 +155,13 @@ var setChannel = function(){
         channel = getUrlParam('channel');
     }else{
         channel = "default";
+    }
+}
+var setTitle = function(title){
+    if(title){
+        document.title = title;
+    }else{
+        document.title = "SPLASH Chat";
     }
 }
 var getUrlParam = function (sParam){
@@ -187,7 +195,7 @@ $( document ).ready(function() {
     $("input").focus();
     $('html').click(function(){
         $('input').focus();
-        document.title = "SPLASH Chat";
+        setTitle();
     })
     $('input').keyup(function(e){
         if(e.keyCode == 13){
