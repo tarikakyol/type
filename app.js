@@ -89,7 +89,7 @@ wss.on('connection', function(ws) {
                 if(val == null){
                     chat[channel] = [];
                 }else{
-                    chat[channel] = val.toString();
+                    chat[channel] = JSON.parse(val.toString());
                 }
             }); 
         }
