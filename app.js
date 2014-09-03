@@ -73,8 +73,7 @@ var server = app.listen(port, function() {
     console.log('Splash Chat app %d', server.address().port);
 });
 
-console.log(server.address());
-var wss = new WebSocket({server: server.address()});
+var wss = new WebSocket({server: 'ws://chat.curateng.com'});
 console.log('websocket server created');
 wss.on('connection', function(ws) {
   var id = setInterval(function() {
