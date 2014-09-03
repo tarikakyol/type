@@ -194,10 +194,10 @@ App.getUrlParam = function (sParam){
 }
 App.init = function(){    
     // set channel
-    App.setChannel();
+    this.setChannel();
     // Nickname and header text setter
-    App.setNickName();
-    App.setHeader();
+    this.setNickName();
+    this.setHeader();
     // LOGO animation
     this.setLogo();
     // handling websocket
