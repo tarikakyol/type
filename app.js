@@ -37,7 +37,7 @@ app.get("/put", function(req, res) {
         colors[req.query.nick] = "#"+Math.floor(Math.random()*16777215).toString(16);
     }
     chat[req.query.channel].push([escapeHtml(req.query.nick), escapeHtml(req.query.text), colors[req.query.nick]]);
-    mc.set('chat', JSON.stringify(chat));
+    mc.set('chat', chat);
     res.send();
 });
 
