@@ -74,7 +74,7 @@ var server = app.listen(port, function() {
 });
 
 
-var ws = new WebSocket('ws://chat.curateng.com/ws');
+var ws = new WebSocket('ws://chat.curateng.com');
 ws.on('open', function() {
     console.log('!!!!!!connected');
     ws.send('something', function(error) {
