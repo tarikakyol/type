@@ -151,13 +151,17 @@ var init = function(){
 $( document ).ready(function() {
     init();
     // handling websocket
-    var host = location.origin.replace(/^http/, 'ws')
+    var host = location.origin.replace(/^http/, 'ws');
     var ws = new WebSocket(host);
-    ws.send(channel);
+    ws.onopen = function(){
+        ws.send(channel);
+    }
     ws.onmessage = function (event) {
         console.log(JSON.parse(event.data));
         // print();
     };
+
+
 });
 
 

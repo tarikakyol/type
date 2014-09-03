@@ -82,7 +82,7 @@ wss.on('connection', function(ws) {
     var id;
     ws.on('message', function(channel) {
         id = setInterval(function() {
-            ws.send(chat[channel], function() {  });
+            ws.send(JSON.stringify(chat[channel]), function() {  });
         }, 1000);
     });
 
