@@ -78,7 +78,7 @@ var post = function(){
     var v = $('input').val();
 
     if(v.length < 1) return false;
-    checkCommands(v) == false && return false;
+    if(checkCommands(v) == false)return false;
 
     $.get( "/put?nick="+getNickName()+"&text="+v+"&channel="+channel, function(data) {
         $('input').val("");
