@@ -111,7 +111,7 @@ var setNickName = function(nick){
     if(nick){
         localStorage["nick"] = nick;
     }else{
-        localStorage["nick"] = "user_"+Date.now();
+        if(typeof localStorage["nick"] == "undefined") localStorage["nick"] = "user_"+Date.now();
     }
 }
 var getNickName = function(){
