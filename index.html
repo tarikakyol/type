@@ -12,20 +12,11 @@
     <title>SPLASH Chat</title>
 </head>
 <style type="text/css">
-
-html {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
 body{
     font-family: 'Menlo Regular', 'Lucida Console', Monaco, monospace, 'Courier New', Fixed;
     font-size: 12px;
     background: black;
     color: white;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
 }
 input[type=text]{
     color:white;
@@ -214,6 +205,9 @@ $( document ).ready(function() {
         }
     });
 });
+
+// prevent bouncing
+document.ontouchmove = function(e) {e.preventDefault()};
 
 </script>
 </html>
