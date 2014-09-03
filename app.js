@@ -44,7 +44,11 @@ app.get("/put", function(req, res) {
                 chat[req.query.channel] = JSON.parse(val.toString());
             }
             if(typeof colors[req.query.nick] == "undefined"){
-                colors[req.query.nick] = "#"+Math.floor(Math.random()*16777215).toString(16);
+                if(req.query.nick == "bot"){
+                    colors[req.query.nick] = "red";
+                }else{
+                    colors[req.query.nick] = "#"+Math.floor(Math.random()*16777215).toString(16);
+                }
             }
             chat[req.query.channel].push([escapeHtml(req.query.nick), escapeHtml(req.query.text), colors[req.query.nick]]);
             console.log("!!MC SET!!");
