@@ -78,7 +78,6 @@ var post = function(){
     var v = $('input').val();
     if(v.length < 1) return false;
     var words = v.split(" ");
-    setTitle();
     if(words[0] == "name"){
         setNickName(words[1]);
         setHeader();
@@ -200,6 +199,7 @@ $( document ).ready(function() {
     $('input').keyup(function(e){
         if(e.keyCode == 13){
             post();
+            setTitle();
         }
     });
 });
