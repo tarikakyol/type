@@ -47,6 +47,7 @@ app.get("/get", function(req, res) {
        if(val == null){
             res.send(chat[req.query.channel]);
        }else{
+        
             var arr = JSON.parse(val.toString());
             res.send(arr);
        }
