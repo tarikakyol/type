@@ -37,7 +37,7 @@ app.get("/put", function(req, res) {
         colors[req.query.nick] = "#"+Math.floor(Math.random()*16777215).toString(16);
     }
     chat[req.query.channel].push([escapeHtml(req.query.nick), escapeHtml(req.query.text), colors[req.query.nick]]);
-    mc.set('chat', chat);
+    mc.set('chat', JSON.stringify(chat));
     res.send();
 });
 
@@ -45,9 +45,10 @@ app.get("/get", function(req, res) {
     res.set('Content-Type', 'application/json');
     mc.get('chat', function(err, val){
        if(val == null){
-           res.send(chat[req.query.channel]);
+            res.send(chat[req.query.channel]);
        }else{
-           res.send(JSON.parse(val.toString()));
+            var arr = JSON.parse(val.toString());
+            res.send(arr[req.query.channel]);
        }
     });
 });
