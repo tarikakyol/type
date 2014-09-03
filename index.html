@@ -157,8 +157,8 @@ $( document ).ready(function() {
         ws.send(channel);
     }
     ws.onmessage = function (event) {
-        console.log(JSON.parse(event.data));
-        // print();
+        chat = JSON.parse(event.data);
+        print();
     };
 
 
