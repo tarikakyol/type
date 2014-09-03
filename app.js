@@ -47,6 +47,10 @@ app.get("/put", function(req, res) {
             mc.set(req.query.channel, JSON.stringify(chat[req.query.channel]));
             res.send();
         }); 
+    }else{
+        chat[req.query.channel].push([escapeHtml(req.query.nick), escapeHtml(req.query.text), colors[req.query.nick]]);
+        mc.set(req.query.channel, JSON.stringify(chat[req.query.channel]));
+        res.send();
     }
 });
 
