@@ -101,15 +101,12 @@ $('input').keyup(function(e){
         });
     }
 });
-var colors = [], channel='default';
+var chat, colors = [], channel='default';
 var print = function(){
-    $.get( "/get?channel="+channel, function(chat) {
-        $('.chat').html("");
-        for(i=0;i<chat.length;i++){
-            //if(!colors[chat[i][0]])colors[chat[i][0]] = '#'+Math.floor(Math.random()*16777215).toString(16);
-            $('.chat').prepend("<p class='cline' style='color:"+chat[i][2]+"'>"+chat[i][0]+": "+chat[i][1])+"</p>";
-        }
-    });
+    $('.chat').html("");
+    for(i=0;i<chat.length;i++){
+        $('.chat').prepend("<p class='cline' style='color:"+chat[i][2]+"'>"+chat[i][0]+": "+chat[i][1])+"</p>";
+    }
 }
 var setHeader = function(){
     $(".hello").html("<span class='orange'>HELLO "+localStorage["nick"]+"</span><p class='green'>Welcome to Splash Chat app. It's so simple!</p><p class='white'>For now you can only -obviously- chat, use 'name' and 'color' commands to change your username and color! Yes this is a feature :)<p>");
@@ -145,7 +142,6 @@ var init = function(){
                 'opacity': (Math.random() * 1)
             })
         });
-    print();
     }, 5000);
     $('html').click(function(){
         $('input').focus();
@@ -155,12 +151,13 @@ var init = function(){
 $( document ).ready(function() {
     init();
     // handling websocket
-    // var host = location.origin.replace(/^http/, 'ws')
-    // console.log(host+"/ws");
-    // var ws = new WebSocket(host+"/ws");
-    // ws.onmessage = function (event) {
-    //     console.log(JSON.parse(event.data));
-    // };
+    var host = location.origin.replace(/^http/, 'ws')
+    var ws = new WebSocket(host);
+    ws.send(channel);
+    ws.onmessage = function (event) {
+        console.log(JSON.parse(event.data));
+        // print();
+    };
 });
 
 
