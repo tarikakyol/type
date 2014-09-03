@@ -1,8 +1,10 @@
 var express = require('express');
 var app = express();
-
 // prevent Heroku from idling by requesting self in periods
 var request = require('request');
+// Memcachier init.
+var memjs = require('memjs');
+var mc = memjs.Client.create();
 
 var chat = [];
 var channel = 'default';
@@ -35,12 +37,19 @@ app.get("/put", function(req, res) {
         colors[req.query.nick] = "#"+Math.floor(Math.random()*16777215).toString(16);
     }
     chat[req.query.channel].push([escapeHtml(req.query.nick), escapeHtml(req.query.text), colors[req.query.nick]]);
+    mc.set('chat', JSON.stringify(chat));
     res.send();
 });
 
 app.get("/get", function(req, res) {
     res.set('Content-Type', 'application/json');
-    res.send(chat[req.query.channel]);
+    mc.get('chat', function(err, val){
+       if(val == null){
+           res.send(chat[req.query.channel]);
+       }else{
+           res.send(val[req.query.channel]);
+       }
+    });
 });
 
 // hands back a report about the last sync attempt
