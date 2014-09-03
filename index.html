@@ -113,7 +113,7 @@ var setHeader = function(){
 var setColor = function(color){
     color = color.replace('#','hash');
     $.get( "/changeColor?nick="+getNickName()+"&color="+color, function(data) {
-        $('.chat').prepend("<p class='cline warning'>Your color is now: "+words[1]+"</p>");
+        $('.chat').prepend("<p class='cline warning'>Your color is now: "+color+"</p>");
         $('input').val("");
     });
 }
