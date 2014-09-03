@@ -44,6 +44,8 @@ app.get("/put", function(req, res) {
                 chat[req.query.channel] = JSON.parse(val.toString());
             }
             if(typeof colors[req.query.nick] == "undefined"){
+                console.log(req.query.nick);
+                console.log(req.query.nick == "bot");
                 if(req.query.nick == "bot"){
                     colors[req.query.nick] = "red";
                 }else{
