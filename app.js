@@ -47,7 +47,7 @@ app.get("/get", function(req, res) {
        if(val == null){
            res.send(chat[req.query.channel]);
        }else{
-           res.send(val[req.query.channel]);
+           res.send(JSON.parse(val.toString()));
        }
     });
 });
