@@ -155,8 +155,8 @@ App.setupWebSocket = function(){
     }, 1000);
     ws.onmessage = function (event) {
         App.chat = JSON.parse(event.data);
-        if(App.chat.length > App.chatLen && App.chatLen>0){
-            App.setTitle("(1) SPLASH Chat");
+        if(App.chat.length > App.chatLen){
+            App.chatLen>0 && App.setTitle("(1) SPLASH Chat");
             App.chatLen = App.chat.length;
         }
         App.print();
