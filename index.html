@@ -154,15 +154,13 @@ $( document ).ready(function() {
     // handling websocket
     var host = location.origin.replace(/^http/, 'ws');
     ws = new WebSocket(host);
-    ws.onopen = function(){
+    setInterval(function(){
         ws.send(channel);
-    }
+    }, 5000);
     ws.onmessage = function (event) {
         chat = JSON.parse(event.data);
         print();
     };
-
-
 });
 
 

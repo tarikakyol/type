@@ -95,9 +95,10 @@ wss.on('connection', function(ws) {
         }
         console.log(chat[channel]);
         data = typeof chat[channel] != "undefined" ? chat[channel] : "no messages atm";
-        id = setInterval(function() {
-            ws.send(JSON.stringify(data));
-        }, 1000);
+        ws.send(JSON.stringify(data));
+        // id = setInterval(function() {
+        //     ws.send(JSON.stringify(data));
+        // }, 1000);
     });
 
     console.log('websocket connection open');
