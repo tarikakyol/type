@@ -22,6 +22,7 @@ var escapeHtml = function(text) {
 }
 
 app.get("/clear", function(req, res) {
+    mc.set(req.query.channel, null);
     chat = [];
     res.send();
 });
