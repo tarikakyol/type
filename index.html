@@ -195,6 +195,9 @@ $( document ).ready(function() {
     $('html').click(function(){
         $('input').focus();
         setTitle();
+    });
+    $('html').mousemove(function(){
+        setTitle();
     })
     $('input').keyup(function(e){
         if(e.keyCode == 13){
