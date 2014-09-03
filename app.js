@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var WebSocket = require('ws');
+var WebSocketServer = require('ws').Server;
 // prevent Heroku from idling by requesting self in periods
 var request = require('request');
 // Memcachier init.
@@ -74,13 +74,18 @@ var server = app.listen(port, function() {
 });
 
 
-var WebSocketServer = require('ws').Server;
+// WEBSOCKET!
 var wss = new WebSocketServer({server: server});
 console.log('websocket server created');
 wss.on('connection', function(ws) {
-  var id = setInterval(function() {
-    ws.send(JSON.stringify(new Date()), function() {  });
-  }, 1000);
+
+    ws.on('message', function(message) {
+        console.log('received: %s', message);
+    });
+
+  // var id = setInterval(function() {
+  //   ws.send(JSON.stringify(new Date()), function() {  });
+  // }, 1000);
 
   console.log('websocket connection open');
 
