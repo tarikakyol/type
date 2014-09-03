@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+app = express.createServer();
 // prevent Heroku from idling by requesting self in periods
 var request = require('request');
 // Memcachier init.
