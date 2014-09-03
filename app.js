@@ -74,14 +74,18 @@ var server = app.listen(port, function() {
 });
 
 
+var WebSocketServer = require('ws').Server;
+var wss = new WebSocketServer({server: server});
+console.log('websocket server created');
+wss.on('connection', function(ws) {
+  var id = setInterval(function() {
+    ws.send(JSON.stringify(new Date()), function() {  });
+  }, 1000);
 
-var WebSocketServer = require('ws').Server
-  , wss = new WebSocketServer({port: 8080});
-    wss.on('connection', function(ws) {
-        ws.on('open', function() {
-            console.log('!!!!!!connected');
-            ws.send('something', function(error) {
-                console.log(error);
-            });
-        });
-    });
+  console.log('websocket connection open');
+
+  ws.on('close', function() {
+    console.log('websocket connection close');
+    clearInterval(id);
+  });
+});
