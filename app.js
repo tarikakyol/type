@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-app = express.createServer();
+var WebSocket = require('ws');
 // prevent Heroku from idling by requesting self in periods
 var request = require('request');
 // Memcachier init.
@@ -73,7 +73,7 @@ var server = app.listen(port, function() {
     console.log('Splash Chat app %d', server.address().port);
 });
 
-var wss = new WebSocketServer({server: server});
+var wss = new WebSocket({server: server});
 console.log('websocket server created');
 wss.on('connection', function(ws) {
   var id = setInterval(function() {
