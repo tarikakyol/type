@@ -155,12 +155,12 @@ var init = function(){
 $( document ).ready(function() {
     init();
     // handling websocket
-    var host = location.origin.replace(/^http/, 'ws')
-    console.log(host+"/ws");
-    var ws = new WebSocket(host+"/ws");
-    ws.onmessage = function (event) {
-        console.log(JSON.parse(event.data));
-    };
+    // var host = location.origin.replace(/^http/, 'ws')
+    // console.log(host+"/ws");
+    // var ws = new WebSocket(host+"/ws");
+    // ws.onmessage = function (event) {
+    //     console.log(JSON.parse(event.data));
+    // };
 });
 
 
