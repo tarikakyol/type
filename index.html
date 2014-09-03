@@ -80,8 +80,6 @@ var post = function(){
     var words = v.split(" ");
     if(words[0] == "name"){
         setNickName(words[1]);
-        $('.chat').prepend("<p class='cline warning'>Your nick is now: "+words[1]+"</p>");
-        $('input').val("");
         setHeader();
         return;
     }else if(words[0] == "color"){
@@ -109,6 +107,10 @@ var setHeader = function(){
 }
 var setNickName = function(nick){
     if(nick){
+        $.get( "/put?nick=bot&text="+localStorage["nick"]+" changed nickname to "+nick+"&channel="+channel, function(data) {
+            $('input').val("");
+            print();
+        });
         localStorage["nick"] = nick;
     }else{
         if(typeof localStorage["nick"] == "undefined") localStorage["nick"] = "user_"+Date.now();
