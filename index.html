@@ -148,11 +148,12 @@ var init = function(){
     })
 }
 
+var ws;
 $( document ).ready(function() {
     init();
     // handling websocket
     var host = location.origin.replace(/^http/, 'ws');
-    var ws = new WebSocket(host);
+    ws = new WebSocket(host);
     ws.onopen = function(){
         ws.send(channel);
     }
