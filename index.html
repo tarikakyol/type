@@ -156,7 +156,7 @@ $( document ).ready(function() {
     ws = new WebSocket(host);
     setInterval(function(){
         ws.send(channel);
-    }, 5000);
+    }, 1000);
     ws.onmessage = function (event) {
         chat = JSON.parse(event.data);
         print();
