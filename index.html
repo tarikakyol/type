@@ -76,25 +76,30 @@ input[type=text]{
 var chat=[], chatLen = 0, colors = [], channel, ws;
 var post = function(){
     var v = $('input').val();
+
     if(v.length < 1) return false;
-    var words = v.split(" ");
-    if(words[0] == "name"){
-        setNickName(words[1]);
-        setHeader();
-        return;
-    }else if(words[0] == "color"){
-        var color = words[1];
-        color = color.replace('#','hash');
-        $.get( "/changeColor?nick="+getNickName()+"&color="+color, function(data) {
-            $('.chat').prepend("<p class='cline warning'>Your color is now: "+words[1]+"</p>");
-            $('input').val("");
-        });
-        return;
-    }
+    checkCommands(v) == false && return false;
+
     $.get( "/put?nick="+getNickName()+"&text="+v+"&channel="+channel, function(data) {
         $('input').val("");
         print();
     });
+}
+var checkCommands = function(v){
+    var words = v.split(" "), flag = true;
+    switch(words[0]) {
+        case "color":
+            var color = words[1];
+            setColor(color);
+            flag = false;
+            break;
+        case "name":
+            setNickName(words[1]);
+            setHeader();
+            flag = false;
+            break;
+    }
+    return flag;
 }
 var print = function(){
     $('.chat').html("");
@@ -104,6 +109,13 @@ var print = function(){
 }
 var setHeader = function(){
     $(".hello").html("<span class='orange'>HELLO "+getNickName()+"</span><p class='green'>Welcome to Splash Chat app. It's so simple!</p><p class='white'>For now you can only -obviously- chat, use 'name' and 'color' commands to change your username and color! Yes this is a feature :)<p>");
+}
+var setColor = function(color){
+    color = color.replace('#','hash');
+    $.get( "/changeColor?nick="+getNickName()+"&color="+color, function(data) {
+        $('.chat').prepend("<p class='cline warning'>Your color is now: "+words[1]+"</p>");
+        $('input').val("");
+    });
 }
 var setNickName = function(nick){
     if(nick){
