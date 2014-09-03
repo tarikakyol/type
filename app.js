@@ -32,13 +32,19 @@ app.get("/changeColor", function(req, res) {
 });
 
 app.get("/put", function(req, res) {
-    if(typeof chat[req.query.channel] == "undefined") chat[req.query.channel] = [];
+    if(typeof chat[req.query.channel] == "undefined"){
+        mc.get(req.query.channel, function(err, val){
+           if(val == null){
+                chat[req.query.channel] = [];
+           }else{
+                chat[req.query.channel] = JSON.parse(val.toString());
+           }
+        }); 
+    }
     if(typeof colors[req.query.nick] == "undefined"){
         colors[req.query.nick] = "#"+Math.floor(Math.random()*16777215).toString(16);
     }
     chat[req.query.channel].push([escapeHtml(req.query.nick), escapeHtml(req.query.text), colors[req.query.nick]]);
-    console.log(chat);
-    console.log(JSON.stringify(chat));
     mc.set(req.query.channel, JSON.stringify(chat[req.query.channel]));
     res.send();
 });
@@ -49,8 +55,7 @@ app.get("/get", function(req, res) {
        if(val == null){
             res.send(chat[req.query.channel]);
        }else{
-            var arr = JSON.parse(val.toString());
-            res.send(arr);
+            res.send(JSON.parse(val.toString()));
        }
     });
 });
