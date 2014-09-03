@@ -48,7 +48,7 @@ app.get("/get", function(req, res) {
             res.send(chat[req.query.channel]);
        }else{
             var arr = JSON.parse(val.toString());
-            res.send(arr[req.query.channel]);
+            res.send(arr);
        }
     });
 });
