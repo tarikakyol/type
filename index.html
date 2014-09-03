@@ -73,7 +73,7 @@ input[type=text]{
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script>
-var chat=[], colors = [], channel, ws;
+var chat=[], chatLen = 0, colors = [], channel, ws;
 var post = function(){
     var v = $('input').val();
     if(v.length < 1) return false;
@@ -138,6 +138,10 @@ var setupWebSocket = function(){
     }, 1000);
     ws.onmessage = function (event) {
         chat = JSON.parse(event.data);
+        if(chat.length > chatLen){
+            document.title = "(1) SPLASH Chat";
+            chatLen = chat.length;
+        }
         print();
     };
     ws.onclose = function (){
@@ -183,6 +187,7 @@ $( document ).ready(function() {
     $("input").focus();
     $('html').click(function(){
         $('input').focus();
+        document.title = "SPLASH Chat";
     })
     $('input').keyup(function(e){
         if(e.keyCode == 13){
