@@ -99,6 +99,7 @@ wss.on('connection', function(ws) {
 
         if(typeof online[channel] == "undefined") online[channel] = [];
         if(online[channel].indexOf(nick) == -1){
+            console.log("undefined");
             online[channel].push(nick);
         }
 
