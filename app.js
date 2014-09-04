@@ -7,6 +7,11 @@ var request = require('request');
 var memjs = require('memjs');
 var mc = memjs.Client.create();
 
+// var mc = {
+//     get: function(a,b){b(null,null)},
+//     set: function(a,b){}
+// }
+
 var chat = [];
 var channel = 'default';
 var colors = [];
@@ -23,7 +28,6 @@ var escapeHtml = function(text) {
 }
 
 app.get("/clear", function(req, res) {
-    console.log("!!MC DELETE!!");
     mc.delete(req.query.channel);
     chat = [];
     res.send();
@@ -65,7 +69,6 @@ app.get("/put", function(req, res) {
 
 app.get("/get", function(req, res) {
     res.set('Content-Type', 'application/json');
-    console.log("!!MC GET!!");
     mc.get(req.query.channel, function(err, val){
        if(val == null){
             res.send(chat[req.query.channel]);
@@ -77,6 +80,7 @@ app.get("/get", function(req, res) {
 
 // hands back a report about the last sync attempt
 app.get("/", function(req, res) {
+    online = {};
     res.sendfile('index.html');
 });
 
@@ -102,7 +106,6 @@ wss.on('connection', function(ws) {
             online[channel].push(nick);
         }
         if(typeof chat[channel] == "undefined"){
-            console.log("!!MC GET!!");
             mc.get(channel, function(err, val){
                 if(val == null){
                     chat[channel] = [];

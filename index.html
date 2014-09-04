@@ -54,9 +54,34 @@ input[type=text]{
     letter-spacing: -21px;
     transition: all 600ms linear;
 }
+.online{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 200px;
+    height: 100px;
+    border: 1px dashed #444;
+    margin: 10px;
+}
+
+.online .title{
+    margin: 2px;
+    padding: 2px;
+    color: #666;
+    border-bottom: 1px dashed #444;
+}
+.online .onlineList{
+    padding: 5px;
+    color: #C4956C;
+    text-decoration: none;
+}
 
 </style>
 <body>
+<div class="online">
+    <div class="title">Online</div>
+    <div class="onlineList"></div>
+</div>
 <div class="logo">
     <span style="color:#32CCFE">S</span>
     <span style="color:#5D7BB9">P</span>
@@ -164,6 +189,7 @@ App.setupWebSocket = function(){
             App.chatLen = App.chat.length;
         }
         App.print();
+        App.renderOnline();
     };
     App.ws.onclose = function (){
         console.log("WebSocket closed, restarting..");
@@ -196,6 +222,13 @@ App.getUrlParam = function (sParam){
         }
     }
 }
+App.renderOnline = function(){
+    var list = "";
+    $.each(App.online,function(a,v){
+        list += v+" "
+    });
+    $('.onlineList').html(list);
+};
 App.init = function(){    
     // set channel
     this.setChannel();
