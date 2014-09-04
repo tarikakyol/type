@@ -177,24 +177,26 @@ App.setLogo = function(){
     }, 5000);
 }
 App.setupWebSocket = function(){
-    setInterval(function(){
-        App.ws.send(JSON.stringify([App.channel,App.getNickName()]));
-    }, 1000);
-    App.ws.onmessage = function (event) {
-        var data = JSON.parse(event.data);
-        App.online = data[0];
-        App.chat = data[1];
-        if(App.chat.length > App.chatLen){
-            App.chatLen>0 && App.setTitle("(1) SPLASH Chat");
-            App.chatLen = App.chat.length;
-        }
-        App.print();
-        App.renderOnline();
-    };
-    App.ws.onclose = function (){
-        console.log("WebSocket closed, restarting..");
-        window.location.reload();
-    };
+    App.ws.onopen = function () {
+        setInterval(function(){
+            App.ws.send(JSON.stringify([App.channel,App.getNickName()]));
+        }, 1000);
+        App.ws.onmessage = function (event) {
+            var data = JSON.parse(event.data);
+            App.online = data[0];
+            App.chat = data[1];
+            if(App.chat.length > App.chatLen){
+                App.chatLen>0 && App.setTitle("(1) SPLASH Chat");
+                App.chatLen = App.chat.length;
+            }
+            App.print();
+            App.renderOnline();
+        };
+        App.ws.onclose = function (){
+            console.log("WebSocket closed, restarting..");
+            window.location.reload();
+        };
+    }
 }
 App.setChannel = function(){
     if(App.getUrlParam('channel')){
