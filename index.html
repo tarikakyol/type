@@ -75,6 +75,7 @@ input[type=text]{
 <script>
 
 var App = {
+    ws: new WebSocket(location.origin.replace(/^http/, 'ws')),
     chat: [],
     chatLen: 0,
     channel: null,
@@ -151,12 +152,10 @@ App.setLogo = function(){
     }, 5000);
 }
 App.setupWebSocket = function(){
-    var host = location.origin.replace(/^http/, 'ws');
-    var ws = new WebSocket(host);
     setInterval(function(){
-        ws.send(JSON.stringify([App.channel,App.getNickName()]));
+        App.ws.send(JSON.stringify([App.channel,App.getNickName()]));
     }, 1000);
-    ws.onmessage = function (event) {
+    App.ws.onmessage = function (event) {
         var data = JSON.parse(event.data);
         App.online = data[0];
         App.chat = data[1];
@@ -166,7 +165,7 @@ App.setupWebSocket = function(){
         }
         App.print();
     };
-    ws.onclose = function (){
+    App.ws.onclose = function (){
         console.log("WebSocket closed, restarting..");
         window.location.reload();
     };
