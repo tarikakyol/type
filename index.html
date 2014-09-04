@@ -164,7 +164,7 @@ App.setupWebSocket = function(){
         App.print();
     };
     window.onbeforeunload = function() {
-        ws.close(App.getNickName());
+        ws.close(JSON.stringify([App.channel,App.getNickName()]));
     };
     ws.onclose = function (){
         console.log("WebSocket closed, restarting..");
