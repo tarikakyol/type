@@ -59,7 +59,6 @@ input[type=text]{
     right: 0;
     top: 0;
     width: 200px;
-    height: 100px;
     border: 1px dashed #444;
     margin: 10px;
 }
@@ -227,7 +226,7 @@ App.getUrlParam = function (sParam){
 App.renderOnline = function(){
     var list = "";
     $.each(App.online,function(a,v){
-        list += v+" "
+        list += "*"+v+" "
     });
     $('.onlineList').html(list);
 };
