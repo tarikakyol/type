@@ -130,6 +130,7 @@ wss.on('connection', function(ws) {
         console.log('websocket connection close');
         arr = JSON.parse(arr);
         var channel = arr[0], nick = arr[1];
+        if(typeof online[channel] == "undefined") online[channel] = [];
         var index = online[channel].indexOf(nick);
         if (index > -1) {
             online[channel].splice(index, 1);
