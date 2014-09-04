@@ -138,11 +138,12 @@ App.getNickName = function(){
 }
 App.setLogo = function(){
     setInterval(function(){
+        var rnd = Math.random();
         $('.logo span').each(function(){$(this).css(
             {
-                'color':'#'+Math.floor(Math.random()*16777215).toString(16),
-                'letter-spacing': -(Math.floor(Math.random() * 30) + 15),
-                'opacity': (Math.random() * 1) + 0.3
+                'color':'#'+Math.floor(rnd*16777215).toString(16),
+                'letter-spacing': -(Math.floor(rnd * 30) + 15),
+                'opacity': (rnd * 1) + 0.3
             })
         });
     }, 5000);
