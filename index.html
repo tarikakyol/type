@@ -138,8 +138,9 @@ App.getNickName = function(){
 }
 App.setLogo = function(){
     setInterval(function(){
-        var rnd = Math.random();
-        $('.logo span').each(function(){$(this).css(
+        $('.logo span').each(function(){
+            var rnd = Math.random();
+            $(this).css(
             {
                 'color':'#'+Math.floor(rnd*16777215).toString(16),
                 'letter-spacing': -(Math.floor(rnd * 30) + 15),
