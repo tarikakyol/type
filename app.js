@@ -97,7 +97,7 @@ wss.on('connection', function(ws) {
         arr = JSON.parse(arr);
         var channel = arr[0], nick = arr[1];
 
-        if(online[channel] == "undefined") online[channel] = [];
+        if(typeof online[channel] == "undefined") online[channel] = [];
         if(online[channel].indexOf(nick) == -1){
             online[channel].push(nick);
         }
