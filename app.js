@@ -127,11 +127,13 @@ wss.on('connection', function(ws) {
     ws.on('close', function(arr) {
         console.log('websocket connection close');
         arr = JSON.parse(arr);
+        console.log(arr);
         var channel = arr[0], nick = arr[1];
-        if(typeof online[channel] == "undefined") online[channel] = [];
-        var index = online[channel].indexOf(nick);
-        if (index > -1) {
-            online[channel].splice(index, 1);
+        if(typeof online[channel] != "undefined"){
+            var index = online[channel].indexOf(nick);
+            if (index > -1) {
+                online[channel].splice(index, 1);
+            }
         }
         clearInterval(id);
     });
