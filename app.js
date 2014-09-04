@@ -40,7 +40,7 @@ app.get("/put", function(req, res) {
         if(req.query.nick == "bot"){
             colors[req.query.nick] = "red";
         }else{
-            colors[req.query.nick] = "#"+Math.floor(Math.random()*16777215).toString(16);
+            colors[req.query.nick] = "#"+(Math.floor((Math.random()*222)+33).toString(16)) + (Math.floor((Math.random()*222)+33).toString(16)) + (Math.floor((Math.random()*222)+33).toString(16));
         }
     }
 

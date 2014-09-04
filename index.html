@@ -142,7 +142,7 @@ App.setLogo = function(){
             var rnd = Math.random();
             $(this).css(
             {
-                'color':'#'+Math.floor(rnd*16777215).toString(16),
+                'color':'#'+(Math.floor((Math.random()*222)+33).toString(16)) + (Math.floor((Math.random()*222)+33).toString(16)) + (Math.floor((Math.random()*222)+33).toString(16)),
                 'letter-spacing': -(Math.floor(rnd * 30) + 15),
                 'opacity': (rnd * 1) + 0.3
             })
