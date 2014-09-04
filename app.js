@@ -102,8 +102,6 @@ wss.on('connection', function(ws) {
             console.log("undefined");
             online[channel].push(nick);
         }
-
-        online[channel] = [nick];
         if(typeof chat[channel] == "undefined"){
             console.log("!!MC GET!!");
             mc.get(channel, function(err, val){
