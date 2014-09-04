@@ -10,6 +10,7 @@ var mc = memjs.Client.create();
 var chat = [];
 var channel = 'default';
 var colors = [];
+var online = [];
 var escapeHtml = function(text) {
   var map = {
     '&': '&amp;',
@@ -92,7 +93,9 @@ console.log('websocket server created');
 wss.on('connection', function(ws) {
 
     var id;
-    ws.on('message', function(channel) {
+    ws.on('message', function(arr) {
+        var channel = arr[0], nick = arr[1];
+        online[nick] = true;
         if(typeof chat[channel] == "undefined"){
             console.log("!!MC GET!!");
             mc.get(channel, function(err, val){
@@ -114,8 +117,12 @@ wss.on('connection', function(ws) {
 
     console.log('websocket connection open');
 
-    ws.on('close', function() {
+    ws.on('close', function(nick) {
         console.log('websocket connection close');
+        var index = online.indexOf(nick);
+        if (index > -1) {
+            online.splice(index, 1);
+        }
         clearInterval(id);
     });
 });
