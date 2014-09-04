@@ -112,9 +112,8 @@ wss.on('connection', function(ws) {
             });
             return;
         }
-        data = (typeof chat[channel] != "undefined" && chat[channel].length > 0) ? chat[channel] : [["bot","no messages atm","white"]];
-        ws.send(JSON.stringify(data));
-        console.log(online);
+        var data = (typeof chat[channel] != "undefined" && chat[channel].length > 0) ? chat[channel] : [["bot","no messages atm","white"]];
+        ws.send(JSON.stringify([online[channel],data]));
     });
 
             // id = setInterval(function() {

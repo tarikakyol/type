@@ -77,7 +77,8 @@ input[type=text]{
 var App = {
     chat: [],
     chatLen: 0,
-    channel: null
+    channel: null,
+    online: []
 }
 App.post = function(){
     var v = $('input').val();
@@ -156,7 +157,9 @@ App.setupWebSocket = function(){
         ws.send(JSON.stringify([App.channel,App.getNickName()]));
     }, 1000);
     ws.onmessage = function (event) {
-        App.chat = JSON.parse(event.data);
+        var data = JSON.parse(event.data);
+        App.online = data[0];
+        App.chat = data[1];
         if(App.chat.length > App.chatLen){
             App.chatLen>0 && App.setTitle("(1) SPLASH Chat");
             App.chatLen = App.chat.length;
