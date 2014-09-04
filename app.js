@@ -27,6 +27,8 @@ var escapeHtml = function(text) {
   return text.replace(/[&<>"']/g, function(m) { return map[m]; });
 }
 
+app.use("/public", express.static(__dirname + '/public'));
+
 app.get("/clear", function(req, res) {
     mc.delete(req.query.channel);
     chat = [];

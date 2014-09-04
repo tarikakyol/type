@@ -100,6 +100,7 @@ input[type=text]{
 
 var App = {
     ws: new WebSocket(location.origin.replace(/^http/, 'ws')),
+    audio: new Audio('public/audio.wav'),
     chat: [],
     chatLen: 0,
     channel: null,
@@ -185,7 +186,7 @@ App.setupWebSocket = function(){
             App.online = data[0];
             App.chat = data[1];
             if(App.chat.length > App.chatLen){
-                App.chatLen>0 && App.setTitle("(1) SPLASH Chat");
+                App.chatLen>0 && App.handleNewMessage();
                 App.chatLen = App.chat.length;
             }
             App.print();
@@ -230,6 +231,10 @@ App.renderOnline = function(){
     });
     $('.onlineList').html(list);
 };
+App.handleNewMessage = function(){
+    App.audio.play();
+    App.setTitle("(1) SPLASH Chat");
+}
 App.init = function(){    
     // set channel
     this.setChannel();
