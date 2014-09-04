@@ -99,7 +99,6 @@ wss.on('connection', function(ws) {
 
         if(typeof online[channel] == "undefined") online[channel] = [];
         if(online[channel].indexOf(nick) == -1){
-            console.log("undefined");
             online[channel].push(nick);
         }
         if(typeof chat[channel] == "undefined"){
@@ -124,17 +123,9 @@ wss.on('connection', function(ws) {
 
     console.log('websocket connection open');
 
-    ws.on('close', function(arr) {
+    ws.on('close', function() {
         console.log('websocket connection close');
-        arr = JSON.parse(arr);
-        console.log(arr);
-        var channel = arr[0], nick = arr[1];
-        if(typeof online[channel] != "undefined"){
-            var index = online[channel].indexOf(nick);
-            if (index > -1) {
-                online[channel].splice(index, 1);
-            }
-        }
         clearInterval(id);
+        online = {};
     });
 });
