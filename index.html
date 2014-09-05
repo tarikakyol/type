@@ -92,7 +92,7 @@ a{
     <span style="color:#019fde">H</span>
 </div>
 <div class="hello">
-<span class='orange'>HELLO <span class="nickName"></span></span><p class='green'>Welcome to Splash Chat app. It's so simple!</p><p class='white'>For now you can only -obviously- chat, use 'name' and 'color' commands to change your username and color! Yes this is a feature :)<p>
+<span class='orange'>HELLO <span class="nickName"></span></span><p class='green'>Welcome to Splash Chat app. It's so simple!</p><p class='white'>For now you can only -obviously- chat, use '/name' and '/color' commands to change your username and color! Yes this is a feature :)<p>
 </div>
 <div class="hr"></div>
 ><input type="text"></input>
@@ -158,7 +158,8 @@ a{
     }
     App.setNickName = function(nick){
         if(nick){
-            $.get("/put?nick=bot&text="+localStorage["nick"]+" changed nickname to "+nick+"&channel="+App.channel, function(data) {
+            //$.get("/changeNickname?nick=bot&text="+localStorage["nick"]+" changed nickname to "+nick+"&channel="+App.channel, function(data) {
+            $.get("/changeNickName?oldNick="+App.getNickName()+"&newNick="+nick+"&channel="+App.channel, function(data) {
                 $('input').val("");
             });
             localStorage["nick"] = nick;

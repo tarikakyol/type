@@ -45,30 +45,16 @@ var processText = function(text){
     return text;
 }
 
-app.use("/public", express.static(__dirname + '/public'));
-
-app.get("/clear", function(req, res) {
-    mc.delete(req.query.channel);
-    chat = [];
-    res.send();
-});
-
-app.get("/changeColor", function(req, res) {
-    req.query.color = req.query.color.replace('hash','#');
-    colors[req.query.nick] = req.query.color;
-    res.send();
-});
-
-app.get("/put", function(req, res) {
-
-    if(typeof colors[req.query.nick] == "undefined"){
-        if(req.query.nick == "bot"){
-            colors[req.query.nick] = "red";
+var setColor = function(nick){
+    if(typeof colors[nick] == "undefined"){
+        if(nick == "bot"){
+            colors[nick] = "red";
         }else{
-            colors[req.query.nick] = "#"+Math.floor(Math.random()*16777215).toString(16);
+            colors[nick] = "#"+Math.floor(Math.random()*16777215).toString(16);
         }
     }
-
+}
+var sendMessage = function(req,res){
     if(typeof chat[req.query.channel] == "undefined"){
         mc.get(req.query.channel, function(err, val){
             if(val == null){
@@ -85,6 +71,36 @@ app.get("/put", function(req, res) {
         mc.set(req.query.channel, JSON.stringify(chat[req.query.channel]));
         res.send();
     }
+}
+
+app.use("/public", express.static(__dirname + '/public'));
+
+app.get("/clear", function(req, res) {
+    mc.delete(req.query.channel);
+    chat = [];
+    res.send();
+});
+
+app.get("/changeColor", function(req, res) {
+    req.query.color = req.query.color.replace('hash','#');
+    colors[req.query.nick] = req.query.color;
+    res.send();
+});
+
+app.get("/changeNickName", function(req, res) {
+
+    setColor("bot");
+    req.query.nick = "bot";
+    req.query.text = req.query.oldNick+"changed nickname to "+req.query.newNick;
+    sendMessage(req, res);
+
+});
+
+app.get("/put", function(req, res) {
+
+    setColor(req.query.nick);
+    sendMessage(req, res);
+
 });
 
 app.get("/get", function(req, res) {
