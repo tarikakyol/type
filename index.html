@@ -30,6 +30,9 @@ a{
     color:white;
     text-decoration: none;
 }
+.nodisplay{
+    display: none;
+}
 .logo{
     font-family: 'Arial Black';
     font-size: 40px;
@@ -92,7 +95,7 @@ a{
     <span style="color:#019fde">H</span>
 </div>
 <div class="hello">
-<span class='orange'>HELLO <span class="nickName"></span></span><p class='green'>Welcome to Splash Chat app. It's so simple!</p><p class='white'>For now you can only -obviously- chat, use '/name' and '/color' commands to change your username and color! Yes this is a feature :)<p>
+<span class='orange nodisplay'>HELLO <span class="nickName"></span>, you're on <span class="channelName white"></span> channel.</span><p class='green'>Welcome to Splash Chat app. It's so simple!</p><p class='white'>For now you can only -obviously- chat, use '/name' and '/color' commands to change your username and color! Yes this is a feature :)<p>
 </div>
 <div class="hr"></div>
 ><input type="text"></input>
@@ -204,6 +207,7 @@ a{
         }else{
             App.channel = "default";
         }
+        $(".channelName").html("#"+App.channel);
     }
     App.setTitle = function(title){
         if(title){
@@ -268,6 +272,10 @@ a{
     $( document ).ready(function() {
         //initialize
         App.init();
+
+        //show hiddens
+        $(".nodisplay").show();
+        
         // set Listeners
         $("input").focus();
         $('html').click(function(){
