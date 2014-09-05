@@ -77,7 +77,6 @@ a{
     padding: 5px;
     color: #C4956C;
 }
-
 </style>
 <body>
 <div class="online">
@@ -189,14 +188,7 @@ a{
             }, 1000);
             App.ws.onmessage = function (event) {
                 var data = JSON.parse(event.data);
-                App.online = data[0];
-                App.chat = data[1];
-                if(App.chat.length > App.chatLen){
-                    App.chatLen>0 && App.handleNewMessage();
-                    App.chatLen = App.chat.length;
-                }
-                App.print();
-                App.renderOnline();
+                App.handleMessage(data);
             };
             App.ws.onclose = function (){
                 console.log("WebSocket closed, restarting..");
@@ -237,13 +229,24 @@ a{
         });
         $('.onlineList').html(list);
     };
-    App.handleNewMessage = function(){
+    App.handleMessage = function(data){
+        App.online = data[0];
+        App.chat = data[1];
+        App.print();
+        App.renderOnline();
+        App.checkNewMessage();
+    }
+    App.checkNewMessage = function(){
         var counter = 0;
         $.each(App.chat, function(i,v){
             if(v[0]!=App.getNickName()) counter++;
         });
-        App.chatOthersLen = counter;
-
+        if(counter > App.chatOthersLen){
+            App.chatOthersLen>0 && App.handleNewMessage();
+            App.chatOthersLen = counter;
+        }
+    }
+    App.handleNewMessage = function(){
         App.audio.play();
         App.setTitle("(1) SPLASH Chat");
     }
