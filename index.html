@@ -237,9 +237,9 @@ a{
         App.checkNewMessage();
     }
     App.checkNewMessage = function(){
-        var counter = 0;
+        var counter = 0, nick = App.getNickName();
         $.each(App.chat, function(i,v){
-            if(v[0]!=App.getNickName()) counter++;
+            if(v[0]!=nick) counter++;
         });
         if(counter > App.chatOthersLen){
             App.chatOthersLen>0 && App.handleNewMessage();
