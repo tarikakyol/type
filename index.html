@@ -151,15 +151,14 @@ a{
     }
     App.setColor = function(color){
         color = color.replace('#','hash');
-        $.get( "/changeColor?nick="+App.getNickName()+"&color="+color, function(data) {
+        $.get( "/setColor?nick="+App.getNickName()+"&color="+color, function(data) {
             $('.chat').prepend("<p class='cline warning'>Your color is now: "+color+"</p>");
             $('input').val("");
         });
     }
     App.setNickName = function(nick){
         if(nick){
-            //$.get("/changeNickname?nick=bot&text="+localStorage["nick"]+" changed nickname to "+nick+"&channel="+App.channel, function(data) {
-            $.get("/changeNickName?oldNick="+App.getNickName()+"&newNick="+nick+"&channel="+App.channel, function(data) {
+            $.get("/setNickName?oldNick="+App.getNickName()+"&newNick="+nick+"&channel="+App.channel, function(data) {
                 $('input').val("");
             });
             localStorage["nick"] = nick;

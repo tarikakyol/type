@@ -81,26 +81,23 @@ app.get("/clear", function(req, res) {
     res.send();
 });
 
-app.get("/changeColor", function(req, res) {
+app.get("/setColor", function(req, res) {
     req.query.color = req.query.color.replace('hash','#');
     colors[req.query.nick] = req.query.color;
     res.send();
 });
 
-app.get("/changeNickName", function(req, res) {
-
+app.get("/setNickName", function(req, res) {
+    online = {};
     setColor("bot");
     req.query.nick = "bot";
     req.query.text = req.query.oldNick+"changed nickname to "+req.query.newNick;
     sendMessage(req, res);
-
 });
 
 app.get("/put", function(req, res) {
-
     setColor(req.query.nick);
     sendMessage(req, res);
-
 });
 
 app.get("/get", function(req, res) {
