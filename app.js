@@ -42,6 +42,7 @@ var linkify = function (inputText) {
 var processText = function(text){
     text = escapeHtml(text);
     text = linkify(text);
+    return text;
 }
 
 app.use("/public", express.static(__dirname + '/public'));
