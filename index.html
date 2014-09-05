@@ -91,7 +91,9 @@ a{
     <span style="color:#e67e22">S</span>
     <span style="color:#019fde">H</span>
 </div>
-<div class="hello"></div>
+<div class="hello">
+<span class='orange'>HELLO <span class="nickName"></span></span><p class='green'>Welcome to Splash Chat app. It's so simple!</p><p class='white'>For now you can only -obviously- chat, use 'name' and 'color' commands to change your username and color! Yes this is a feature :)<p>
+</div>
 <div class="hr"></div>
 ><input type="text"></input>
 <div class="chat"></div>
@@ -125,14 +127,17 @@ a{
     App.checkCommands = function(v){
         var words = v.split(" "), flag = true;
         switch(words[0]) {
-            case "color":
+            case "/color":
                 var color = words[1];
                 App.setColor(color);
                 flag = false;
                 break;
-            case "name":
+            case "/name":
                 App.setNickName(words[1]);
-                App.setHeader();
+                flag = false;
+                break;
+            case "/channel":
+                App.redirectToChannel(words[1]);
                 flag = false;
                 break;
         }
@@ -144,9 +149,6 @@ a{
             $('.chat').prepend("<p class='cline' style='color:"+App.chat[i][2]+"'>"+App.chat[i][0]+": "+App.chat[i][1])+"</p>";
         }
     }
-    App.setHeader = function(){
-        $(".hello").html("<span class='orange'>HELLO "+App.getNickName()+"</span><p class='green'>Welcome to Splash Chat app. It's so simple!</p><p class='white'>For now you can only -obviously- chat, use 'name' and 'color' commands to change your username and color! Yes this is a feature :)<p>");
-    }
     App.setColor = function(color){
         color = color.replace('#','hash');
         $.get( "/changeColor?nick="+App.getNickName()+"&color="+color, function(data) {
@@ -156,14 +158,14 @@ a{
     }
     App.setNickName = function(nick){
         if(nick){
-            $.get( "/put?nick=bot&text="+localStorage["nick"]+" changed nickname to "+nick+"&channel="+App.channel, function(data) {
+            $.get("/put?nick=bot&text="+localStorage["nick"]+" changed nickname to "+nick+"&channel="+App.channel, function(data) {
                 $('input').val("");
-                App.print();
             });
             localStorage["nick"] = nick;
         }else{
             if(typeof localStorage["nick"] == "undefined") localStorage["nick"] = "user_"+Date.now();
         }
+        $(".nickName").html(App.getNickName());
     }
     App.getNickName = function(){
         return localStorage["nick"];
@@ -250,12 +252,14 @@ a{
         App.audio.play();
         App.setTitle("(1) SPLASH Chat");
     }
-    App.init = function(){    
+    App.redirectToChannel = function(channelName){
+        window.location.href = "/?channel="+channelName;
+    }
+    App.init = function(){
+        // Nickname setter
+        this.setNickName(); 
         // set channel
         this.setChannel();
-        // Nickname and header text setter
-        this.setNickName();
-        this.setHeader();
         // LOGO animation
         this.setLogo();
         // handling websocket
