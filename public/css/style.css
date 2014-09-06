@@ -45,8 +45,15 @@ a {
 }
 
 .cline {
-    padding: 0;
+    padding: .1em 0;
     margin: 0;
+}
+
+.cline.dark-true {
+  text-shadow: -1px -1px 0 rgba(255, 255, 255, .8),
+               -1px 1px 0 rgba(255, 255, 255, .8),
+               1px -1px 0 rgba(255, 255, 255, .8),
+               1px 1px 0 rgba(255, 255, 255, .8)
 }
 
 .hr {

@@ -66,7 +66,11 @@
             i = 0
 
         for (i; i < App.chat.length; i++) {
-          chatHTML = "<p class='cline' style='color:" + App.chat[i][2] + "'>" +
+
+          var color = App.chat[i][2],
+              isDark = App.isDarkColor(color)
+
+          chatHTML = "<p class='cline dark-" + isDark + "' style='color:" + color + "'>" +
                         App.chat[i][0] + ": " + App.chat[i][1] +
                      "</p>" +
                      chatHTML // prepend
@@ -180,9 +184,30 @@
         window.location.href = "/?channel=" + channelName;
     }
 
-    App.socketOpened = function(){
+    App.socketOpened = function() {
         $('input').val("");
         $('input').removeAttr("readonly");
+    }
+
+    App.isDarkColor = function (color) {
+        var temporaryElement = document.createElement("div");
+        temporaryElement.style.color = color;
+
+        var RGB = temporaryElement.style.color
+            .replace("rgb", "")
+            .replace("(", "")
+            .replace(")", "")
+            .split(",")
+            .map(function(e) {
+              return parseInt(e.replace(/\s/g, ""), 10)
+            })
+            .reduce(function(e, a) {
+              return e + a
+            })
+
+        if (RGB <= 200)
+          return true
+        return false
     }
 
     App.init = function() {
