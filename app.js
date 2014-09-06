@@ -93,7 +93,7 @@ app.get("/setNickName", function(req, res) {
     online = {};
     setColor("bot");
     req.query.nick = "bot";
-    req.query.text = req.query.oldNick + "changed nickname to " + req.query.newNick;
+    req.query.text = req.query.oldNick + " changed nickname to " + req.query.newNick;
     sendMessage(req, res);
 });
 
