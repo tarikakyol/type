@@ -1,301 +1,49 @@
 <!DOCTYPE html>
 <!--[if lt IE 10]><html class="lt-ie10"><![endif]-->
 <!--[if gte IE 10]><!--> <html lang="en"> <!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10.0, minimum-scale=1, user-scalable=no">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="width">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>SPLASH Chat</title>
-</head>
-<style type="text/css">
-body{
-    font-family: 'Menlo Regular', 'Lucida Console', Monaco, monospace, 'Courier New', Fixed;
-    font-size: 12px;
-    background: black;
-    color: white;
-}
-input[type=text]{
-    color:white;
-    background: black;
-    border: none;
-    width: calc(100% - 20px);
-    outline: none;
-    font-size: 13px;
-}
-a{
-    color:white;
-    text-decoration: none;
-}
-.nodisplay{
-    display: none;
-}
-.logo{
-    font-family: 'Arial Black';
-    font-size: 40px;
-}
-.warning{
-    color: red;
-}
-.green{
-    color: #2ecc71;
-}
-.white{
-    color: white;
-}
-.orange{
-    color: #e67e22;
-}
-.cline{
-    padding: 0;
-    margin: 0;
-}
-.hr{
-    border-top: dashed 1px;
-    padding-bottom: 5px;
-}
-.logo span{
-    letter-spacing: -21px;
-    transition: all 600ms linear;
-}
-.online{
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 200px;
-    border: 1px dashed #444;
-    margin: 10px;
-}
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10.0, minimum-scale=1, user-scalable=no">
+      <meta name="HandheldFriendly" content="True">
+      <meta name="MobileOptimized" content="width">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <title>SPLASH Chat</title>
+      <link rel="stylesheet" href="public/css/style.css" />
+  </head>
 
-.online .title{
-    margin: 2px;
-    padding: 2px;
-    color: #666;
-    border-bottom: 1px dashed #444;
-}
-.online .onlineList{
-    padding: 5px;
-    color: #C4956C;
-}
-</style>
-<body>
-<div class="online">
-    <div class="title">Online</div>
-    <div class="onlineList"></div>
-</div>
-<div class="logo">
-    <span style="color:#32CCFE">S</span>
-    <span style="color:#5D7BB9">P</span>
-    <span style="color:#DD77D3">L</span>
-    <span style="color:#2ecc71">A</span>
-    <span style="color:#e67e22">S</span>
-    <span style="color:#019fde">H</span>
-</div>
-<div class="hello">
-<span class='orange nodisplay'>HELLO <span class="nickName"></span>, you're on <span class="channelName white"></span> channel.</span><p class='green'>Welcome to Splash Chat app. It's so simple!</p><p class='white'>For now you can only -obviously- chat, use '/name' and '/color' commands to change your username and color! Yes this is a feature :)<p>
-</div>
-<div class="hr"></div>
-><input type="text"></input>
-<div class="chat"></div>
+  <body>
 
-</body>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-<script>
+    <div class="online">
+        <div class="title">Online</div>
+        <div class="onlineList"></div>
+    </div>
 
-(function(){
+    <div class="logo">
+        <span>S</span>
+        <span>P</span>
+        <span>L</span>
+        <span>A</span>
+        <span>S</span>
+        <span>H</span>
+    </div>
 
-    var App = {
-        ws: new WebSocket(location.origin.replace(/^http/, 'ws')),
-        audio: new Audio('public/audio.wav'),
-        chat: [],
-        chatTotalLen: 0,
-        chatOthersLen: 0,
-        channel: null,
-        online: []
-    }
-    App.post = function(){
-        var v = $('input').val();
+    <div class="hello">
+      <span class="orange nodisplay">HELLO <span class="nickName"></span>, you"re on <span class="channelName white"></span> channel.</span>
+      <p class="green">Welcome to Splash Chat app. It's so simple!</p>
+      <p class="white">For now you can only (obviously) chat, use '/name' and '/color' commands to change your username and color! Yes this is a feature :)<p>
+    </div>
 
-        if(v.length < 1) return false;
-        if(App.checkCommands(v) == false)return false;
+    <div class="hr"></div>
 
-        $.get( "/put?nick="+App.getNickName()+"&text="+v+"&channel="+App.channel, function(data) {
-            $('input').val("");
-            App.print();
-        });
-    }
-    App.checkCommands = function(v){
-        var words = v.split(" "), flag = true;
-        switch(words[0]) {
-            case "/color":
-                var color = words[1];
-                App.setColor(color);
-                flag = false;
-                break;
-            case "/name":
-                App.setNickName(words[1]);
-                flag = false;
-                break;
-            case "/channel":
-                App.redirectToChannel(words[1]);
-                flag = false;
-                break;
-        }
-        return flag;
-    }
-    App.print = function(){
-        $('.chat').html("");
-        for(i=0;i<App.chat.length;i++){
-            $('.chat').prepend("<p class='cline' style='color:"+App.chat[i][2]+"'>"+App.chat[i][0]+": "+App.chat[i][1])+"</p>";
-        }
-    }
-    App.setColor = function(color){
-        color = color.replace('#','hash');
-        $.get( "/setColor?nick="+App.getNickName()+"&color="+color, function(data) {
-            $('.chat').prepend("<p class='cline warning'>Your color is now: "+color+"</p>");
-            $('input').val("");
-        });
-    }
-    App.setNickName = function(nick){
-        if(nick){
-            $.get("/setNickName?oldNick="+App.getNickName()+"&newNick="+nick+"&channel="+App.channel, function(data) {
-                $('input').val("");
-            });
-            localStorage["nick"] = nick;
-        }else{
-            if(typeof localStorage["nick"] == "undefined") localStorage["nick"] = "user_"+Date.now();
-        }
-        $(".nickName").html(App.getNickName());
-    }
-    App.getNickName = function(){
-        return localStorage["nick"];
-    }
-    App.setLogo = function(){
-        setInterval(function(){
-            $('.logo span').each(function(){
-                var rnd = Math.random();
-                $(this).css(
-                {
-                    'color':'#'+Math.floor(rnd*16777215).toString(16),
-                    'letter-spacing': -(Math.floor(rnd * 30) + 15),
-                    'opacity': (rnd * 1) + 0.3
-                })
-            });
-        }, 5000);
-    }
-    App.setupWebSocket = function(){
-        App.ws.onopen = function () {
-            setInterval(function(){
-                App.ws.send(JSON.stringify([App.channel,App.getNickName()]));
-            }, 1000);
-            App.ws.onmessage = function (event) {
-                var data = JSON.parse(event.data);
-                App.handleMessage(data);
-            };
-            App.ws.onclose = function (){
-                console.log("WebSocket closed, restarting..");
-                window.location.reload();
-            };
-        }
-    }
-    App.setChannel = function(){
-        if(App.getUrlParam('channel')){
-            App.channel = App.getUrlParam('channel');
-        }else{
-            App.channel = "default";
-        }
-        $(".channelName").html("#"+App.channel);
-    }
-    App.setTitle = function(title){
-        if(title){
-            document.title = title;
-        }else{
-            document.title = "SPLASH Chat";
-        }
-    }
-    App.getUrlParam = function (sParam){
-        var sPageURL = window.location.search.substring(1);
-        var sURLVariables = sPageURL.split('&');
-        for (var i = 0; i < sURLVariables.length; i++) 
-        {
-            var sParameterName = sURLVariables[i].split('=');
-            if (sParameterName[0] == sParam) 
-            {
-                return sParameterName[1];
-            }
-        }
-    }
-    App.renderOnline = function(){
-        var list = "";
-        $.each(App.online,function(a,v){
-            list += "*"+v+" "
-        });
-        $('.onlineList').html(list);
-    };
-    App.handleMessage = function(data){
-        App.online = data[0];
-        App.chat = data[1];
-        App.print();
-        App.renderOnline();
-        App.checkNewMessage();
-    }
-    App.checkNewMessage = function(){
-        var counter = 0, nick = App.getNickName();
-        $.each(App.chat, function(i,v){
-            if(v[0]!=nick) counter++;
-        });
-        if(counter > App.chatOthersLen){
-            App.chatOthersLen>0 && App.handleNewMessage();
-            App.chatOthersLen = counter;
-        }
-    }
-    App.handleNewMessage = function(){
-        App.audio.play();
-        App.setTitle("(1) SPLASH Chat");
-    }
-    App.redirectToChannel = function(channelName){
-        window.location.href = "/?channel="+channelName;
-    }
-    App.init = function(){
-        // Nickname setter
-        this.setNickName(); 
-        // set channel
-        this.setChannel();
-        // LOGO animation
-        this.setLogo();
-        // handling websocket
-        this.setupWebSocket();
-    }
-    $( document ).ready(function() {
-        //initialize
-        App.init();
+    &gt;<input type="text"></input>
 
-        //show hiddens
-        $(".nodisplay").show();
-        
-        // set Listeners
-        $("input").focus();
-        $('html').click(function(){
-            $('input').focus();
-            App.setTitle();
-        });
-        $('html').mousemove(function(){
-            App.setTitle();
-        })
-        $('input').keyup(function(e){
-            if(e.keyCode == 13){
-                App.post();
-                App.setTitle();
-            }
-        });
-    });
+    <div class="chat"></div>
 
-    // for debugging
-    window.app = App;
-})();
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="public/js/app.js"></script>
 
-</script>
+  </body>
+
 </html>

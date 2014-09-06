@@ -1,0 +1,80 @@
+body {
+    font-family: 'Menlo Regular', 'Lucida Console', Monaco, monospace, 'Courier New', Fixed;
+    font-size: 12px;
+    background: black;
+    color: white;
+}
+
+input[type=text] {
+    color:white;
+    background: black;
+    border: none;
+    width: calc(100% - 20px);
+    outline: none;
+    font-size: 13px;
+}
+
+a {
+    color:white;
+    text-decoration: none;
+}
+
+.nodisplay {
+    display: none;
+}
+
+.logo {
+    font-family: 'Arial Black';
+    font-size: 40px;
+}
+
+.warning {
+    color: red;
+}
+
+.green {
+    color: #2ecc71;
+}
+
+.white {
+    color: white;
+}
+
+.orange {
+    color: #e67e22;
+}
+
+.cline {
+    padding: 0;
+    margin: 0;
+}
+
+.hr {
+    border-top: dashed 1px;
+    padding-bottom: 5px;
+}
+
+.logo span {
+    letter-spacing: -21px;
+    transition: all 600ms linear;
+}
+
+.online {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 200px;
+    border: 1px dashed #444;
+    margin: 10px;
+}
+
+.online .title {
+    margin: 2px;
+    padding: 2px;
+    color: #666;
+    border-bottom: 1px dashed #444;
+}
+.online .onlineList {
+    padding: 5px;
+    color: #C4956C;
+}

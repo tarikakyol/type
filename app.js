@@ -16,6 +16,7 @@ var chat = [];
 var channel = 'default';
 var colors = [];
 var online = {};
+
 var escapeHtml = function(text) {
   var map = {
     '&': '&amp;',
@@ -26,6 +27,7 @@ var escapeHtml = function(text) {
   };
   return text.replace(/[&<>"']/g, function(m) { return map[m]; });
 }
+
 var linkify = function (inputText) {
     var replacedText, replacePattern1, replacePattern2, replacePattern3;
     //URLs starting with http://, https://, or ftp://
@@ -39,41 +41,41 @@ var linkify = function (inputText) {
     replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1">$1</a>');
     return replacedText;
 }
-var processText = function(text){
+
+var processText = function(text) {
     text = escapeHtml(text);
     text = linkify(text);
     return text;
 }
 
-var setColor = function(nick){
-    if(typeof colors[nick] == "undefined"){
-        if(nick == "bot"){
+var setColor = function(nick) {
+    if (typeof colors[nick] == "undefined"){
+        if (nick == "bot")
             colors[nick] = "red";
-        }else{
+        else
             colors[nick] = "#"+Math.floor(Math.random()*16777215).toString(16);
-        }
     }
 }
-var sendMessage = function(req,res){
-    if(typeof chat[req.query.channel] == "undefined"){
+var sendMessage = function(req,res) {
+    if (typeof chat[req.query.channel] == "undefined") {
         mc.get(req.query.channel, function(err, val){
-            if(val == null){
+            if (val == null){
                 chat[req.query.channel] = [];
-            }else{
+            } else{
                 chat[req.query.channel] = JSON.parse(val.toString());
             }
             chat[req.query.channel].push([escapeHtml(req.query.nick), processText(req.query.text), colors[req.query.nick]]);
             mc.set(req.query.channel, JSON.stringify(chat[req.query.channel]));
             res.send();
-        }); 
-    }else{
+        });
+    } else {
         chat[req.query.channel].push([escapeHtml(req.query.nick), processText(req.query.text), colors[req.query.nick]]);
         mc.set(req.query.channel, JSON.stringify(chat[req.query.channel]));
         res.send();
     }
 }
 
-app.use("/public", express.static(__dirname + '/public'));
+app.use("/public", express.static(__dirname + "/public"));
 
 app.get("/clear", function(req, res) {
     mc.delete(req.query.channel);
@@ -91,7 +93,7 @@ app.get("/setNickName", function(req, res) {
     online = {};
     setColor("bot");
     req.query.nick = "bot";
-    req.query.text = req.query.oldNick+"changed nickname to "+req.query.newNick;
+    req.query.text = req.query.oldNick + "changed nickname to " + req.query.newNick;
     sendMessage(req, res);
 });
 
@@ -102,12 +104,11 @@ app.get("/put", function(req, res) {
 
 app.get("/get", function(req, res) {
     res.set('Content-Type', 'application/json');
-    mc.get(req.query.channel, function(err, val){
-       if(val == null){
+    mc.get(req.query.channel, function(err, val) {
+        if (val == null)
             res.send(chat[req.query.channel]);
-       }else{
+        else
             res.send(JSON.parse(val.toString()));
-       }
     });
 });
 
@@ -134,17 +135,18 @@ wss.on('connection', function(ws) {
         arr = JSON.parse(arr);
         var channel = arr[0], nick = arr[1];
 
-        if(typeof online[channel] == "undefined") online[channel] = [];
-        if(online[channel].indexOf(nick) == -1){
+        if (typeof online[channel] == "undefined")
+            online[channel] = [];
+
+        if (online[channel].indexOf(nick) == -1)
             online[channel].push(nick);
-        }
-        if(typeof chat[channel] == "undefined"){
+
+        if (typeof chat[channel] == "undefined") {
             mc.get(channel, function(err, val){
-                if(val == null){
+                if (val == null)
                     chat[channel] = [];
-                }else{
+                else
                     chat[channel] = JSON.parse(val.toString());
-                }
             });
             return;
         }
