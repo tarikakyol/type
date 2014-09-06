@@ -10,21 +10,19 @@
         online: []
     }
 
-    App.setLogo = function(initial) {
-        function _set(init) {
+    App.setLogo = function() {
+        function _set(initial) {
             $(".logo span").each(function() {
                 var rnd = Math.random();
                 $(this).css({
                     "color"            : "#" + Math.floor(rnd * 16777215).toString(16),
-                    "letter-spacing"   : init ? "-21px" : -(Math.floor(rnd * 30) + 15),
+                    "letter-spacing"   : initial ? "-21px" : -(Math.floor(rnd * 30) + 15),
                     "opacity"          : (rnd * 1) + 0.3
                 })
             });
         }
 
-        if (initial)
-          _set(true)
-
+        _set(true)
         setInterval(_set, 5000);
     }
 
@@ -199,15 +197,13 @@
     }
 
     $(function() {
-        //initialize
+        // initialize
         App.init();
 
-        //show hiddens
+        // show hiddens
         $(".nodisplay").show();
 
         // set Listeners
-        $("input").focus();
-
         $("html").on("click", function(e) {
             $("input").focus();
             App.setTitle();
