@@ -103,6 +103,7 @@
 
     App.setupWebSocket = function() {
         App.ws.onopen = function () {
+            App.socketOpened();
             setInterval(function() {
                 App.ws.send( JSON.stringify([App.channel, App.getNickName()]) );
             }, 1000);
@@ -179,6 +180,11 @@
 
     App.redirectToChannel = function(channelName) {
         window.location.href = "/?channel=" + channelName;
+    }
+
+    App.socketOpened = function(){
+        $('input').val("");
+        $('input').removeAttr("readonly");
     }
 
     App.init = function() {
