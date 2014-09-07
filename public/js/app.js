@@ -11,13 +11,14 @@
     }
 
     App.setLogo = function() {
+        var initColors = ["#32CCFE","#5D7BB9","#DD77D3","#2ecc71","#e67e22","#019fde"]; // S P L A S H
         function _set(initial) {
-            $(".logo span").each(function() {
+            $(".logo span").each(function(i) {
                 var rnd = Math.random();
                 $(this).css({
-                    "color"            : "#" + Math.floor(rnd * 16777215).toString(16),
+                    "color"            : initial ? initColors[i] : "#" + Math.floor(rnd * 16777215).toString(16),
                     "letter-spacing"   : initial ? "-21px" : -(Math.floor(rnd * 30) + 15),
-                    "opacity"          : (rnd * 1) + 0.3
+                    "opacity"          : initial ? 1 : (rnd * 1) + 0.3
                 })
             });
         }
@@ -249,7 +250,7 @@
         // set channel
         this.setChannel();
         // LOGO animation
-        this.setLogo(true);
+        this.setLogo();
         // handling websocket
         this.setupWebSocket();
     }
