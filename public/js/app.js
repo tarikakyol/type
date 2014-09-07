@@ -63,8 +63,10 @@
     }
 
     App.print = function() {
-        var i = App.chatTotalLen;
 
+        if(App.chat.length < 1) return;
+
+        var i = App.chatTotalLen;
         for (i; i < App.chat.length; i++) {
 
           var color = App.chat[i][2],

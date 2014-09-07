@@ -57,18 +57,7 @@ var setColor = function(nick) {
     }
 }
 var sendMessage = function(req,res) {
-    if (typeof chat[req.query.channel] == "undefined") {
-        mc.get(req.query.channel, function(err, val){
-            if (val == null){
-                chat[req.query.channel] = [];
-            } else{
-                chat[req.query.channel] = JSON.parse(val.toString());
-            }
-            chat[req.query.channel].push([escapeHtml(req.query.nick), processText(req.query.text), colors[req.query.nick]]);
-            mc.set(req.query.channel, JSON.stringify(chat[req.query.channel]));
-            res.send();
-        });
-    } else {
+    if (typeof chat[req.query.channel] != "undefined"){
         chat[req.query.channel].push([escapeHtml(req.query.nick), processText(req.query.text), colors[req.query.nick]]);
         mc.set(req.query.channel, JSON.stringify(chat[req.query.channel]));
         res.send();
@@ -130,10 +119,18 @@ var wss = new WebSocketServer({server: server});
 console.log('websocket server created');
 wss.on('connection', function(ws) {
 
-console.log('websocket connection open');
+    console.log('websocket connection open');
 
     ws.on('message', function(arr) {
-        arr = JSON.parse(arr);
+
+        try{
+           arr = JSON.parse(arr);  
+        }catch(e){
+            return;
+        }
+
+        if(arr.length<2) return;
+
         var channel = arr[0], nick = arr[1];
 
         if (typeof online[channel] == "undefined")
@@ -151,7 +148,7 @@ console.log('websocket connection open');
             });
             return;
         }
-        var data = (typeof chat[channel] != "undefined" && chat[channel].length > 0) ? chat[channel] : [["bot","no messages atm","white"]];
+        var data = (typeof chat[channel] != "undefined" && chat[channel].length > 0) ? chat[channel] : [];
         ws.send(JSON.stringify([online[channel],data]));
     });
 
