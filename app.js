@@ -53,7 +53,7 @@ var setColor = function(nick) {
         if (nick == "bot")
             colors[nick] = "red";
         else
-            colors[nick] = "#"+Math.floor(Math.random()*16777215).toString(16);
+            colors[nick] = '#'+Math.random().toString(16).substr(-6);
     }
 }
 var sendMessage = function(req,res) {

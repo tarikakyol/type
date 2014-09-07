@@ -16,7 +16,7 @@
             $(".logo span").each(function(i) {
                 var rnd = Math.random();
                 $(this).css({
-                    "color"            : initial ? initColors[i] : "#" + Math.floor(rnd * 16777215).toString(16),
+                    "color"            : initial ? initColors[i] : '#'+rnd.toString(16).substr(-6),
                     "letter-spacing"   : initial ? "-21px" : -(Math.floor(rnd * 30) + 15),
                     "opacity"          : initial ? 1 : (rnd * 1) + 0.3
                 })
@@ -194,24 +194,25 @@
         var isColorText = colorNameToHex(color);
         if(isColorText) color = isColorText;
 
-        var temporaryElement = document.createElement("div");
-        temporaryElement.style.color = color;
+        var temp = document.createElement("div");
+        temp.style.color = color;
 
-        var RGB = temporaryElement.style.color
+        var RGB = temp.style.color
             .replace("rgb", "")
             .replace("(", "")
             .replace(")", "")
-            .split(",")
-            .map(function(e) {
-              return parseInt(e.replace(/\s/g, ""), 10)
-            })
-            .reduce(function(e, a) {
-              return e + a
-            })
+            .split(",");
 
-        if (RGB <= 100)
-          return true
-        return false
+        var darknessIndex = 160,
+        lightnessIndex = 180,
+        R = parseInt(RGB[0]),
+        G = parseInt(RGB[1]),
+        B = parseInt(RGB[2]);
+
+        if((R+G<darknessIndex && B<lightnessIndex) || (R+B<darknessIndex && G<lightnessIndex) || (G+B<darknessIndex && R<lightnessIndex)) 
+            return true
+        else 
+            return false
     }
 
     var colorNameToHex = function(color){
