@@ -130,7 +130,8 @@ var wss = new WebSocketServer({server: server});
 console.log('websocket server created');
 wss.on('connection', function(ws) {
 
-    var id;
+console.log('websocket connection open');
+
     ws.on('message', function(arr) {
         arr = JSON.parse(arr);
         var channel = arr[0], nick = arr[1];
@@ -154,15 +155,8 @@ wss.on('connection', function(ws) {
         ws.send(JSON.stringify([online[channel],data]));
     });
 
-            // id = setInterval(function() {
-        //     ws.send(JSON.stringify(data));
-        // }, 1000);
-
-    console.log('websocket connection open');
-
     ws.on('close', function() {
         console.log('websocket connection close');
-        clearInterval(id);
         online = {};
     });
 });
