@@ -62,21 +62,17 @@
     }
 
     App.print = function() {
-        var chatHTML = $(".chat").html(),
-            i = App.chatTotalLen;
+        var i = App.chatTotalLen;
 
         for (i; i < App.chat.length; i++) {
 
           var color = App.chat[i][2],
               isDark = App.isDarkColor(color) ? " d" : "";
 
-          chatHTML = "<p class='cline" + isDark + "' style='color:" + color + "'>" +
-                        App.chat[i][0] + ": " + App.chat[i][1] +
-                     "</p>" +
-                     chatHTML // prepend
+        $('.chat').prepend("<p class='cline" + isDark + "' style='color:" + color + "'>" +
+            App.chat[i][0] + ": " + App.chat[i][1] +
+            "</p>");
         }
-
-        $(".chat").html(chatHTML);
     }
 
     App.setColor = function(color) {
