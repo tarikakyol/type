@@ -228,6 +228,7 @@
                 setInterval(function(){notification.close()}, 2000);
             };
             notification.onclick = function() {
+                window.focus();
                 notification.close();
             };
         }else if (Notification.permission !== 'denied') {
@@ -243,6 +244,7 @@
                         setInterval(function(){notification.close()}, 2000);
                     };
                     notification.onclick = function() {
+                        window.focus();
                         notification.close();
                     };
                 }
