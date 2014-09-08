@@ -141,6 +141,7 @@ wss.on('connection', function(ws) {
 
         if (typeof chat[channel] == "undefined") {
             mc.get(channel, function(err, val){
+                console.log(val);
                 if (val == null)
                     chat[channel] = [];
                 else
