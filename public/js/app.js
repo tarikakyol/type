@@ -176,6 +176,7 @@
     }
 
     App.handleNewMessage = function() {
+        document.hidden && App.notify(App.chat[app.chat.length-1][0] + ": " + App.chat[app.chat.length-1][1]);
         App.audio.play();
         App.setTitle("(1) SPLASH Chat");
     }
@@ -213,6 +214,40 @@
             return true
         else 
             return false
+    }
+
+    App.notify = function(message){
+        if (!("Notification" in window)) {
+            return;
+        }else if (Notification.permission === "granted") {
+        // If it's okay let's create a notification
+            var notification = new Notification('New Message', {
+                body: message
+            });
+            notification.onshow = function() {
+                setInterval(function(){notification.close()}, 2000);
+            };
+            notification.onclick = function() {
+                notification.close();
+            };
+        }else if (Notification.permission !== 'denied') {
+            Notification.requestPermission(function (permission) {
+                if (!('permission' in Notification)) {
+                    Notification.permission = permission;
+                }
+                if (permission === "granted") {
+                    var notification = new Notification('New Message', {
+                        body: message
+                    });
+                    notification.onshow = function() {
+                        setInterval(function(){notification.close()}, 2000);
+                    };
+                    notification.onclick = function() {
+                        notification.close();
+                    };
+                }
+            });
+        }
     }
 
     var colorNameToHex = function(color){
