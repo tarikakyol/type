@@ -1,8 +1,15 @@
 var express = require('express');
 var app = express();
 var WebSocketServer = require('ws').Server;
+
+
 // prevent Heroku from idling by requesting self in periods
 var request = require('request');
+var minutes = 30;
+setInterval(function(){
+   request.get("http://splashchat.herokuapp.com/ping");
+}, minutes * 60 * 1000);
+
 // Memcachier init.
 var memjs = require('memjs');
 var mc = memjs.Client.create();
@@ -11,6 +18,8 @@ var mc = memjs.Client.create();
 //     get: function(a,b){b(null,null)},
 //     set: function(a,b){}
 // }
+
+var torrentStream = require('torrent-stream');
 
 var chat = [];
 var channel = 'default';
@@ -100,6 +109,51 @@ app.get("/get", function(req, res) {
             res.send(JSON.parse(val.toString()));
     });
 });
+
+app.get("/download", function(req, res){
+
+    var torrent = "magnet:?xt=urn:btih:258153fbdceaaeec967cd0da5e58fb01276c802d&dn=Pharrell+Williams-because+i%27m++happy+%28www.myfreemp3.cc%29.mp3&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Fopen.demonii.com%3A1337";
+
+    var torrentStream = require('torrent-stream');
+
+    var opts = {
+        tmp: __dirname+"/public/downloads",
+        name: 'torrents',
+        path: __dirname+"/public/downloads/files",
+    }
+
+    var engine = torrentStream(torrent,opts);
+    var piecesCounter = 1;
+    var piecesLen = 0;
+    var fileNames = [];
+
+    engine.on('ready', function() {
+        engine.files.forEach(function(file) {
+
+            piecesLen = engine.torrent.pieces.length;
+            fileNames.push(opts.path+"/"+file.name);
+            var stream = file.createReadStream();
+        });
+    });
+
+    engine.on('download', function(index){
+        console.log(piecesLen,piecesCounter);
+        if(piecesLen == piecesCounter) finished();
+        else
+            piecesCounter++;
+    })
+
+    var finished = function(){
+        console.log("finishing..");
+        engine.remove(true, function(){
+            process.exit();
+        });
+    }
+    // var finished = function(){
+    //     // res.set('Content-Type', 'application/json');
+    //     // res.send(JSON.parse(fileNames));
+    // }
+})
 
 // hands back a report about the last sync attempt
 app.get("/", function(req, res) {
