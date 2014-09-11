@@ -203,7 +203,7 @@ wss.on('connection', function(ws) {
             return;
         }
         var data = (typeof chat[channel] != "undefined" && chat[channel].length > 0) ? chat[channel] : [];
-        data = data.slice(Math.max(data.length - 100, 1)); // get the last 100 lines of chat
+        //data = data.slice(Math.max(data.length - 100, 1)); // get the last 100 lines of chat
         ws.send(JSON.stringify([online[channel],data]));
     });
 
