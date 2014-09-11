@@ -35,18 +35,12 @@
         if (App.checkCommands(inputValue) == false)
           return false;
 
-        App.socket.emit('message', {
+        App.sendSocketMessage('message', {
             nick: App.getNickName(),
             text: inputValue,
             channel: App.channel
         });
-
         $("input").val("");
-
-        // $.get("/put?nick=" + App.getNickName() + "&text=" + inputValue + "&channel=" + App.channel, function(data) {
-        //     $("input").val("");
-        //     App.print();
-        // });
     }
 
     App.checkCommands = function(v) {
@@ -88,7 +82,7 @@
 
     App.setColor = function(color) {
         color = color.replace("#", "hash");
-        App.socket.emit('setcolor', {
+        App.sendSocketMessage('setcolor', {
             nick: App.getNickName(),
             color: color
         });
@@ -98,7 +92,7 @@
 
     App.setNickName = function(nick) {
         if (nick) {
-            App.socket.emit('setnick', {
+            App.sendSocketMessage('setnick', {
                 oldNick: App.getNickName(),
                 newNick: nick,
                 channel: App.channel
@@ -305,8 +299,9 @@
         });
 
         App.socket.on('connect',function() {
+            // TODO: move setInterval in nodeJS server-side
             setInterval(function() {
-                 App.socket.emit('fetch', {
+                 App.sendSocketMessage('fetch', {
                     channel: App.channel,
                     nick: App.getNickName()
                  });
@@ -317,6 +312,10 @@
             console.log("WebSocket closed, restarting..");
             window.location.reload();
         });
+    }
+
+    App.sendSocketMessage = function(message, params){
+        App.socket.emit(message, params);
     }
 
     App.init = function() {
