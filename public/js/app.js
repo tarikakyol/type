@@ -1,7 +1,7 @@
 (function() {
 
     var App = {
-        ws: new WebSocket(location.origin.replace(/^http/, "ws")),
+        //ws: new WebSocket(location.origin.replace(/^http/, "ws")),
         audio: new Audio("public/misc/audio.wav"),
         chat: [],
         chatTotalLen: 0,
@@ -35,10 +35,18 @@
         if (App.checkCommands(inputValue) == false)
           return false;
 
-        $.get("/put?nick=" + App.getNickName() + "&text=" + inputValue + "&channel=" + App.channel, function(data) {
-            $("input").val("");
-            App.print();
+        App.socket.emit('message', {
+            nick: App.getNickName(),
+            text: inputValue,
+            channel: App.channel
         });
+
+        $("input").val("");
+
+        // $.get("/put?nick=" + App.getNickName() + "&text=" + inputValue + "&channel=" + App.channel, function(data) {
+        //     $("input").val("");
+        //     App.print();
+        // });
     }
 
     App.checkCommands = function(v) {
@@ -80,17 +88,22 @@
 
     App.setColor = function(color) {
         color = color.replace("#", "hash");
-        $.get("/setColor?nick=" + App.getNickName() + "&color=" + color, function(data) {
-            $(".chat").prepend("<p class='cline warning'>Your color is now: " + color + "</p>");
-            $("input").val("");
+        App.socket.emit('setcolor', {
+            nick: App.getNickName(),
+            color: color
         });
+        $("input").val("");
+        $(".chat").prepend("<p class='cline warning'>Your color is now: " + color + "</p>");
     }
 
     App.setNickName = function(nick) {
         if (nick) {
-            $.get("/setNickName?oldNick=" + App.getNickName() + "&newNick=" + nick + "&channel=" + App.channel, function(data) {
-                $("input").val("");
+            App.socket.emit('setnick', {
+                oldNick: App.getNickName(),
+                newNick: nick,
+                channel: App.channel
             });
+            $("input").val("");
             localStorage["nick"] = nick;
         } else if (typeof localStorage["nick"] == "undefined") {
             localStorage["nick"] = "user_" + Date.now();
@@ -117,6 +130,11 @@
                 window.location.reload();
             };
         }
+    }
+
+    App.socketOpened = function() {
+        $('input').val("");
+        $('input').removeAttr("readonly");
     }
 
     App.setChannel = function() {
@@ -183,11 +201,6 @@
 
     App.redirectToChannel = function(channelName) {
         window.location.href = "/?channel=" + channelName;
-    }
-
-    App.socketOpened = function() {
-        $('input').val("");
-        $('input').removeAttr("readonly");
     }
 
     App.isDarkColor = function (color) {
@@ -283,6 +296,29 @@
         return false;
     }
 
+
+    App.setupSocketio = function(){
+        App.socket = io();
+
+        App.socket.on('message',function(data) {
+            App.handleMessage(data);
+        });
+
+        App.socket.on('connect',function() {
+            setInterval(function() {
+                 App.socket.emit('fetch', {
+                    channel: App.channel,
+                    nick: App.getNickName()
+                 });
+            }, 1000);
+            App.socketOpened();
+        });
+        App.socket.on('disconnect',function() {
+            console.log("WebSocket closed, restarting..");
+            window.location.reload();
+        });
+    }
+
     App.init = function() {
         // Nickname setter
         this.setNickName();
@@ -290,8 +326,10 @@
         this.setChannel();
         // LOGO animation
         this.setLogo();
+        // handling socket.io
+        this.setupSocketio();
         // handling websocket
-        this.setupWebSocket();
+        //this.setupWebSocket();
     }
 
     $(function() {

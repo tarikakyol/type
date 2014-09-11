@@ -1,7 +1,9 @@
 var express = require('express');
+var http = require('http');
 var app = express();
-var WebSocketServer = require('ws').Server;
-
+var server = http.createServer(app);
+var io = require('socket.io')(server);
+// var WebSocketServer = require('ws').Server;
 
 // prevent Heroku from idling by requesting self in periods
 var request = require('request');
@@ -14,10 +16,10 @@ setInterval(function(){
 var memjs = require('memjs');
 var mc = memjs.Client.create();
 
-// var mc = {
-//     get: function(a,b){b(null,null)},
-//     set: function(a,b){}
-// }
+var mc = {
+    get: function(a,b){b(null,null)},
+    set: function(a,b){}
+}
 
 var torrentStream = require('torrent-stream');
 
@@ -57,19 +59,21 @@ var processText = function(text) {
     return text;
 }
 
-var setColor = function(nick) {
+var setColor = function(nick, color) {
+    var rndClr = '#' + Math.random().toString(16).substr(-6);
     if (typeof colors[nick] == "undefined"){
         if (nick == "bot")
             colors[nick] = "red";
         else
-            colors[nick] = '#'+Math.random().toString(16).substr(-6);
+            colors[nick] = color ? color : rndClr;
+    }else{
+        colors[nick] = color ? color : rndClr;
     }
 }
-var sendMessage = function(req,res) {
-    if (typeof chat[req.query.channel] != "undefined"){
-        chat[req.query.channel].push([escapeHtml(req.query.nick), processText(req.query.text), colors[req.query.nick]]);
-        mc.set(req.query.channel, JSON.stringify(chat[req.query.channel]));
-        res.send();
+var sendMessage = function(data) {
+    if (typeof chat[data.channel] != "undefined"){
+        chat[data.channel].push([escapeHtml(data.nick), processText(data.text), colors[data.nick]]);
+        mc.set(data.channel, JSON.stringify(chat[data.channel]));
     }
 }
 
@@ -79,35 +83,6 @@ app.get("/clear", function(req, res) {
     mc.delete(req.query.channel);
     chat = [];
     res.send();
-});
-
-app.get("/setColor", function(req, res) {
-    req.query.color = req.query.color.replace('hash','#');
-    colors[req.query.nick] = req.query.color;
-    res.send();
-});
-
-app.get("/setNickName", function(req, res) {
-    online = {};
-    setColor("bot");
-    req.query.nick = "bot";
-    req.query.text = req.query.oldNick + " changed nickname to " + req.query.newNick;
-    sendMessage(req, res);
-});
-
-app.get("/put", function(req, res) {
-    setColor(req.query.nick);
-    sendMessage(req, res);
-});
-
-app.get("/get", function(req, res) {
-    res.set('Content-Type', 'application/json');
-    mc.get(req.query.channel, function(err, val) {
-        if (val == null)
-            res.send(chat[req.query.channel]);
-        else
-            res.send(JSON.parse(val.toString()));
-    });
 });
 
 app.get("/download", function(req, res){
@@ -162,14 +137,72 @@ app.get("/", function(req, res) {
 });
 
 // start the Node.js server listening on port 3000
-var port = Number(process.env.PORT || 3000);
-var server = app.listen(port, function() {
+var port = Number(process.env.PORT || 3005);
+var s = server.listen(port, function() {
     console.log('Splash Chat app %d', server.address().port);
 });
 
+//socket.io
 
+io.on('connection', function(socket){
+
+    console.log('socket.io connection open');
+
+    socket.on('disconnect', function(){
+        console.log('socket.io connection close');
+        online = {};
+    });
+
+    socket.on('message', function(data){
+        if(!data.channel || !data.nick || !data.text) return;
+        if (typeof colors[data.nick] == "undefined") setColor(data.nick);
+        sendMessage(data);
+    });
+
+    socket.on('setcolor', function(data){
+        if(!data.color || !data.nick) return;
+        data.color = data.color.replace('hash','#');
+        setColor(data.nick, data.color);
+    });
+
+    socket.on('setnick', function(data){
+        if(!data.oldNick || !data.newNick) return;
+        online = {};
+        setColor("bot");
+        data.nick = "bot";
+        data.text = data.oldNick + " changed nickname to " + data.newNick;
+        sendMessage(data);
+    });
+
+    socket.on('fetch', function(data){
+        if(!data.nick || !data.channel) return;
+        var channel = data.channel, nick = data.nick;
+        
+        if (typeof online[channel] == "undefined")
+            online[channel] = [];
+
+        if (online[channel].indexOf(nick) == -1)
+            online[channel].push(nick);
+
+        if (typeof chat[channel] == "undefined") {
+            mc.get(channel, function(err, val){
+                if (val == null)
+                    chat[channel] = [];
+                else
+                    chat[channel] = JSON.parse(val.toString());
+            });
+            return;
+        }
+        var data = (typeof chat[channel] != "undefined" && chat[channel].length > 0) ? chat[channel] : [];
+        //data = data.slice(Math.max(data.length - 100, 1)); // get the last 100 lines of chat
+        io.to(socket.id).emit('message', [online[channel],data]);
+    })
+});
+
+
+/*
 // WEBSOCKET!
-var wss = new WebSocketServer({server: server});
+var wss = new WebSocketServer({server: s});
 console.log('websocket server created');
 wss.on('connection', function(ws) {
 
@@ -212,3 +245,5 @@ wss.on('connection', function(ws) {
         online = {};
     });
 });
+
+*/
