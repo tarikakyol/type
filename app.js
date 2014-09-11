@@ -16,10 +16,10 @@ setInterval(function(){
 var memjs = require('memjs');
 var mc = memjs.Client.create();
 
-var mc = {
-    get: function(a,b){b(null,null)},
-    set: function(a,b){}
-}
+// var mc = {
+//     get: function(a,b){b(null,null)},
+//     set: function(a,b){}
+// }
 
 var torrentStream = require('torrent-stream');
 
