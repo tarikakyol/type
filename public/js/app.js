@@ -254,6 +254,7 @@
     }
 
     App.processText = function(text){
+        if(!text) return "";
         text = this.linkify(text);
         return text;
     }
