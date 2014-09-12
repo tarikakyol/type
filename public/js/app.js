@@ -65,6 +65,10 @@
                 App.retrieveMedia(words[1]);
                 flag = false;
                 break;
+            case "/continue":
+                App.play();
+                flag = false;
+                break;
             case "/pause":
                 App.pause();
                 flag = false;
@@ -329,6 +333,10 @@
     }
 
     App.play = function(data){
+        if(!data && this.media.play){
+            this.media.play();
+            return;
+        }
         var file = data.filename,
         path = data.path;
         $(".chat").prepend("<p class='cline warning'>Playing: " + file + "</p>");
