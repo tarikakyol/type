@@ -179,12 +179,17 @@ io.on('connection', function(socket){
             // return;
         }
 
+        //data = data.slice(Math.max(data.length - 100, 1)); // get the last 100 lines of chat
+        io.to(socket.id).emit('message', {
+            online: online[channel],
+            chat: chat[channel]
+        });
+
         setInterval(function() {
-            var data = (typeof chat[channel] != "undefined" && chat[channel].length > 0) ? chat[channel] : [];
             //data = data.slice(Math.max(data.length - 100, 1)); // get the last 100 lines of chat
             io.to(socket.id).emit('message', {
                 online: online[channel],
-                chat: data
+                chat: chat[channel]
             });
         }, 1000);
     })
