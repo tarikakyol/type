@@ -260,18 +260,20 @@
     }
 
     App.linkify = function (inputText) {
-        var replaceText, replacePattern1, replacePattern2;
 
-        //URLs starting with http://, https://
-        replacePattern1 = /(\b(https?):\/\/[-A-Z0-9+&amp;@#\/%?=~_|!:,.;]*[-A-Z0-9+&amp;@#\/%=~_|])/ig;
-        replacedText = inputText.replace(replacePattern1, '<a class="colored-link-1" title="$1" href="$1" target="_blank">$1</a>');
-         
-        //URLs starting with "www."
-        replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
-        replacedText = replacedText.replace(replacePattern2, '$1<a class="colored-link-1" href="http://$2" target="_blank">$2</a>');
-         
-        //returns the text result
-        return replacedText;
+         // http://, https://, ftp://
+        var urlPattern = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
+
+        // www. sans http:// or https://
+        var pseudoUrlPattern = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+
+        // Email addresses *** here I've changed the expression ***
+        var emailAddressPattern = /(([a-zA-Z0-9_\-\.]+)@[a-zA-Z_]+?(?:\.[a-zA-Z]{2,6}))+/gim;
+
+        return inputText
+            .replace(urlPattern, '<a target="_blank" href="$&">$&</a>')
+            .replace(pseudoUrlPattern, '$1<a target="_blank" href="http://$2">$2</a>')
+            .replace(emailAddressPattern, '<a target="_blank" href="mailto:$1">$1</a>');
     }
 
     var colorNameToHex = function(color){
