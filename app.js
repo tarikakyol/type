@@ -39,23 +39,8 @@ var escapeHtml = function(text) {
   return text.replace(/[&<>"']/g, function(m) { return map[m]; });
 }
 
-var linkify = function (inputText) {
-    var replacedText, replacePattern1, replacePattern2, replacePattern3;
-    //URLs starting with http://, https://, or ftp://
-    replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
-    replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank">$1</a>');
-    //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
-    replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
-    replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2</a>');
-    //Change email addresses to mailto:: links.
-    replacePattern3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
-    replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1">$1</a>');
-    return replacedText;
-}
-
 var processText = function(text) {
     text = escapeHtml(text);
-    text = linkify(text);
     return text;
 }
 
@@ -177,7 +162,7 @@ io.on('connection', function(socket){
     socket.on('fetch', function(data){
         if(!data.nick || !data.channel) return;
         var channel = data.channel, nick = data.nick;
-        
+
         if (typeof online[channel] == "undefined")
             online[channel] = [];
 
@@ -191,11 +176,17 @@ io.on('connection', function(socket){
                 else
                     chat[channel] = JSON.parse(val.toString());
             });
-            return;
+            // return;
         }
-        var data = (typeof chat[channel] != "undefined" && chat[channel].length > 0) ? chat[channel] : [];
-        //data = data.slice(Math.max(data.length - 100, 1)); // get the last 100 lines of chat
-        io.to(socket.id).emit('message', [online[channel],data]);
+
+        setInterval(function() {
+            var data = (typeof chat[channel] != "undefined" && chat[channel].length > 0) ? chat[channel] : [];
+            //data = data.slice(Math.max(data.length - 100, 1)); // get the last 100 lines of chat
+            io.to(socket.id).emit('message', {
+                online: online[channel],
+                chat: data
+            });
+        }, 1000);
     })
 });
 

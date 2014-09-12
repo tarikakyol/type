@@ -75,19 +75,19 @@
               isDark = App.isDarkColor(color) ? " d" : "";
 
         $('.chat').prepend("<p class='cline" + isDark + "' style='color:" + color + "'>" +
-            App.chat[i][0] + ": " + App.chat[i][1] +
+            App.chat[i][0] + ": " + App.processText(App.chat[i][1]) +
             "</p>");
         }
     }
 
     App.setColor = function(color) {
+        $(".chat").prepend("<p class='cline warning'>Your color is now: " + color + "</p>");
         color = color.replace("#", "hash");
         App.sendSocketMessage('setcolor', {
             nick: App.getNickName(),
             color: color
         });
         $("input").val("");
-        $(".chat").prepend("<p class='cline warning'>Your color is now: " + color + "</p>");
     }
 
     App.setNickName = function(nick) {
@@ -109,27 +109,22 @@
         return localStorage["nick"];
     }
 
-    App.setupWebSocket = function() {
-        App.ws.onopen = function () {
-            App.socketOpened();
-            setInterval(function() {
-                App.ws.send( JSON.stringify([App.channel, App.getNickName()]) );
-            }, 1000);
-            App.ws.onmessage = function (event) {
-                var data = JSON.parse(event.data);
-                App.handleMessage(data);
-            };
-            App.ws.onclose = function () {
-                console.log("WebSocket closed, restarting..");
-                window.location.reload();
-            };
-        }
-    }
-
-    App.socketOpened = function() {
-        $('input').val("");
-        $('input').removeAttr("readonly");
-    }
+    // App.setupWebSocket = function() {
+    //     App.ws.onopen = function () {
+    //         App.socketOpened();
+    //         setInterval(function() {
+    //             App.ws.send( JSON.stringify([App.channel, App.getNickName()]) );
+    //         }, 1000);
+    //         App.ws.onmessage = function (event) {
+    //             var data = JSON.parse(event.data);
+    //             App.handleMessage(data);
+    //         };
+    //         App.ws.onclose = function () {
+    //             console.log("WebSocket closed, restarting..");
+    //             window.location.reload();
+    //         };
+    //     }
+    // }
 
     App.setChannel = function() {
         if (App.getUrlParam("channel"))
@@ -167,8 +162,8 @@
     }
 
     App.handleMessage = function(data) {
-        App.online = data[0];
-        App.chat = data[1];
+        App.online = data.online;
+        App.chat = data.chat;
         App.print();
         App.renderOnline();
         App.checkNewMessage();
@@ -258,6 +253,25 @@
         }
     }
 
+    App.processText = function(text){
+        text = this.linkify(text);
+        return text;
+    }
+
+    App.linkify = function (inputText) {
+         var replacedText, replacePattern1, replacePattern2, replacePattern3;
+        //URLs starting with http://, https://, or ftp://
+        replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+        replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank">$1</a>');
+        //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
+        replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+        replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2</a>');
+        //Change email addresses to mailto:: links.
+        replacePattern3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
+        replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1">$1</a>');
+        return replacedText;
+    }
+
     var colorNameToHex = function(color){
         var colors = {"aliceblue":"#f0f8ff","antiquewhite":"#faebd7","aqua":"#00ffff","aquamarine":"#7fffd4","azure":"#f0ffff",
         "beige":"#f5f5dc","bisque":"#ffe4c4","black":"#000000","blanchedalmond":"#ffebcd","blue":"#0000ff","blueviolet":"#8a2be2","brown":"#a52a2a","burlywood":"#deb887",
@@ -299,19 +313,24 @@
         });
 
         App.socket.on('connect',function() {
+            App.socketOpened();
             // TODO: move setInterval in nodeJS server-side
-            setInterval(function() {
-                 App.sendSocketMessage('fetch', {
+            // setInterval(function() {
+                App.sendSocketMessage('fetch', {
                     channel: App.channel,
                     nick: App.getNickName()
-                 });
-            }, 1000);
-            App.socketOpened();
+                });
+            // }, 1000);
         });
         App.socket.on('disconnect',function() {
             console.log("WebSocket closed, restarting..");
             window.location.reload();
         });
+    }
+
+    App.socketOpened = function() {
+        $('input').val("");
+        $('input').removeAttr("readonly");
     }
 
     App.sendSocketMessage = function(message, params){
