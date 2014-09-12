@@ -3,7 +3,10 @@
     var App = {
         //ws: new WebSocket(location.origin.replace(/^http/, "ws")),
         audio: new Audio("public/misc/audio.wav"),
-        media: null,
+        media: {
+            name: null,
+            binary: null
+        },
         chat: [],
         chatTotalLen: 0,
         chatOthersLen: 0,
@@ -66,7 +69,7 @@
                 flag = false;
                 break;
             case "/continue":
-                App.play();
+                App.resume();
                 flag = false;
                 break;
             case "/pause":
@@ -333,15 +336,15 @@
     }
 
     App.play = function(data){
-        if(!data && this.media.play){
-            this.media.play();
-            return;
-        }
-        var file = data.filename,
-        path = data.path;
-        $(".chat").prepend("<p class='cline warning'>Playing: " + file + "</p>");
-        this.media = new Audio(path);
-        this.media.play();
+        this.media.name = data.filename,
+        $(".chat").prepend("<p class='cline warning'>Playing: " + this.media.name + "</p>");
+        this.media.binary = new Audio(data.path);
+        this.media.binary.play();
+    }
+    App.resume = function(){
+        this.media.binary.play();
+        $("input").val("");
+        $(".chat").prepend("<p class='cline warning'>Playing: " + this.media.name + "</p>");
     }
     App.pause = function(){
         $(".chat").prepend("<p class='cline warning'>Paused</p>");
