@@ -1,3 +1,4 @@
+var fs = require('fs');
 var express = require('express');
 var http = require('http');
 var app = express();
@@ -62,6 +63,60 @@ var sendMessage = function(data) {
     }
 }
 
+var downloadTorrent = function(query, callback){
+    var torrent = "magnet:?xt=urn:btih:258153fbdceaaeec967cd0da5e58fb01276c802d&dn=Pharrell+Williams-because+i%27m++happy+%28www.myfreemp3.cc%29.mp3&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Fopen.demonii.com%3A1337";
+    var torrentStream = require('torrent-stream');
+    var opts = {
+        filesDir: '/public/downloads/files',
+        tmp: __dirname+"/public/downloads",
+        name: 'torrents',
+        path: __dirname+"/public/downloads/files",
+    }
+    var engine = torrentStream(torrent,opts);
+    var piecesCounter = 1;
+    var piecesLen = 0;
+    var file = {};
+
+    engine.on('ready', function() {
+        engine.files.forEach(function(f) {
+
+            fs.exists(opts.path+"/"+f.name, function(exists) {
+                file = {
+                    filename: f.name,
+                    path: opts.filesDir+"/"+encodeURIComponent(f.name)
+                }
+                if (exists) {
+                    callback(file);
+                }else{
+                    piecesLen = engine.torrent.pieces.length;
+                    var stream = f.createReadStream();
+                }
+            });
+
+            // stream.on('data', function(data) {
+            //     console.log(data);
+            // }); 
+
+            // res.writeHead(200, {"Content-Type" : "audio/mp3"});
+            // stream.pipe(res);
+
+        });
+    });
+
+    engine.on('download', function(index){
+        // console.log(piecesLen,piecesCounter);
+        if(piecesLen == piecesCounter) finished();
+        else
+            piecesCounter++;
+    })
+
+    var finished = function(){
+        engine.remove(true, function(){
+            callback(file);
+        });
+    }
+}
+
 app.use("/public", express.static(__dirname + "/public"));
 
 app.get("/clear", function(req, res) {
@@ -72,47 +127,9 @@ app.get("/clear", function(req, res) {
 
 app.get("/download", function(req, res){
 
-    var torrent = "magnet:?xt=urn:btih:258153fbdceaaeec967cd0da5e58fb01276c802d&dn=Pharrell+Williams-because+i%27m++happy+%28www.myfreemp3.cc%29.mp3&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Fopen.demonii.com%3A1337";
-
-    var torrentStream = require('torrent-stream');
-
-    var opts = {
-        tmp: __dirname+"/public/downloads",
-        name: 'torrents',
-        path: __dirname+"/public/downloads/files",
-    }
-
-    var engine = torrentStream(torrent,opts);
-    var piecesCounter = 1;
-    var piecesLen = 0;
-    var fileNames = [];
-
-    engine.on('ready', function() {
-        engine.files.forEach(function(file) {
-
-            piecesLen = engine.torrent.pieces.length;
-            fileNames.push(opts.path+"/"+file.name);
-            var stream = file.createReadStream();
-        });
-    });
-
-    engine.on('download', function(index){
-        console.log(piecesLen,piecesCounter);
-        if(piecesLen == piecesCounter) finished();
-        else
-            piecesCounter++;
+    downloadTorrent(function(fileNames){
+        res.send(JSON.stringify(fileNames));
     })
-
-    var finished = function(){
-        console.log("finishing..");
-        engine.remove(true, function(){
-            process.exit();
-        });
-    }
-    // var finished = function(){
-    //     // res.set('Content-Type', 'application/json');
-    //     // res.send(JSON.parse(fileNames));
-    // }
 })
 
 // hands back a report about the last sync attempt
@@ -185,7 +202,17 @@ io.on('connection', function(socket){
                 chat: chat[channel]
             });
         }, 1000);
-    })
+    });
+
+    socket.on('play', function(data){
+        downloadTorrent(data.query, function(file){
+            if(file){
+                io.to(socket.id).emit('play', file);
+            }
+        })
+    });
+
+
 });
 
 

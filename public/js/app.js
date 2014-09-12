@@ -3,6 +3,7 @@
     var App = {
         //ws: new WebSocket(location.origin.replace(/^http/, "ws")),
         audio: new Audio("public/misc/audio.wav"),
+        media: null,
         chat: [],
         chatTotalLen: 0,
         chatOthersLen: 0,
@@ -58,6 +59,14 @@
                 break;
             case "/channel":
                 App.redirectToChannel(words[1]);
+                flag = false;
+                break;
+            case "/play":
+                App.retrieveMedia(words[1]);
+                flag = false;
+                break;
+            case "/pause":
+                App.pause();
                 flag = false;
                 break;
         }
@@ -183,7 +192,7 @@
     }
 
     App.handleNewMessage = function() {
-        document.hidden && App.notify(App.chat[app.chat.length-1][0] + ": " + App.chat[app.chat.length-1][1]);
+        document.hidden && App.notify(App.chat[App.chat.length-1][0] + ": " + App.chat[App.chat.length-1][1]);
         App.audio.play();
         App.setTitle("(1) SPLASH Chat");
     }
@@ -311,12 +320,36 @@
         return false;
     }
 
+    App.retrieveMedia = function(query){
+        $(".chat").prepend("<p class='cline warning'>Loading: " + query + "</p>");
+        $("input").val("");
+        App.sendSocketMessage('play', {
+            query: query
+        });
+    }
+
+    App.play = function(data){
+        var file = data.filename,
+        path = data.path;
+        $(".chat").prepend("<p class='cline warning'>Playing: " + file + "</p>");
+        this.media = new Audio(path);
+        this.media.play();
+    }
+    App.pause = function(){
+        $(".chat").prepend("<p class='cline warning'>Paused</p>");
+        $("input").val("");
+        this.media.pause();
+    }
 
     App.setupSocketio = function(){
         App.socket = io();
 
         App.socket.on('message',function(data) {
             App.handleMessage(data);
+        });
+
+        App.socket.on('play',function(data) {
+            App.play(data);
         });
 
         App.socket.on('connect',function() {
