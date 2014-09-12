@@ -66,8 +66,7 @@
 
     App.print = function() {
 
-console.log(App.chat);
-        if(!App.chat || App.chat.length < 1) return;
+        if(typeof(App.chat) == "undefined" || App.chat.length < 1) return;
 
         var i = App.chatTotalLen;
         for (i; i < App.chat.length; i++) {

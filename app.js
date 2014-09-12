@@ -170,20 +170,13 @@ io.on('connection', function(socket){
             online[channel].push(nick);
 
         if (typeof chat[channel] == "undefined") {
+            chat[channel] = [];
             mc.get(channel, function(err, val){
-                if (val == null)
-                    chat[channel] = [];
-                else
+                if (val)
                     chat[channel] = JSON.parse(val.toString());
             });
             // return;
         }
-
-        //data = data.slice(Math.max(data.length - 100, 1)); // get the last 100 lines of chat
-        io.to(socket.id).emit('message', {
-            online: online[channel],
-            chat: chat[channel]
-        });
 
         setInterval(function() {
             //data = data.slice(Math.max(data.length - 100, 1)); // get the last 100 lines of chat
