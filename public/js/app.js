@@ -264,7 +264,7 @@
 
         //URLs starting with http://, https://
         replacePattern1 = /(\b(https?):\/\/[-A-Z0-9+&amp;@#\/%?=~_|!:,.;]*[-A-Z0-9+&amp;@#\/%=~_|])/ig;
-        replacedText = text.replace(replacePattern1, '<a class="colored-link-1" title="$1" href="$1" target="_blank">$1</a>');
+        replacedText = inputText.replace(replacePattern1, '<a class="colored-link-1" title="$1" href="$1" target="_blank">$1</a>');
          
         //URLs starting with "www."
         replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
