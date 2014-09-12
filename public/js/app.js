@@ -261,7 +261,10 @@
 
     App.linkify = function (inputText) {
 
-         // http://, https://, ftp://
+        // skip if already link
+        if(inputText.indexOf("</a>") != -1) return inputText;
+
+        // http://, https://, ftp://
         var urlPattern = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
 
         // www. sans http:// or https://
