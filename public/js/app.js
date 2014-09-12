@@ -66,6 +66,7 @@
 
     App.print = function() {
 
+console.log(App.chat);
         if(!App.chat || App.chat.length < 1) return;
 
         var i = App.chatTotalLen;
