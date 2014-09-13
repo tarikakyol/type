@@ -65,7 +65,7 @@
                 flag = false;
                 break;
             case "/play":
-                App.retrieveMedia(words[1]);
+                App.retrieveMedia(v.replace(words[0],""));
                 flag = false;
                 break;
             case "/continue":
@@ -328,7 +328,7 @@
     }
 
     App.retrieveMedia = function(query){
-        $(".chat").prepend("<p class='cline warning'>Loading: " + query + "</p>");
+        $(".chat").prepend("<p class='cline green'>Loading: " + query + "</p>");
         $("input").val("");
         App.sendSocketMessage('play', {
             query: query
@@ -336,20 +336,34 @@
     }
 
     App.play = function(data){
+        if(data == false){
+            $(".chat").prepend("<p class='cline warning'>Errör: Could not get that!</p>");
+            $("input").val("");
+            return;
+        }
         this.media.name = data.filename,
-        $(".chat").prepend("<p class='cline warning'>Playing: " + this.media.name + "</p>");
-        this.media.binary = new Audio(data.path);
-        this.media.binary.play();
+        $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + "</p>");
+        if(this.media.binary != null) this.media.binary.pause();
+
+        if(data.category == "Movies"){
+             $(".chat").prepend('<video width="640" height="264" autoplay>' +
+                '<source src="'+data.path+'" type="video/mp4"></source>' +
+                '</video>');
+
+        }else{
+            this.media.binary = new Audio(data.path);
+            this.media.binary.play();
+        }
     }
     App.resume = function(){
         this.media.binary.play();
         $("input").val("");
-        $(".chat").prepend("<p class='cline warning'>Playing: " + this.media.name + "</p>");
+        $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + "</p>");
     }
     App.pause = function(){
-        $(".chat").prepend("<p class='cline warning'>Paused</p>");
+        $(".chat").prepend("<p class='cline green'>Paused</p>");
         $("input").val("");
-        this.media.pause();
+        this.media.binary.pause();
     }
 
     App.setupSocketio = function(){
@@ -365,13 +379,13 @@
 
         App.socket.on('connect',function() {
             App.socketOpened();
-            // TODO: move setInterval in nodeJS server-side
-            // setInterval(function() {
+            // TODO: move setInterval in nodeJS server-side HARD TO DO BECAUSE ONLINE LIST
+            setInterval(function() {
                 App.sendSocketMessage('fetch', {
                     channel: App.channel,
                     nick: App.getNickName()
                 });
-            // }, 1000);
+            }, 1000);
         });
         App.socket.on('disconnect',function() {
             console.log("WebSocket closed, restarting..");

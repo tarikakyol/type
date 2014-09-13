@@ -4,6 +4,8 @@ var http = require('http');
 var app = express();
 var server = http.createServer(app);
 var io = require('socket.io')(server);
+var request = require('request');
+var torget = require('torget');
 // var WebSocketServer = require('ws').Server;
 
 // prevent Heroku from idling by requesting self in periods
@@ -21,6 +23,32 @@ var mc = memjs.Client.create();
 //     get: function(a,b){b(null,null)},
 //     set: function(a,b){}
 // }
+
+
+
+
+// var url = 'http://kickass.to/json.php?q=';
+
+// var searchKat = function(query, callback) {
+//     var searchUrl = url + query;
+
+//     request(searchUrl, function(err, response, body) {
+//         if (err) {
+//             return callback(err);
+//         }else{
+//             return callback(JSON.parse(body));
+//         }
+//     });
+// }
+
+// searchKat("Pharrell", function(res){
+//     var list = res.list;
+//     console.log(list.length);
+//     for(i=0;i<list.length;i++){
+//         console.log(list[i].title, list[i].files);
+//     }
+// });
+
 
 var torrentStream = require('torrent-stream');
 
@@ -47,14 +75,11 @@ var processText = function(text) {
 
 var setColor = function(nick, color) {
     var rndClr = '#' + Math.random().toString(16).substr(-6);
-    if (typeof colors[nick] == "undefined"){
-        if (nick == "bot")
-            colors[nick] = "red";
-        else
-            colors[nick] = color ? color : rndClr;
-    }else{
+    if (nick == "bot")
+        colors[nick] = "red";
+    else if (typeof colors[nick] == "undefined")
         colors[nick] = color ? color : rndClr;
-    }
+    
 }
 var sendMessage = function(data) {
     if (typeof chat[data.channel] != "undefined"){
@@ -63,8 +88,40 @@ var sendMessage = function(data) {
     }
 }
 
-var downloadTorrent = function(query, callback){
-    var torrent = "magnet:?xt=urn:btih:258153fbdceaaeec967cd0da5e58fb01276c802d&dn=Pharrell+Williams-because+i%27m++happy+%28www.myfreemp3.cc%29.mp3&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Fopen.demonii.com%3A1337";
+var searchMedia = function(query, callback){
+
+    var torrents = [];
+    var getFeasibleTorrents = function(page, cb){
+        torget.search(query+'&page='+page, function(err, results) {
+            if(!results || results.length < 1){
+                return cb();
+            }
+            for(i=0;i<results.length;i++){
+                if(results[i].seeds < 10) return cb();
+                //TODO: REMOVE files == 1 and allow dosiers 
+                if(results[i].files == 1 && (results[i].category == "Music" || results[i].category == "Movies")) torrents.push(results[i])
+            }
+            getFeasibleTorrents(page+1, cb);
+        });
+    }
+
+    getFeasibleTorrents(1, function(){
+        if(torrents.length < 1){
+            callback(false);
+            return;
+        }
+        var torrent = torrents[Math.floor(Math.random()*torrents.length)]; // get random
+        console.log(torrent);
+        torget.download(torrent,{p:__dirname+"/public/downloads/torrents/" + torrent.title.replace(/ /g, '_') + '.torrent'}, function(err, filename){
+            if(err) callback(false);
+            else callback(filename,torrent.title, torrent.category);
+        })
+    });
+}
+
+var downloadMedia = function(torrent, callback){
+
+    // var torrent = "magnet:?xt=urn:btih:258153fbdceaaeec967cd0da5e58fb01276c802d&dn=Pharrell+Williams-because+i%27m++happy+%28www.myfreemp3.cc%29.mp3&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Fopen.demonii.com%3A1337";
     var torrentStream = require('torrent-stream');
     var opts = {
         filesDir: '/public/downloads/files',
@@ -81,12 +138,15 @@ var downloadTorrent = function(query, callback){
         engine.files.forEach(function(f) {
 
             fs.exists(opts.path+"/"+f.name, function(exists) {
+                console.log(f.name); //TODO: CHECK IF FILE EXTENSION HAVE .mp3 or .mp4 if not return false 
                 file = {
                     filename: f.name,
                     path: opts.filesDir+"/"+encodeURIComponent(f.name)
                 }
                 if (exists) {
-                    callback(file);
+                    engine.remove(true, function(){
+                        callback(file);
+                    });
                 }else{
                     piecesLen = engine.torrent.pieces.length;
                     var stream = f.createReadStream();
@@ -104,7 +164,7 @@ var downloadTorrent = function(query, callback){
     });
 
     engine.on('download', function(index){
-        // console.log(piecesLen,piecesCounter);
+        // console.log(piecesLen+"/"+piecesCounter);
         if(piecesLen == piecesCounter) finished();
         else
             piecesCounter++;
@@ -125,12 +185,6 @@ app.get("/clear", function(req, res) {
     res.send();
 });
 
-app.get("/download", function(req, res){
-
-    downloadTorrent(function(fileNames){
-        res.send(JSON.stringify(fileNames));
-    })
-})
 
 // hands back a report about the last sync attempt
 app.get("/", function(req, res) {
@@ -192,74 +246,34 @@ io.on('connection', function(socket){
                 if (val)
                     chat[channel] = JSON.parse(val.toString());
             });
-            // return;
         }
 
-        setInterval(function() {
+        // setInterval(function() {
             //data = data.slice(Math.max(data.length - 100, 1)); // get the last 100 lines of chat
             io.to(socket.id).emit('message', {
                 online: online[channel],
                 chat: chat[channel]
             });
-        }, 1000);
+        // }, 1000);
     });
 
     socket.on('play', function(data){
-        downloadTorrent(data.query, function(file){
-            if(file){
-                io.to(socket.id).emit('play', file);
+        searchMedia(data.query, function(filename, title, category){
+            if(filename == false){
+                io.to(socket.id).emit('play', false);
+                return;
             }
+            downloadMedia(fs.readFileSync(filename), function(file){
+                if(file){
+                    file.category = category;
+                    file.title = title;
+                    io.to(socket.id).emit('play', file);
+                }else{
+                    io.to(socket.id).emit('play', false);
+                }
+            })
         })
     });
 
 
 });
-
-
-/*
-// WEBSOCKET!
-var wss = new WebSocketServer({server: s});
-console.log('websocket server created');
-wss.on('connection', function(ws) {
-
-    console.log('websocket connection open');
-
-    ws.on('message', function(arr) {
-
-        try{
-           arr = JSON.parse(arr);  
-        }catch(e){
-            return;
-        }
-
-        if(arr.length<2) return;
-
-        var channel = arr[0], nick = arr[1];
-
-        if (typeof online[channel] == "undefined")
-            online[channel] = [];
-
-        if (online[channel].indexOf(nick) == -1)
-            online[channel].push(nick);
-
-        if (typeof chat[channel] == "undefined") {
-            mc.get(channel, function(err, val){
-                if (val == null)
-                    chat[channel] = [];
-                else
-                    chat[channel] = JSON.parse(val.toString());
-            });
-            return;
-        }
-        var data = (typeof chat[channel] != "undefined" && chat[channel].length > 0) ? chat[channel] : [];
-        //data = data.slice(Math.max(data.length - 100, 1)); // get the last 100 lines of chat
-        ws.send(JSON.stringify([online[channel],data]));
-    });
-
-    ws.on('close', function() {
-        console.log('websocket connection close');
-        online = {};
-    });
-});
-
-*/
