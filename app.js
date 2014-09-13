@@ -77,7 +77,7 @@ var setColor = function(nick, color) {
     var rndClr = '#' + Math.random().toString(16).substr(-6);
     if (nick == "bot")
         colors[nick] = "red";
-    else if (typeof colors[nick] == "undefined")
+    else
         colors[nick] = color ? color : rndClr;
     
 }
@@ -113,6 +113,7 @@ var searchMedia = function(query, callback){
         var torrent = torrents[Math.floor(Math.random()*torrents.length)]; // get random
         console.log(torrent);
         torget.download(torrent,{p:__dirname+"/public/downloads/torrents/" + torrent.title.replace(/ /g, '_') + '.torrent'}, function(err, filename){
+            console.log(err,filename);
             if(err) callback(false);
             else callback(filename,torrent.title, torrent.category);
         })
