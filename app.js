@@ -111,9 +111,9 @@ var searchMedia = function(query, callback){
             return;
         }
         var torrent = torrents[Math.floor(Math.random()*torrents.length)]; // get random
-        console.log(torrent);
-        torget.download(torrent,{p:__dirname+"/public/downloads/torrents/" + torrent.title.replace(/ /g, '_') + '.torrent'}, function(err, filename){
-            console.log(err,filename);
+        // console.log(torrent);
+        torget.download(torrent,{p:__dirname+"/public/downloads/torrents/" + torrent.title.replace(/ /g, '_') + '.oks'}, function(err, filename){
+            console.log(err);
             if(err) callback(false);
             else callback(filename,torrent.title, torrent.category);
         })
