@@ -297,6 +297,7 @@ io.on('connection', function(socket){
                 return;
             }
             downloadMedia(fs.readFileSync(filename), function(file){
+                console.log(file);
                 if(file){
                     file.category = category;
                     file.title = title;
