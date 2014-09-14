@@ -14,6 +14,13 @@
         online: []
     }
 
+    App.HtmlEncode = function(s){
+      var el = document.createElement("div");
+      el.innerText = el.textContent = s;
+      s = el.innerHTML;
+      return s;
+    }
+
     App.setLogo = function() {
         var initColors = ["#32CCFE","#5D7BB9","#DD77D3","#2ecc71","#e67e22","#019fde"]; // S P L A S H
         function _set(initial) {
@@ -240,7 +247,7 @@
         }else if (Notification.permission === "granted") {
         // If it's okay let's create a notification
             var notification = new Notification('New Message', {
-                body: message
+                body: App.HtmlEncode(message)
             });
             notification.onshow = function() {
                 setInterval(function(){notification.close()}, 2000);

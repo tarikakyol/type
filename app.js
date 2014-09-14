@@ -185,6 +185,7 @@ var downloadMedia = function(torrent, callback){
 
     });
 
+    //TODO: sometimes it doesnt get all pieces and finished() doesnt fire. FIX
     engine.on('download', function(index){
         console.log(piecesLen+"/"+piecesCounter);
         if(piecesLen == piecesCounter) finished();
