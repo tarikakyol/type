@@ -191,6 +191,8 @@ app.get("/stream", function(req,res){
     var file = engine[req.query.title].files[0];
     var range = req.headers.range;
 
+    console.log(range);
+
     range = range && rangeParser(file.length, range)[0];
     res.setHeader('Accept-Ranges', 'bytes');
     res.setHeader('Content-Type', mime.lookup(file.name));
