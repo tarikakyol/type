@@ -11,7 +11,13 @@
         chatTotalLen: 0,
         chatOthersLen: 0,
         channel: null,
-        online: []
+        online: [],
+        history: [],
+        historyNo: 0
+    }
+
+    App.strip = function(text){
+        return text.replace(/[^a-zA-Z0-9]/g,'');
     }
 
     App.HtmlEncode = function(s){
@@ -131,23 +137,6 @@
     App.getNickName = function() {
         return localStorage["nick"];
     }
-
-    // App.setupWebSocket = function() {
-    //     App.ws.onopen = function () {
-    //         App.socketOpened();
-    //         setInterval(function() {
-    //             App.ws.send( JSON.stringify([App.channel, App.getNickName()]) );
-    //         }, 1000);
-    //         App.ws.onmessage = function (event) {
-    //             var data = JSON.parse(event.data);
-    //             App.handleMessage(data);
-    //         };
-    //         App.ws.onclose = function () {
-    //             console.log("WebSocket closed, restarting..");
-    //             window.location.reload();
-    //         };
-    //     }
-    // }
 
     App.setChannel = function() {
         if (App.getUrlParam("channel"))
@@ -348,17 +337,25 @@
             $("input").val("");
             return;
         }
-        this.media.name = data.filename,
+        this.media.name = data.title,
         $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + "</p>");
         if(this.media.binary != null) this.media.binary.pause();
 
         if(data.category == "Movies"){
-             $(".chat").prepend('<video width="640" height="264" autoplay>' +
-                '<source src="'+data.path+'" type="video/mp4"></source>' +
-                '</video>');
+
+            this.media.binary = document.createElement('video');
+            $(this.media.binary).attr('width', '640');
+            $(this.media.binary).attr('data-height', '264');
+            // $(this.media.binary).attr('controls', ' ');
+            $(this.media.binary).attr('autoplay', ' ');
+            source = document.createElement('source');
+            $(source).attr('type', 'video/mp4');
+            $(source).attr('src', '/stream?title='+App.strip(data.title));
+            $(".chat").prepend(this.media.binary);
+            $(this.media.binary).append(source);
 
         }else{
-            this.media.binary = new Audio(data.path);
+            this.media.binary = new Audio('/stream?title='+App.strip(data.title));
             this.media.binary.play();
         }
     }
@@ -371,6 +368,24 @@
         $(".chat").prepend("<p class='cline green'>Paused</p>");
         $("input").val("");
         this.media.binary.pause();
+    }
+
+    App.addHistory = function(){
+        if(this.history.length == 0 && localStorage.chathistory) this.history = JSON.parse(localStorage.chathistory);
+        this.history.push($("input").val());
+        this.historyNo = this.history.length;
+        localStorage.chathistory = JSON.stringify(this.history);
+    }
+    App.getHistory = function(n){
+        if(this.history.length == 0 && localStorage.chathistory) this.history = JSON.parse(localStorage.chathistory);
+        if(n == 0){
+            if(this.historyNo == 0) this.historyNo = this.history.length;
+            this.historyNo>0 && this.historyNo--
+            $("input").val(this.history[this.historyNo]);
+        }else if(n == 1){
+            this.historyNo<this.history.length && this.historyNo++
+            $("input").val(this.history[this.historyNo]);
+        }
     }
 
     App.setupSocketio = function(){
@@ -441,8 +456,13 @@
 
         $("input").on("keyup", function(e) {
             if (e.keyCode == 13) {
+                App.addHistory();
                 App.post();
                 App.setTitle();
+            }else if(e.keyCode == 38){
+                App.getHistory(1);
+            }else if(e.keyCode == 40){
+                App.getHistory(0);
             }
         });
 

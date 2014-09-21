@@ -6,6 +6,11 @@ var server = http.createServer(app);
 var io = require('socket.io')(server);
 var request = require('request');
 var torget = require('torget');
+var torrentStream = require('torrent-stream');
+var parseTorrent = require('parse-torrent')
+var rangeParser = require('range-parser');
+var mime = require('mime');
+var pump = require('pump');
 // var WebSocketServer = require('ws').Server;
 
 // prevent Heroku from idling by requesting self in periods
@@ -19,43 +24,23 @@ setInterval(function(){
 var memjs = require('memjs');
 var mc = memjs.Client.create();
 
+// Use static directory
+app.use("/public", express.static(__dirname + "/public"));
+
 // var mc = {
 //     get: function(a,b){b(null,null)},
 //     set: function(a,b){}
 // }
 
-
-
-
-// var url = 'http://kickass.to/json.php?q=';
-
-// var searchKat = function(query, callback) {
-//     var searchUrl = url + query;
-
-//     request(searchUrl, function(err, response, body) {
-//         if (err) {
-//             return callback(err);
-//         }else{
-//             return callback(JSON.parse(body));
-//         }
-//     });
-// }
-
-// searchKat("Pharrell", function(res){
-//     var list = res.list;
-//     console.log(list.length);
-//     for(i=0;i<list.length;i++){
-//         console.log(list[i].title, list[i].files);
-//     }
-// });
-
-
-var torrentStream = require('torrent-stream');
-
 var chat = [];
 var channel = 'default';
 var colors = [];
 var online = {};
+var engine = [];
+
+var strip = function(text){
+    return text.replace(/[^a-zA-Z0-9]/g,'');
+}
 
 var escapeHtml = function(text) {
   var map = {
@@ -93,14 +78,21 @@ var searchMedia = function(query, callback){
     var torrents = [];
     var getFeasibleTorrents = function(page, cb){
         torget.search(query+'&page='+page, function(err, results) {
+            if(err) console.log(err);
             if(!results || results.length < 1){
+                console.log('not found');
                 return cb();
             }
+            console.log(results.length + ' results found.');
             for(i=0;i<results.length;i++){
                 if(results[i].seeds < 10) return cb();
                 //TODO: REMOVE files == 1 and allow dosiers 
                 if((results[i].category == "Music" || results[i].category == "Movies")) torrents.push(results[i])
             }
+            // disable pages
+            cb();
+            return
+            // disable pages end
             getFeasibleTorrents(page+1, cb);
         });
     }
@@ -110,18 +102,41 @@ var searchMedia = function(query, callback){
             callback(false);
             return;
         }
-        var torrent = torrents[Math.floor(Math.random()*torrents.length)]; // get random
-        // console.log(torrent);
-        torget.download(torrent,{p:__dirname+"/public/downloads/torrents/" + torrent.title.replace(/ /g, '_') + '.torrent'}, function(err, filename){
-            if(err) callback(false);
-            else callback(filename,torrent.title, torrent.category);
-        })
+
+        console.log(torrents.length + ' suitable results');
+        console.log("================================");
+
+        var findBest = function(i){
+            if(i == torrents.length) return callback(false);
+            console.log('analysing '+(i+1)+'. torrent..');
+            torrents[i].filename = __dirname+"/public/downloads/torrents/" + torrents[i].title.replace(/ /g, '_') + '.torrent';
+            torget.download(torrents[i],{p:torrents[i].filename}, function(err, filename){
+               if(filename){
+                    var files = parseTorrent(fs.readFileSync(filename)).files;
+                    var extFound = false;
+                    for(f=0;f<files.length;f++){
+                        var ext = getExtension(files[f].name).toLowerCase();
+                        if(ext == ".mp4" || ext == ".mp3" || ext == ".m4a"){
+                            extFound = true;
+                            callback(filename, torrents[i].title, torrents[i].category);
+                            return;
+                        }
+                    }
+                    if(!extFound) findBest(++i);
+                }else{
+                    findBest(++i);
+                }
+            })
+        }
+
+        findBest(0);
+
     });
 }
 
-var downloadMedia = function(torrent, callback){
 
-    // var torrent = "magnet:?xt=urn:btih:258153fbdceaaeec967cd0da5e58fb01276c802d&dn=Pharrell+Williams-because+i%27m++happy+%28www.myfreemp3.cc%29.mp3&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Fopen.demonii.com%3A1337";
+var downloadMedia = function(title, filename, callback){
+
     var torrentStream = require('torrent-stream');
     var opts = {
         filesDir: '/public/downloads/files',
@@ -129,73 +144,35 @@ var downloadMedia = function(torrent, callback){
         name: 'torrents',
         path: __dirname+"/public/downloads/files",
     }
-    var engine = torrentStream(torrent,opts);
+
+    var stripedTitle = strip(title);
+
+    engine[stripedTitle] = torrentStream(fs.readFileSync(filename),opts);
+
+    var piecesLen = engine[stripedTitle].torrent.pieces.length;
     var piecesCounter = 1;
-    var piecesLen = 0;
-    var file = [];
-    var isExist = false;
 
-    engine.files.forEach(function(f) {
-        fs.exists(opts.path+"/"+f.path, function(exists) {
-            var ext = getExtension(f.name).toLowerCase();
-            console.log(ext)
-            if(exists && (ext == ".mp4" || ext == ".mp3")) {
-                file = {
-                    filename: f.name,
-                    path: opts.filesDir+"/"+encodeURIComponent(f.path)
-                }
-                engine.remove(true, function(){});
-                callback(file);
-                isExist = true;
-                return;
-            }
-        });
+    engine[stripedTitle].on('ready', function() {
+        console.log('engine ready');
+        callback(true);
     });
 
-    if(isExist) return;
-
-    var isExtension = false;
-    engine.files.forEach(function(f) {
-        var ext = getExtension(f.name);
-        if(ext == ".mp4" || ext == ".mp3"){
-            isExtension = true;
-            f.select();
-            piecesLen = engine.torrent.pieces.length;
-            file = {
-                filename: f.name,
-                path: opts.filesDir+"/"+encodeURIComponent(f.path)
-            }
-        }
+    engine[stripedTitle].on('error', function() {
+        console.log('engine error');
+        callback(false);
     });
 
-    if(!isExtension){
-        engine.remove(true, function(){});
-        callback(false)
-        return;
-    }
-
-    engine.on('ready', function() {
-
-        // stream.on('data', function(data) {
-        //     console.log(data);
-        // }); 
-
-        // res.writeHead(200, {"Content-Type" : "audio/mp3"});
-        // stream.pipe(res);
-
-    });
-
-    //TODO: sometimes it doesnt get all pieces and finished() doesnt fire. FIX
-    engine.on('download', function(index){
-        console.log(piecesLen+"/"+piecesCounter);
+    engine[stripedTitle].on('download', function(index){
+        console.log(piecesCounter+': '+piecesLen+"/"+index);
         if(piecesLen == piecesCounter) finished();
         else
             piecesCounter++;
     })
 
     var finished = function(){
-        engine.remove(true, function(){
-            callback(file);
+        console.log('finishing..');
+        engine[stripedTitle].remove(true, function(){
+            console.log("engine removed");
         });
     }
 }
@@ -204,21 +181,41 @@ function getExtension(url) {
     return (url = url.substr(1 + url.lastIndexOf("/")).split('?')[0]).substr(url.lastIndexOf("."))
 }
 
-// searchMedia("Pharrell happy", function(filename, title, category){
-//     console.log(filename);
-//     downloadMedia(fs.readFileSync(filename), function(file){
-//         console.log(file);
-//     })
-// })
 
-app.use("/public", express.static(__dirname + "/public"));
+app.get("/stream", function(req,res){
+
+    console.log("/STREAMING: " + req.query.title);
+
+    if(!engine[req.query.title]) return res.send();
+
+    var file = engine[req.query.title].files[0];
+    var range = req.headers.range;
+
+    range = range && rangeParser(file.length, range)[0];
+    res.setHeader('Accept-Ranges', 'bytes');
+    res.setHeader('Content-Type', mime.lookup(file.name));
+
+    if (!range) {
+        res.setHeader('Content-Length', file.length);
+        if (req.method === 'HEAD') return res.end();
+        pump(file.createReadStream(), res);
+        return;
+    }
+
+    res.statusCode = 206;
+    res.setHeader('Content-Length', range.end - range.start + 1);
+    res.setHeader('Content-Range', 'bytes '+range.start+'-'+range.end+'/'+file.length);
+
+    if (req.method === 'HEAD') return res.end();
+        pump(file.createReadStream(range), res);
+        
+})
 
 app.get("/clear", function(req, res) {
     mc.delete(req.query.channel);
     chat = [];
     res.send();
 });
-
 
 // hands back a report about the last sync attempt
 app.get("/", function(req, res) {
@@ -233,8 +230,10 @@ var s = server.listen(port, function() {
 });
 
 //socket.io
-
+var sokcetId;
 io.on('connection', function(socket){
+
+    socketId = socket.id;
 
     console.log('socket.io connection open');
 
@@ -297,9 +296,9 @@ io.on('connection', function(socket){
                 io.to(socket.id).emit('play', false);
                 return;
             }
-            downloadMedia(fs.readFileSync(filename), function(file){
-                console.log(file);
-                if(file){
+            downloadMedia(title, filename, function(status){
+                if(status){
+                    var file = {};
                     file.category = category;
                     file.title = title;
                     io.to(socket.id).emit('play', file);
