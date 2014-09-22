@@ -139,6 +139,8 @@ var downloadMedia = function(title, filename, callback){
 
     var torrentStream = require('torrent-stream');
     var opts = {
+        connections: 100,
+        port: 3005,
         filesDir: '/public/downloads/files',
         tmp: __dirname+"/public/downloads",
         name: 'torrents',
@@ -151,6 +153,11 @@ var downloadMedia = function(title, filename, callback){
 
     var piecesLen = engine[stripedTitle].torrent.pieces.length;
     var piecesCounter = 1;
+    var invalid = 0;
+
+    engine[stripedTitle].files.forEach(function(file) {
+        file.select();
+    });
 
     engine[stripedTitle].on('ready', function() {
         console.log('engine ready');
@@ -160,6 +167,11 @@ var downloadMedia = function(title, filename, callback){
     engine[stripedTitle].on('error', function() {
         console.log('engine error');
         callback(false);
+    });
+
+    engine[stripedTitle].on('invalid-piece', function() {
+        invalid++;
+        console.log(invalid);
     });
 
     engine[stripedTitle].on('download', function(index){
@@ -181,6 +193,22 @@ function getExtension(url) {
     return (url = url.substr(1 + url.lastIndexOf("/")).split('?')[0]).substr(url.lastIndexOf("."))
 }
 
+// searchMedia("Pharrell video", function(filename, title, category){
+//             if(filename == false){
+//                 console.log("FALSE");
+//                 return;
+//             }
+//             downloadMedia(title, filename, function(status){
+//                 if(status){
+//                     var file = {};
+//                     file.category = category;
+//                     file.title = title;
+//                     console.log(strip(title));
+//                 }else{
+//                     console.log("FALSE!");
+//                 }
+//             })
+//         })
 
 app.get("/stream", function(req,res){
 
@@ -188,12 +216,19 @@ app.get("/stream", function(req,res){
 
     if(!engine[req.query.title]) return res.send();
 
-    var file = engine[req.query.title].files[0];
+    var eng = engine[req.query.title];
+    // get the biggest file (which is possibly mp3 or mp4);
+    var index = eng.files.reduce(function(a, b) {
+        return a.length > b.length ? a : b;
+    });
+    index = eng.files.indexOf(index);
+    var file = eng.files[index];
     var range = req.headers.range;
 
-    console.log(range);
+    // console.log((eng.swarm.downloadSpeed()/1024)+'KB/s');
 
     range = range && rangeParser(file.length, range)[0];
+    // console.log(range);
     res.setHeader('Accept-Ranges', 'bytes');
     res.setHeader('Content-Type', mime.lookup(file.name));
 
