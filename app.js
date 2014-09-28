@@ -60,13 +60,13 @@ var processText = function(text) {
 }
 
 var setColor = function(nick, color) {
-    var rndClr = '#' + Math.random().toString(16).substr(-6);
+    var rndClr = 'hsl(' + Math.floor(Math.random()*360) + ',' + (Math.floor(Math.random()*50)+50) + '%,50%)';
     if (nick == "bot")
         colors[nick] = "red";
     else
         colors[nick] = color ? color : rndClr;
-    
 }
+
 var sendMessage = function(data) {
     if (typeof chat[data.channel] != "undefined"){
         chat[data.channel].push([escapeHtml(data.nick), processText(data.text), colors[data.nick]]);
