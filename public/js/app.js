@@ -13,7 +13,17 @@
         channel: null,
         online: [],
         history: [],
-        historyNo: 0
+        historyNo: 0,
+        commands: [
+            {name: "/help", usage: "/help", example: "to get command list and features type /help"},
+            {name: "/color", usage: "/color <color name>", example: "to change color type e.g. /color pink or /color #454545"},
+            {name: "/name", usage: "/name <nick name>", example: "to change nick name type e.g. /name neo"},
+            {name: "/channel", usage: "/channel <channel name>", example: "to open or change channel type e.g. /channel zion"},
+            {name: "/play", usage: "/play <song or movie name>", example: "to play a song or movie type e.g. /play matrix"},
+            {name: "/pause", usage: "/pause", example: "to pause playing media type /pause"},
+            {name: "/continue", usage: "/continue", example: "to continue paused media type /continue"},
+            {name: "/translate", usage: "/translate <language> <text>", example: "to translate words or sentences into another language type e.g. /translate es hello"}
+        ]
     }
 
     App.strip = function(text){
@@ -61,39 +71,54 @@
 
     App.checkCommands = function(v) {
         var words = v.split(" "),
-            flag = true;
-        switch(words[0]) {
-            case "/color":
+            flag = true,
+            index = app.commands.map(function(e) {return e["name"]}).indexOf(words[0]);
+
+        switch(index) {
+            case 0:
+                App.printCommands();
+                flag = false;
+                break;
+            case 1:
                 var color = words[1];
                 App.setColor(color);
                 flag = false;
                 break;
-            case "/name":
+            case 2:
                 App.setNickName(words[1]);
                 flag = false;
                 break;
-            case "/channel":
+            case 3:
                 App.redirectToChannel(words[1]);
                 flag = false;
                 break;
-            case "/play":
+            case 4:
                 App.retrieveMedia(v.replace(words[0],""));
                 flag = false;
                 break;
-            case "/continue":
-                App.resume();
-                flag = false;
-                break;
-            case "/pause":
+            case 5:
                 App.pause();
                 flag = false;
                 break;
-            case "/translate":
+            case 6:
+                App.resume();
+                flag = false;
+                break;
+            case 7:
                 App.translate(words[1],v.replace(words[0]+" "+words[1],""));
                 flag = false;
                 break;
         }
         return flag;
+    }
+
+    App.printCommands = function(){
+        var arr = Array.prototype.slice.call(App.commands);
+        arr.reverse();
+        for (i=0; i < App.commands.length; i++) {
+            $('.chat').prepend("<p class='cline grey'>"+App.HtmlEncode(arr[i]["usage"])+" <span class='lightgreen'>"+App.HtmlEncode(arr[i]["example"])+"</span></p>");
+        }
+        $('.chat').prepend("<p class='cline orange'>Available Commands..................................................</p>");
     }
 
     App.print = function() {

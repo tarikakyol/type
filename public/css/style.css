@@ -6,12 +6,13 @@ body {
 }
 
 input[type=text] {
+    font-family: 'Menlo Regular', 'Lucida Console', Monaco, monospace, 'Courier New', Fixed;
+    font-size: 12px;
     color:white;
     background: black;
     border: none;
-    width: calc(100% - 20px);
+    width: calc(100% - 30px);
     outline: none;
-    font-size: 13px;
 }
 
 a {
@@ -29,11 +30,15 @@ a {
 }
 
 .warning {
-    color: red;
+    color: #e74c3c;
 }
 
 .green {
     color: #2ecc71;
+}
+
+.lightgreen{
+    color: #4A8864;
 }
 
 .white {
@@ -42,6 +47,10 @@ a {
 
 .orange {
     color: #e67e22;
+}
+
+.grey {
+    color: #ccc;
 }
 
 .cline {
