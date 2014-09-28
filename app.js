@@ -11,7 +11,8 @@ var parseTorrent = require('parse-torrent')
 var rangeParser = require('range-parser');
 var mime = require('mime');
 var pump = require('pump');
-// var WebSocketServer = require('ws').Server;
+var translate = require('yandex-translate');
+var yandexKey = "trnsl.1.1.20140928T084357Z.e68643d2e599cc5d.921754f6ad7384549c890fb0d45d89bf50c4382f";
 
 // prevent Heroku from idling by requesting self in periods
 var request = require('request');
@@ -346,5 +347,10 @@ io.on('connection', function(socket){
         })
     });
 
+    socket.on('translate', function(data){
+        translate(data.text, { to: data.lang, key: yandexKey }, function(err, res) {
+            io.to(socket.id).emit('translate', res.text);
+        });
+    })
 
 });

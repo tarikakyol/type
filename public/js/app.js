@@ -89,6 +89,10 @@
                 App.pause();
                 flag = false;
                 break;
+            case "/translate":
+                App.translate(words[1],v.replace(words[0]+" "+words[1],""));
+                flag = false;
+                break;
         }
         return flag;
     }
@@ -378,14 +382,25 @@
     }
     App.getHistory = function(n){
         if(this.history.length == 0 && localStorage.chathistory) this.history = JSON.parse(localStorage.chathistory);
-        if(n == 0){
+        if(n == 1){
             if(this.historyNo == 0) this.historyNo = this.history.length;
             this.historyNo>0 && this.historyNo--
             $("input").val(this.history[this.historyNo]);
-        }else if(n == 1){
+        }else if(n == 0){
             this.historyNo<this.history.length && this.historyNo++
             $("input").val(this.history[this.historyNo]);
         }
+    }
+    App.translate = function(lang, text){
+        $(".chat").prepend("<p class='cline green'>Translating: " + text + "</p>");
+        $("input").val("");
+        App.sendSocketMessage('translate', {
+            lang: lang,
+            text: text
+        });
+    }
+    App.getTranslated = function(text){
+        $(".chat").prepend("<p class='cline green'>" + text + "</p>");
     }
 
     App.setupSocketio = function(){
@@ -397,6 +412,10 @@
 
         App.socket.on('play',function(data) {
             App.play(data);
+        });
+
+        App.socket.on('translate',function(data) {
+            App.getTranslated(data);
         });
 
         App.socket.on('connect',function() {
