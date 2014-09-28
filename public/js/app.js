@@ -141,6 +141,8 @@
     App.setChannel = function() {
         if (App.getUrlParam("channel"))
             App.channel = App.getUrlParam("channel");
+        else if (App.getUrlParam("c"))
+            App.channel = App.getUrlParam("c");
         else
             App.channel = "default";
 
@@ -201,7 +203,7 @@
     }
 
     App.redirectToChannel = function(channelName) {
-        window.location.href = "/?channel=" + channelName;
+        window.location.href = "/?c=" + channelName;
     }
 
 
