@@ -62,7 +62,7 @@ var processText = function(text) {
 var setColor = function(nick, color) {
     var rndClr = 'hsl(' + Math.floor(Math.random()*360) + ',' + (Math.floor(Math.random()*50)+50) + '%,50%)';
     if (nick == "bot")
-        colors[nick] = "red";
+        colors[nick] = "#e74c3c";
     else
         colors[nick] = color ? color : rndClr;
 }

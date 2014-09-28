@@ -118,7 +118,7 @@
         for (i=0; i < App.commands.length; i++) {
             $('.chat').prepend("<p class='cline grey'>"+App.HtmlEncode(arr[i]["usage"])+" <span class='lightgreen'>"+App.HtmlEncode(arr[i]["example"])+"</span></p>");
         }
-        $('.chat').prepend("<p class='cline orange'>Available Commands..................................................</p>");
+        $('.chat').prepend("<p class='cline orange'>Available Commands:</p>");
     }
 
     App.print = function() {
