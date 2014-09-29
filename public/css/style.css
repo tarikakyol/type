@@ -3,6 +3,8 @@ body {
     font-size: 12px;
     background: black;
     color: white;
+    margin: 5px;
+    padding: 0;
 }
 
 input[type=text] {
@@ -27,6 +29,10 @@ a {
 .logo {
     font-family: 'Arial Black';
     font-size: 40px;
+    margin-bottom: 10px;
+}
+.logo .last{
+    opacity: 0.2;
 }
 
 .warning {
@@ -51,6 +57,10 @@ a {
 
 .grey {
     color: #ccc;
+}
+
+.lightgrey{
+    color: #aaa;
 }
 
 .cline {

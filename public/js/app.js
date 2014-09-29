@@ -38,13 +38,13 @@
     }
 
     App.setLogo = function() {
-        var initColors = ["#32CCFE","#5D7BB9","#DD77D3","#2ecc71","#e67e22","#019fde"]; // S P L A S H
+        var initColors = ["#e74c3c","#e67e22","#019fde",  "#dd77d3"]; // t y p e
         function _set(initial) {
-            $(".logo span").each(function(i) {
+            $('.logo span').not('.last').each(function(i) {
                 var rnd = Math.random();
                 $(this).css({
                     "color"            : initial ? initColors[i] : 'hsla(' + Math.floor(rnd * 360) + ',' + (Math.floor(rnd * 50) + 50) + '%,50%,'+((rnd * 1) + 0.3)+')',
-                    "letter-spacing"   : initial ? "-21px" : -(Math.floor(rnd * 30) + 15)
+                    "letter-spacing"   : initial ? "-20px" : -(Math.floor(rnd * 30) + 15)
                 })
             });
         }
@@ -119,6 +119,7 @@
             $('.chat').prepend("<p class='cline grey'>"+App.HtmlEncode(arr[i]["usage"])+" <span class='lightgreen'>"+App.HtmlEncode(arr[i]["example"])+"</span></p>");
         }
         $('.chat').prepend("<p class='cline orange'>Available Commands:</p>");
+        $("input").val("");
     }
 
     App.print = function() {
