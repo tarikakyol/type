@@ -186,7 +186,7 @@
         if (title)
             document.title = title;
         else
-            document.title = "SPLASH Chat";
+            document.title = "type";
     }
 
     App.getUrlParam = function (sParam) {
@@ -232,7 +232,7 @@
     App.handleNewMessage = function() {
         document.hidden && App.notify(App.chat[App.chat.length-1][0] + ": " + App.chat[App.chat.length-1][1]);
         App.audio.play();
-        App.setTitle("(1) SPLASH Chat");
+        App.setTitle("(1) type");
     }
 
     App.redirectToChannel = function(channelName) {
