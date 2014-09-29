@@ -314,7 +314,7 @@
             App.error();
             return;
         }
-        this.media.name = data.title,
+        this.media.name = data.title;
         $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + "</p>");
         if(this.media.binary != null) this.media.binary.pause();
 
@@ -332,11 +332,22 @@
             $(this.media.binary).append(source);
 
         }else{
-            this.media.binary = new Audio('/stream?title='+App.strip(data.title));
-            this.media.binary.play();
-            this.media.binary.addEventListener('ended', function(){
-                console.log("ENDED: there are "+data.count+" more songs in this album.");
-            });
+            // if there's more than 1 file (which is possibly an album) play recursively
+            if(data.count > 1){
+                data.where = data.where ? data.where+1 : 1;
+                this.media.binary = new Audio('/stream?title='+App.strip(data.title)+'&number='+data.where);
+                this.media.binary.play();
+                if(data.count > data.where){
+                    this.media.binary.addEventListener('ended', function(){
+                        App.play(data);
+                    });
+                }else{
+                    (".chat").prepend("<p class='cline green'>Album: " + this.media.name + " finished.</p>");
+                }
+            }else{
+                this.media.binary = new Audio('/stream?title='+App.strip(data.title));
+                this.media.binary.play();
+            }
         }
     }
     App.resume = function(){
