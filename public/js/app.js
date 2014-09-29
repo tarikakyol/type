@@ -315,7 +315,9 @@
             return;
         }
         this.media.name = data.title;
-        $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + "</p>");
+        if(data.where) $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + " - " + data.where + "</p>");
+        else $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + "</p>");
+        
         if(this.media.binary != null) this.media.binary.pause();
 
         if(data.category == "Movies"){
