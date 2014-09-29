@@ -27,7 +27,7 @@ a {
 }
 
 .logo {
-    font-family: 'Arial Black';
+    font-family: "Arial Black", Gadget, sans-serif;
     font-size: 40px;
     margin-bottom: 10px;
 }
