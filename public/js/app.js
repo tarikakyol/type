@@ -369,12 +369,18 @@
         if(this.media){
             this.media.where = this.media.where ? this.media.where+1 : 1
             App.play(this.media);
+            $("input").val("");
+        }else{
+            App.error();
         }
     }
     App.previous = function(){
         if(this.media){
             this.media.where = this.media.where > 2 ? this.media.where-1 : 1
             App.play(this.media);
+            $("input").val("");
+        }else{
+            App.error();
         }
     }
     App.resume = function(){
