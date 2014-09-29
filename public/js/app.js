@@ -8,8 +8,7 @@
             binary: null
         },
         chat: [],
-        chatTotalLen: 0,
-        chatOthersLen: 0,
+        chatLen: 0,
         channel: null,
         online: [],
         history: [],
@@ -139,16 +138,17 @@
         $("input").val("");
     }
 
-    App.print = function() {
+    App.print = function(data) {
+        var dif = data.chatLen - App.chatLen;
 
-        if(typeof(App.chat) == "undefined" || App.chat.length < 1) return;
-
-        var i = App.chatTotalLen;
-        for (i; i < App.chat.length; i++) {
-            var color = App.chat[i][2];
-            $('.chat').prepend("<p class='cline' style='color:" + color + "'>" +
-                App.chat[i][0] + ": " + App.processText(App.chat[i][1]) +
+        if(dif != 0){
+            var start = data.chat.length-dif < 0 ? 0 : data.chat.length-dif;
+            for(i = start; i<data.chat.length; i++){
+                $('.chat').prepend("<p class='cline' style='color:" + data.chat[i][2] + "'>" +
+                data.chat[i][0] + ": " + App.processText(data.chat[i][1]) +
                 "</p>");
+            }
+            App.chatLen = data.chatLen;
         }
     }
 
@@ -220,27 +220,17 @@
 
     App.handleMessage = function(data) {
         App.online = data.online;
-        App.chat = data.chat;
-        App.print();
+        App.checkNewMessage(data);
+        App.print(data);
         App.renderOnline();
-        App.checkNewMessage();
     }
 
-    App.checkNewMessage = function() {
-        var counter = 0, nick = App.getNickName();
-        App.chatTotalLen = App.chat.length;
-        $.each(App.chat, function(i,v) {
-            if (v[0] != nick)
-              counter++;
-        });
-        if (counter > App.chatOthersLen) {
-            App.chatOthersLen > 0 && App.handleNewMessage();
-            App.chatOthersLen = counter;
-        }
+    App.checkNewMessage = function(data) {
+        if(data.chatLen > App.chatLen && App.chatLen > 0 && data.chat[data.chat.length-1][0] != App.getNickName()) App.handleNewMessage(data.chat);
     }
 
-    App.handleNewMessage = function() {
-        document.hidden && App.notify(App.chat[App.chat.length-1][0] + ": " + App.chat[App.chat.length-1][1]);
+    App.handleNewMessage = function(chat) {
+        document.hidden && App.notify(chat[chat.length-1][0] + ": " + chat[chat.length-1][1]);
         App.audio.play();
         App.setTitle("(1) type");
     }

@@ -341,10 +341,13 @@ io.on('connection', function(socket){
         }
 
         // setInterval(function() {
-            //data = data.slice(Math.max(data.length - 100, 1)); // get the last 100 lines of chat
+            var chatArray = chat[channel];
+            var chatLen = chatArray.length;
+            chatArray = chatArray.slice(Math.max(chat[channel].length - 100, 0)); // get the last 100 lines of chat
             io.to(socket.id).emit('message', {
                 online: online[channel],
-                chat: chat[channel]
+                chat: chatArray,
+                chatLen: chatLen
             });
         // }, 1000);
     });
