@@ -112,7 +112,7 @@
 
         if(flag && words[0].indexOf("/") != -1){
             flag = false;
-            $('.chat').prepend("<p class='cline warning'>Invalid Command. Type /help to see availalbe commands and features.</p>");
+            $('.chat').prepend("<p class='cline warning'>Invalid Command. Type /help to see available commands and features.</p>");
             $("input").val("");
         }
 
