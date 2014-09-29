@@ -315,12 +315,12 @@
             return;
         }
         this.media.name = data.title;
-        if(data.where) $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + " - " + data.where + "</p>");
-        else $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + "</p>");
         
         if(this.media.binary != null) this.media.binary.pause();
 
         if(data.category == "Movies"){
+
+            $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + "</p>");
 
             this.media.binary = document.createElement('video');
             $(this.media.binary).attr('width', '640');
@@ -337,6 +337,7 @@
             // if there's more than 1 file (which is possibly an album) play recursively
             if(data.count > 1){
                 data.where = data.where ? data.where+1 : 1;
+                $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + " - " + data.where + "</p>");
                 this.media.binary = new Audio('/stream?title='+App.strip(data.title)+'&number='+data.where);
                 this.media.binary.play();
                 if(data.count > data.where){
@@ -347,6 +348,7 @@
                     (".chat").prepend("<p class='cline green'>Album: " + this.media.name + " finished.</p>");
                 }
             }else{
+                $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + " - " + data.where + "</p>");
                 this.media.binary = new Audio('/stream?title='+App.strip(data.title));
                 this.media.binary.play();
             }
