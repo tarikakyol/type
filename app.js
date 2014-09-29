@@ -116,8 +116,7 @@ var searchMedia = function(query, callback){
                     var files = parseTorrent(fs.readFileSync(filename)).files;
                     var extFound = false;
                     for(f=0;f<files.length;f++){
-                        var ext = getExtension(files[f].name).toLowerCase();
-                        if(ext == ".mp4" || ext == ".mp3" || ext == ".m4a"){
+                        if(getExtension(files[f].name)){
                             extFound = true;
                             callback(filename, torrents[i].title, torrents[i].category);
                             return;
@@ -155,14 +154,18 @@ var downloadMedia = function(title, filename, callback){
     var piecesLen = engine[stripedTitle].torrent.pieces.length;
     var piecesCounter = 1;
     var invalid = 0;
+    var fileCount = 0;
 
     engine[stripedTitle].files.forEach(function(file) {
-        file.select();
+        if(getExtension(file.name)){
+            file.select();
+            fileCount++;
+        }
     });
 
     engine[stripedTitle].on('ready', function() {
         console.log('engine ready');
-        callback(true);
+        callback(true, fileCount);
     });
 
     engine[stripedTitle].on('error', function() {
@@ -172,7 +175,7 @@ var downloadMedia = function(title, filename, callback){
 
     engine[stripedTitle].on('invalid-piece', function() {
         invalid++;
-        console.log(invalid);
+        console.log(invalid + '. INVALID');
     });
 
     engine[stripedTitle].on('download', function(index){
@@ -191,10 +194,13 @@ var downloadMedia = function(title, filename, callback){
 }
 
 function getExtension(url) {
-    return (url = url.substr(1 + url.lastIndexOf("/")).split('?')[0]).substr(url.lastIndexOf("."))
+    url = url.toLowerCase();            
+    var ext = (url.substr(1 + url.lastIndexOf("/")).split('?')[0]).substr(url.lastIndexOf("."))
+    if(ext == ".mp4" || ext == ".mp3" || ext == ".m4a") return true
+    else return false
 }
 
-// searchMedia("Pharrell video", function(filename, title, category){
+// searchMedia("Pharrell Williams - G I R L", function(filename, title, category){
 //             if(filename == false){
 //                 console.log("FALSE");
 //                 return;
@@ -228,11 +234,17 @@ app.get("/stream", function(req,res){
 
     var eng = engine[req.query.title];
     // get the biggest file (which is possibly mp3 or mp4);
-    var index = eng.files.reduce(function(a, b) {
-        return a.length > b.length ? a : b;
+    // var index = eng.files.reduce(function(a, b) {
+    //     return a.length > b.length ? a : b;
+    // });
+    
+    // get file randomly
+    var suitableFiles = [];
+    eng.files.map(function(e) {
+        if(getExtension(e.name)) suitableFiles.push(e);
     });
-    index = eng.files.indexOf(index);
-    var file = eng.files[index];
+    var number = req.query.number ? req.query.number-1 : Math.floor(Math.random() * suitableFiles.length);
+    var file = suitableFiles[number];
     var range = req.headers.range;
 
     // console.log((eng.swarm.downloadSpeed()/1024)+'KB/s');
@@ -343,9 +355,10 @@ io.on('connection', function(socket){
                 io.to(socket.id).emit('play', false);
                 return;
             }
-            downloadMedia(title, filename, function(status){
+            downloadMedia(title, filename, function(status,fileCount){
                 if(status){
                     var file = {};
+                    file.count = fileCount;
                     file.category = category;
                     file.title = title;
                     io.to(socket.id).emit('play', file);

@@ -311,8 +311,7 @@
 
     App.play = function(data){
         if(data == false){
-            $(".chat").prepend("<p class='cline warning'>Errör: Could not get that!</p>");
-            $("input").val("");
+            App.error();
             return;
         }
         this.media.name = data.title,
@@ -335,6 +334,9 @@
         }else{
             this.media.binary = new Audio('/stream?title='+App.strip(data.title));
             this.media.binary.play();
+            this.media.binary.addEventListener('ended', function(){
+                console.log("ENDED: there are "+data.count+" more songs in this album.");
+            });
         }
     }
     App.resume = function(){
@@ -375,7 +377,7 @@
     }
     App.getTranslated = function(text){
         if(text) $(".chat").prepend("<p class='cline green'>" + text + "</p>");
-        else $(".chat").prepend("<p class='cline warning'>Errör: Could not get that!</p>");
+        else App.error();
     }
 
     App.setupSocketio = function(){
@@ -416,6 +418,11 @@
 
     App.sendSocketMessage = function(message, params){
         App.socket.emit(message, params);
+    }
+
+    App.error = function(message){
+        $(".chat").prepend("<p class='cline warning'>Errör: Could not get that!</p>");
+        $("input").val("");
     }
 
     App.init = function() {
