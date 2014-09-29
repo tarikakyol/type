@@ -43,7 +43,7 @@
             $('.logo span').not('.last').each(function(i) {
                 var rnd = Math.random();
                 $(this).css({
-                    "color"            : initial ? initColors[i] : 'hsla(' + Math.floor(rnd * 360) + ',' + (Math.floor(rnd * 50) + 50) + '%,50%,'+((rnd * 1) + 0.3)+')',
+                    "color"            : initial ? initColors[i] : 'hsla(' + Math.floor(rnd * 360) + ',' + (Math.floor(rnd * 50) + 50) + '%,50%,'+ (rnd + 0.3) +')',
                     "letter-spacing"   : initial ? "-20px" : -(Math.floor(rnd * 30) + 15)
                 })
             });
