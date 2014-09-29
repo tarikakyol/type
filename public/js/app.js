@@ -346,12 +346,13 @@
         }else{
             // if there's more than 1 file (which is possibly an album) play recursively
             if(data.count > 1){
-                data.where = data.where ? data.where+1 : 1;
+                data.where = data.where ? data.where : 1;
                 $(".chat").prepend("<p class='cline green'>Playing: " + this.media.title + " - " + data.where + "</p>");
                 this.media.binary = new Audio('/stream?title='+App.strip(data.title)+'&number='+data.where);
                 this.media.binary.play();
                 if(data.count > data.where){
                     this.media.binary.addEventListener('ended', function(){
+                        data.where++;
                         App.play(data);
                     });
                 }else{
@@ -372,7 +373,7 @@
     }
     App.previous = function(){
         if(this.media){
-            this.media.where = this.media.where > 1 ? this.media.where-1 : 1
+            this.media.where = this.media.where > 2 ? this.media.where-1 : 1
             App.play(this.media);
         }
     }
