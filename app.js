@@ -358,7 +358,8 @@ io.on('connection', function(socket){
 
     socket.on('translate', function(data){
         translate(data.text, { to: data.lang, key: yandexKey }, function(err, res) {
-            io.to(socket.id).emit('translate', res.text);
+            if(data.text == res.text) io.to(socket.id).emit('translate', null);
+            else io.to(socket.id).emit('translate', res.text);
         });
     })
 

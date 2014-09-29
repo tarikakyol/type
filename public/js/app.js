@@ -22,7 +22,7 @@
             {name: "/play", usage: "/play <song or movie name>", example: "to play a song or movie type e.g. /play matrix"},
             {name: "/pause", usage: "/pause", example: "to pause playing media type /pause"},
             {name: "/continue", usage: "/continue", example: "to continue paused media type /continue"},
-            {name: "/translate", usage: "/translate <language> <text>", example: "to translate words or sentences into another language type e.g. /translate es hello"}
+            {name: "/translate", usage: "/translate <language> <text>", example: "to translate words or sentences into another language type e.g. /translate german hello"}
         ]
     }
 
@@ -367,7 +367,8 @@
         });
     }
     App.getTranslated = function(text){
-        $(".chat").prepend("<p class='cline green'>" + text + "</p>");
+        if(text) $(".chat").prepend("<p class='cline green'>" + text + "</p>");
+        else $(".chat").prepend("<p class='cline warning'>Errör: Could not get that!</p>");
     }
 
     App.setupSocketio = function(){
