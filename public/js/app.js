@@ -22,6 +22,8 @@
             {name: "/play", alias:'/p', usage: "/play <song or movie name>", example: "to play a song or movie type e.g. /play matrix"},
             {name: "/pause", alias:'/pa', usage: "/pause", example: "to pause playing media type /pause"},
             {name: "/continue", alias:'/con', usage: "/continue", example: "to continue paused media type /continue"},
+            {name: "/next", alias:'/ne', usage: "/next", example: "to pass a song in album type /next"},
+            {name: "/previous", alias:'/pre', usage: "/previous", example: "to go one song back in album type /previous"},
             {name: "/translate", alias:'/tr', usage: "/translate <language> <text>", example: "to translate words or sentences into another language type e.g. /translate german hello"}
         ]
     }
@@ -105,6 +107,14 @@
                 flag = false;
                 break;
             case 7:
+                App.next();
+                flag = false;
+                break;
+            case 8:
+                App.previous();
+                flag = false;
+                break;
+            case 9:
                 App.translate(words[1],v.replace(words[0]+" "+words[1],""));
                 flag = false;
                 break;
@@ -314,13 +324,13 @@
             App.error();
             return;
         }
-        this.media.name = data.title;
+        this.media = data;
         
         if(this.media.binary != null) this.media.binary.pause();
 
         if(data.category == "Movies"){
 
-            $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + "</p>");
+            $(".chat").prepend("<p class='cline green'>Playing: " + this.media.title + "</p>");
 
             this.media.binary = document.createElement('video');
             $(this.media.binary).attr('width', '640');
@@ -337,7 +347,7 @@
             // if there's more than 1 file (which is possibly an album) play recursively
             if(data.count > 1){
                 data.where = data.where ? data.where+1 : 1;
-                $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + " - " + data.where + "</p>");
+                $(".chat").prepend("<p class='cline green'>Playing: " + this.media.title + " - " + data.where + "</p>");
                 this.media.binary = new Audio('/stream?title='+App.strip(data.title)+'&number='+data.where);
                 this.media.binary.play();
                 if(data.count > data.where){
@@ -345,19 +355,31 @@
                         App.play(data);
                     });
                 }else{
-                    (".chat").prepend("<p class='cline green'>Album: " + this.media.name + " finished.</p>");
+                    (".chat").prepend("<p class='cline green'>Album: " + this.media.title + " finished.</p>");
                 }
             }else{
-                $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + "</p>");
+                $(".chat").prepend("<p class='cline green'>Playing: " + this.media.title + "</p>");
                 this.media.binary = new Audio('/stream?title='+App.strip(data.title));
                 this.media.binary.play();
             }
         }
     }
+    App.next = function(){
+        if(this.media){
+            this.media.where = this.media.where ? this.media.where+1 : 1
+            App.play(this.media);
+        }
+    }
+    App.previous = function(){
+        if(this.media){
+            this.media.where = this.media.where > 1 ? this.media.where-1 : 1
+            App.play(this.media);
+        }
+    }
     App.resume = function(){
         this.media.binary.play();
         $("input").val("");
-        $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + "</p>");
+        $(".chat").prepend("<p class='cline green'>Playing: " + this.media.title + "</p>");
     }
     App.pause = function(){
         $(".chat").prepend("<p class='cline green'>Paused</p>");
