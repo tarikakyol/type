@@ -15,14 +15,14 @@
         history: [],
         historyNo: 0,
         commands: [
-            {name: "/help", usage: "/help", example: "to get command list and features type /help"},
-            {name: "/color", usage: "/color <color name>", example: "to change color type e.g. /color pink or /color #454545"},
-            {name: "/name", usage: "/name <nick name>", example: "to change nick name type e.g. /name neo"},
-            {name: "/channel", usage: "/channel <channel name>", example: "to open or change channel type e.g. /channel zion"},
-            {name: "/play", usage: "/play <song or movie name>", example: "to play a song or movie type e.g. /play matrix"},
-            {name: "/pause", usage: "/pause", example: "to pause playing media type /pause"},
-            {name: "/continue", usage: "/continue", example: "to continue paused media type /continue"},
-            {name: "/translate", usage: "/translate <language> <text>", example: "to translate words or sentences into another language type e.g. /translate german hello"}
+            {name: "/help", alias:'/h', usage: "/help", example: "to get command list and features type /help"},
+            {name: "/color", alias:'/c', usage: "/color <color name>", example: "to change color type e.g. /color pink or /color #454545"},
+            {name: "/name", alias:'/n', usage: "/name <nick name>", example: "to change nick name type e.g. /name neo"},
+            {name: "/channel", alias:'/ch', usage: "/channel <channel name>", example: "to open or change channel type e.g. /channel zion"},
+            {name: "/play", alias:'/p', usage: "/play <song or movie name>", example: "to play a song or movie type e.g. /play matrix"},
+            {name: "/pause", alias:'/pa', usage: "/pause", example: "to pause playing media type /pause"},
+            {name: "/continue", alias:'/con', usage: "/continue", example: "to continue paused media type /continue"},
+            {name: "/translate", alias:'/tr', usage: "/translate <language> <text>", example: "to translate words or sentences into another language type e.g. /translate german hello"}
         ]
     }
 
@@ -72,7 +72,7 @@
     App.checkCommands = function(v) {
         var words = v.split(" "),
             flag = true,
-            index = app.commands.map(function(e) {return e["name"]}).indexOf(words[0]);
+            index = app.commands.map(function(e) {return e["name"]}).indexOf(words[0]) != -1 ? app.commands.map(function(e) {return e["name"]}).indexOf(words[0]) : app.commands.map(function(e) {return e["alias"]}).indexOf(words[0]);
 
         switch(index) {
             case 0:
