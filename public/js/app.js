@@ -348,7 +348,7 @@
                     (".chat").prepend("<p class='cline green'>Album: " + this.media.name + " finished.</p>");
                 }
             }else{
-                $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + " - " + data.where + "</p>");
+                $(".chat").prepend("<p class='cline green'>Playing: " + this.media.name + "</p>");
                 this.media.binary = new Audio('/stream?title='+App.strip(data.title));
                 this.media.binary.play();
             }
