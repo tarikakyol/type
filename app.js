@@ -14,6 +14,13 @@ var pump = require('pump');
 var translate = require('yandex-translate');
 var yandexKey = "trnsl.1.1.20140928T084357Z.e68643d2e599cc5d.921754f6ad7384549c890fb0d45d89bf50c4382f";
 
+// var yandex = require('yandex-search');
+// var myXmlUrl = 'http://xmlsearch.yandex.com/xmlsearch?l10n=en&user=trkaky&key=03.279966617:64d42453f1621d90fb5662a3ff71b2ce';
+// yandex({url: myXmlUrl, query: 'Node.js'}, function(err, xmlResults) {
+//     console.log(xmlResults);
+//   // do cool stuff
+// })
+
 // prevent Heroku from idling by requesting self in periods
 var request = require('request');
 var minutes = 30;

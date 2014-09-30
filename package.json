@@ -11,6 +11,7 @@
     "request": "~2.36.0",
     "socket.io": "^1.1.0",
     "torget": "0.0.5",
+    "yandex-search": "0.0.1",
     "yandex-translate": "^1.0.1"
   },
   "description": "Splash chat",
