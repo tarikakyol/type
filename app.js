@@ -69,7 +69,16 @@ var setColor = function(nick, color) {
 
 var sendMessage = function(data) {
     if (typeof chat[data.channel] != "undefined"){
-        chat[data.channel].push([escapeHtml(data.nick), processText(data.text), colors[data.nick]]);
+        chat[data.channel].push([processText(data.nick), processText(data.text), colors[data.nick]]);
+        mc.set(data.channel, JSON.stringify(chat[data.channel]));
+    }
+}
+
+var sendSystemMessage = function(data, message){
+    setColor("bot");
+    data.nick = "bot";
+    if (typeof chat[data.channel] != "undefined"){
+        chat[data.channel].push([data.nick, message, colors[data.nick]]);
         mc.set(data.channel, JSON.stringify(chat[data.channel]));
     }
 }
@@ -316,10 +325,7 @@ io.on('connection', function(socket){
     socket.on('setnick', function(data){
         if(!data.oldNick || !data.newNick) return;
         online = {};
-        setColor("bot");
-        data.nick = "bot";
-        data.text = data.oldNick + " changed nickname to " + data.newNick;
-        sendMessage(data);
+        sendSystemMessage(data, data.oldNick + " changed nickname to " + data.newNick);
     });
 
     socket.on('fetch', function(data){
@@ -365,6 +371,7 @@ io.on('connection', function(socket){
                     file.category = category;
                     file.title = title;
                     io.to(socket.id).emit('play', file);
+                    sendSystemMessage(data, data.nick + " playing " + title);
                 }else{
                     io.to(socket.id).emit('play', false);
                 }

@@ -3,10 +3,7 @@
     var App = {
         //ws: new WebSocket(location.origin.replace(/^http/, "ws")),
         audio: new Audio("public/misc/audio.wav"),
-        media: {
-            name: null,
-            binary: null
-        },
+        media: {},
         chat: [],
         chatLen: 0,
         channel: null,
@@ -23,7 +20,7 @@
             {name: "/pause", alias:'/pa', usage: "/pause", example: "to pause playing media type /pause"},
             {name: "/continue", alias:'/con', usage: "/continue", example: "to continue paused media type /continue"},
             {name: "/next", alias:'/ne', usage: "/next", example: "to pass a song in album type /next"},
-            {name: "/previous", alias:'/pre', usage: "/previous", example: "to go one song back in album type /previous"},
+            {name: "/previous", alias:'/prev', usage: "/prev", example: "to go one song back in album type /prev"},
             {name: "/translate", alias:'/tr', usage: "/translate <language> <text>", example: "to translate words or sentences into another language type e.g. /translate german hello"}
         ]
     }
@@ -242,6 +239,7 @@
     App.handleNewMessage = function(chat) {
         document.hidden && App.notify(chat[chat.length-1][0] + ": " + chat[chat.length-1][1]);
         App.audio.play();
+
         App.setTitle("(1) type");
     }
 
@@ -315,7 +313,9 @@
         $(".chat").prepend("<p class='cline green'>Loading: " + query + "</p>");
         $("input").val("");
         App.sendSocketMessage('play', {
-            query: query
+            query: query,
+            channel: App.channel,
+            nick: App.getNickName()
         });
     }
 
@@ -324,13 +324,13 @@
             App.error();
             return;
         }
-        this.media = data;
+        this.media.data = data;
         
         if(this.media.binary != null) this.media.binary.pause();
 
-        if(data.category == "Movies"){
+        if(this.media.data.category == "Movies"){
 
-            $(".chat").prepend("<p class='cline green'>Playing: " + this.media.title + "</p>");
+            $(".chat").prepend("<p class='cline green'>Playing: " + this.media.data.title + "</p>");
 
             this.media.binary = document.createElement('video');
             $(this.media.binary).attr('width', '640');
@@ -339,45 +339,43 @@
             $(this.media.binary).attr('autoplay', ' ');
             source = document.createElement('source');
             $(source).attr('type', 'video/mp4');
-            $(source).attr('src', '/stream?title='+App.strip(data.title));
+            $(source).attr('src', '/stream?title='+App.strip(this.media.data.title));
             $(".chat").prepend(this.media.binary);
             $(this.media.binary).append(source);
 
         }else{
             // if there's more than 1 file (which is possibly an album) play recursively
-            if(data.count > 1){
-                data.where = data.where ? data.where : 1;
-                $(".chat").prepend("<p class='cline green'>Playing: " + this.media.title + " - " + data.where + "</p>");
-                this.media.binary = new Audio('/stream?title='+App.strip(data.title)+'&number='+data.where);
+            if(this.media.data.count > 1){
+                this.media.data.where = this.media.data.where ? this.media.data.where : 1;
+                $(".chat").prepend("<p class='cline green'>Playing: " + this.media.data.title + " - " + this.media.data.where + "</p>");
+                this.media.binary = new Audio('/stream?title='+App.strip(this.media.data.title)+'&number='+this.media.data.where);
                 this.media.binary.play();
-                if(data.count > data.where){
+                if(this.media.data.count > this.media.data.where){
                     this.media.binary.addEventListener('ended', function(){
-                        data.where++;
-                        App.play(data);
+                        this.media.data.where++;
+                        App.play(this.media.data);
                     });
-                }else{
-                    (".chat").prepend("<p class='cline green'>Album: " + this.media.title + " finished.</p>");
                 }
             }else{
-                $(".chat").prepend("<p class='cline green'>Playing: " + this.media.title + "</p>");
-                this.media.binary = new Audio('/stream?title='+App.strip(data.title));
+                $(".chat").prepend("<p class='cline green'>Playing: " + this.media.data.title + "</p>");
+                this.media.binary = new Audio('/stream?title='+App.strip(this.media.data.title));
                 this.media.binary.play();
             }
         }
     }
     App.next = function(){
-        if(this.media){
-            this.media.where = this.media.where ? this.media.where+1 : 1
-            App.play(this.media);
+        if(this.media.binary){
+            this.media.data.where = this.media.data.where < this.media.data.count ? this.media.data.where + 1 : 1
+            App.play(this.media.data);
             $("input").val("");
         }else{
             App.error();
         }
     }
     App.previous = function(){
-        if(this.media){
-            this.media.where = this.media.where > 2 ? this.media.where-1 : 1
-            App.play(this.media);
+        if(this.media.binary){
+            this.media.data.where = this.media.data.where > 1 ? this.media.data.where-1 : this.media.data.count
+            App.play(this.media.data);
             $("input").val("");
         }else{
             App.error();
@@ -386,7 +384,7 @@
     App.resume = function(){
         this.media.binary.play();
         $("input").val("");
-        $(".chat").prepend("<p class='cline green'>Playing: " + this.media.title + "</p>");
+        $(".chat").prepend("<p class='cline green'>Playing: " + this.media.data.title + "</p>");
     }
     App.pause = function(){
         $(".chat").prepend("<p class='cline green'>Paused</p>");
