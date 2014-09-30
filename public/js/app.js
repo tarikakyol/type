@@ -15,8 +15,9 @@
         historyNo: 0,
         commands: [
             {name: "/help", alias:'/h', usage: "/help", example: "to get command list and features type /help"},
-            {name: "/color", alias:'/c', usage: "/color <color name>", example: "to change color type e.g. /color pink or /color #454545"},
+            {name: "/clear", alias:'cl', usage: '/clear', example: 'to clean out chat window type /clear'},
             {name: "/name", alias:'/n', usage: "/name <nick name>", example: "to change nick name type e.g. /name neo"},
+            {name: "/color", alias:'/c', usage: "/color <color name>", example: "to change color type e.g. /color pink or /color #454545"},
             {name: "/channel", alias:'/ch', usage: "/channel <channel name>", example: "to open or change channel type e.g. /channel zion"},
             {name: "/play", alias:'/p', usage: "/play <song or movie name>", example: "to play a song or movie type e.g. /play matrix"},
             {name: "/pause", alias:'/pa', usage: "/pause", example: "to pause playing media type /pause"},
@@ -81,8 +82,7 @@
                 flag = false;
                 break;
             case 1:
-                var color = words[1];
-                App.setColor(color);
+                App.clear();
                 flag = false;
                 break;
             case 2:
@@ -90,30 +90,35 @@
                 flag = false;
                 break;
             case 3:
-                App.redirectToChannel(words[1]);
+                var color = words[1];
+                App.setColor(color);
                 flag = false;
                 break;
             case 4:
-                App.retrieveMedia(v.replace(words[0],""));
+                App.redirectToChannel(words[1]);
                 flag = false;
                 break;
             case 5:
-                App.pause();
+                App.retrieveMedia(v.replace(words[0],""));
                 flag = false;
                 break;
             case 6:
-                App.resume();
+                App.pause();
                 flag = false;
                 break;
             case 7:
-                App.next();
+                App.resume();
                 flag = false;
                 break;
             case 8:
-                App.previous();
+                App.next();
                 flag = false;
                 break;
             case 9:
+                App.previous();
+                flag = false;
+                break;
+            case 10:
                 App.translate(words[1],v.replace(words[0]+" "+words[1],""));
                 flag = false;
                 break;
@@ -126,6 +131,10 @@
         }
 
         return flag;
+    }
+
+    App.clear = function(){
+        $('.chat').empty();
     }
 
     App.printCommands = function(){
