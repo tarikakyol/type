@@ -15,7 +15,7 @@
         historyNo: 0,
         commands: [
             {name: "/help", alias:'/h', usage: "/help", example: "to get command list and features type /help"},
-            {name: "/clear", alias:'cl', usage: '/clear', example: 'to clean out chat window type /clear'},
+            {name: "/clear", alias:'/cl', usage: '/clear', example: 'to clean out chat window type /clear'},
             {name: "/name", alias:'/n', usage: "/name <nick name>", example: "to change nick name type e.g. /name neo"},
             {name: "/color", alias:'/c', usage: "/color <color name>", example: "to change color type e.g. /color pink or /color #454545"},
             {name: "/channel", alias:'/ch', usage: "/channel <channel name>", example: "to open or change channel type e.g. /channel zion"},
