@@ -135,6 +135,7 @@
 
     App.clear = function(){
         $('.chat').empty();
+        $("input").val("");
     }
 
     App.printCommands = function(){
