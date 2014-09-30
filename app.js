@@ -371,7 +371,7 @@ io.on('connection', function(socket){
                     file.category = category;
                     file.title = title;
                     io.to(socket.id).emit('play', file);
-                    sendSystemMessage(data, data.nick + " playing " + title);
+                    sendSystemMessage(data, data.nick + " is playing " + title);
                 }else{
                     io.to(socket.id).emit('play', false);
                 }
