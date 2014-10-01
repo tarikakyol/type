@@ -419,7 +419,9 @@
         $("input").val("");
         App.sendSocketMessage('translate', {
             lang: lang,
-            text: text
+            text: text,
+            channel: App.channel,
+            nick: App.getNickName()
         });
     }
     App.getTranslated = function(text){
@@ -431,7 +433,9 @@
         $(".chat").prepend("<p class='cline green'>Searching: " + query + "</p>");
         $("input").val("");
         App.sendSocketMessage('search', {
-            query: query
+            query: query,
+            channel: App.channel,
+            nick: App.getNickName()
         });
     }
 

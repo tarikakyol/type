@@ -380,14 +380,21 @@ io.on('connection', function(socket){
 
     socket.on('translate', function(data){
         translate(data.text, { to: data.lang, key: yandexKey }, function(err, res) {
-            if(data.text == res.text) io.to(socket.id).emit('translate', null);
-            else io.to(socket.id).emit('translate', res.text);
+            if(data.text == res.text){
+                io.to(socket.id).emit('translate', null);
+            }else {
+                io.to(socket.id).emit('translate', res.text);
+                sendSystemMessage(data, data.nick + " requested translation for " + data.text);
+            }
         });
     })
 
     socket.on('search', function(data){
         Bing.search(data.query, function(error, res, body){
-            if(body.d.results.length > 0) io.to(socket.id).emit('search', body.d.results[0]);
+            if(body.d.results.length > 0){
+                io.to(socket.id).emit('search', body.d.results[0]);
+                sendSystemMessage(data, data.nick + " searched for " + data.query);
+            }
             else io.to(socket.id).emit('search', null);
         });
     });
