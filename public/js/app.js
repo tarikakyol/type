@@ -436,7 +436,7 @@
     }
 
     App.getSearched = function(data){
-        if(data) $(".chat").prepend("<p class='cline green'><a href='"+data.Url+"'>" + data.DisplayUrl + "</a></p>");
+        if(data) $(".chat").prepend("<p class='cline green'>Result: <a href='"+data.Url+"'>" + data.DisplayUrl + "</a></p>");
         else App.error();
     }
 
