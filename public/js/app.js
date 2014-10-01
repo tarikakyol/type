@@ -21,7 +21,8 @@
             {name: "/continue", alias:'/con', usage: "/continue", example: "to continue paused media type /continue"},
             {name: "/next", alias:'/ne', usage: "/next", example: "to pass a song in album type /next"},
             {name: "/previous", alias:'/prev', usage: "/prev", example: "to go one song back in album type /prev"},
-            {name: "/translate", alias:'/tr', usage: "/translate <language> <text>", example: "to translate words or sentences into another language type e.g. /translate german hello"}
+            {name: "/translate", alias:'/tr', usage: "/translate <language> <text>", example: "to translate words or sentences into another language type e.g. /translate german hello"},
+            {name: "/get", alias:'/search', usage: "/get <query>", example: "to search and get the most properiate result over internet type e.g. /get wimbledon"}
         ]
     }
 
@@ -117,6 +118,10 @@
                 break;
             case 10:
                 App.translate(words[1],v.replace(words[0]+" "+words[1],""));
+                flag = false;
+                break;
+            case 11:
+                App.search(v.replace(words[0],""));
                 flag = false;
                 break;
         }
@@ -422,6 +427,19 @@
         else App.error();
     }
 
+    App.search = function(query){
+        $(".chat").prepend("<p class='cline green'>Searching: " + query + "</p>");
+        $("input").val("");
+        App.sendSocketMessage('search', {
+            query: query
+        });
+    }
+
+    App.getSearched = function(data){
+        if(data) $(".chat").prepend("<p class='cline green'><a href='"+data.Url+"'>" + data.DisplayUrl + "</a></p>");
+        else App.error();
+    }
+
     App.setupSocketio = function(){
         App.socket = io();
 
@@ -435,6 +453,10 @@
 
         App.socket.on('translate',function(data) {
             App.getTranslated(data);
+        });
+
+        App.socket.on('search',function(data) {
+            App.getSearched(data);
         });
 
         App.socket.on('connect',function() {

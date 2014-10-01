@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "binger": "^0.1.1",
     "express": "~3.10.4",
     "mime": "^1.2.11",
+    "node-bing-api": "^0.1.2",
     "parse-torrent": "^2.1.2",
     "pump": "^0.3.5",
     "range-parser": "^1.0.2",

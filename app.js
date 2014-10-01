@@ -13,16 +13,9 @@ var mime = require('mime');
 var pump = require('pump');
 var translate = require('yandex-translate');
 var yandexKey = "trnsl.1.1.20140928T084357Z.e68643d2e599cc5d.921754f6ad7384549c890fb0d45d89bf50c4382f";
+var Bing = require('node-bing-api')({ accKey: "19IufVLhOTxSR3Xu99I4v2PaxEalAkj+izHD1uMlgOg" });
 
-// var yandex = require('yandex-search');
-// var myXmlUrl = 'http://xmlsearch.yandex.com/xmlsearch?l10n=en&user=trkaky&key=03.279966617:64d42453f1621d90fb5662a3ff71b2ce';
-// yandex({url: myXmlUrl, query: 'Node.js'}, function(err, xmlResults) {
-//     console.log(xmlResults);
-//   // do cool stuff
-// })
 
-// prevent Heroku from idling by requesting self in periods
-var request = require('request');
 var minutes = 30;
 setInterval(function(){
    request.get("http://splashchat.herokuapp.com/ping");
@@ -34,7 +27,6 @@ var mc = memjs.Client.create();
 
 // Use static directory
 app.use("/public", express.static(__dirname + "/public"));
-
 // var mc = {
 //     get: function(a,b){b(null,null)},
 //     set: function(a,b){}
@@ -392,5 +384,12 @@ io.on('connection', function(socket){
             else io.to(socket.id).emit('translate', res.text);
         });
     })
+
+    socket.on('search', function(data){
+        Bing.search(data.query, function(error, res, body){
+            if(body.d.results.length > 0) io.to(socket.id).emit('search', body.d.results[0]);
+            else io.to(socket.id).emit('search', null);
+        });
+    });
 
 });
