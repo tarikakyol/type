@@ -22,7 +22,7 @@
             {name: "/next", alias:'/ne', usage: "/next", example: "to pass a song in album type /next"},
             {name: "/previous", alias:'/prev', usage: "/prev", example: "to go one song back in album type /prev"},
             {name: "/translate", alias:'/tr', usage: "/translate <language> <text>", example: "to translate words or sentences into another language type e.g. /translate german hello"},
-            {name: "/get", alias:'/search', usage: "/get <query>", example: "to search and get the most properiate result over internet type e.g. /get wimbledon"}
+            {name: "/get", alias:'/search', usage: "/get <query>", example: "to search and get the most appropriate result over internet type e.g. /get wimbledon"}
         ]
     }
 
