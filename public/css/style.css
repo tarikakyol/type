@@ -40,6 +40,10 @@ a {
     color: #e74c3c;
 }
 
+.lightred{
+    color: #EE7676;
+}
+
 .green {
     color: #2ecc71;
 }
@@ -48,12 +52,20 @@ a {
     color: #4A8864;
 }
 
+.lightergreen{
+    color: #83D1A4;
+}
+
 .white {
     color: white;
 }
 
 .orange {
     color: #e67e22;
+}
+
+.purple{
+    color: #9A7DE2;
 }
 
 .grey {
@@ -76,6 +88,7 @@ a {
 .hr {
     border-top: dashed 1px;
     padding-bottom: 5px;
+    color: #464646;
 }
 
 .logo span {

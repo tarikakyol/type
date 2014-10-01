@@ -42,46 +42,6 @@
       return s;
     }
 
-    App.setLogo = function() {
-        var initColors = ["#e74c3c","#e67e22","#019fde",  "#dd77d3"]; // t y p e
-        function _set(initial) {
-            $('.logo span').not('.last').each(function(i) {
-                var rnd = Math.random();
-                $(this).css({
-                    "color"            : initial ? initColors[i] : 'hsla(' + Math.floor(rnd * 360) + ',' + (Math.floor(rnd * 50) + 50) + '%,50%,'+ (rnd + 0.3) +')',
-                    "letter-spacing"   : initial ? "-20px" : -(Math.floor(rnd * 30) + 15)
-                })
-            });
-        }
-
-        _set(true)
-        setInterval(_set, 5000);
-    }
-
-    App.setSettings = function(){
-        if(localStorage.settings){
-            App.settings = JSON.parse(localStorage.settings);
-        }else{
-            localStorage.settings = JSON.stringify(App.settings);
-        }
-    }
-
-    App.post = function() {
-        var inputValue = $("input").val();
-
-        if (!inputValue || !(inputValue.replace(/\s/g, "").length) )
-          return false;
-        if (App.checkCommands(inputValue) == false)
-          return false;
-
-        App.sendSocketMessage('message', {
-            nick: App.getNickName(),
-            text: inputValue,
-            channel: App.channel
-        });
-        $("input").val("");
-    }
-
     App.checkCommands = function(v) {
         var words = v.split(" "),
             flag = true,
@@ -105,8 +65,7 @@
                 flag = false;
                 break;
             case 4:
-                var color = words[1];
-                App.setColor(color);
+                App.setColor(words[1]);
                 flag = false;
                 break;
             case 5:
@@ -152,6 +111,46 @@
         return flag;
     }
 
+    App.setLogo = function() {
+        var initColors = ["#e74c3c","#e67e22","#019fde",  "#dd77d3"]; // t y p e
+        function _set(initial) {
+            $('.logo span').not('.last').each(function(i) {
+                var rnd = Math.random();
+                $(this).css({
+                    "color"            : initial ? initColors[i] : 'hsla(' + Math.floor(rnd * 360) + ',' + (Math.floor(rnd * 50) + 50) + '%,50%,'+ (rnd + 0.3) +')',
+                    "letter-spacing"   : initial ? "-20px" : -(Math.floor(rnd * 30) + 15)
+                })
+            });
+        }
+
+        _set(true)
+        setInterval(_set, 5000);
+    }
+
+    App.setSettings = function(){
+        if(localStorage.settings){
+            App.settings = JSON.parse(localStorage.settings);
+        }else{
+            localStorage.settings = JSON.stringify(App.settings);
+        }
+    }
+
+    App.post = function() {
+        var inputValue = $("input").val();
+
+        if (!inputValue || !(inputValue.replace(/\s/g, "").length) )
+          return false;
+        if (App.checkCommands(inputValue) == false)
+          return false;
+
+        App.sendSocketMessage('message', {
+            nick: App.getNickName(),
+            text: inputValue,
+            channel: App.channel
+        });
+        $("input").val("");
+    }
+
     App.setNotifications = function(val){
         if(val == "on"){
             this.settings.notifications = true;
@@ -159,6 +158,8 @@
         }else if(val == "off"){
             this.settings.notifications = false;
             $(".chat").prepend("<p class='cline warning'>Notifications turned off.</p>");
+        }else{
+            App.error();
         }
         localStorage.settings = JSON.stringify(this.settings);
         $("input").val("");
@@ -194,13 +195,18 @@
     }
 
     App.setColor = function(color) {
-        $(".chat").prepend("<p class='cline warning'>Your color is now: " + color + "</p>");
-        color = color.replace("#", "hash");
-        App.sendSocketMessage('setcolor', {
-            nick: App.getNickName(),
-            color: color
-        });
-        $("input").val("");
+        if(color){
+            $(".chat").prepend("<p class='cline warning'>Your color is now: " + color + "</p>");
+            color = color.replace("#", "hash");
+            App.sendSocketMessage('setcolor', {
+                nick: App.getNickName(),
+                color: color
+            });
+            $("input").val("");
+        }else{
+            App.error();
+        }
+        
     }
 
     App.setNickName = function(nick) {
@@ -278,7 +284,8 @@
     }
 
     App.redirectToChannel = function(channelName) {
-        window.location.href = "/?c=" + channelName;
+        if(channelName) window.location.href = "/?c=" + channelName;
+        else App.error();
     }
 
 
@@ -344,17 +351,21 @@
     }
 
     App.retrieveMedia = function(query){
-        $(".chat").prepend("<p class='cline green'>Loading: " + query + "</p>");
-        $("input").val("");
-        App.sendSocketMessage('play', {
-            query: query,
-            channel: App.channel,
-            nick: App.getNickName(),
-            notifications: this.settings.notifications
-        });
+        if(query){
+            $(".chat").prepend("<p class='cline green'>Loading: " + query + "</p>");
+            $("input").val("");
+            App.sendSocketMessage('play', {
+                query: query,
+                channel: App.channel,
+                nick: App.getNickName(),
+                notifications: this.settings.notifications
+            });
+        }else{
+            App.error();
+        }
     }
 
-    App.play = function(data){
+    App.playMedia = function(data){
         if(data == false){
             App.error();
             return;
@@ -388,7 +399,7 @@
                 if(this.media.data.count > this.media.data.where){
                     this.media.binary.addEventListener('ended', function(){
                         this.media.data.where++;
-                        App.play(this.media.data);
+                        App.playMedia(this.media.data);
                     });
                 }
             }else{
@@ -401,7 +412,7 @@
     App.next = function(){
         if(this.media.binary){
             this.media.data.where = this.media.data.where < this.media.data.count ? this.media.data.where + 1 : 1
-            App.play(this.media.data);
+            App.playMedia(this.media.data);
             $("input").val("");
         }else{
             App.error();
@@ -410,7 +421,7 @@
     App.previous = function(){
         if(this.media.binary){
             this.media.data.where = this.media.data.where > 1 ? this.media.data.where-1 : this.media.data.count
-            App.play(this.media.data);
+            App.playMedia(this.media.data);
             $("input").val("");
         }else{
             App.error();
@@ -445,15 +456,19 @@
         }
     }
     App.translate = function(lang, text){
-        $(".chat").prepend("<p class='cline green'>Translating: " + text + "</p>");
-        $("input").val("");
-        App.sendSocketMessage('translate', {
-            lang: lang,
-            text: text,
-            channel: App.channel,
-            nick: App.getNickName(),
-            notifications: this.settings.notifications
-        });
+        if(lang && text){
+            $(".chat").prepend("<p class='cline green'>Translating: " + text + "</p>");
+            $("input").val("");
+            App.sendSocketMessage('translate', {
+                lang: lang,
+                text: text,
+                channel: App.channel,
+                nick: App.getNickName(),
+                notifications: this.settings.notifications
+            });
+        }else{
+            App.error();
+        }   
     }
     App.getTranslated = function(text){
         if(text) $(".chat").prepend("<p class='cline green'>Result: " + text + "</p>");
@@ -461,14 +476,18 @@
     }
 
     App.search = function(query){
-        $(".chat").prepend("<p class='cline green'>Searching: " + query + "</p>");
-        $("input").val("");
-        App.sendSocketMessage('search', {
-            query: query,
-            channel: App.channel,
-            nick: App.getNickName(),
-            notifications: this.settings.notifications
-        });
+        if(query){
+            $(".chat").prepend("<p class='cline green'>Searching: " + query + "</p>");
+            $("input").val("");
+            App.sendSocketMessage('search', {
+                query: query,
+                channel: App.channel,
+                nick: App.getNickName(),
+                notifications: this.settings.notifications
+            });
+        }else{
+            App.error();
+        }
     }
 
     App.getSearched = function(data){
@@ -484,7 +503,7 @@
         });
 
         App.socket.on('play',function(data) {
-            App.play(data);
+            App.playMedia(data);
         });
 
         App.socket.on('translate',function(data) {
