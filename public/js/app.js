@@ -151,8 +151,8 @@
     }
 
     App.print = function(data) {
+        if(App.chatLen == 0 && App.channel == "default")  App.chatLen = data.chatLen; // prevent chat history on default channel
         var dif = data.chatLen - App.chatLen;
-
         if(dif != 0){
             var start = data.chat.length-dif < 0 ? 0 : data.chat.length-dif;
             for(i = start; i<data.chat.length; i++){
