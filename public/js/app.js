@@ -10,8 +10,13 @@
         online: [],
         history: [],
         historyNo: 0,
+        settings:{
+            notifications: true,
+            systemMessages: true
+        },
         commands: [
             {name: "/help", alias:'/h', usage: "/help", example: "to get command list and features type /help"},
+            {name: "/notifications", alias: '/nots', usage: "/notifications <on/off>", example: "to prevent bot to notify people about your actions type /notifications off"},
             {name: "/clear", alias:'/cl', usage: '/clear', example: 'to clean out chat window type /clear'},
             {name: "/name", alias:'/n', usage: "/name <nick name>", example: "to change nick name type e.g. /name neo"},
             {name: "/color", alias:'/c', usage: "/color <color name>", example: "to change color type e.g. /color pink or /color #454545"},
@@ -53,6 +58,14 @@
         setInterval(_set, 5000);
     }
 
+    App.setSettings = function(){
+        if(localStorage.settings){
+            App.settings = JSON.parse(localStorage.settings);
+        }else{
+            localStorage.settings = JSON.stringify(App.settings);
+        }
+    }
+
     App.post = function() {
         var inputValue = $("input").val();
 
@@ -80,47 +93,51 @@
                 flag = false;
                 break;
             case 1:
-                App.clear();
+                App.setNotifications(words[1]);
                 flag = false;
                 break;
             case 2:
-                App.setNickName(words[1]);
+                App.clear();
                 flag = false;
                 break;
             case 3:
+                App.setNickName(words[1]);
+                flag = false;
+                break;
+            case 4:
                 var color = words[1];
                 App.setColor(color);
                 flag = false;
                 break;
-            case 4:
+            case 5:
                 App.redirectToChannel(words[1]);
                 flag = false;
                 break;
-            case 5:
+            case 6:
                 App.retrieveMedia(v.replace(words[0],""));
                 flag = false;
                 break;
-            case 6:
+            case 7:
                 App.pause();
                 flag = false;
                 break;
-            case 7:
+            case 8:
                 App.resume();
                 flag = false;
                 break;
-            case 8:
+            case 9:
                 App.next();
                 flag = false;
                 break;
-            case 9:
+            case 10:
                 App.previous();
                 flag = false;
                 break;
-            case 10:
+            case 11:
                 App.translate(words[1],v.replace(words[0]+" "+words[1],""));
                 flag = false;
                 break;
-            case 11:
+            case 12:
                 App.search(v.replace(words[0],""));
                 flag = false;
                 break;
@@ -133,6 +150,18 @@
         }
 
         return flag;
+    }
+
+    App.setNotifications = function(val){
+        if(val == "on"){
+            this.settings.notifications = true;
+            $(".chat").prepend("<p class='cline warning'>Notifications turned on.</p>");
+        }else if(val == "off"){
+            this.settings.notifications = false;
+            $(".chat").prepend("<p class='cline warning'>Notifications turned off.</p>");
+        }
+        localStorage.settings = JSON.stringify(this.settings);
+        $("input").val("");
     }
 
     App.clear = function(){
@@ -320,7 +349,8 @@
         App.sendSocketMessage('play', {
             query: query,
             channel: App.channel,
-            nick: App.getNickName()
+            nick: App.getNickName(),
+            notifications: this.settings.notifications
         });
     }
 
@@ -421,11 +451,12 @@
             lang: lang,
             text: text,
             channel: App.channel,
-            nick: App.getNickName()
+            nick: App.getNickName(),
+            notifications: this.settings.notifications
         });
     }
     App.getTranslated = function(text){
-        if(text) $(".chat").prepend("<p class='cline green'>" + text + "</p>");
+        if(text) $(".chat").prepend("<p class='cline green'>Result: " + text + "</p>");
         else App.error();
     }
 
@@ -435,7 +466,8 @@
         App.sendSocketMessage('search', {
             query: query,
             channel: App.channel,
-            nick: App.getNickName()
+            nick: App.getNickName(),
+            notifications: this.settings.notifications
         });
     }
 
@@ -500,6 +532,8 @@
         this.setChannel();
         // LOGO animation
         this.setLogo();
+        // Settings
+        this.setSettings();
         // handling socket.io
         this.setupSocketio();
         // handling websocket

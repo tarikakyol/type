@@ -370,7 +370,7 @@ io.on('connection', function(socket){
                     file.category = category;
                     file.title = title;
                     io.to(socket.id).emit('play', file);
-                    sendSystemMessage(data, data.nick + " is playing " + title);
+                    if(data.notifications) sendSystemMessage(data, data.nick + " is playing " + title);
                 }else{
                     io.to(socket.id).emit('play', false);
                 }
@@ -384,7 +384,7 @@ io.on('connection', function(socket){
                 io.to(socket.id).emit('translate', null);
             }else {
                 io.to(socket.id).emit('translate', res.text);
-                sendSystemMessage(data, data.nick + " requested translation for " + data.text);
+                if(data.notifications) sendSystemMessage(data, data.nick + " requested translation for " + data.text);
             }
         });
     })
@@ -393,7 +393,7 @@ io.on('connection', function(socket){
         Bing.search(data.query, function(error, res, body){
             if(body.d.results.length > 0){
                 io.to(socket.id).emit('search', body.d.results[0]);
-                sendSystemMessage(data, data.nick + " searched for " + data.query);
+                if(data.notifications) sendSystemMessage(data, data.nick + " searched for " + data.query);
             }
             else io.to(socket.id).emit('search', null);
         });
