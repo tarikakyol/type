@@ -374,7 +374,7 @@
         
         if(this.media.binary != null) this.media.binary.pause();
 
-        if(this.media.data.category == "Movies"){
+        if(this.media.data.category == "Movies" || this.media.data.category == "TV"){
 
             $(".chat").prepend("<p class='cline green'>Playing: " + this.media.data.title + "</p>");
 
