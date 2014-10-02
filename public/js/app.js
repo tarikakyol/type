@@ -1,7 +1,6 @@
 (function() {
 
     var App = {
-        //ws: new WebSocket(location.origin.replace(/^http/, "ws")),
         audio: new Audio("public/misc/audio.wav"),
         media: {},
         chat: [],
@@ -15,19 +14,19 @@
             systemMessages: true
         },
         commands: [
-            {name: "/help", alias:'/h', usage: "/help", example: "to get command list and features type /help"},
-            {name: "/notifications", alias: '/nots', usage: "/notifications <on/off>", example: "to prevent bot to notify people about your actions type /notifications off"},
-            {name: "/clear", alias:'/cl', usage: '/clear', example: 'to clean out chat window type /clear'},
-            {name: "/name", alias:'/n', usage: "/name <nick name>", example: "to change nick name type e.g. /name neo"},
-            {name: "/color", alias:'/c', usage: "/color <color name>", example: "to change color type e.g. /color pink or /color #454545"},
-            {name: "/channel", alias:'/ch', usage: "/channel <channel name>", example: "to open or change channel type e.g. /channel zion"},
-            {name: "/play", alias:'/p', usage: "/play <song or movie name>", example: "to play a song or movie type e.g. /play matrix"},
-            {name: "/pause", alias:'/pa', usage: "/pause", example: "to pause playing media type /pause"},
-            {name: "/continue", alias:'/con', usage: "/continue", example: "to continue paused media type /continue"},
-            {name: "/next", alias:'/ne', usage: "/next", example: "to pass a song in album type /next"},
-            {name: "/previous", alias:'/prev', usage: "/prev", example: "to go one song back in album type /prev"},
-            {name: "/translate", alias:'/tr', usage: "/translate <language> <text>", example: "to translate words or sentences into another language type e.g. /translate german hello"},
-            {name: "/get", alias:'/search', usage: "/get <query>", example: "to search and get the most appropriate result over internet type e.g. /get wimbledon"}
+            {id: 1, name: "/help", alias:'/h', usage: "/help", example: "to get command list and features type /help"},
+            {id: 2, name: "/notifications", alias: '/nots', usage: "/notifications <on/off>", example: "to prevent bot to notify people about your actions type /notifications off"},
+            {id: 3, name: "/clear", alias:'/cl', usage: '/clear', example: 'to clean out chat window type /clear'},
+            {id: 4, name: "/name", alias:'/n', usage: "/name <nick name>", example: "to change nick name type e.g. /name neo"},
+            {id: 5, name: "/color", alias:'/c', usage: "/color <color name>", example: "to change color type e.g. /color pink or /color #454545"},
+            {id: 6, name: "/channel", alias:'/ch', usage: "/channel <channel name>", example: "to open or change channel type e.g. /channel zion"},
+            {id: 7, name: "/play", alias:'/p', usage: "/play <song or movie name>", example: "to play a song or movie type e.g. /play matrix"},
+            {id: 8, name: "/pause", alias:'/pa', usage: "/pause", example: "to pause playing media type /pause"},
+            {id: 9, name: "/continue", alias:'/con', usage: "/continue", example: "to continue paused media type /continue"},
+            {id: 10, name: "/next", alias:'/ne', usage: "/next", example: "to pass a song in album type /next"},
+            {id: 11, name: "/previous", alias:'/prev', usage: "/prev", example: "to go one song back in album type /prev"},
+            {id: 12, name: "/translate", alias:'/tr', usage: "/translate <language> <text>", example: "to translate words or sentences into another language type e.g. /translate german hello"},
+            {id: 13, name: "/get", alias:'/search', usage: "/get <query>", example: "to search and get the most appropriate result over internet type e.g. /get wimbledon"}
         ]
     }
 
@@ -45,58 +44,62 @@
     App.checkCommands = function(v) {
         var words = v.split(" "),
             flag = true,
-            index = app.commands.map(function(e) {return e["name"]}).indexOf(words[0]) != -1 ? app.commands.map(function(e) {return e["name"]}).indexOf(words[0]) : app.commands.map(function(e) {return e["alias"]}).indexOf(words[0]);
+            id = -1;
 
-        switch(index) {
-            case 0:
+        $.each(app.commands, function(i,command){
+            if(command.name.indexOf(words[0]) != -1 || command.alias.indexOf(words[0]) != -1) id = command.id;
+        });
+
+        switch(id) {
+            case 1:
                 App.printCommands();
                 flag = false;
                 break;
-            case 1:
+            case 2:
                 App.setNotifications(words[1]);
                 flag = false;
                 break;
-            case 2:
+            case 3:
                 App.clear();
                 flag = false;
                 break;
-            case 3:
+            case 4:
                 App.setNickName(words[1]);
                 flag = false;
                 break;
-            case 4:
+            case 5:
                 App.setColor(words[1]);
                 flag = false;
                 break;
-            case 5:
+            case 6:
                 App.redirectToChannel(words[1]);
                 flag = false;
                 break;
-            case 6:
+            case 7:
                 App.retrieveMedia(v.replace(words[0],""));
                 flag = false;
                 break;
-            case 7:
+            case 8:
                 App.pause();
                 flag = false;
                 break;
-            case 8:
+            case 9:
                 App.resume();
                 flag = false;
                 break;
-            case 9:
+            case 10:
                 App.next();
                 flag = false;
                 break;
-            case 10:
+            case 11:
                 App.previous();
                 flag = false;
                 break;
-            case 11:
+            case 12:
                 App.translate(words[1],v.replace(words[0]+" "+words[1],""));
                 flag = false;
                 break;
-            case 12:
+            case 13:
                 App.search(v.replace(words[0],""));
                 flag = false;
                 break;
@@ -428,14 +431,22 @@
         }
     }
     App.resume = function(){
-        this.media.binary.play();
-        $("input").val("");
-        $(".chat").prepend("<p class='cline green'>Playing: " + this.media.data.title + "</p>");
+        if(this.media.binary){
+            this.media.binary.play();
+            $("input").val("");
+            $(".chat").prepend("<p class='cline green'>Playing: " + this.media.data.title + "</p>");
+        }else{
+            App.error();
+        }
     }
     App.pause = function(){
-        $(".chat").prepend("<p class='cline green'>Paused</p>");
-        $("input").val("");
-        this.media.binary.pause();
+        if(this.media.binary){
+            $(".chat").prepend("<p class='cline green'>Paused</p>");
+            $("input").val("");
+            this.media.binary.pause();
+        }else{
+            App.error();
+        }
     }
 
     App.addHistory = function(){
