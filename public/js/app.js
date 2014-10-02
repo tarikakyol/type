@@ -381,7 +381,7 @@
             this.media.binary = document.createElement('video');
             $(this.media.binary).attr('width', '640');
             $(this.media.binary).attr('data-height', '264');
-            // $(this.media.binary).attr('controls', ' ');
+            $(this.media.binary).attr('controls', ' ');
             $(this.media.binary).attr('autoplay', ' ');
             source = document.createElement('source');
             $(source).attr('type', 'video/mp4');
