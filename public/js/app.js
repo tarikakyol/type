@@ -105,6 +105,8 @@
                 break;
         }
 
+        console.log(flag);
+
         if(flag && words[0].indexOf("/") == 0){
             flag = false;
             $('.chat').prepend("<p class='cline warning'>Invalid Command. Type /help to see available commands and features.</p>");
@@ -223,6 +225,8 @@
             localStorage["nick"] = nick;
         } else if (typeof localStorage["nick"] == "undefined") {
             localStorage["nick"] = "user_" + Date.now();
+        }else{
+            $("input").val("");
         }
         $(".nickName").html(App.getNickName());
     }
