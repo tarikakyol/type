@@ -47,7 +47,7 @@
             id = -1;
 
         $.each(app.commands, function(i,command){
-            if(command.name.indexOf(words[0]) != -1 || command.alias.indexOf(words[0]) != -1) id = command.id;
+            if(command.name.indexOf(words[0]) == 0 || command.alias.indexOf(words[0]) == 0) id = command.id;
         });
 
         switch(id) {
