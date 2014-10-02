@@ -87,8 +87,15 @@ var searchMedia = function(query, callback){
     var torrents = [];
     var getFeasibleTorrents = function(page, cb){
         torget.search(query+'&page='+page, function(err, results) {
-            if(err) return console.log(err);
+            if(err) return cb();
 
+            if(!results || results.length < 1){
+                console.log('not found');
+                return cb();
+            }
+            console.log(results.length + ' results found.');
+
+            //sort results by seeder count
             function compare(a,b) {
               if (a.seeds > b.seeds)
                  return -1;
@@ -97,11 +104,7 @@ var searchMedia = function(query, callback){
               return 0;
             }
             results.sort(compare);
-            if(!results || results.length < 1){
-                console.log('not found');
-                return cb();
-            }
-            console.log(results.length + ' results found.');
+            
             for(i=0;i<results.length;i++){
                 if(results[i].seeds < 10) return cb();
                 //TODO: REMOVE files == 1 and allow dosiers 
