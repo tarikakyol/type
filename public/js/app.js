@@ -402,7 +402,7 @@
                 if(this.media.data.count > this.media.data.where){
                     this.media.binary.addEventListener('ended', function(){
                         App.media.data.where++;
-                        App.playMedia(this.media.data);
+                        App.playMedia(App.media.data);
                     });
                 }
             }else{
