@@ -87,7 +87,16 @@ var searchMedia = function(query, callback){
     var torrents = [];
     var getFeasibleTorrents = function(page, cb){
         torget.search(query+'&page='+page, function(err, results) {
-            if(err) console.log(err);
+            if(err) return console.log(err);
+
+            function compare(a,b) {
+              if (a.seeds > b.seeds)
+                 return -1;
+              if (a.seeds < b.seeds)
+                return 1;
+              return 0;
+            }
+            results.sort(compare);
             if(!results || results.length < 1){
                 console.log('not found');
                 return cb();

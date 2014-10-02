@@ -296,7 +296,6 @@
         if (!("Notification" in window)) {
             return;
         }else if (Notification.permission === "granted") {
-        // If it's okay let's create a notification
             var notification = new Notification('New Message', {
                 body: App.HtmlEncode(message)
             });
