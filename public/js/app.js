@@ -401,7 +401,7 @@
                 this.media.binary.play();
                 if(this.media.data.count > this.media.data.where){
                     this.media.binary.addEventListener('ended', function(){
-                        this.media.data.where++;
+                        App.media.data.where++;
                         App.playMedia(this.media.data);
                     });
                 }
