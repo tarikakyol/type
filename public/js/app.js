@@ -119,10 +119,10 @@
     App.setLogo = function() {
         var initColors = ["#e74c3c","#e67e22","#019fde",  "#dd77d3"]; // t y p e
         function _set(initial) {
-            $('.logo span').not('.last').each(function(i) {
+            $('.logo pre').not('.last').each(function(i) {
                 var rnd = Math.random();
                 $(this).css({
-                    "color"            : initial ? initColors[i] : 'hsla(' + Math.floor(rnd * 360) + ',' + (Math.floor(rnd * 50) + 50) + '%,50%,'+ (rnd + 0.3) +')',
+                    "color"            : initial ? initColors[i] : 'hsla(' + Math.floor(rnd * 360) + ',' + (Math.floor(rnd * 50) + 50) + '%,50%,1)'//+ (rnd + 0.3) +')',
                     // "letter-spacing"   : initial ? "-20px" : -(Math.floor(rnd * 30) + 15)
                 })
             });

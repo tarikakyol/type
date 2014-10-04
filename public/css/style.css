@@ -30,10 +30,21 @@ a {
     font-family: "Arial Black", Gadget, sans-serif;
     font-weight: 900;
     font-size: 40px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 .logo .last{
     opacity: 0.2;
+}
+
+.logo span {
+    letter-spacing: -21px;
+    transition: all 600ms linear;
+}
+.logo pre {
+    font-size: 6px;
+    transition: all 600ms linear;
+    display: inline-block;
+    margin-right: -17px
 }
 
 .warning {
@@ -89,11 +100,6 @@ a {
     border-top: dashed 1px;
     padding-bottom: 5px;
     color: #464646;
-}
-
-.logo span {
-    letter-spacing: -21px;
-    transition: all 600ms linear;
 }
 
 .online {
