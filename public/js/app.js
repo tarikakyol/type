@@ -105,8 +105,6 @@
                 break;
         }
 
-        console.log(flag);
-
         if(flag && words[0].indexOf("/") == 0){
             flag = false;
             $('.chat').prepend("<p class='cline warning'>Invalid Command. Type /help to see available commands and features.</p>");
@@ -360,8 +358,15 @@
         if(query){
             $(".chat").prepend("<p class='cline green'>Loading: " + query + "</p>");
             $("input").val("");
+
+            if(query.indexOf("subs:") != -1){
+                var subLang = query.split('subs:')[1];
+                query = query.split('subs:'+subLang)[0];
+            }
+
             App.sendSocketMessage('play', {
                 query: query,
+                subLang: subLang ? subLang : null,
                 channel: App.channel,
                 nick: App.getNickName(),
                 notifications: this.settings.notifications
@@ -372,6 +377,7 @@
     }
 
     App.playMedia = function(data){
+        console.log(data);
         if(data == false){
             App.error();
             return;
@@ -392,8 +398,24 @@
             source = document.createElement('source');
             $(source).attr('type', 'video/mp4');
             $(source).attr('src', '/stream?title='+App.strip(this.media.data.title));
-            $(".chat").prepend(this.media.binary);
+            track = document.createElement('track');
             $(this.media.binary).append(source);
+
+            // add subtitle
+            if(data.subLang){
+                $(track).attr('src', data.subPath);
+                $(track).attr('kind', 'subtitles');
+                $(track).attr('srclang', data.subLang);
+                $(track).attr('label', data.subLang);
+                $(track).attr('default', '');
+                $(this.media.binary).append(track);
+            }
+
+            $(".chat").prepend(this.media.binary);
+            $('video').mediaelementplayer({
+                videoWidth: 640,
+                videoHeight: 264
+            });
 
         }else{
             // if there's more than 1 file (which is possibly an album) play recursively

@@ -44,7 +44,8 @@ a {
     font-size: 7px;
     transition: all 600ms linear;
     display: inline-block;
-    margin-right: -17px
+    margin-right: -17px;
+    margin-top: -5px;
 }
 
 .warning {

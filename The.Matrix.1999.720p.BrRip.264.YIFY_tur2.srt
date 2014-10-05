@@ -1,0 +1,5752 @@
+1
+00:00:01,000 --> 00:00:07,074
+www.OpenSubtitles.org ile bug�n ba�lant� kurun 
+ve �r�n�n�z�n ya da markan�z�n reklam�n� burada yap�n.
+
+2
+00:00:45,965 --> 00:00:47,091
+Transfer �a�r�s�: Al�nd�.
+
+3
+00:00:47,342 --> 00:00:50,762
+<i>- Her�ey yerli yerinde mi?
+- Yerimi almaman gerekiyordu.</i>
+
+4
+00:00:51,012 --> 00:00:53,639
+<i>Biliyorum, ama vardiya
+de�i�elim dedim.</i>
+
+5
+00:00:54,182 --> 00:00:56,559
+<i>Ondan ho�lan�yorsun, de�il mi?
+Onu seyretmekten.</i>
+
+6
+00:00:56,809 --> 00:00:59,812
+<i>- Sa�malama.
+- Onu �ld�rece�iz. Anlad�n m�?</i>
+
+7
+00:01:00,063 --> 00:01:02,565
+<i>Morpheus, sorumlu ki�inin
+O oldu�unu san�yor.</i>
+
+8
+00:01:02,815 --> 00:01:03,691
+<i>Ya sen?</i>
+
+9
+00:01:03,941 --> 00:01:05,735
+<i>Ne d���nd���m �nemli de�il.</i>
+
+10
+00:01:05,985 --> 00:01:07,612
+<i>�nanm�yorsun, de�il mi?</i>
+
+11
+00:01:07,862 --> 00:01:09,947
+<i>- Bunu duydun mu?
+- Neyi?</i>
+
+12
+00:01:10,198 --> 00:01:11,783
+<i>Bu hatt�n bo�
+oldu�undan emin misin?</i>
+
+13
+00:01:12,033 --> 00:01:14,035
+<i>Elbette eminim.</i>
+
+14
+00:01:14,369 --> 00:01:15,828
+<i>Kapatsam iyi olacak.</i>
+
+15
+00:01:53,783 --> 00:01:55,576
+- K�m�ldama! Polis.
+- Ellerini ba��n�n �st�ne koy.
+
+16
+00:01:56,119 --> 00:01:57,203
+Haydi. Hemen!
+
+17
+00:02:06,170 --> 00:02:08,715
+�EHR�N KALB� OTEL�
+
+18
+00:02:18,599 --> 00:02:19,934
+Te�men.
+
+19
+00:02:20,226 --> 00:02:21,227
+Lanet olsun.
+
+20
+00:02:22,061 --> 00:02:25,273
+Te�men, size ayr�nt�l�
+emirler verilmi�ti.
+
+21
+00:02:25,523 --> 00:02:27,233
+Sadece i�imi yap�yorum.
+
+22
+00:02:27,859 --> 00:02:32,280
+Sak�n bana "yetki hikayesinden"
+s�z etme. Al�r bir taraf�na sokar�m.
+
+23
+00:02:32,739 --> 00:02:35,241
+Emirler, kendi korunman i�indi.
+
+24
+00:02:36,743 --> 00:02:38,953
+San�yorum ki
+k���k bir k�zla ba�edebiliriz.
+
+25
+00:02:44,083 --> 00:02:45,835
+�ki birim yollad�m.
+
+26
+00:02:46,085 --> 00:02:47,670
+Onu �ld�recekler.
+
+27
+00:02:47,920 --> 00:02:51,049
+Hay�r te�men, adamlar�n�z �ld� bile.
+
+28
+00:03:20,453 --> 00:03:21,287
+Lanet olsun.
+
+29
+00:03:23,831 --> 00:03:26,209
+Morpheus, hatt� takip ettiler.
+Nas�l oldu bilmiyorum.
+
+30
+00:03:26,459 --> 00:03:28,044
+<i>Ben biliyorum. Kabloyu kestiler.</i>
+
+31
+00:03:28,294 --> 00:03:30,463
+<i>Vakit yok. Ba�ka bir
+��k��a gitmen gerekiyor.</i>
+
+32
+00:03:30,713 --> 00:03:32,090
+Ba�ka ajanlarda var m�?
+
+33
+00:03:32,298 --> 00:03:33,132
+<i>Evet.</i>
+
+34
+00:03:33,341 --> 00:03:34,509
+Lanet olsun.
+
+35
+00:03:34,759 --> 00:03:36,302
+<i>Dikkatini topla Trinity.</i>
+
+36
+00:03:36,552 --> 00:03:38,930
+<i>Wells ve Lake kav�a��nda
+bir telefon var.</i>
+
+37
+00:03:39,305 --> 00:03:40,973
+<i>Ba�arabilirsin.</i>
+
+38
+00:03:41,224 --> 00:03:42,892
+<i>- Tamam.
+- Haydi.</i>
+
+39
+00:04:45,038 --> 00:04:46,080
+Bu imkans�z.
+
+40
+00:05:21,074 --> 00:05:23,117
+Kalk Trinity. Haydi kalk.
+
+41
+00:05:23,743 --> 00:05:24,952
+Kalk.
+
+42
+00:06:10,832 --> 00:06:12,333
+��kt�.
+
+43
+00:06:12,625 --> 00:06:13,918
+Art�k fark etmez.
+
+44
+00:06:14,168 --> 00:06:16,254
+Muhbirimiz ger�ek.
+
+45
+00:06:17,588 --> 00:06:19,257
+Sonraki hedeflerinin ad� ge�ti elimize.
+
+46
+00:06:19,507 --> 00:06:21,175
+Ad� Neo.
+
+47
+00:06:24,470 --> 00:06:25,972
+Arama yapmal�y�z.
+
+48
+00:06:26,264 --> 00:06:28,182
+�imdiden ba�lad� bile.
+
+49
+00:06:38,026 --> 00:06:39,736
+Ar�yor...
+
+50
+00:06:39,986 --> 00:06:42,780
+MORPHEUS, HEATHROW
+HAVAALANINDA POL�S� ATLATTI
+
+51
+00:06:50,747 --> 00:06:52,707
+�nsanav� s�r�yor
+
+52
+00:07:11,768 --> 00:07:13,603
+Kalk Neo...
+
+53
+00:07:22,945 --> 00:07:24,155
+Ne?
+
+54
+00:07:24,697 --> 00:07:28,242
+Matrix, sizi esir etti...
+
+55
+00:07:29,911 --> 00:07:31,412
+Neler oluyor?
+
+56
+00:07:35,875 --> 00:07:38,628
+Beyaz tav�an� izle.
+
+57
+00:07:39,045 --> 00:07:41,005
+"Beyaz tav�an� izle."
+
+58
+00:07:43,383 --> 00:07:44,258
+��k
+
+59
+00:07:46,969 --> 00:07:48,096
+Tak, tak, Neo.
+
+60
+00:07:52,850 --> 00:07:54,018
+Kim O?
+
+61
+00:07:54,268 --> 00:07:55,561
+Benim, Choi.
+
+62
+00:08:09,075 --> 00:08:10,243
+�ki saat geciktin.
+
+63
+00:08:10,827 --> 00:08:12,578
+Biliyorum. Onun hatas�.
+
+64
+00:08:12,870 --> 00:08:13,830
+Paray� ald�n m�?
+
+65
+00:08:15,957 --> 00:08:17,125
+2 bin dolar.
+
+66
+00:08:18,001 --> 00:08:19,127
+Bekle.
+
+67
+00:08:24,716 --> 00:08:26,092
+S�MULACRA ve S�M�LASYON
+
+68
+00:08:36,811 --> 00:08:38,187
+��k�rler olsun.
+
+69
+00:08:38,438 --> 00:08:41,315
+Sen benim kurtar�c�ms�n. Benim �sam.
+
+70
+00:08:41,566 --> 00:08:43,443
+Bunu kullan�rken yakalan�rsan...
+
+71
+00:08:43,693 --> 00:08:45,820
+Biliyorum. Bu asla olmad�. Sen yoksun.
+
+72
+00:08:46,946 --> 00:08:49,032
+- Evet.
+- Bir terslik mi var?
+
+73
+00:08:49,282 --> 00:08:51,325
+Her zamankinden beyazs�n.
+
+74
+00:08:52,452 --> 00:08:54,620
+Bilgisayar�m, ben...
+
+75
+00:08:57,623 --> 00:08:59,375
+Hi� r�yada oldu�undan ya da...
+
+76
+00:08:59,500 --> 00:09:02,170
+...uyand���ndan ku�kuya
+d��t���n oldu mu?
+
+77
+00:09:02,962 --> 00:09:05,715
+Her zaman. Buna meskalin denir.
+
+78
+00:09:06,215 --> 00:09:08,343
+U�man�n tek yolu.
+
+79
+00:09:09,218 --> 00:09:11,721
+Bana kal�rsa, bilgisayardan
+biraz uzak dur.
+
+80
+00:09:12,472 --> 00:09:14,515
+Biraz dinlen.
+
+81
+00:09:14,891 --> 00:09:18,644
+Ne d���n�yorsun Dujour?
+Onu da alal�m m�?
+
+82
+00:09:20,646 --> 00:09:21,856
+Kesinlikle.
+
+83
+00:09:22,106 --> 00:09:25,276
+Hay�r. Yapamam. Yar�n �al��mal�y�m.
+
+84
+00:09:25,818 --> 00:09:26,944
+Haydi.
+
+85
+00:09:27,195 --> 00:09:29,822
+�ok e�lenceli olacak.
+
+86
+00:09:36,329 --> 00:09:37,830
+Evet.
+
+87
+00:09:38,665 --> 00:09:40,541
+Tabii giderim.
+
+88
+00:10:08,236 --> 00:10:09,195
+Merhaba Neo.
+
+89
+00:10:10,738 --> 00:10:11,698
+Bu ad� nereden biliyorsun?
+
+90
+00:10:12,532 --> 00:10:14,242
+Hakk�nda �ok �ey biliyorum.
+
+91
+00:10:15,118 --> 00:10:15,952
+Kimsin sen?
+
+92
+00:10:16,202 --> 00:10:17,203
+Ad�m Trinity.
+
+93
+00:10:18,162 --> 00:10:19,372
+Trinity.
+
+94
+00:10:21,165 --> 00:10:22,166
+�u Trinity mi?
+
+95
+00:10:22,625 --> 00:10:24,335
+Maliye'nin veritaban�na giren ki�i.
+
+96
+00:10:24,585 --> 00:10:26,045
+Uzun zaman �nceydi.
+
+97
+00:10:26,295 --> 00:10:27,130
+Tanr�m.
+
+98
+00:10:27,380 --> 00:10:28,214
+Ne oldu?
+
+99
+00:10:28,673 --> 00:10:30,466
+Sen erkeksin...
+
+100
+00:10:32,218 --> 00:10:33,386
+...sanm��t�m.
+
+101
+00:10:33,636 --> 00:10:35,096
+�o�u erkek �yle zanneder.
+
+102
+00:10:36,305 --> 00:10:38,516
+Bilgisayar�mdaki sendin.
+
+103
+00:10:39,142 --> 00:10:40,268
+Bunu nas�l yapt�n?
+
+104
+00:10:40,893 --> 00:10:43,604
+�u anda sana tek diyebilece�im...
+
+105
+00:10:44,230 --> 00:10:45,773
+...tehlikede oldu�un.
+
+106
+00:10:46,232 --> 00:10:48,651
+- Seni uyarmak i�in buraya getirdim.
+- Neyden?
+
+107
+00:10:49,235 --> 00:10:50,903
+Seni izliyorlar Neo.
+
+108
+00:10:51,487 --> 00:10:52,321
+Kimler?
+
+109
+00:10:52,530 --> 00:10:53,906
+Sadece dinle.
+
+110
+00:10:57,410 --> 00:10:59,245
+Neden burada oldu�unu biliyorum.
+
+111
+00:11:00,038 --> 00:11:01,998
+Ne yapt���n� biliyorum.
+
+112
+00:11:02,248 --> 00:11:04,125
+Neden az uyudu�unu...
+
+113
+00:11:04,417 --> 00:11:07,545
+...yaln�z ya�ad���n� ve
+her gece bilgisayar �n�nde...
+
+114
+00:11:07,795 --> 00:11:10,131
+...neden sabahlad���n� biliyorum.
+
+115
+00:11:11,299 --> 00:11:12,842
+Onu ar�yorsun.
+
+116
+00:11:13,634 --> 00:11:16,637
+Biliyorum, ��nk� ben de bir
+zamanlar ayn� �eyi ar�yordum.
+
+117
+00:11:17,138 --> 00:11:19,265
+Sonra O beni buldu�unda...
+
+118
+00:11:19,891 --> 00:11:22,977
+...asl�nda Onu de�il...
+
+119
+00:11:23,895 --> 00:11:25,646
+...bir yan�t� arad���m� s�yledi.
+
+120
+00:11:26,272 --> 00:11:29,400
+Bizi harekete ge�iren soru bu Neo.
+
+121
+00:11:30,068 --> 00:11:32,737
+Seni buraya getiren de bu soru.
+
+122
+00:11:34,822 --> 00:11:36,199
+Soruyu biliyorsun...
+
+123
+00:11:36,449 --> 00:11:37,950
+...t�pk� benim gibi.
+
+124
+00:11:39,494 --> 00:11:41,120
+Matrix nedir?
+
+125
+00:11:41,371 --> 00:11:43,831
+Yan�t oralarda bir yerde Neo.
+
+126
+00:11:44,499 --> 00:11:46,501
+Seni ar�yor.
+
+127
+00:11:47,293 --> 00:11:49,003
+E�er istersen...
+
+128
+00:11:49,253 --> 00:11:51,255
+...seni bulacakt�r.
+
+129
+00:11:58,054 --> 00:11:58,888
+Lanet olsun.
+
+130
+00:11:59,138 --> 00:12:00,390
+Lanet olsun.
+
+131
+00:12:10,650 --> 00:12:13,486
+Senin yetkiye kar��
+bir sorumlulu�un var.
+
+132
+00:12:13,736 --> 00:12:17,782
+�zel oldu�unu san�yorsun. Kurallar�n
+senin i�in ge�erli olmad���na.
+
+133
+00:12:18,491 --> 00:12:20,493
+Yan�ld���n muhakkak.
+
+134
+00:12:23,454 --> 00:12:26,332
+Bu �irket, d�nyan�n en iyi
+yaz�l�m �irketlerinden biri.
+
+135
+00:12:26,582 --> 00:12:29,961
+��nk� t�m �al��anlar, bir
+b�t�n�n par�as� oldu�unu anl�yorlar.
+
+136
+00:12:30,211 --> 00:12:34,841
+�al��anlardan birinin sorunu varsa,
+�irketin bir sorunu var demektir.
+
+137
+00:12:37,093 --> 00:12:40,304
+Bir se�im yapma vakti geldi, Anderson.
+
+138
+00:12:41,180 --> 00:12:45,059
+Ya bug�nden itibaren
+masan�zda olmay� se�ersiniz...
+
+139
+00:12:45,685 --> 00:12:48,271
+...ya da ba�ka bir i� aramay�.
+
+140
+00:12:49,147 --> 00:12:50,481
+A��k konu�abildim mi?
+
+141
+00:12:50,732 --> 00:12:53,151
+Evet, Rhineheart. �ok a��k.
+
+142
+00:13:01,617 --> 00:13:02,452
+Thomas Anderson?
+
+143
+00:13:04,746 --> 00:13:06,164
+Evet, benim.
+
+144
+00:13:14,172 --> 00:13:15,340
+Harika.
+
+145
+00:13:16,758 --> 00:13:17,925
+�yi g�nler.
+
+146
+00:13:34,734 --> 00:13:38,071
+<i>Merhaba Neo.
+Kim oldu�umu biliyor musun?</i>
+
+147
+00:13:40,323 --> 00:13:42,075
+Morpheus.
+
+148
+00:13:42,325 --> 00:13:44,327
+<i>Seni ar�yordum.</i>
+
+149
+00:13:44,577 --> 00:13:47,747
+<i>Sana g�sterece�im �eyi
+g�rmeye haz�r m�s�n, bilmiyorum.</i>
+
+150
+00:13:47,997 --> 00:13:51,167
+<i>Ancak ne yaz�k ki
+ikimizin de vakti azal�yor.</i>
+
+151
+00:13:51,417 --> 00:13:55,129
+<i>Pe�ine d��t�ler Neo.
+Ne yapacaklar�n� bilmiyorum.</i>
+
+152
+00:13:55,380 --> 00:13:56,714
+Kimler pe�imde?
+
+153
+00:13:56,964 --> 00:13:59,050
+<i>Kalk ve kendin g�r.</i>
+
+154
+00:13:59,300 --> 00:14:00,802
+Ne? �imdi mi?
+
+155
+00:14:01,094 --> 00:14:02,095
+<i>Evet.</i>
+
+156
+00:14:02,345 --> 00:14:03,596
+<i>�imdi.</i>
+
+157
+00:14:04,472 --> 00:14:06,349
+<i>Yava� yap.</i>
+
+158
+00:14:06,766 --> 00:14:07,975
+<i>Asans�r.</i>
+
+159
+00:14:12,855 --> 00:14:14,649
+Lanet olsun.
+
+160
+00:14:19,320 --> 00:14:20,321
+Benden ne istiyorlar?
+
+161
+00:14:20,571 --> 00:14:24,242
+<i>Bilmiyorum. ��renmek istemiyorsan,
+oradan ��ksan iyi olur.</i>
+
+162
+00:14:24,492 --> 00:14:25,118
+Nas�l?
+
+163
+00:14:25,326 --> 00:14:28,496
+<i>Seni y�nlendirebilirim
+ama dediklerimi yapmal�s�n.</i>
+
+164
+00:14:29,372 --> 00:14:31,374
+<i>Kar��ndaki odac�k bo�.</i>
+
+165
+00:14:34,502 --> 00:14:36,629
+<i>- Peki ya beni...
+- Hemen git.</i>
+
+166
+00:14:43,386 --> 00:14:45,763
+<i>Biraz burada kal.</i>
+
+167
+00:14:52,979 --> 00:14:55,732
+<i>Sana dedi�imde, koridorun sonundaki...</i>
+
+168
+00:14:55,982 --> 00:14:57,942
+<i>... b�ronun �n�ndeki
+kuyru�un sonuna git.</i>
+
+169
+00:14:58,192 --> 00:15:00,570
+<i>Hi� dikkat �ekme.</i>
+
+170
+00:15:02,989 --> 00:15:03,990
+<i>�imdi.</i>
+
+171
+00:15:18,379 --> 00:15:21,924
+<i>Tamam. D��ar�da bir iskele var.</i>
+
+172
+00:15:24,635 --> 00:15:26,971
+<i>- Bunlar� nereden biliyorsun?
+- Vaktimiz yok Neo!</i>
+
+173
+00:15:27,221 --> 00:15:30,058
+<i>Solunda bir pencere var. Oraya git.</i>
+
+174
+00:15:32,310 --> 00:15:33,853
+<i>A�.</i>
+
+175
+00:15:34,687 --> 00:15:36,481
+<i>�at�ya ��kmak i�in iskeleyi
+kullanabilirsin.</i>
+
+176
+00:15:36,731 --> 00:15:39,317
+<i>Olmaz. Olmaz. Bu ��lg�nl�k!</i>
+
+177
+00:15:39,567 --> 00:15:41,944
+<i>Bu binadan iki ��k�� var:</i>
+
+178
+00:15:42,195 --> 00:15:45,990
+<i>Biri, iskeleden.
+Di�eri, onlar�n g�zetiminde.</i>
+
+179
+00:15:53,039 --> 00:15:54,791
+Bu ��lg�nl�k.
+
+180
+00:15:55,958 --> 00:15:57,835
+Bunlar neden benim ba��ma geliyor?
+
+181
+00:15:58,127 --> 00:15:59,754
+Ne yapt�m?
+
+182
+00:16:00,129 --> 00:16:02,882
+�nemsiz biriyim. Bir�ey yapmad�m.
+
+183
+00:16:03,466 --> 00:16:04,926
+�lece�im.
+
+184
+00:16:14,727 --> 00:16:15,770
+Lanet olsun.
+
+185
+00:16:36,040 --> 00:16:37,166
+Lanet olsun!
+
+186
+00:16:42,130 --> 00:16:43,923
+Bunu yapamam.
+
+187
+00:16:56,769 --> 00:16:57,603
+Lanet olsun.
+
+188
+00:17:46,861 --> 00:17:51,699
+G�rd���n�z gibi bir s�redir
+sizi izliyoruz Bay Anderson.
+
+189
+00:17:52,992 --> 00:17:55,662
+Anla��lan sizin...
+
+190
+00:17:55,912 --> 00:17:58,039
+...iki hayat�n�z var.
+
+191
+00:17:59,457 --> 00:18:01,959
+Birinde, Thomas A. Anderson's�n�z...
+
+192
+00:18:02,210 --> 00:18:05,546
+...Sayg�n bir yaz�l�m �irketinde
+program yazar�.
+
+193
+00:18:06,589 --> 00:18:09,884
+Sosyal g�venlik numaran var.
+Vergilerini �d�yorsun.
+
+194
+00:18:10,343 --> 00:18:11,594
+Ayr�ca...
+
+195
+00:18:13,179 --> 00:18:16,808
+...evsahibine ��p� ta��makta
+yard�m ediyorsun.
+
+196
+00:18:19,310 --> 00:18:22,438
+Di�er hayat�n bilgisayarlarda ge�iyor...
+
+197
+00:18:22,730 --> 00:18:25,692
+...Orada "Neo",
+korsan ad�n� kullan�yorsun...
+
+198
+00:18:25,942 --> 00:18:30,738
+Yasalarda yer alan neredeyse
+her bilgisayar su�unu i�ledin.
+
+199
+00:18:32,031 --> 00:18:33,991
+Bu hayatlardan birinin...
+
+200
+00:18:34,242 --> 00:18:36,077
+...gelece�i var.
+
+201
+00:18:36,411 --> 00:18:38,413
+Di�erinin yok.
+
+202
+00:18:42,125 --> 00:18:45,962
+M�mk�n oldu�u kadar a��k
+konu�aca��m Bay Anderson.
+
+203
+00:18:46,963 --> 00:18:48,297
+Buraday�z, ��nk�...
+
+204
+00:18:48,631 --> 00:18:50,883
+...yard�m�n�za ihtiyac�m�z var.
+
+205
+00:18:54,512 --> 00:18:57,515
+Belirli bir ki�inin sizinle
+temasa ge�ti�ini...
+
+206
+00:18:57,765 --> 00:18:59,559
+...biliyoruz.
+
+207
+00:19:00,476 --> 00:19:04,522
+Kendisine "Morpheus" diyen biri.
+
+208
+00:19:05,523 --> 00:19:09,527
+Bu adam hakk�nda
+ne d���nd���n�z �nemli de�il.
+
+209
+00:19:09,777 --> 00:19:12,196
+Pek �ok yetkili Onu...
+
+210
+00:19:12,447 --> 00:19:15,491
+...ya�ayan en tehlikeli insan
+olarak tan�ml�yor.
+
+211
+00:19:18,244 --> 00:19:19,454
+Meslekta�lar�m...
+
+212
+00:19:19,871 --> 00:19:22,790
+...seninle bo� yere
+u�ra�t���ma inan�yor.
+
+213
+00:19:23,082 --> 00:19:26,502
+Ama namuslu olman�
+diledi�ine inan�yorum.
+
+214
+00:19:26,794 --> 00:19:30,298
+Senin sicilini temizleyecek ve...
+
+215
+00:19:30,673 --> 00:19:32,800
+...yeniden ba�laman� sa�layaca��z.
+
+216
+00:19:33,301 --> 00:19:36,220
+Bunun kar��l���nda
+istedi�imiz tek �ey...
+
+217
+00:19:36,471 --> 00:19:39,974
+...�nl� bir ter�risti yarg�
+�n�ne ��karmam�za yard�m etmen.
+
+218
+00:19:41,351 --> 00:19:42,602
+Evet.
+
+219
+00:19:43,895 --> 00:19:45,980
+�yi bir anla�maya benziyor.
+
+220
+00:19:47,607 --> 00:19:49,359
+Ama daha iyi bir anla�ma var.
+
+221
+00:19:49,609 --> 00:19:51,110
+Ne dersiniz?
+
+222
+00:19:51,527 --> 00:19:53,529
+...Size hareket �eksem ve...
+
+223
+00:19:56,115 --> 00:19:58,159
+...siz de telefon hakk�ma
+izin verseniz.
+
+224
+00:20:00,328 --> 00:20:02,163
+Bay Anderson...
+
+225
+00:20:06,542 --> 00:20:07,377
+...beni �z�yorsunuz.
+
+226
+00:20:07,627 --> 00:20:10,254
+Bu gestapo ayaklar�yla
+beni korkutamazs�n�z.
+
+227
+00:20:10,505 --> 00:20:11,881
+Haklar�m� biliyorum.
+
+228
+00:20:12,131 --> 00:20:13,633
+Telefon hakk�m� kullanaca��m.
+
+229
+00:20:14,217 --> 00:20:16,386
+S�yleyin, Bay Anderson...
+
+230
+00:20:17,261 --> 00:20:18,680
+...konu�amazsan�z...
+
+231
+00:20:18,930 --> 00:20:22,517
+...telefon hakk� ne i�e yarar?
+
+232
+00:20:56,300 --> 00:20:58,511
+Bize yard�m edeceksiniz...
+
+233
+00:20:59,220 --> 00:21:00,179
+...isteseniz de...
+
+234
+00:21:00,430 --> 00:21:01,305
+...istemeseniz de.
+
+235
+00:21:59,614 --> 00:22:02,867
+<i>Bu hat dinleniyor. K�sa konu�mal�y�z.</i>
+
+236
+00:22:07,664 --> 00:22:09,499
+<i>Ne istedi�imi bilseler...</i>
+
+237
+00:22:09,749 --> 00:22:11,751
+<i>... herhalde �lm�� olurdun?</i>
+
+238
+00:22:12,752 --> 00:22:16,464
+Neden s�z ediyorsun? Ne?
+Neler oluyor bana.
+
+239
+00:22:16,714 --> 00:22:21,552
+<i>Sen O'sun Neo. Son birka� y�l�...</i>
+
+240
+00:22:21,803 --> 00:22:24,764
+<i>... beni aramakla ge�irdin.
+Bense hayat�m boyunca...</i>
+
+241
+00:22:25,014 --> 00:22:26,516
+<i>... seni arad�m.</i>
+
+242
+00:22:28,059 --> 00:22:30,228
+<i>Hala bulu�mak istiyor musun?</i>
+
+243
+00:22:31,187 --> 00:22:34,065
+<i>- Evet.
+- O halde, Adams Soka�� K�pr�s�ne git.</i>
+
+244
+00:22:44,283 --> 00:22:45,493
+Gir.
+
+245
+00:22:57,755 --> 00:22:58,589
+Bu da ne?
+
+246
+00:22:58,840 --> 00:23:01,384
+Gerekli. Korunmam�z i�in.
+
+247
+00:23:01,634 --> 00:23:02,635
+Neyden?
+
+248
+00:23:02,885 --> 00:23:03,803
+Senden.
+
+249
+00:23:05,346 --> 00:23:06,806
+G�mle�ini ��kar.
+
+250
+00:23:07,306 --> 00:23:08,141
+Arabay� durdur.
+
+251
+00:23:12,729 --> 00:23:13,896
+Dinle beni.
+
+252
+00:23:14,147 --> 00:23:16,149
+Soru sorma oyununa vaktimiz yok.
+
+253
+00:23:16,649 --> 00:23:19,027
+�u anda tek kural i�ler:
+
+254
+00:23:19,318 --> 00:23:20,653
+Ya bizim yolumuz...
+
+255
+00:23:20,987 --> 00:23:22,071
+...ya da cehennemin yolu.
+
+256
+00:23:28,828 --> 00:23:29,704
+Tamam.
+
+257
+00:23:31,581 --> 00:23:34,042
+L�tfen Neo, bana g�venmelisin.
+
+258
+00:23:34,625 --> 00:23:37,253
+- Neden?
+- ��nk� sen bunlar� ya�ad�n.
+
+259
+00:23:38,004 --> 00:23:39,213
+Bu yolu biliyorsun.
+
+260
+00:23:40,214 --> 00:23:41,883
+Nas�l bitti�ini biliyorsun.
+
+261
+00:23:44,052 --> 00:23:46,304
+Ben de �yle olmas�n�
+istemedi�ini biliyorum.
+
+262
+00:24:00,485 --> 00:24:02,028
+Apoc, ���klar.
+
+263
+00:24:04,530 --> 00:24:06,699
+Geri yaslan. G�mle�ini kald�r.
+
+264
+00:24:08,618 --> 00:24:09,452
+Bu da ne?
+
+265
+00:24:09,786 --> 00:24:10,870
+Sende mikrofon var.
+
+266
+00:24:18,628 --> 00:24:20,088
+Rahatlamaya �al��.
+
+267
+00:24:26,386 --> 00:24:27,553
+Haydi.
+
+268
+00:24:28,763 --> 00:24:29,639
+Haydi.
+
+269
+00:24:31,432 --> 00:24:32,350
+Hareket ediyor.
+
+270
+00:24:34,185 --> 00:24:35,395
+Lanet olsun.
+
+271
+00:24:37,230 --> 00:24:39,524
+- Kaybedeceksin.
+- Hay�r.
+
+272
+00:24:39,774 --> 00:24:40,733
+A��l�n.
+
+273
+00:24:49,325 --> 00:24:51,452
+Aman Tanr�m! Bu ger�ek mi?
+
+274
+00:25:25,194 --> 00:25:26,529
+Geldik.
+
+275
+00:25:29,866 --> 00:25:32,327
+Sana bir �neri.
+
+276
+00:25:33,286 --> 00:25:34,954
+D�r�st ol.
+
+277
+00:25:36,539 --> 00:25:38,750
+Tahmininden fazlas�n� biliyor.
+
+278
+00:25:47,467 --> 00:25:48,801
+Nihayet.
+
+279
+00:25:50,345 --> 00:25:51,429
+Ho�geldin Neo.
+
+280
+00:25:52,638 --> 00:25:54,557
+Tahmin edebilece�in gibi...
+
+281
+00:25:54,807 --> 00:25:56,059
+...ben Morpheus'um.
+
+282
+00:25:57,101 --> 00:25:58,686
+Seninle tan��mak bir onur.
+
+283
+00:25:59,145 --> 00:26:00,188
+Hay�r...
+
+284
+00:26:00,772 --> 00:26:02,065
+...o �eref bana ait.
+
+285
+00:26:02,982 --> 00:26:05,485
+L�tfen. Gel, otur.
+
+286
+00:26:20,583 --> 00:26:22,210
+Eminim...
+
+287
+00:26:22,627 --> 00:26:25,380
+...�u anda kendini
+tav�an deli�inden d��en...
+
+288
+00:26:27,090 --> 00:26:29,509
+...Alice gibi hissediyorsundur.
+
+289
+00:26:30,426 --> 00:26:31,427
+�yle denilebilir.
+
+290
+00:26:32,345 --> 00:26:34,972
+G�zlerinden belli.
+
+291
+00:26:35,556 --> 00:26:38,851
+Sende g�rd�klerini
+kabullenen birinin g�zleri var...
+
+292
+00:26:39,102 --> 00:26:41,354
+...uyanmay� bekledi�in i�in.
+
+293
+00:26:42,772 --> 00:26:45,400
+Tuhaf ama bunlar
+ger�ekten pek uzak de�il.
+
+294
+00:26:46,067 --> 00:26:48,569
+Kadere inan�r m�s�n Neo?
+
+295
+00:26:48,861 --> 00:26:49,737
+Hay�r.
+
+296
+00:26:50,196 --> 00:26:51,155
+Neden?
+
+297
+00:26:51,406 --> 00:26:54,200
+Hayat�m� kontrol edemiyor olma
+d���ncesini sevmem.
+
+298
+00:26:55,284 --> 00:26:58,621
+Ne demek istedi�ini �ok iyi anl�yorum.
+
+299
+00:27:02,917 --> 00:27:05,294
+Neden burada oldu�unu anlatay�m.
+
+300
+00:27:06,337 --> 00:27:07,880
+Bir�ey bildi�in i�in buradas�n.
+
+301
+00:27:08,423 --> 00:27:10,049
+Bildi�ini a��klayam�yorsun.
+
+302
+00:27:10,550 --> 00:27:12,135
+Ama hissediyorsun.
+
+303
+00:27:12,719 --> 00:27:14,637
+Hayat�n boyunca hissettin.
+
+304
+00:27:15,221 --> 00:27:19,392
+D�nyada ters giden bir�eyler var.
+Ne oldu�unu bilmiyorsun ama orada.
+
+305
+00:27:19,892 --> 00:27:22,103
+Beyninde k�ym�k gibi...
+
+306
+00:27:22,353 --> 00:27:24,230
+...seni ��ld�rtan bir�ey.
+
+307
+00:27:25,148 --> 00:27:27,900
+Seni bana getiren �ey bu duyguydu.
+
+308
+00:27:30,445 --> 00:27:32,280
+Neden s�z etti�imi biliyor musun?
+
+309
+00:27:34,115 --> 00:27:35,450
+Matrix mi?
+
+310
+00:27:37,952 --> 00:27:39,620
+Ne oldu�unu...
+
+311
+00:27:40,079 --> 00:27:42,081
+...��renmek ister misin?
+
+312
+00:27:44,459 --> 00:27:46,336
+Matrix her yerde.
+
+313
+00:27:46,586 --> 00:27:48,296
+Etraf�m�zda.
+
+314
+00:27:48,546 --> 00:27:50,506
+�u anda, bu odada.
+
+315
+00:27:51,341 --> 00:27:53,551
+Pencereden d��ar�
+bakt���nda g�r�rs�n...
+
+316
+00:27:53,801 --> 00:27:56,137
+...ya da televizyonu a�t���nda.
+
+317
+00:27:56,554 --> 00:27:59,098
+��e gitti�inde hissedersin...
+
+318
+00:28:00,641 --> 00:28:02,310
+...ya da kiliseye.
+
+319
+00:28:02,727 --> 00:28:04,812
+Vergi �derken.
+
+320
+00:28:05,938 --> 00:28:08,858
+Ger�e�i g�rmemen i�in...
+
+321
+00:28:09,108 --> 00:28:10,693
+...d�nya, bir perde gibi
+�n�ne �ekilmi� sanki.
+
+322
+00:28:12,904 --> 00:28:14,155
+Ne ger�e�i?
+
+323
+00:28:18,409 --> 00:28:19,952
+K�le oldu�un ger�e�i.
+
+324
+00:28:21,454 --> 00:28:23,748
+Herkes gibi bir kal�ba do�dun.
+
+325
+00:28:23,998 --> 00:28:28,670
+Tad�n� alamad���n, dokunamad���n,
+koklayamad���n bir hapise.
+
+326
+00:28:28,961 --> 00:28:30,254
+Akl�n i�in...
+
+327
+00:28:30,505 --> 00:28:31,673
+...bir hapis.
+
+328
+00:28:38,638 --> 00:28:40,973
+Ne yaz�k ki, kimseye...
+
+329
+00:28:41,307 --> 00:28:43,685
+...Matrix'in ne oldu�u anlat�lamaz.
+
+330
+00:28:47,146 --> 00:28:49,023
+Kendin g�rmelisin.
+
+331
+00:28:58,533 --> 00:29:00,827
+Bu, son f�rsat�n.
+
+332
+00:29:01,077 --> 00:29:03,413
+Buradan sonra d�n�� yok.
+
+333
+00:29:03,871 --> 00:29:05,373
+Mavi hap� al�rsan...
+
+334
+00:29:05,665 --> 00:29:08,710
+...hikaye biter.
+Yata��nda uyan�r ve istedi�in...
+
+335
+00:29:08,960 --> 00:29:10,753
+...�eye inan�rs�n.
+
+336
+00:29:11,004 --> 00:29:12,338
+K�rm�z� hap� al�rsan...
+
+337
+00:29:12,588 --> 00:29:14,549
+...Mucize �lkesi'nde kal�rs�n ve sana...
+
+338
+00:29:15,049 --> 00:29:17,760
+...tav�an deli�inin ne kadar
+derin oldu�unu g�steririm.
+
+339
+00:29:27,645 --> 00:29:28,855
+Unutma...
+
+340
+00:29:29,689 --> 00:29:32,734
+...sana ger�e�i �neriyorum. O kadar.
+
+341
+00:29:47,040 --> 00:29:48,374
+�zle beni.
+
+342
+00:29:50,918 --> 00:29:52,587
+Apoc, �ebekede miyiz?
+
+343
+00:29:52,837 --> 00:29:54,213
+Neredeyse.
+
+344
+00:29:59,969 --> 00:30:01,471
+L�tfen �uraya oturun.
+
+345
+00:30:19,656 --> 00:30:21,366
+Bunlar� sen mi yapt�n?
+
+346
+00:30:25,495 --> 00:30:27,497
+Yuttu�un hap, bir izleme
+program�n�n par�as�.
+
+347
+00:30:28,247 --> 00:30:32,877
+Amac�, girdi-��kt� ta��y�c�
+sinyalini bozmak.
+
+348
+00:30:33,419 --> 00:30:34,462
+Bu ne demek?
+
+349
+00:30:35,046 --> 00:30:37,215
+Kemerini ba�la Dorothy.
+
+350
+00:30:37,548 --> 00:30:38,883
+��nk� art�k...
+
+351
+00:30:39,133 --> 00:30:40,176
+...Kansas yok.
+
+352
+00:31:18,089 --> 00:31:19,465
+Sen mi?
+
+353
+00:31:30,476 --> 00:31:34,564
+Ger�ek oldu�una inand���n
+bir r�ya g�rd�n m� Neo?
+
+354
+00:31:36,024 --> 00:31:38,609
+Ya o r�yadan uyanamazsan?
+
+355
+00:31:38,860 --> 00:31:41,362
+Hayal d�nyas� ile
+ger�ek d�nya aras�ndaki fark�...
+
+356
+00:31:41,988 --> 00:31:43,406
+...nas�l anlard�n?
+
+357
+00:31:45,033 --> 00:31:46,242
+Bu olamaz.
+
+358
+00:31:46,492 --> 00:31:47,410
+Ne olamaz?
+
+359
+00:31:48,119 --> 00:31:49,620
+Ger�ek mi?
+
+360
+00:31:53,583 --> 00:31:54,876
+Kopyalama a�amas�na ge�iyor.
+
+361
+00:31:55,335 --> 00:31:56,210
+Hala bir�ey yok.
+
+362
+00:31:56,794 --> 00:31:58,004
+So�uk.
+
+363
+00:31:58,254 --> 00:31:59,630
+So�uk.
+
+364
+00:32:03,509 --> 00:32:05,178
+Tank, hemen sinyal almal�y�z.
+
+365
+00:32:06,721 --> 00:32:07,555
+Kalbi tekliyor.
+
+366
+00:32:07,805 --> 00:32:09,349
+Apoc. Yeri.
+
+367
+00:32:09,599 --> 00:32:11,059
+Hedefleme neredeyse tamam.
+
+368
+00:32:14,354 --> 00:32:15,772
+Kriz ge�irmek �zere.
+
+369
+00:32:16,022 --> 00:32:16,856
+Tamam. Kilitle.
+
+370
+00:32:17,065 --> 00:32:18,524
+�imdi Tank. �imdi.
+
+371
+00:35:15,785 --> 00:35:16,869
+Ger�ek d�nyaya...
+
+372
+00:35:17,203 --> 00:35:19,122
+...ho�geldin.
+
+373
+00:35:20,540 --> 00:35:22,375
+Ba�ard�k Trinity.
+
+374
+00:35:22,625 --> 00:35:24,168
+Onu bulduk.
+
+375
+00:35:24,419 --> 00:35:27,213
+- Umar�m hakl�s�n.
+- Ummaya gerek yok.
+
+376
+00:35:27,797 --> 00:35:29,382
+Biliyorum.
+
+377
+00:35:34,554 --> 00:35:35,596
+�ld�m m�?
+
+378
+00:35:36,097 --> 00:35:38,266
+Tam tersine.
+
+379
+00:35:52,238 --> 00:35:53,656
+Daha �ok �al��mal�y�z.
+
+380
+00:35:55,199 --> 00:35:56,284
+Ne yap�yorsunuz?
+
+381
+00:35:56,534 --> 00:35:58,745
+Kaslar�n ��kt�.
+Onlar� yeniden geli�tiriyoruz.
+
+382
+00:35:59,329 --> 00:36:00,872
+G�zlerim neden ac�yor?
+
+383
+00:36:01,581 --> 00:36:03,458
+Onlar� hi� kullanmad�n.
+
+384
+00:36:07,420 --> 00:36:08,254
+Dinlen Neo.
+
+385
+00:36:08,504 --> 00:36:10,173
+Yan�tlar geliyor.
+
+386
+00:37:24,747 --> 00:37:26,332
+Morpheus, bana ne oldu?
+
+387
+00:37:27,083 --> 00:37:28,042
+Buras� da ne?
+
+388
+00:37:28,292 --> 00:37:30,962
+Ne de�il, ne zaman?
+
+389
+00:37:31,671 --> 00:37:32,505
+"Ne zaman" m�?
+
+390
+00:37:32,714 --> 00:37:34,757
+1999 y�l�nda
+oldu�umuzu san�yorsun ama...
+
+391
+00:37:35,008 --> 00:37:37,260
+...2199'a daha yak�ns�n.
+
+392
+00:37:38,386 --> 00:37:41,139
+Ka� y�l�nda oldu�umuzu s�yleyemem...
+
+393
+00:37:41,389 --> 00:37:43,016
+...��nk� tam olarak biz de bilmiyoruz.
+
+394
+00:37:43,516 --> 00:37:46,352
+�imdilik bunu a��klayabilecek
+bir�ey s�yleyemem.
+
+395
+00:37:46,602 --> 00:37:47,770
+Gel benimle.
+
+396
+00:37:48,062 --> 00:37:49,355
+Kendin g�r.
+
+397
+00:37:49,897 --> 00:37:51,649
+Bu, benim gemim.
+
+398
+00:37:51,941 --> 00:37:54,861
+<i>Nebuchadnezzar.
+Bir hava ve kara ta��t�d�r.</i>
+
+399
+00:37:57,697 --> 00:37:59,449
+Buras� ana g�verte.
+
+400
+00:38:05,455 --> 00:38:06,456
+Buras� merkez...
+
+401
+00:38:06,706 --> 00:38:08,708
+NEBUCHADNEZZAR
+2060 YILINDA ABD'DE YAPILDI
+
+402
+00:38:08,958 --> 00:38:12,712
+...Buradan korsan yay�n yap�p,
+Matrix'e giriyoruz.
+
+403
+00:38:16,090 --> 00:38:19,260
+M�rettebat�n �o�unu tan�yorsun.
+
+404
+00:38:24,265 --> 00:38:25,683
+Bu, Apoc...
+
+405
+00:38:26,476 --> 00:38:27,810
+...Switch...
+
+406
+00:38:29,395 --> 00:38:30,563
+...ve Cypher.
+
+407
+00:38:30,813 --> 00:38:34,525
+Tan�mad�klar�n: Tank ve abisi Dozer.
+
+408
+00:38:35,401 --> 00:38:37,820
+Arkandaki ufakl�k Mouse.
+
+409
+00:38:42,158 --> 00:38:45,411
+Matrix'in ne oldu�unu ��renmek
+istiyordun, de�il mi?
+
+410
+00:38:46,454 --> 00:38:47,664
+Trinity.
+
+411
+00:39:08,685 --> 00:39:10,269
+Dinlenmeye �al��.
+
+412
+00:39:15,149 --> 00:39:16,985
+Kendini tuhaf hissedeceksin.
+
+413
+00:39:20,822 --> 00:39:21,739
+DESTEK S�R�C�S�
+
+414
+00:39:28,955 --> 00:39:30,123
+Bu...
+
+415
+00:39:30,498 --> 00:39:32,208
+...Construct.
+
+416
+00:39:32,625 --> 00:39:34,752
+Bizim y�kleme program�m�z.
+
+417
+00:39:35,003 --> 00:39:37,463
+Her�eyi y�kleyebiliriz. Giysi...
+
+418
+00:39:37,714 --> 00:39:39,090
+...donan�mlar...
+
+419
+00:39:39,382 --> 00:39:40,717
+...silah...
+
+420
+00:39:41,342 --> 00:39:43,177
+...e�itim sim�lasyonlar�...
+
+421
+00:39:43,553 --> 00:39:46,097
+...ihtiyac�m�z olan her�eyi.
+
+422
+00:39:48,891 --> 00:39:51,310
+Evet. �u anda bir bilgisayar
+program�n�n i�inde miyiz?
+
+423
+00:39:51,602 --> 00:39:53,521
+Buna inanmak �ok mu zor?
+
+424
+00:39:54,022 --> 00:39:56,649
+Giysilerin farkl�. Kollar�n ve
+kafandaki ba�lant�lar gitmi�.
+
+425
+00:39:57,859 --> 00:39:59,944
+Sa��n de�i�mi�.
+
+426
+00:40:00,320 --> 00:40:03,656
+�u andaki g�r�nt�n,
+"ge�ici bir benlik resmi."
+
+427
+00:40:04,365 --> 00:40:06,993
+Dijital benli�inin,
+zihinsel bir projeksiyonu.
+
+428
+00:40:12,874 --> 00:40:14,000
+Bu ger�ek de�il mi?
+
+429
+00:40:14,250 --> 00:40:15,793
+"Ger�ek" nedir?
+
+430
+00:40:16,169 --> 00:40:18,421
+"Ger�e�i" nas�l tan�mlars�n?
+
+431
+00:40:18,713 --> 00:40:20,631
+E�er, hissedebildi�in...
+
+432
+00:40:20,882 --> 00:40:23,301
+...koklay�p, tad�p, g�rebildi�in
+�eylerden s�z ediyorsan...
+
+433
+00:40:23,551 --> 00:40:27,430
+..."ger�ek", beyne iletilen elektrik
+sinyallerinin yorumlanmas�d�r.
+
+434
+00:40:31,601 --> 00:40:34,020
+Bu, bildi�in d�nya.
+
+435
+00:40:35,438 --> 00:40:38,483
+20. y�zy�l�n sonundaki d�nya.
+
+436
+00:40:40,860 --> 00:40:45,198
+�u anda sadece beyin etkile�imli
+bir sim�lasyonun par�as�.
+
+437
+00:40:45,448 --> 00:40:46,699
+Buna Matrix diyoruz.
+
+438
+00:40:51,245 --> 00:40:54,082
+Bir hayal d�nyas�nda ya��yordun.
+
+439
+00:40:55,041 --> 00:40:56,167
+Bu, bug�nk� haliyle...
+
+440
+00:40:56,459 --> 00:40:58,252
+...ger�ek d�nya.
+
+441
+00:41:11,265 --> 00:41:14,227
+"Ger�e�in ��l�ne"...
+
+442
+00:41:15,103 --> 00:41:16,688
+...ho�geldin.
+
+443
+00:41:20,066 --> 00:41:22,443
+�ok az bilgimiz var.
+
+444
+00:41:22,694 --> 00:41:26,489
+Kesin bildi�imiz bir�eye g�re
+21. y�zy�l�n ba�lar�nda...
+
+445
+00:41:26,739 --> 00:41:29,993
+...t�m d�nya bir kutlama yapt�.
+
+446
+00:41:30,243 --> 00:41:34,998
+Kendi ihti�am�m�z� kutluyorduk.
+YZ do�mu�tu.
+
+447
+00:41:35,790 --> 00:41:36,916
+YZ.
+
+448
+00:41:37,959 --> 00:41:39,335
+Yapay Zeka yani.
+
+449
+00:41:39,585 --> 00:41:44,007
+Bir makine �rk�n�
+yaratan tek bir bilin�.
+
+450
+00:41:44,841 --> 00:41:48,302
+Kim �nce sald�rd� bilmiyoruz.
+
+451
+00:41:48,720 --> 00:41:51,931
+Ancak g�ky�z�n� biz yakt�k.
+
+452
+00:41:53,599 --> 00:41:55,768
+O s�ralar g�ne� �����na ba��ml�yd�lar.
+
+453
+00:41:56,019 --> 00:41:59,355
+G�ne� kadar bol bir
+enerji kayna�� olmadan...
+
+454
+00:41:59,689 --> 00:42:03,192
+...var olamayacaklar� san�ld�.
+
+455
+00:42:03,443 --> 00:42:08,323
+�nsanl�k tarihinde var olabilmek i�in
+hep makinelere g�vendik.
+
+456
+00:42:09,782 --> 00:42:13,995
+Bu, kader olsa gerek.
+Bir t�r kara mizah.
+
+457
+00:42:17,206 --> 00:42:21,627
+�nsan v�cudu, 120 voltluk
+bir ak�den, fazla biyoelektrik...
+
+458
+00:42:21,878 --> 00:42:26,007
+...ve 25 binin �zerinde
+BTU birimi �s� �retir.
+
+459
+00:42:27,925 --> 00:42:30,094
+Bir t�r f�zyonla birle�tirildi�inde...
+
+460
+00:42:30,428 --> 00:42:35,266
+...makineler, gerekli t�m
+enerjiyi buldular.
+
+461
+00:42:39,312 --> 00:42:43,066
+Tarlalar var Neo. Sonsuz tarlalar.
+
+462
+00:42:43,316 --> 00:42:46,569
+�nsanlar�n do�mad���...
+
+463
+00:42:47,278 --> 00:42:49,113
+...yeti�tirildi�i yerler.
+
+464
+00:42:55,161 --> 00:42:57,747
+Uzun bir s�re buna inanmad�m.
+
+465
+00:42:57,997 --> 00:43:00,667
+Sonra tarlalar� kendi g�z�mle g�rd�m.
+
+466
+00:43:02,001 --> 00:43:03,628
+�l�leri s�v�la�t�rarak...
+
+467
+00:43:03,878 --> 00:43:07,215
+...ya�ayanlar� damardan besliyorlard�.
+
+468
+00:43:07,757 --> 00:43:12,011
+Orada, olan biteni
+t�m ��plakl���yla g�r�nce...
+
+469
+00:43:12,261 --> 00:43:15,181
+...ger�e�in barizli�ini anlad�m.
+
+470
+00:43:17,809 --> 00:43:19,602
+Matrix nedir?
+
+471
+00:43:20,812 --> 00:43:21,854
+Kontrol.
+
+472
+00:43:23,231 --> 00:43:26,609
+Matrix, bilgisayar tabanl�
+bir hayal d�nyas�.
+
+473
+00:43:27,402 --> 00:43:30,488
+Bizi kontrol etmek ve...
+
+474
+00:43:31,656 --> 00:43:34,826
+...insano�lunu bu hale...
+
+475
+00:43:35,451 --> 00:43:36,619
+...getirmek i�in, kuruldu.
+
+476
+00:43:37,996 --> 00:43:39,122
+Hay�r.
+
+477
+00:43:40,748 --> 00:43:42,333
+�nanm�yorum.
+
+478
+00:43:42,709 --> 00:43:43,918
+Bu imkans�z.
+
+479
+00:43:44,502 --> 00:43:49,090
+Kolay olaca��n� s�ylemedim.
+Ger�e�in kendisi olacak dedim.
+
+480
+00:43:49,340 --> 00:43:50,174
+Dur!
+
+481
+00:43:51,175 --> 00:43:52,385
+��kar beni!
+
+482
+00:43:53,094 --> 00:43:55,013
+��kar beni!
+
+483
+00:43:56,973 --> 00:43:59,642
+- Sakin ol Neo. Yava�.
+- O �eyi benden ��kar.
+
+484
+00:44:03,354 --> 00:44:04,856
+Dokunma bana.
+
+485
+00:44:05,106 --> 00:44:06,733
+Benden uzak dur.
+
+486
+00:44:07,150 --> 00:44:08,651
+�nanm�yorum.
+
+487
+00:44:09,360 --> 00:44:10,570
+�nanm�yorum.
+
+488
+00:44:10,820 --> 00:44:11,821
+�nanm�yorum.
+
+489
+00:44:12,572 --> 00:44:14,615
+- ��ld�racak.
+- Nefes al Neo.
+
+490
+00:44:15,199 --> 00:44:16,075
+Nefes al.
+
+491
+00:44:34,469 --> 00:44:36,262
+Geri d�nemem, de�il mi?
+
+492
+00:44:37,221 --> 00:44:38,181
+Hay�r.
+
+493
+00:44:39,349 --> 00:44:40,558
+Ama yapabilsen...
+
+494
+00:44:41,392 --> 00:44:42,894
+...yapmak ister miydin?
+
+495
+00:44:45,396 --> 00:44:46,814
+Sana bir �z�r bor�luyum.
+
+496
+00:44:47,357 --> 00:44:48,733
+Bir kural�m�z var.
+
+497
+00:44:49,192 --> 00:44:52,570
+Belirli ya�a ula�an
+zihinleri ayd�nlatm�yoruz.
+
+498
+00:44:52,820 --> 00:44:53,696
+Bu, tehlikeli.
+
+499
+00:44:54,405 --> 00:44:56,115
+Beyinler eski ger�e�e tak�l�r.
+
+500
+00:44:56,366 --> 00:44:58,660
+Daha �nce g�rd�m ve �zg�n�m.
+
+501
+00:44:59,702 --> 00:45:01,788
+Bunu yapt�m ��nk�...
+
+502
+00:45:02,497 --> 00:45:03,956
+...mecburdum.
+
+503
+00:45:12,382 --> 00:45:16,469
+Matrix ilk kez yap�ld���nda
+i�inde bir insan do�du.
+
+504
+00:45:16,969 --> 00:45:20,765
+Bu adam istedi�ini de�i�tirebiliyor...
+
+505
+00:45:21,140 --> 00:45:24,060
+...ve Matrix'i yeniden
+yap�land�rabiliyordu.
+
+506
+00:45:25,812 --> 00:45:29,273
+��imizden ilk kez, birini
+�zg�r k�l�p...
+
+507
+00:45:30,149 --> 00:45:31,776
+...bize ger�e�i ��reten oydu.
+
+508
+00:45:33,236 --> 00:45:36,322
+Matrix oldu�u s�rece...
+
+509
+00:45:36,656 --> 00:45:38,741
+...insano�lu asla �zg�r olmayacak.
+
+510
+00:45:42,954 --> 00:45:44,497
+�ld�kten sonra...
+
+511
+00:45:45,248 --> 00:45:47,959
+...kehanetler O'nun d�nece�ini �ng�rd�.
+
+512
+00:45:48,501 --> 00:45:51,713
+Ve Matrix'in yok
+edilmesiyle beraber, halk�m�za...
+
+513
+00:45:51,963 --> 00:45:53,631
+...�zg�rl�k gelmesinin...
+
+514
+00:45:53,965 --> 00:45:55,174
+...engellenemeyece�ini.
+
+515
+00:45:56,551 --> 00:46:01,180
+Bu y�zden hayat�m�z boyunca
+Matrix'i ara�t�r�p...
+
+516
+00:46:01,514 --> 00:46:03,099
+...O'nu arad�k.
+
+517
+00:46:05,518 --> 00:46:07,603
+Bunlar� yapt�m ��nk�...
+
+518
+00:46:09,230 --> 00:46:11,357
+...bence aray���m bitti.
+
+519
+00:46:16,446 --> 00:46:17,864
+Biraz dinlen.
+
+520
+00:46:18,489 --> 00:46:20,283
+�htiyac�n olacak.
+
+521
+00:46:23,202 --> 00:46:24,037
+Ne i�in?
+
+522
+00:46:27,290 --> 00:46:28,291
+E�itim i�in.
+
+523
+00:46:46,601 --> 00:46:48,311
+G�nayd�n. Uyuyabildin mi?
+
+524
+00:46:49,187 --> 00:46:50,396
+Bu gece uyuyacaks�n.
+
+525
+00:46:50,772 --> 00:46:52,315
+Seni temin ederim.
+
+526
+00:46:53,816 --> 00:46:55,735
+Ben Tank. Operat�r�n olaca��m.
+
+527
+00:46:56,194 --> 00:46:58,613
+- Sende herhangi...
+- Delik mi? Hay�r.
+
+528
+00:46:59,530 --> 00:47:04,243
+Ben ve karde�im Dozer, % 100
+eski model insanlardan�z.
+
+529
+00:47:04,494 --> 00:47:05,703
+Ger�ek d�nyada...
+
+530
+00:47:06,245 --> 00:47:07,580
+...�zg�r olarak do�duk.
+
+531
+00:47:07,830 --> 00:47:09,499
+Zion'un ger�ek �ocuklar�.
+
+532
+00:47:10,333 --> 00:47:12,794
+- Zion mu?
+- �ki g�n sonra sava� ��ksa...
+
+533
+00:47:13,044 --> 00:47:14,462
+...t�m e�lence Zion'da d�zenlenirdi.
+
+534
+00:47:14,962 --> 00:47:16,255
+Bir �ehir mi?
+
+535
+00:47:16,506 --> 00:47:19,676
+Son insan �ehri. Bize kalan son yer.
+
+536
+00:47:21,260 --> 00:47:22,512
+Nerede?
+
+537
+00:47:24,263 --> 00:47:25,264
+Yer alt�nda...
+
+538
+00:47:25,515 --> 00:47:27,684
+...halen s�cak olan d�nyan�n
+merkezine yak�n.
+
+539
+00:47:29,310 --> 00:47:31,187
+�mr�n yeterse g�rebilirsin.
+
+540
+00:47:33,439 --> 00:47:38,277
+Lanet olsun. Morpheus hakl�ysa...
+
+541
+00:47:38,528 --> 00:47:40,279
+...neler yapabildi�ini g�rmek isterim.
+
+542
+00:47:40,780 --> 00:47:43,533
+Bunu konu�mamal�y�z...
+
+543
+00:47:43,783 --> 00:47:45,201
+...ama sen ger�ekten O'ysan...
+
+544
+00:47:46,285 --> 00:47:48,287
+...heyecanl� vakitler ge�irece�iz.
+
+545
+00:47:49,330 --> 00:47:52,041
+Yapacak �ok �eyimiz var. �al��mal�y�z.
+
+546
+00:47:55,962 --> 00:47:58,881
+�imdi. �nce operasyon
+programlar�yla ba�layal�m.
+
+547
+00:47:59,882 --> 00:48:03,344
+�ok s�k�c� �eyler.
+
+548
+00:48:03,678 --> 00:48:05,179
+Sava� e�itimine...
+
+549
+00:48:06,723 --> 00:48:08,474
+...ne dersin?
+
+550
+00:48:14,522 --> 00:48:15,982
+"Jujitsu" mu?
+
+551
+00:48:16,858 --> 00:48:18,526
+Jujitsu mu ��renece�im?
+
+552
+00:48:29,871 --> 00:48:31,080
+Lanet olsun.
+
+553
+00:48:31,331 --> 00:48:33,666
+Hey Mikey, galiba be�endi.
+
+554
+00:48:34,000 --> 00:48:35,293
+Biraz daha ister misin?
+
+555
+00:48:35,543 --> 00:48:36,836
+Evet.
+
+556
+00:48:39,130 --> 00:48:39,964
+Harika.
+
+557
+00:48:40,214 --> 00:48:44,260
+KEMPO TAE KWON DO
+SARHO� BOKSU
+
+558
+00:48:52,352 --> 00:48:53,227
+Ne durumda?
+
+559
+00:48:53,478 --> 00:48:55,688
+10 saattir ba�l�. Bu adam makine gibi.
+
+560
+00:49:06,866 --> 00:49:08,242
+Kung fu biliyorum.
+
+561
+00:49:10,119 --> 00:49:10,953
+G�ster.
+
+562
+00:49:12,705 --> 00:49:14,457
+Bu bir d���� program�...
+
+563
+00:49:14,707 --> 00:49:17,502
+...Matrix'in programlanm��
+ger�e�ine benziyor.
+
+564
+00:49:17,752 --> 00:49:20,088
+Ayn� temel kurallar� var.
+Yer �ekimi gibi.
+
+565
+00:49:20,338 --> 00:49:23,800
+Bu kurallar, bir bilgisayar
+sisteminin kurallar�ndan farks�z.
+
+566
+00:49:24,342 --> 00:49:25,843
+Baz� kurallar de�i�ebilir.
+
+567
+00:49:26,052 --> 00:49:26,886
+Baz�lar� da...
+
+568
+00:49:27,136 --> 00:49:28,513
+...�i�nenebilinir.
+
+569
+00:49:29,180 --> 00:49:30,139
+Anlad�n m�?
+
+570
+00:49:31,432 --> 00:49:32,308
+Vur bana...
+
+571
+00:49:32,850 --> 00:49:33,976
+...vurabilirsen.
+
+572
+00:50:13,558 --> 00:50:14,017
+�yi.
+
+573
+00:50:14,767 --> 00:50:15,935
+Uyum.
+
+574
+00:50:16,227 --> 00:50:17,437
+Geli�me.
+
+575
+00:50:17,729 --> 00:50:19,063
+Ancak zay�fl���n...
+
+576
+00:50:19,314 --> 00:50:20,690
+...tekni�inden gelmiyor.
+
+577
+00:50:27,655 --> 00:50:29,741
+Morpheus, Neo'yla sava��yor.
+
+578
+00:51:42,021 --> 00:51:43,189
+Seni nas�l yendim?
+
+579
+00:51:49,779 --> 00:51:50,863
+�ok h�zl�s�n.
+
+580
+00:51:51,406 --> 00:51:52,740
+Daha h�zl�...
+
+581
+00:51:53,116 --> 00:51:55,618
+...veya g��l� olu�umun...
+
+582
+00:51:55,868 --> 00:51:59,539
+...sence burada, kaslar�mla bir
+ilgisi var m� dersin?
+
+583
+00:52:03,584 --> 00:52:05,378
+Hava soludu�unu mu san�yorsun?
+
+584
+00:52:18,891 --> 00:52:20,101
+Tekrar.
+
+585
+00:52:31,571 --> 00:52:33,990
+Tanr�m. �ok h�zl�.
+
+586
+00:52:34,240 --> 00:52:36,451
+N�ro-kineti�ine bak�n.
+Normalin �ok �st�nde.
+
+587
+00:52:41,914 --> 00:52:43,374
+Ne bekliyorsun?
+
+588
+00:52:43,624 --> 00:52:45,585
+Bundan daha da h�zl�s�n.
+
+589
+00:52:47,795 --> 00:52:50,006
+�yle oldu�unu zannetme.
+
+590
+00:52:50,256 --> 00:52:51,924
+�yle oldu�unu bil.
+
+591
+00:53:02,310 --> 00:53:05,146
+Haydi, bana vurmay�
+denemeyi kes ve vur.
+
+592
+00:53:15,031 --> 00:53:16,783
+Buna inanm�yorum.
+
+593
+00:53:18,326 --> 00:53:20,453
+Ne yapmaya �al��t���n� biliyorum.
+
+594
+00:53:22,121 --> 00:53:24,290
+Zihnini �zg�rle�tirmeye �al���yorum.
+
+595
+00:53:24,624 --> 00:53:26,709
+Ama sana sadece kap�y� g�sterebilirim.
+
+596
+00:53:27,293 --> 00:53:29,212
+Kap�dan ge�ecek olan sensin.
+
+597
+00:53:31,506 --> 00:53:33,633
+Tank, s��rama program�n� haz�rla.
+
+598
+00:53:37,762 --> 00:53:38,763
+HAZIRLAMA
+
+599
+00:53:45,228 --> 00:53:47,939
+Kendini b�rakmal�s�n Neo. Korku...
+
+600
+00:53:48,481 --> 00:53:50,650
+...��phe ve ku�kuyu.
+
+601
+00:53:51,818 --> 00:53:54,529
+Zihnini bo�alt.
+
+602
+00:54:10,712 --> 00:54:12,422
+Tamam.
+
+603
+00:54:14,507 --> 00:54:15,675
+Zihnimi bo�altay�m.
+
+604
+00:54:16,259 --> 00:54:17,260
+Ya ba�ar�rsa?
+
+605
+00:54:17,510 --> 00:54:20,221
+- Kimse ilk s��ramay� yapamad�.
+- Biliyorum.
+
+606
+00:54:21,556 --> 00:54:24,017
+- Peki yaparsa?
+- Yapamaz.
+
+607
+00:54:24,851 --> 00:54:25,685
+Haydi.
+
+608
+00:54:25,935 --> 00:54:27,103
+Tamam.
+
+609
+00:54:27,562 --> 00:54:29,605
+Sorun de�il. Zihnimi bo�altaca��m.
+
+610
+00:54:52,587 --> 00:54:54,255
+Bu da ne demek?
+
+611
+00:54:54,630 --> 00:54:56,466
+Bir anlam� yok.
+
+612
+00:54:57,050 --> 00:54:59,635
+Herkes ilk seferinde d��er.
+
+613
+00:55:00,094 --> 00:55:01,387
+De�il mi, Trin?
+
+614
+00:55:22,075 --> 00:55:24,702
+- Ger�ek de�il sanm��t�m?
+- Zihnin ger�ekle�tiriyor.
+
+615
+00:55:27,955 --> 00:55:30,208
+Matrix'de �l�rsen...
+
+616
+00:55:30,583 --> 00:55:31,417
+...burada da �l�yor musun?
+
+617
+00:55:32,043 --> 00:55:34,504
+Beden, zihin olmadan ya�ayamaz.
+
+618
+00:56:04,993 --> 00:56:08,371
+Bana yemek getirdi�ini
+hi� hat�rlam�yorum.
+
+619
+00:56:11,457 --> 00:56:14,293
+Onda bir�eyler var, de�il mi?
+
+620
+00:56:14,919 --> 00:56:16,546
+Ona inand���n� s�yleme sak�n.
+
+621
+00:56:17,547 --> 00:56:18,756
+Sadece merak ediyorum...
+
+622
+00:56:19,007 --> 00:56:22,677
+...Morpheus bu kadar eminse
+neden Onu Kahin'e g�t�rm�yor?
+
+623
+00:56:23,594 --> 00:56:26,514
+Haz�r oldu�unda g�t�recek.
+
+624
+00:56:36,316 --> 00:56:37,859
+Matrix, bir sistemdir Neo.
+
+625
+00:56:39,610 --> 00:56:40,903
+Bu sistem, d��man�m�z.
+
+626
+00:56:41,529 --> 00:56:43,865
+��eride, etraf�na bakt���nda
+ne g�r�yorsun?
+
+627
+00:56:44,115 --> 00:56:47,910
+��adamlar�, ��retmenler,
+avukatlar, marangozlar.
+
+628
+00:56:48,369 --> 00:56:50,955
+Kurtarmaya �al��t���m�z
+insanlar�n zihinleri.
+
+629
+00:56:51,205 --> 00:56:54,167
+Onlar� kurtarana dek, sistemin
+bir par�as� olarak kalacaklar...
+
+630
+00:56:54,417 --> 00:56:56,336
+Bu y�zden d��manlar�m�z onlar.
+
+631
+00:56:56,711 --> 00:56:57,712
+Anlamal�s�n...
+
+632
+00:56:57,962 --> 00:57:01,299
+...bu insanlar�n �o�u,
+sistemden ��kmaya haz�r de�iller.
+
+633
+00:57:01,549 --> 00:57:03,134
+��lerinden �o�u...
+
+634
+00:57:03,384 --> 00:57:04,552
+...sisteme o kadar umutsuzca ba�l� ki...
+
+635
+00:57:04,552 --> 00:57:05,803
+...sisteme o kadar umutsuzca ba�l� ki...
+
+636
+00:57:06,054 --> 00:57:08,765
+...onu korumak i�in sava�acaklar.
+
+637
+00:57:10,266 --> 00:57:14,020
+Beni mi dinliyordun, yoksa
+k�rm�z�l� kad�na m� bak�yordun?
+
+638
+00:57:15,021 --> 00:57:15,938
+Tekrar bak.
+
+639
+00:57:17,190 --> 00:57:18,274
+Durdur.
+
+640
+00:57:24,906 --> 00:57:26,532
+Bu, Matrix de�il mi?
+
+641
+00:57:28,326 --> 00:57:32,163
+Sana bir�ey ��retmek i�in
+tasarlanm�� bir program.
+
+642
+00:57:32,789 --> 00:57:35,208
+Bizden biri de�ilsen, onlardan birisin.
+
+643
+00:57:35,750 --> 00:57:38,544
+- Onlar ne?
+- Duyusal programlar.
+
+644
+00:57:39,295 --> 00:57:43,591
+Sisteme ba�l� kalarak her t�rl�
+yaz�l�ma girip, ��kabilirler.
+
+645
+00:57:43,966 --> 00:57:47,345
+Sistemden ��karmad���m�z herkes...
+
+646
+00:57:47,679 --> 00:57:49,013
+...potansiyel bir ajand�r.
+
+647
+00:57:49,972 --> 00:57:51,808
+Matrix'in i�inde...
+
+648
+00:57:52,392 --> 00:57:54,102
+...neredeyse herkes bir ajan...
+
+649
+00:57:54,435 --> 00:57:56,145
+...ya da de�il.
+
+650
+00:57:56,396 --> 00:57:59,524
+Onlardan saklanarak ve
+ka�arak hayatta kald�k...
+
+651
+00:57:59,774 --> 00:58:01,401
+...ama onlar kap� bek�ileri.
+
+652
+00:58:01,651 --> 00:58:04,612
+T�m kap�lar� tutmu�lar.
+Anahtarlar onlarda.
+
+653
+00:58:04,862 --> 00:58:07,699
+Er ya da ge�, birisinin onlarla
+sava�mas� gerekecek.
+
+654
+00:58:08,074 --> 00:58:09,075
+Birisi mi?
+
+655
+00:58:09,409 --> 00:58:10,827
+Sana yalan s�ylemeyece�im.
+
+656
+00:58:11,285 --> 00:58:16,124
+Bir ajana kar�� gelip, onunla
+sava�an herkes, can�ndan oldu.
+
+657
+00:58:16,374 --> 00:58:18,751
+Onlar�n yapamad�klar�n� sen yapacaks�n.
+
+658
+00:58:19,168 --> 00:58:20,003
+Neden?
+
+659
+00:58:20,253 --> 00:58:22,547
+Bir duvar�n i�inden yumruk
+atan ajanlar g�rd�m.
+
+660
+00:58:22,797 --> 00:58:26,384
+�nsanlar onlara bir �arj�r bo�altt�;
+ancak sadece havay� vurdular.
+
+661
+00:58:26,634 --> 00:58:31,264
+G��leri ve h�zlar�,
+kurallara dayal� bu d�nyaya ba�l�.
+
+662
+00:58:31,514 --> 00:58:32,640
+Bu y�zden...
+
+663
+00:58:32,890 --> 00:58:36,269
+...senin kadar h�zl� ve g��l� olamazlar.
+
+664
+00:58:40,565 --> 00:58:42,442
+Ne s�ylemeye �al���yorsun?
+
+665
+00:58:43,151 --> 00:58:44,610
+Kur�unlar� tutabilece�imi mi?
+
+666
+00:58:46,612 --> 00:58:47,989
+Hay�r Neo.
+
+667
+00:58:48,489 --> 00:58:51,409
+Demek istedi�im �u: Haz�r oldu�unda...
+
+668
+00:58:52,285 --> 00:58:53,661
+...buna gerek kalmayacak.
+
+669
+00:58:58,166 --> 00:58:59,000
+<i>Bir sorun var.</i>
+
+670
+00:59:17,894 --> 00:59:19,270
+Uyar�y� Zion mu yollad�?
+
+671
+00:59:19,520 --> 00:59:20,355
+Hay�r, ba�ka bir gemi.
+
+672
+00:59:23,608 --> 00:59:24,901
+Lanet olsun.
+
+673
+00:59:25,151 --> 00:59:26,903
+Squiddy, h�zl� arama yap�yor.
+
+674
+00:59:27,195 --> 00:59:28,029
+Squiddy mi?
+
+675
+00:59:28,237 --> 00:59:31,449
+Bir g�zc�. Tek ama� i�in
+yarat�lm�� katil bir makina.
+
+676
+00:59:34,243 --> 00:59:35,411
+Hemen �uraya in.
+
+677
+00:59:57,225 --> 00:59:58,184
+Nas�l gidiyor Tank?
+
+678
+01:00:06,901 --> 01:00:08,069
+G�� kesildi.
+
+679
+01:00:08,569 --> 01:00:10,571
+EMD a��ld�...
+
+680
+01:00:11,072 --> 01:00:12,615
+...ve haz�r.
+
+681
+01:00:12,907 --> 01:00:14,784
+Elektromanyetik darbe.
+
+682
+01:00:15,034 --> 01:00:17,912
+Patlama b�lgesindeki
+elektrik sistemlerini etkisizle�tirir.
+
+683
+01:00:18,162 --> 01:00:20,373
+Makinelere kar�� tek silah�m�z.
+
+684
+01:00:26,170 --> 01:00:27,005
+Neredeyiz?
+
+685
+01:00:27,255 --> 01:00:29,298
+Eski hizmet ve at�k sisteminde.
+
+686
+01:00:30,842 --> 01:00:31,676
+La��m m�?
+
+687
+01:00:31,884 --> 01:00:34,595
+Y�zlerce mil uzunlu�unda
+�ehirler vard�.
+
+688
+01:00:35,096 --> 01:00:37,015
+Geriye sadece bu la��mlar kald�.
+
+689
+01:00:37,265 --> 01:00:38,599
+Sus.
+
+690
+01:01:22,435 --> 01:01:24,604
+Beni �ok korkuttun.
+
+691
+01:01:25,688 --> 01:01:27,607
+- �zg�n�m.
+- Tamam.
+
+692
+01:01:30,526 --> 01:01:31,361
+Bu...
+
+693
+01:01:31,611 --> 01:01:33,196
+...Matrix mi?
+
+694
+01:01:36,366 --> 01:01:39,535
+- Hep �ifreli mi bak�yorsun?
+- Evet.
+
+695
+01:01:39,786 --> 01:01:42,872
+G�r�nt� �eviriciler, kurma
+program�nda �al���yor.
+
+696
+01:01:43,122 --> 01:01:46,542
+Matrix, �ifresi ��z�lemeyecek
+kadar �ok bilgi i�eriyor.
+
+697
+01:01:46,793 --> 01:01:49,754
+Buna al���rs�n.
+Ben �ifreyi g�rm�yorum bile.
+
+698
+01:01:50,004 --> 01:01:53,424
+Tek g�rd���m,
+sar���n, kumral ve esmerler.
+
+699
+01:01:54,592 --> 01:01:55,968
+��ki...
+
+700
+01:01:56,260 --> 01:01:57,345
+...ister misin?
+
+701
+01:02:02,183 --> 01:02:03,643
+Biliyor musun...
+
+702
+01:02:04,560 --> 01:02:06,104
+...ne d���nd���n� biliyorum.
+
+703
+01:02:06,354 --> 01:02:08,481
+�u anda ayn� �eyi d���n�yorum.
+
+704
+01:02:08,773 --> 01:02:12,110
+Buraya geldi�imden beri
+bunu hep d���n�p durdum.
+
+705
+01:02:14,028 --> 01:02:17,031
+Neden mavi hap� almad�m?
+
+706
+01:02:29,419 --> 01:02:31,337
+�yi, de�il mi?
+
+707
+01:02:31,671 --> 01:02:32,880
+Dozer yapt�.
+
+708
+01:02:33,339 --> 01:02:34,507
+�ki i�e yar�yor:
+
+709
+01:02:34,757 --> 01:02:37,844
+Motorlar� d���r�r ve
+beyin h�crelerini �ld�r�r.
+
+710
+01:02:38,845 --> 01:02:41,055
+Bir�ey sorabilir miyim?
+
+711
+01:02:44,058 --> 01:02:45,685
+Neden yapt���n� s�yledi mi?
+
+712
+01:02:48,313 --> 01:02:50,148
+Neden buradas�n?
+
+713
+01:02:53,818 --> 01:02:55,570
+Tanr�m.
+
+714
+01:02:56,779 --> 01:02:58,698
+Ne b�y�k bir i�.
+
+715
+01:03:00,116 --> 01:03:02,910
+D�nyay� kurtarmaya geldin demek.
+
+716
+01:03:04,412 --> 01:03:06,497
+B�yle bir �eye ne denir?
+
+717
+01:03:11,669 --> 01:03:13,046
+Sana bir �neri.
+
+718
+01:03:14,839 --> 01:03:16,257
+Bir ajan g�rd���nde...
+
+719
+01:03:16,591 --> 01:03:18,885
+...bizim yapt���m�z� yap:
+
+720
+01:03:19,218 --> 01:03:20,762
+Ka�.
+
+721
+01:03:21,095 --> 01:03:22,847
+En h�zl� �ekilde.
+
+722
+01:03:30,104 --> 01:03:31,814
+��ki i�in sa�ol.
+
+723
+01:03:36,527 --> 01:03:37,695
+Tatl� r�yalar.
+
+724
+01:03:41,699 --> 01:03:45,119
+Anla�t�k m� Bay Reagan?
+
+725
+01:03:45,787 --> 01:03:46,913
+Biliyor musunuz...
+
+726
+01:03:48,331 --> 01:03:50,792
+...bu biftein var olmad���n� biliyorum.
+
+727
+01:03:51,793 --> 01:03:54,545
+Bunu a�z�ma koydu�umda...
+
+728
+01:03:54,796 --> 01:03:57,882
+...Matrix'in beynime bunun...
+
+729
+01:03:58,174 --> 01:03:59,300
+...sulu ve...
+
+730
+01:03:59,592 --> 01:04:01,302
+...lezzetli oldu�unu
+s�yledi�ini biliyorum.
+
+731
+01:04:04,222 --> 01:04:05,473
+9 y�l�n ard�ndan...
+
+732
+01:04:06,516 --> 01:04:08,059
+...ne fark ettim biliyor musunuz?
+
+733
+01:04:15,900 --> 01:04:17,110
+Cehalet erdemdir.
+
+734
+01:04:22,156 --> 01:04:23,992
+Anla�t�k.
+
+735
+01:04:26,494 --> 01:04:28,413
+Hi�bir �ey hat�rlamak istemiyorum.
+
+736
+01:04:28,663 --> 01:04:29,497
+Hi�bir �ey.
+
+737
+01:04:30,039 --> 01:04:31,207
+Anlad�n m�?
+
+738
+01:04:35,253 --> 01:04:37,046
+Zengin olmak istiyorum.
+
+739
+01:04:38,381 --> 01:04:41,092
+Yani �nemli biri.
+
+740
+01:04:42,593 --> 01:04:43,720
+Bir akt�r gibi.
+
+741
+01:04:44,929 --> 01:04:48,057
+Ne isterseniz Bay Reagan.
+
+742
+01:04:50,226 --> 01:04:51,769
+Tamam.
+
+743
+01:04:52,145 --> 01:04:54,564
+Bedenimi bir santrale g�t�r�n...
+
+744
+01:04:54,939 --> 01:04:56,691
+...Matrix'e yeniden dahil edin...
+
+745
+01:04:57,025 --> 01:04:58,443
+...size istedi�inizi vereyim.
+
+746
+01:04:58,693 --> 01:05:00,695
+Zion anabilgisayar�na giri� kodlar�.
+
+747
+01:05:00,945 --> 01:05:03,114
+Onlar� bilmedi�imi s�yledim.
+
+748
+01:05:06,075 --> 01:05:08,077
+Ama bilen adam� getiririm.
+
+749
+01:05:08,828 --> 01:05:10,621
+Morpheus.
+
+750
+01:05:20,715 --> 01:05:24,177
+Haydi dostum.
+�ampiyonlar�n kahvalt�s�.
+
+751
+01:05:25,511 --> 01:05:28,306
+G�zlerini kapat�rsan, yumurta
+yedi�in izlenimine kap�l�rs�n.
+
+752
+01:05:28,556 --> 01:05:29,390
+Ya da bir tabak s�m�k.
+
+753
+01:05:34,187 --> 01:05:36,522
+Leziz bu�day. Hi� leziz
+bu�day yedin mi?
+
+754
+01:05:37,148 --> 01:05:38,858
+Hay�r ama asl�nda sen de yemedin.
+
+755
+01:05:39,108 --> 01:05:41,152
+Demek istedi�im de bu.
+
+756
+01:05:41,402 --> 01:05:42,779
+Makinelerin, leziz bu�day�n...
+
+757
+01:05:43,029 --> 01:05:46,282
+...tad�n� nereden
+bildi�ini merak ediyorsundur.
+
+758
+01:05:46,532 --> 01:05:47,950
+Belki yanl�� yapt�lar.
+
+759
+01:05:48,201 --> 01:05:51,412
+Belki Leziz Bu�day'�n tad�...
+
+760
+01:05:51,704 --> 01:05:53,706
+...yulaf ezmesi ya da
+ton bal��� gibiydi.
+
+761
+01:05:54,082 --> 01:05:56,918
+Bu durumda insan�n akl�na
+�ok �ey tak�l�yor. �rne�in tavuk.
+
+762
+01:05:57,168 --> 01:05:59,170
+Belki tavu�un tad�na karar
+veremediler...
+
+763
+01:05:59,420 --> 01:06:01,464
+...bu y�zden tavuk etinde
+her�eyin tad� var.
+
+764
+01:06:01,714 --> 01:06:03,508
+- Belki de...
+- Kapa �eneni.
+
+765
+01:06:05,134 --> 01:06:06,594
+Yedi�imiz �ey sentetik aminoasitler...
+
+766
+01:06:06,844 --> 01:06:09,889
+...vitaminler ve minerallerle
+birle�tirilmi� tek h�creli bir protein.
+
+767
+01:06:10,139 --> 01:06:11,391
+V�cudun ihtiyac� olan her�ey.
+
+768
+01:06:11,641 --> 01:06:14,519
+V�cudun ihtiyac� olan her�ey yok.
+
+769
+01:06:17,271 --> 01:06:20,358
+Ajan e�itim program�n� ald�n galiba.
+
+770
+01:06:21,401 --> 01:06:23,444
+O program� ben yazm��t�m.
+
+771
+01:06:23,736 --> 01:06:25,029
+��te ba�l�yor.
+
+772
+01:06:25,279 --> 01:06:27,240
+- Sence nas�l biri?
+- Kim?
+
+773
+01:06:27,615 --> 01:06:30,660
+K�rm�z�l� kad�n. Onu ben haz�rlad�m.
+
+774
+01:06:30,994 --> 01:06:33,746
+Pek konu�muyor ama...
+
+775
+01:06:33,997 --> 01:06:37,959
+...Onunla tan��mak istersen,
+bir�eyler ayarlar�m.
+
+776
+01:06:38,209 --> 01:06:39,585
+Dijital pezevenk i�ba��nda.
+
+777
+01:06:39,836 --> 01:06:42,088
+Bu ku�kucular� bo�ver Neo.
+
+778
+01:06:43,381 --> 01:06:45,216
+D�rt�lerini inkar etmek...
+
+779
+01:06:45,466 --> 01:06:48,594
+...bizi insan yapan �eyleri
+inkar etmektir.
+
+780
+01:06:50,513 --> 01:06:51,889
+Dozer, i�in bitti�inde...
+
+781
+01:06:52,140 --> 01:06:53,558
+...gemiyi yay�n derinli�ine ��kar.
+
+782
+01:06:54,267 --> 01:06:55,601
+Matrix'e girece�iz.
+
+783
+01:06:56,311 --> 01:06:57,729
+Neo'yu O'nu g�rmeye g�t�r�yorum.
+
+784
+01:07:02,066 --> 01:07:02,900
+Kimi?
+
+785
+01:07:03,901 --> 01:07:05,153
+Kahin'i.
+
+786
+01:07:10,658 --> 01:07:12,201
+Herkes l�tfen...
+
+787
+01:07:12,535 --> 01:07:15,246
+...kemerinizi ba�lay�n ve
+sigara i�ilmez levhalar�na uyun.
+
+788
+01:07:15,747 --> 01:07:19,125
+Arkan�za yaslan�n ve
+u�u�un keyfini ��kar�n.
+
+789
+01:07:43,650 --> 01:07:44,484
+Girdik.
+
+790
+01:08:00,208 --> 01:08:01,334
+Bir saat i�inde d�neriz.
+
+791
+01:08:16,140 --> 01:08:17,558
+�nan�lmaz...
+
+792
+01:08:18,393 --> 01:08:19,727
+...de�il mi?
+
+793
+01:08:23,314 --> 01:08:25,149
+- Tanr�m.
+- Ne?
+
+794
+01:08:25,817 --> 01:08:27,193
+Orada yemek yerdim.
+
+795
+01:08:29,445 --> 01:08:31,072
+Harika makarna yaparlar.
+
+796
+01:08:35,868 --> 01:08:38,371
+Hayat�mla ilgili an�lar�m var.
+
+797
+01:08:40,832 --> 01:08:42,500
+Hi�biri olmam��.
+
+798
+01:08:43,543 --> 01:08:44,460
+Bu da ne demek?
+
+799
+01:08:44,711 --> 01:08:46,921
+Matrix, sana kim oldu�unu s�yleyemez.
+
+800
+01:08:47,839 --> 01:08:49,048
+Ama kehanet s�yleyebilir.
+
+801
+01:08:49,507 --> 01:08:50,717
+Bu farkl�.
+
+802
+01:08:55,805 --> 01:08:56,681
+Ona gittin mi?
+
+803
+01:08:58,224 --> 01:08:59,392
+Evet.
+
+804
+01:08:59,892 --> 01:09:01,269
+Sana ne dedi?
+
+805
+01:09:04,522 --> 01:09:06,024
+Dedi ki...
+
+806
+01:09:07,066 --> 01:09:08,234
+Ne?
+
+807
+01:09:12,030 --> 01:09:13,364
+Geldik.
+
+808
+01:09:14,615 --> 01:09:16,034
+Benimle gel.
+
+809
+01:09:36,012 --> 01:09:38,681
+Bu, kehanette bulunan...
+
+810
+01:09:39,015 --> 01:09:39,849
+...kahin mi?
+
+811
+01:09:40,099 --> 01:09:44,437
+Evet, �ok ya�l�d�r.
+Ba��ndan beri bizimle.
+
+812
+01:09:44,896 --> 01:09:45,730
+Ba��ndan beri mi?
+
+813
+01:09:45,938 --> 01:09:46,898
+Direni�in.
+
+814
+01:09:49,150 --> 01:09:51,527
+Her�eyi biliyor mu?
+
+815
+01:09:53,571 --> 01:09:55,490
+Yeteri kadar bildi�ini s�yler.
+
+816
+01:09:56,616 --> 01:09:58,409
+O halde asla yan�lm�yor.
+
+817
+01:10:00,620 --> 01:10:03,790
+Do�ru ve yanl��� baz alarak d���nme.
+
+818
+01:10:04,123 --> 01:10:05,708
+O bir rehber.
+
+819
+01:10:06,084 --> 01:10:07,960
+Yolu bulmana yard�m edebilir.
+
+820
+01:10:08,753 --> 01:10:09,712
+Sana yard�m etti mi?
+
+821
+01:10:12,215 --> 01:10:13,549
+Sana ne dedi?
+
+822
+01:10:16,010 --> 01:10:18,221
+O'nu bulaca��m�.
+
+823
+01:10:31,359 --> 01:10:33,486
+Sana sadece kap�y�
+g�sterebilece�imi s�yledim.
+
+824
+01:10:34,195 --> 01:10:36,280
+Oradan ge�melisin.
+
+825
+01:10:40,076 --> 01:10:41,160
+Merhaba Neo.
+
+826
+01:10:41,411 --> 01:10:43,079
+Tam zaman�nda geldin.
+
+827
+01:10:51,004 --> 01:10:54,799
+Rahat�na bak Morpheus.
+Neo, gel benimle.
+
+828
+01:11:00,471 --> 01:11:02,056
+Bunlar, di�er kudretliler.
+
+829
+01:11:02,307 --> 01:11:03,850
+Burada bekle.
+
+830
+01:11:44,682 --> 01:11:47,226
+Ka���� e�meyi deneme.
+
+831
+01:11:47,602 --> 01:11:49,729
+Bu imkans�z.
+
+832
+01:11:50,563 --> 01:11:54,567
+Ger�e�i alg�lamaya �al��.
+
+833
+01:11:55,109 --> 01:11:56,486
+Ne ger�e�i?
+
+834
+01:12:00,990 --> 01:12:02,325
+Ka��k yok mu?
+
+835
+01:12:02,575 --> 01:12:07,080
+O zaman e�ilenin ka��k de�il,
+kendin oldu�unu anlars�n.
+
+836
+01:12:23,096 --> 01:12:24,597
+Kahin sizi g�recek.
+
+837
+01:12:35,274 --> 01:12:36,818
+Neo oldu�unu biliyorum.
+
+838
+01:12:37,443 --> 01:12:38,611
+Hemen geliyorum.
+
+839
+01:12:39,654 --> 01:12:40,655
+Kahin sen misin?
+
+840
+01:12:41,030 --> 01:12:42,031
+Bildin.
+
+841
+01:12:44,742 --> 01:12:47,620
+Bekledi�in gibi biri de�ilim, de�il mi?
+
+842
+01:12:48,663 --> 01:12:50,832
+Neredeyse bitti.
+
+843
+01:12:53,334 --> 01:12:54,961
+G�zel kokuyor, de�il mi?
+
+844
+01:12:57,714 --> 01:12:59,549
+Oturman� isterdim ama...
+
+845
+01:12:59,799 --> 01:13:02,176
+...nas�lsa oturmayacaks�n.
+
+846
+01:13:02,677 --> 01:13:04,512
+Vazoyu bo�ver.
+
+847
+01:13:04,721 --> 01:13:05,555
+Ne vazosu?
+
+848
+01:13:08,683 --> 01:13:09,851
+Bu vazo.
+
+849
+01:13:10,810 --> 01:13:11,853
+�zg�n�m.
+
+850
+01:13:12,103 --> 01:13:13,980
+Bo�ver dedim.
+
+851
+01:13:15,148 --> 01:13:17,108
+�ocuklar�mdan biri toparlar.
+
+852
+01:13:17,734 --> 01:13:18,943
+Nereden bildin?
+
+853
+01:13:20,987 --> 01:13:24,782
+Senin kafan� kar��t�racak
+olan soru �u:
+
+854
+01:13:25,116 --> 01:13:28,077
+...Ben s�ylemesem yine de
+vazoyu k�rar m�yd�n?
+
+855
+01:13:32,874 --> 01:13:34,792
+D���nd���mden de tatl�s�n.
+
+856
+01:13:37,837 --> 01:13:40,089
+Seni neden sevdi�ini anl�yorum.
+
+857
+01:13:40,965 --> 01:13:42,050
+Kim?
+
+858
+01:13:42,300 --> 01:13:44,135
+Pek zeki de�ilsin.
+
+859
+01:13:47,430 --> 01:13:50,516
+Morpheus'un seni bana neden
+getirdi�ini biliyorsun.
+
+860
+01:13:52,644 --> 01:13:53,811
+Eee...
+
+861
+01:13:54,771 --> 01:13:56,147
+...ne d���n�yorsun?
+
+862
+01:13:57,982 --> 01:13:59,734
+Sence O musun?
+
+863
+01:14:01,694 --> 01:14:02,737
+Asl�nda, bilmiyorum.
+
+864
+01:14:06,157 --> 01:14:07,575
+Bunun anlam�n� biliyor musun?
+
+865
+01:14:08,409 --> 01:14:09,577
+Latince.
+
+866
+01:14:09,952 --> 01:14:12,163
+Anlam� "Kendini tan�."
+
+867
+01:14:13,623 --> 01:14:15,583
+Sana k���k bir s�r verece�im.
+
+868
+01:14:17,835 --> 01:14:21,673
+O ki�i olmak, a��k olmak gibidir.
+
+869
+01:14:22,382 --> 01:14:25,259
+Kimse sana a��k
+oldu�unu anlatamaz. Sen bilirsin...
+
+870
+01:14:25,510 --> 01:14:26,636
+...her�eyinle.
+
+871
+01:14:26,970 --> 01:14:29,013
+T�m bedeninle.
+
+872
+01:14:31,557 --> 01:14:32,392
+Neyse...
+
+873
+01:14:34,352 --> 01:14:36,437
+...sana bakay�m.
+
+874
+01:14:37,772 --> 01:14:39,273
+A�z�n� a�. Aa de.
+
+875
+01:14:53,663 --> 01:14:55,331
+Tamam...
+
+876
+01:14:55,957 --> 01:15:00,920
+...�imdi �unu demeliyim:
+"�ok ilgin� ama"...
+
+877
+01:15:01,421 --> 01:15:02,547
+Sen de �unu diyeceksin:
+
+878
+01:15:03,423 --> 01:15:04,424
+"Ama ne?"
+
+879
+01:15:04,674 --> 01:15:08,636
+Ne diyece�imi biliyorsun.
+
+880
+01:15:10,054 --> 01:15:11,055
+O, ben de�ilim.
+
+881
+01:15:11,306 --> 01:15:13,016
+�zg�n�m.
+
+882
+01:15:14,642 --> 01:15:16,644
+Yetene�in var...
+
+883
+01:15:17,645 --> 01:15:19,856
+...ama bir�ey bekliyor gibisin.
+
+884
+01:15:24,736 --> 01:15:25,570
+Ne?
+
+885
+01:15:25,778 --> 01:15:28,698
+Belki bir sonraki hayat�n�. Kim bilir?
+
+886
+01:15:29,282 --> 01:15:31,534
+Bu i�ler b�yle.
+
+887
+01:15:32,410 --> 01:15:33,286
+Komik olan ne?
+
+888
+01:15:33,661 --> 01:15:34,996
+Morpheus.
+
+889
+01:15:38,458 --> 01:15:40,168
+Beni neredeyse ikna etti.
+
+890
+01:15:40,418 --> 01:15:41,544
+Biliyorum.
+
+891
+01:15:43,087 --> 01:15:45,214
+Zavall� Morpheus.
+
+892
+01:15:47,592 --> 01:15:50,720
+Onsuz mahvoluruz.
+
+893
+01:15:52,263 --> 01:15:54,432
+"Onsuz" ne demek?
+
+894
+01:15:58,436 --> 01:16:00,355
+Bunu duymak istedi�inden emin misin?
+
+895
+01:16:02,565 --> 01:16:05,318
+Morpheus sana inan�yor.
+
+896
+01:16:07,028 --> 01:16:09,197
+Kimse, ne sen, ne de ben...
+
+897
+01:16:09,447 --> 01:16:11,699
+...tersini ona kabul ettiremeyiz.
+
+898
+01:16:12,075 --> 01:16:14,452
+Sana o kadar inan�yor ki...
+
+899
+01:16:14,744 --> 01:16:19,082
+...seni kurtarmak i�in
+kendi hayat�n� feda edecek.
+
+900
+01:16:19,332 --> 01:16:20,166
+Ne?
+
+901
+01:16:20,375 --> 01:16:23,294
+Bir se�im yapman gerekecek.
+
+902
+01:16:23,920 --> 01:16:27,507
+Bir tarafta Morpheus'un hayat�.
+
+903
+01:16:28,007 --> 01:16:30,885
+Di�er tarafta kendi hayat�n.
+
+904
+01:16:32,303 --> 01:16:34,597
+Biriniz �lecek.
+
+905
+01:16:36,683 --> 01:16:39,978
+Kimin �lece�i sana ba�l�.
+
+906
+01:16:41,354 --> 01:16:43,272
+�zg�n�m evlat. Ger�ekten.
+
+907
+01:16:43,523 --> 01:16:45,191
+�yi bir ruhun var.
+
+908
+01:16:46,275 --> 01:16:48,987
+�nsanlara k�t� haberler
+vermekten nefret ederim.
+
+909
+01:16:52,115 --> 01:16:53,574
+Merak etme.
+
+910
+01:16:53,825 --> 01:16:56,244
+Bu kap�dan ��kt���n anda...
+
+911
+01:16:56,494 --> 01:16:58,621
+...kendini iyi hissedeceksin.
+
+912
+01:16:59,330 --> 01:17:03,126
+Bu kader oyununa falan
+inanmad���n� hat�rlayacaks�n.
+
+913
+01:17:03,960 --> 01:17:06,713
+Hayat�n�n kontrol� sende.
+
+914
+01:17:07,547 --> 01:17:08,840
+Hat�rlad�n m�?
+
+915
+01:17:13,594 --> 01:17:15,138
+Bir kurabiye al.
+
+916
+01:17:15,680 --> 01:17:19,017
+Yedi�inde...
+
+917
+01:17:19,976 --> 01:17:22,353
+...kendini ya�mur kadar
+hafif hissedeceksin.
+
+918
+01:17:31,571 --> 01:17:32,905
+Denilenler...
+
+919
+01:17:33,531 --> 01:17:34,991
+...senin i�indi...
+
+920
+01:17:35,533 --> 01:17:37,368
+...sadece senin i�in.
+
+921
+01:17:50,089 --> 01:17:51,799
+K�rm�z�l� Kad�n
+
+922
+01:18:00,308 --> 01:18:01,434
+Yoldalar.
+
+923
+01:18:31,422 --> 01:18:32,256
+Bu da ne?
+
+924
+01:18:47,021 --> 01:18:48,439
+Hey. Deja vu.
+
+925
+01:18:51,943 --> 01:18:53,027
+Ne dedin?
+
+926
+01:18:53,277 --> 01:18:54,779
+Hi�, sadece k���k bir deja vu ya�ad�m.
+
+927
+01:18:55,029 --> 01:18:56,656
+- Ne g�rd�n?
+- Ne oldu?
+
+928
+01:18:58,074 --> 01:19:00,243
+Yan�m�zdan siyah bir kedi ge�ti...
+
+929
+01:19:00,493 --> 01:19:02,120
+...sonra ona benzeyen biri daha ge�ti.
+
+930
+01:19:02,370 --> 01:19:03,913
+Ne kadar benziyordu? Ayn� kedi miydi?
+
+931
+01:19:12,171 --> 01:19:13,006
+Ne oldu?
+
+932
+01:19:13,256 --> 01:19:17,677
+Bir deja vu, Matrix'de bir kaymad�r.
+Bir�eyi de�i�tirdiklerinde olur.
+
+933
+01:19:21,055 --> 01:19:21,889
+Aman Tanr�m.
+
+934
+01:19:23,725 --> 01:19:24,684
+Gidelim.
+
+935
+01:19:29,939 --> 01:19:31,691
+Hatt� kestiler. Bu bir tuzak. ��k�n.
+
+936
+01:19:37,613 --> 01:19:38,448
+Hay�r.
+
+937
+01:20:18,738 --> 01:20:21,199
+De�i�tirdikleri �ey i�te bu.
+Kapana k�s�ld�k. ��k�� yolumuz yok.
+
+938
+01:20:21,449 --> 01:20:23,326
+Sakin ol. Telefonunu ver.
+
+939
+01:20:23,576 --> 01:20:25,119
+�zleyebilecekler.
+
+940
+01:20:25,370 --> 01:20:26,788
+Ba�ka se�ene�imiz yok.
+
+941
+01:20:28,206 --> 01:20:29,415
+Operat�r.
+
+942
+01:20:29,749 --> 01:20:32,585
+<i>Bize bu binan�n
+planlar�n� bul. �abuk.</i>
+
+943
+01:20:40,426 --> 01:20:43,012
+<i>- Buldum.
+- B�y�k su borular�n� bul.</i>
+
+944
+01:20:46,265 --> 01:20:47,100
+Sekizinci kat.
+
+945
+01:20:47,308 --> 01:20:48,893
+<i>Sekizinci kattalar.</i>
+
+946
+01:20:49,185 --> 01:20:50,645
+Switch, �n�m�zde.
+
+947
+01:20:58,695 --> 01:21:00,947
+Umar�m Kahin,
+sana iyi haberler vermi�tir.
+
+948
+01:21:09,122 --> 01:21:10,623
+<i>�imdi sola. Bu kadar.</i>
+
+949
+01:21:10,915 --> 01:21:11,958
+�yi.
+
+950
+01:21:21,676 --> 01:21:22,969
+Neredeler?
+
+951
+01:22:23,404 --> 01:22:24,572
+Duvarlarda.
+
+952
+01:22:26,032 --> 01:22:27,200
+Duvarlarda!
+
+953
+01:22:48,596 --> 01:22:49,430
+Bir ajan!
+
+954
+01:22:59,232 --> 01:23:00,233
+Neo'yu ��karmal�y�z.
+
+955
+01:23:02,694 --> 01:23:03,903
+Hay�r, Morpheus, yapma.
+
+956
+01:23:04,153 --> 01:23:04,988
+Trinity, git!
+
+957
+01:23:05,863 --> 01:23:07,240
+Haydi!
+
+958
+01:23:13,454 --> 01:23:15,373
+- Onu b�rakamay�z.
+- Mecburuz.
+
+959
+01:23:40,648 --> 01:23:41,482
+Haydi.
+
+960
+01:23:46,821 --> 01:23:48,614
+B�y�k Morpheus.
+Sonunda kar��la�t�k.
+
+961
+01:23:50,783 --> 01:23:51,909
+Siz kimsiniz?
+
+962
+01:23:52,160 --> 01:23:53,911
+Smith.
+
+963
+01:23:54,162 --> 01:23:55,455
+Ajan Smith.
+
+964
+01:23:56,039 --> 01:23:58,082
+Bana g�re hepiniz birsiniz.
+
+965
+01:24:53,721 --> 01:24:55,014
+Al�n onu.
+
+966
+01:25:08,236 --> 01:25:10,071
+<i>- Santral.
+- Hemen bir ��k�� bulmal�y�m.</i>
+
+967
+01:25:12,156 --> 01:25:15,076
+Bir kaza oldu.
+Lanet olas� bir trafik kazas�.
+
+968
+01:25:15,410 --> 01:25:17,203
+<i>Aniden, g�m.</i>
+
+969
+01:25:17,453 --> 01:25:18,830
+Yukar�da birileri, hala beni seviyor.
+
+970
+01:25:19,080 --> 01:25:20,331
+Seni buldum.
+
+971
+01:25:20,832 --> 01:25:22,750
+<i>Beni buradan ��kar. Hemen.</i>
+
+972
+01:25:23,001 --> 01:25:25,670
+En yak�n ��k��, Franklin ve Erie
+kav�a��. Eski bir TV tamircisi.
+
+973
+01:25:25,920 --> 01:25:26,963
+Tamam.
+
+974
+01:25:30,091 --> 01:25:31,676
+<i>- Santral.
+- Tank, benim.</i>
+
+975
+01:25:31,926 --> 01:25:33,094
+Morpheus ya��yor mu?
+
+976
+01:25:33,469 --> 01:25:34,762
+Morpheus ya��yor mu, Tank?
+
+977
+01:25:35,179 --> 01:25:37,098
+<i>Evet. Onu g�t�r�yorlar.
+Nereye, bilmiyorum.</i>
+
+978
+01:25:37,307 --> 01:25:39,600
+Ya��yor. Bir ��k�� gerek.
+
+979
+01:25:39,851 --> 01:25:40,768
+Cypher'den uzak de�ilsin.
+
+980
+01:25:41,019 --> 01:25:42,353
+<i>- Cypher m�?
+- Biliyorum.</i>
+
+981
+01:25:42,603 --> 01:25:44,689
+<i>- Onu, Franklin ve Erie'ye g�nderdim.
+- Tamam.</i>
+
+982
+01:25:53,781 --> 01:25:54,991
+Bulduk.
+
+983
+01:26:05,918 --> 01:26:06,961
+Neredeler?
+
+984
+01:26:07,211 --> 01:26:08,463
+Ar�yorum.
+
+985
+01:26:09,130 --> 01:26:10,298
+Tamam.
+
+986
+01:26:23,853 --> 01:26:24,687
+Sen ilksin.
+
+987
+01:26:27,857 --> 01:26:28,691
+Lanet olsun.
+
+988
+01:26:37,784 --> 01:26:39,952
+Bilmiyorum, birden kesildi.
+
+989
+01:27:06,771 --> 01:27:07,981
+<i>Merhaba Trinity.</i>
+
+990
+01:27:08,398 --> 01:27:09,732
+Cypher, Tank nerede?
+
+991
+01:27:15,321 --> 01:27:16,364
+Biliyor musun...
+
+992
+01:27:18,074 --> 01:27:20,201
+...uzun bir s�re...
+
+993
+01:27:21,411 --> 01:27:24,330
+...sana a��k oldu�umu sand�m.
+
+994
+01:27:25,081 --> 01:27:27,125
+<i>Seni hayal ediyordum.</i>
+
+995
+01:27:28,209 --> 01:27:30,920
+�ok g�zel bir kad�ns�n Trinity.
+
+996
+01:27:31,170 --> 01:27:33,548
+<i>��lerin bu hal almas� �ok k�t�.</i>
+
+997
+01:27:34,299 --> 01:27:35,133
+Onlar� �ld�rd�n.
+
+998
+01:27:35,633 --> 01:27:37,135
+Ne?
+
+999
+01:27:37,385 --> 01:27:38,803
+Yoruldum Trinity.
+
+1000
+01:27:40,221 --> 01:27:42,098
+Bu sava�tan yoruldum...
+
+1001
+01:27:42,390 --> 01:27:45,226
+...sava�maktan, bu gemiden...
+
+1002
+01:27:45,560 --> 01:27:50,189
+...���mekten ve her g�n
+ayn� �eyi yemekten.
+
+1003
+01:27:52,608 --> 01:27:53,526
+Ama en �ok da...
+
+1004
+01:27:54,110 --> 01:27:57,488
+<i>... o salaktan ve
+sa�mal�klar�ndan s�k�ld�m.</i>
+
+1005
+01:27:58,614 --> 01:27:59,907
+S�rpriz, budala!
+
+1006
+01:28:00,450 --> 01:28:02,660
+Bunun olaca��n� tahmin
+etmedi�inden eminim...
+
+1007
+01:28:02,910 --> 01:28:03,953
+...�yle de�il mi?
+
+1008
+01:28:06,247 --> 01:28:08,624
+Tanr�m, ke�ke seni
+konu�turduklar�nda...
+
+1009
+01:28:09,208 --> 01:28:10,710
+...orada olsayd�m.
+
+1010
+01:28:11,753 --> 01:28:14,922
+Konu�tu�unda ke�ke i�eri girebilsem.
+
+1011
+01:28:15,632 --> 01:28:17,342
+Bu durumda...
+
+1012
+01:28:17,592 --> 01:28:18,926
+...benim oldu�umu bilirdin.
+
+1013
+01:28:19,636 --> 01:28:20,595
+Onlara Morpheus'u verdin.
+
+1014
+01:28:20,845 --> 01:28:22,305
+<i>Bize yalan s�yledi Trinity.</i>
+
+1015
+01:28:22,889 --> 01:28:24,390
+Bizi aldatt�.
+
+1016
+01:28:24,932 --> 01:28:26,934
+Bize ger�e�i s�yleseydin...
+
+1017
+01:28:27,185 --> 01:28:30,063
+...k�rm�z� hap� k���na sok derdik.
+
+1018
+01:28:30,313 --> 01:28:32,440
+Bu do�ru de�il. Bizi �zg�r b�rakt�.
+
+1019
+01:28:32,690 --> 01:28:33,608
+<i>"�zg�r" m�?</i>
+
+1020
+01:28:33,858 --> 01:28:35,568
+Buna �zg�rl�k m� diyorsun?
+
+1021
+01:28:37,987 --> 01:28:40,490
+Tek yapt���m, onun dediklerini yapmak.
+
+1022
+01:28:42,075 --> 01:28:44,994
+Bu ya�am ile Matrix aras�nda
+se�im yapmam gerekse...
+
+1023
+01:28:46,162 --> 01:28:47,372
+...Matrix'i se�erdim.
+
+1024
+01:28:47,622 --> 01:28:49,290
+Matrix ger�ek de�il.
+
+1025
+01:28:51,209 --> 01:28:53,461
+Bence Matrix...
+
+1026
+01:28:53,795 --> 01:28:56,381
+...bu d�nyadan daha da ger�ek olabilir.
+
+1027
+01:28:58,549 --> 01:29:01,052
+Burada sadece fi�i �ekece�im...
+
+1028
+01:29:01,636 --> 01:29:02,637
+...ama orada...
+
+1029
+01:29:03,179 --> 01:29:05,473
+<i>... Apoc'un �lmesini g�receksin.</i>
+
+1030
+01:29:13,231 --> 01:29:14,941
+<i>Ger�ek d�nyaya ho�geldin.</i>
+
+1031
+01:29:15,274 --> 01:29:16,192
+Ama sen d��ar�das�n.
+
+1032
+01:29:16,442 --> 01:29:18,861
+<i>- Geri d�nemezsin.
+- Sen �yle san.</i>
+
+1033
+01:29:19,112 --> 01:29:20,613
+<i>Beni tekrar v�cuduma koyacaklar.</i>
+
+1034
+01:29:20,863 --> 01:29:24,492
+<i>Uyuyaca��m ve uyand���mda
+bir�ey hat�rlamayaca��m.</i>
+
+1035
+01:29:24,742 --> 01:29:25,743
+Bu arada...
+
+1036
+01:29:25,994 --> 01:29:28,955
+...Switch'e s�ylemek
+istedi�in bir�ey varsa...
+
+1037
+01:29:29,455 --> 01:29:30,540
+<i>... hemen s�ylemelisin.</i>
+
+1038
+01:29:30,790 --> 01:29:31,666
+Hay�r, l�tfen yapma.
+
+1039
+01:29:32,208 --> 01:29:33,835
+B�yle olmamal�.
+
+1040
+01:29:35,545 --> 01:29:37,171
+B�yle olmamal�.
+
+1041
+01:29:41,634 --> 01:29:42,677
+�ok ge�.
+
+1042
+01:29:43,052 --> 01:29:44,721
+Can�n cehenneme.
+
+1043
+01:29:44,971 --> 01:29:46,848
+Benden nefret etme.
+
+1044
+01:29:47,223 --> 01:29:49,100
+Ben sadece el�iyim.
+
+1045
+01:29:49,517 --> 01:29:52,687
+�u anda bunu sana kan�tlayaca��m.
+
+1046
+01:29:53,771 --> 01:29:55,440
+Morpheus hakl�ysa...
+
+1047
+01:29:55,982 --> 01:29:57,859
+...bu fi�i �ekemiyor olmam gerekir.
+
+1048
+01:29:58,443 --> 01:29:59,944
+<i>Yani, se�kin ki�i Neo'ysa...</i>
+
+1049
+01:30:00,445 --> 01:30:02,280
+<i>... beni durdurmak i�in...</i>
+
+1050
+01:30:02,530 --> 01:30:05,116
+...bir mucize olmal�.
+
+1051
+01:30:05,616 --> 01:30:06,492
+De�il mi?
+
+1052
+01:30:07,118 --> 01:30:10,455
+Yani �l�yse e�er,
+nas�l se�kin ki�i olabilir?
+
+1053
+01:30:11,831 --> 01:30:14,083
+<i>Morpheus'a inan�p
+inanmad���n� sordu�umda...</i>
+
+1054
+01:30:14,375 --> 01:30:16,711
+<i>... bana hi� yan�t vermemi�tin.</i>
+
+1055
+01:30:17,086 --> 01:30:20,298
+Haydi. Evet ya da hay�r.
+
+1056
+01:30:21,674 --> 01:30:24,010
+G�zlerine bak...
+
+1057
+01:30:24,761 --> 01:30:26,262
+<i>B�y�k, g�zel g�zlerine...</i>
+
+1058
+01:30:29,015 --> 01:30:30,350
+...ve s�yle bana...
+
+1059
+01:30:31,059 --> 01:30:32,352
+<i>... evet mi?</i>
+
+1060
+01:30:32,644 --> 01:30:34,020
+<i>... hay�r m�?</i>
+
+1061
+01:30:35,313 --> 01:30:36,439
+Evet.
+
+1062
+01:30:37,273 --> 01:30:38,191
+�nanm�yorum.
+
+1063
+01:30:39,609 --> 01:30:44,364
+�ster inan ister inanma,
+yine de yanacaks�n.
+
+1064
+01:31:03,049 --> 01:31:04,008
+�nce sen.
+
+1065
+01:31:12,225 --> 01:31:13,101
+Yaral�s�n.
+
+1066
+01:31:13,434 --> 01:31:14,519
+Bir �eyim yok.
+
+1067
+01:31:17,313 --> 01:31:18,481
+Dozer?
+
+1068
+01:31:40,003 --> 01:31:43,131
+Hi� ��yle bir durup g�zelli�i...
+
+1069
+01:31:43,506 --> 01:31:45,758
+...ve dehas�na hayran kald� m�?
+
+1070
+01:31:46,926 --> 01:31:48,803
+Milyarlarca insan...
+
+1071
+01:31:49,053 --> 01:31:51,806
+...hayat�n� ya�amaya devam ediyor.
+
+1072
+01:31:59,105 --> 01:32:01,983
+�lk Matrix'in, kimsenin ac� �ekmedi�i...
+
+1073
+01:32:02,233 --> 01:32:06,946
+...ve mutlu oldu�u
+m�kemmel bir d�nya i�in...
+
+1074
+01:32:07,405 --> 01:32:10,325
+...yap�ld���n� biliyor muydun?
+
+1075
+01:32:10,867 --> 01:32:12,368
+Tam bir felaketti.
+
+1076
+01:32:12,618 --> 01:32:16,956
+Kimse program� kabul etmedi.
+T�m ekinler �ld�.
+
+1077
+01:32:17,832 --> 01:32:19,584
+Baz�lar�, m�kemmel d�nyay�...
+
+1078
+01:32:19,834 --> 01:32:24,213
+...tan�mlayacak programlama
+dilinin olmad���n� s�yledi.
+
+1079
+01:32:24,464 --> 01:32:26,007
+Ancak bana g�re...
+
+1080
+01:32:26,424 --> 01:32:27,342
+...bir �rk olarak...
+
+1081
+01:32:27,592 --> 01:32:31,429
+...insano�lu kendi
+ger�ekli�ini, sefalet ve...
+
+1082
+01:32:31,679 --> 01:32:33,056
+...ac�yla tan�ml�yor.
+
+1083
+01:32:33,306 --> 01:32:36,017
+Bu y�zden m�kemmel d�nya...
+
+1084
+01:32:36,267 --> 01:32:41,105
+...ilkel beynimizin, uyanmaya
+�al��t��� bir r�yad�.
+
+1085
+01:32:42,440 --> 01:32:46,110
+Bu y�zden Matrix, bu
+hale d�n��t�r�ld�.
+
+1086
+01:32:46,569 --> 01:32:48,071
+Medeniyetinizin...
+
+1087
+01:32:48,321 --> 01:32:49,739
+...zirvesi.
+
+1088
+01:32:49,989 --> 01:32:52,241
+"Sizin medeniyetiniz" diyorum.
+
+1089
+01:32:52,492 --> 01:32:56,621
+Sizin yerinize d���nmeye ba�lad���m�z
+anda bizim medeniyetimiz oldu.
+
+1090
+01:32:56,871 --> 01:32:59,957
+Her�ey burada d���mleniyor zaten.
+
+1091
+01:33:01,292 --> 01:33:03,878
+Evrim, Morpheus.
+
+1092
+01:33:04,170 --> 01:33:05,505
+Evrim.
+
+1093
+01:33:07,799 --> 01:33:09,676
+Dinozorlar gibi.
+
+1094
+01:33:11,844 --> 01:33:13,471
+Camdan d��ar� bak.
+
+1095
+01:33:14,180 --> 01:33:16,307
+S�ran�z� savd�n�z.
+
+1096
+01:33:17,016 --> 01:33:20,937
+Gelecek, bizim d�nyam�z.
+
+1097
+01:33:21,270 --> 01:33:23,648
+Gelecek bizim d�nyam�z.
+
+1098
+01:33:27,902 --> 01:33:29,028
+Bir sorun olabilir.
+
+1099
+01:33:29,988 --> 01:33:33,366
+- Ona ne yap�yorlar?
+- Direncini k�r�yorlar.
+
+1100
+01:33:33,616 --> 01:33:35,785
+Bilgisayar sistemini k�rmak gibi.
+Zaman gerekiyor.
+
+1101
+01:33:36,035 --> 01:33:37,245
+Ne kadar zaman?
+
+1102
+01:33:37,495 --> 01:33:40,623
+Ki�iye ba�l�.
+Sonunda teslim olur ve...
+
+1103
+01:33:40,873 --> 01:33:45,295
+...alfa dalgalar� ondan buna d�n���r.
+
+1104
+01:33:45,545 --> 01:33:48,506
+Bu oldu�unda, Morpheus onlara
+bilmek istediklerini s�yleyecek.
+
+1105
+01:33:48,756 --> 01:33:49,799
+Ne istiyorlar?
+
+1106
+01:33:50,049 --> 01:33:54,095
+Her geminin liderine, Zion'un
+ana bilgisayar�n�n �ifresi verilir.
+
+1107
+01:33:54,345 --> 01:33:57,265
+Bir ajan �ifreyi ele ge�irir ve
+ana bilgisayara ula��rsa...
+
+1108
+01:33:57,515 --> 01:34:00,601
+...bizi yok edebilirler.
+Buna izin veremeyiz.
+
+1109
+01:34:01,436 --> 01:34:03,021
+Zion...
+
+1110
+01:34:03,271 --> 01:34:04,188
+...senden, benden...
+
+1111
+01:34:04,522 --> 01:34:05,815
+...ve hatta Morpheus'dan daha �nemli.
+
+1112
+01:34:09,610 --> 01:34:11,279
+Yapabilece�imiz bir�ey olmal�.
+
+1113
+01:34:11,696 --> 01:34:13,698
+Var. Fi�ini �ekmeliyiz.
+
+1114
+01:34:16,784 --> 01:34:18,536
+Onu �ld�recek misiniz?
+
+1115
+01:34:18,786 --> 01:34:19,954
+Morpheus'� �ld�rmek mi?
+
+1116
+01:34:20,580 --> 01:34:22,206
+Ba�ka se�ene�imiz yok.
+
+1117
+01:34:29,005 --> 01:34:31,924
+Bir makinenin i�ini yapmaya
+bir insan� g�nderme.
+
+1118
+01:34:32,175 --> 01:34:33,926
+Muhbirimiz ba�ar�s�z olduysa...
+
+1119
+01:34:34,177 --> 01:34:37,388
+...en k�sa s�rede ba�lant�y�
+koparacaklard�r...
+
+1120
+01:34:37,639 --> 01:34:39,349
+�lmezlerse tabii.
+
+1121
+01:34:39,599 --> 01:34:43,144
+Planlad���m�z gibi devam etmemiz
+gerekiyor. Sentinelleri g�nderin.
+
+1122
+01:34:43,394 --> 01:34:44,479
+Hemen.
+
+1123
+01:34:49,734 --> 01:34:52,403
+Morpheus, sen bizim i�in
+bir liderden fazlas�yd�n.
+
+1124
+01:34:53,363 --> 01:34:55,573
+Bizim i�in bir babayd�n.
+
+1125
+01:34:57,116 --> 01:34:59,077
+Seni �zleyece�iz.
+
+1126
+01:35:06,167 --> 01:35:07,168
+Durun!
+
+1127
+01:35:08,378 --> 01:35:09,587
+Bunun oldu�una inanam�yorum.
+
+1128
+01:35:09,837 --> 01:35:11,881
+- Neo, bu olmak zorunda.
+- �yle mi?
+
+1129
+01:35:12,674 --> 01:35:14,050
+Bilmiyorum.
+
+1130
+01:35:14,384 --> 01:35:15,927
+Bir tesad�f olamaz. Olamaz.
+
+1131
+01:35:16,135 --> 01:35:16,970
+Ne?
+
+1132
+01:35:17,470 --> 01:35:18,304
+Kahin...
+
+1133
+01:35:18,554 --> 01:35:20,348
+...bunun olaca��n� s�ylemi�ti.
+
+1134
+01:35:20,765 --> 01:35:24,936
+Dedi ki bir se�im
+yapmam gerekecekmi�.
+
+1135
+01:35:25,395 --> 01:35:26,646
+Ne se�imi?
+
+1136
+01:35:30,900 --> 01:35:32,110
+Matrix'e giriyorum.
+
+1137
+01:35:32,443 --> 01:35:33,695
+Hay�r.
+
+1138
+01:35:33,945 --> 01:35:34,779
+Mecburum.
+
+1139
+01:35:34,988 --> 01:35:38,616
+Morpheus biz ��kal�m diye
+kendini kurban etti.
+
+1140
+01:35:38,866 --> 01:35:40,785
+Geri d�nmene imkan yok.
+
+1141
+01:35:41,369 --> 01:35:44,622
+Morpheus, olmad���m bir�eye
+inand��� i�in b�yle yapt�.
+
+1142
+01:35:47,875 --> 01:35:49,502
+Ben O de�ilim Trinity.
+
+1143
+01:35:49,877 --> 01:35:52,839
+- Kahin bana bunlar� s�yledi.
+- Hay�r, sen olmal�s�n.
+
+1144
+01:35:53,089 --> 01:35:55,758
+�zg�n�m. De�ilim. S�radan biriyim.
+
+1145
+01:35:56,426 --> 01:35:57,677
+Hay�r Neo. Bu do�ru de�il.
+
+1146
+01:35:58,261 --> 01:35:59,595
+Do�ru olamaz.
+
+1147
+01:35:59,929 --> 01:36:00,888
+Neden?
+
+1148
+01:36:05,310 --> 01:36:08,646
+Bu delilik. Morpheus askeri bir binada.
+
+1149
+01:36:08,896 --> 01:36:13,276
+��eriye girsen bile, O'nu tutan
+ajanlar var. Hemde 3 tane.
+
+1150
+01:36:14,569 --> 01:36:18,489
+Ben de Morpheus'u istiyorum
+ama bu bir intihar.
+
+1151
+01:36:18,740 --> 01:36:20,366
+Neye benzedi�ini biliyorum...
+
+1152
+01:36:20,616 --> 01:36:21,534
+...ama �yle de�il.
+
+1153
+01:36:21,784 --> 01:36:24,162
+Nedenini a��klayamam.
+
+1154
+01:36:25,246 --> 01:36:28,958
+Morpheus bir�eye inan�yordu.
+Bunun i�in hayat�n� vermeye haz�rd�.
+
+1155
+01:36:29,208 --> 01:36:32,211
+�imdi anl�yorum. Bu y�zden gitmeliyim.
+
+1156
+01:36:32,462 --> 01:36:33,296
+Neden?
+
+1157
+01:36:33,546 --> 01:36:35,006
+��nk� bir�eye inan�yorum.
+
+1158
+01:36:35,214 --> 01:36:36,049
+Neye?
+
+1159
+01:36:37,508 --> 01:36:39,218
+Onu geri getirebilece�ime.
+
+1160
+01:36:56,194 --> 01:36:58,112
+- Ne yap�yorsun?
+- Seninle geliyorum.
+
+1161
+01:36:58,404 --> 01:36:59,280
+Hay�r.
+
+1162
+01:36:59,530 --> 01:37:00,406
+"Hay�r" m�?
+
+1163
+01:37:01,574 --> 01:37:03,701
+Neye inand���m� s�yleyeyim.
+
+1164
+01:37:04,202 --> 01:37:06,579
+Morpheus senin i�in �nemli olabilir
+ama benim i�in daha �nemli.
+
+1165
+01:37:06,913 --> 01:37:11,209
+Onu kurtarmakta ciddiysen,
+yard�m�ma ihtiyac�n olacak.
+
+1166
+01:37:11,459 --> 01:37:13,503
+Gemideki en �st r�tbeli subay benim.
+
+1167
+01:37:13,753 --> 01:37:16,631
+Bunu be�enmiyorsan
+cehenneme kadar yolun var.
+
+1168
+01:37:17,382 --> 01:37:19,801
+��nk� ba�ka bir yere gitmeyeceksin.
+
+1169
+01:37:20,218 --> 01:37:21,052
+Tank...
+
+1170
+01:37:21,928 --> 01:37:23,096
+...bizi y�kle.
+
+1171
+01:37:32,689 --> 01:37:35,984
+Burada bulundu�um s�rede
+fark etti�im bir�eyi...
+
+1172
+01:37:36,401 --> 01:37:37,944
+...payla�mak isterim.
+
+1173
+01:37:38,194 --> 01:37:42,198
+T�r�n�z� s�n�fland�rmaya �al���rken...
+
+1174
+01:37:42,448 --> 01:37:44,701
+...fark ettim.
+
+1175
+01:37:44,951 --> 01:37:47,245
+Asl�nda memeli de�ilsiniz.
+
+1176
+01:37:49,455 --> 01:37:51,916
+Bu gezegendeki t�m memeliler...
+
+1177
+01:37:52,250 --> 01:37:57,171
+...etraflar�ndaki �evreyle
+do�al bir uyuma sahiptir.
+
+1178
+01:37:57,422 --> 01:37:59,257
+Siz insanlar de�ilsiniz.
+
+1179
+01:37:59,799 --> 01:38:03,344
+Bir b�lgeye ta��n�r ve �o�al�rs�n�z.
+
+1180
+01:38:03,594 --> 01:38:08,099
+T�m kaynaklar t�ketilene dek.
+
+1181
+01:38:08,433 --> 01:38:10,518
+Hayatta kalman�z�n tek yolu...
+
+1182
+01:38:10,810 --> 01:38:13,771
+...ba�ka b�lgelere yay�lmakt�r.
+
+1183
+01:38:19,193 --> 01:38:22,071
+Ayn� yay�lma prensibini uygulayan bir...
+
+1184
+01:38:22,322 --> 01:38:24,282
+...organizma daha var.
+
+1185
+01:38:26,951 --> 01:38:28,786
+Vir�sler.
+
+1186
+01:38:30,121 --> 01:38:33,166
+�nsanlar, hastal�kt�r.
+
+1187
+01:38:33,541 --> 01:38:35,084
+Bu gezegenin kanseri.
+
+1188
+01:38:35,335 --> 01:38:37,462
+Siz bir salg�ns�n�z.
+
+1189
+01:38:38,004 --> 01:38:39,005
+Biz de...
+
+1190
+01:38:39,589 --> 01:38:40,965
+...tedavisiyiz.
+
+1191
+01:38:41,966 --> 01:38:43,384
+Neye ihtiyac�m�z var?
+
+1192
+01:38:44,010 --> 01:38:45,136
+Bir mucize d���nda.
+
+1193
+01:38:45,720 --> 01:38:46,929
+Silaha.
+
+1194
+01:38:47,972 --> 01:38:48,973
+Binlerce silaha.
+
+1195
+01:39:01,819 --> 01:39:04,364
+Daha �nce bunu kimse yapmad�.
+
+1196
+01:39:05,573 --> 01:39:07,492
+Bu y�zden i�e yarayacak.
+
+1197
+01:39:11,579 --> 01:39:13,539
+Serum neden i�e yaram�yor.
+
+1198
+01:39:14,123 --> 01:39:16,417
+Belki yanl�� sorular� soruyoruz.
+
+1199
+01:39:18,503 --> 01:39:19,754
+Beni onunla yaln�z b�rak�n.
+
+1200
+01:39:22,340 --> 01:39:23,466
+�imdi.
+
+1201
+01:39:34,686 --> 01:39:36,270
+Dayan Morpheus.
+
+1202
+01:39:36,521 --> 01:39:39,232
+Senin i�in geliyorlar. Geliyorlar.
+
+1203
+01:39:41,609 --> 01:39:43,736
+Beni duyuyor musun?
+
+1204
+01:39:43,987 --> 01:39:46,656
+Sana kar��...
+
+1205
+01:39:47,031 --> 01:39:48,241
+...d�r�st olaca��m.
+
+1206
+01:39:52,620 --> 01:39:54,038
+Ben...
+
+1207
+01:39:55,123 --> 01:39:56,040
+...buradan...
+
+1208
+01:39:56,290 --> 01:39:58,251
+...nefret ediyorum.
+
+1209
+01:39:58,584 --> 01:40:00,878
+Bu hayvanat bah�esinden...
+
+1210
+01:40:01,129 --> 01:40:02,255
+...bu hapishaneden...
+
+1211
+01:40:02,505 --> 01:40:05,675
+...bu ger�eklikten, ya da
+her ne diyorsan�z.
+
+1212
+01:40:05,925 --> 01:40:08,219
+Art�k dayanamayaca��m.
+
+1213
+01:40:08,970 --> 01:40:10,847
+En �ok da koku.
+
+1214
+01:40:12,223 --> 01:40:14,100
+B�yle bir�ey varsa.
+
+1215
+01:40:14,434 --> 01:40:17,729
+Bunu fazlas�yla hissediyorum.
+
+1216
+01:40:19,230 --> 01:40:20,523
+��ren�...
+
+1217
+01:40:20,773 --> 01:40:21,649
+...kokunuzu...
+
+1218
+01:40:22,483 --> 01:40:24,527
+...alabiliyorum.
+
+1219
+01:40:24,777 --> 01:40:28,531
+Her seferinde bunun bana
+bula�m�� olmas�ndan korkuyorum.
+
+1220
+01:40:28,781 --> 01:40:29,615
+�ok itici.
+
+1221
+01:40:30,575 --> 01:40:31,951
+De�il mi?
+
+1222
+01:40:34,120 --> 01:40:36,414
+Buradan gitmeliyim.
+
+1223
+01:40:36,831 --> 01:40:39,042
+�zg�r olmal�y�m.
+
+1224
+01:40:39,292 --> 01:40:42,170
+Bunun anahtar� bu zihinde.
+
+1225
+01:40:42,420 --> 01:40:44,088
+Benim anahtar�m.
+
+1226
+01:40:44,339 --> 01:40:47,216
+Zion yok edilince
+burada kalmama gerek kalmayacak.
+
+1227
+01:40:47,467 --> 01:40:49,093
+Anl�yor musun?
+
+1228
+01:40:49,385 --> 01:40:50,762
+�ifrelere ihtiyac�m var.
+
+1229
+01:40:51,012 --> 01:40:53,348
+Zion'a girmeliyim.
+
+1230
+01:40:53,681 --> 01:40:56,184
+Nas�l yapaca��m� s�ylemelisin.
+
+1231
+01:40:56,601 --> 01:40:58,478
+Bana s�yleyeceksin...
+
+1232
+01:40:58,728 --> 01:41:00,897
+...ya da �leceksin.
+
+1233
+01:41:21,084 --> 01:41:22,835
+�zerinizdeki metal e�yalar�
+��kart�r m�s�n�z?
+
+1234
+01:41:22,835 --> 01:41:24,212
+�zerinizdeki metal e�yalar�
+��kart�r m�s�n�z?
+
+1235
+01:41:28,132 --> 01:41:29,175
+Lanet olsun.
+
+1236
+01:41:41,270 --> 01:41:42,105
+Destek.
+
+1237
+01:41:42,397 --> 01:41:43,982
+Destek g�nderin.
+
+1238
+01:42:08,006 --> 01:42:08,923
+Dur!
+
+1239
+01:44:23,975 --> 01:44:24,976
+Ne yap�yordun?
+
+1240
+01:44:26,811 --> 01:44:28,062
+Bilmiyor.
+
+1241
+01:44:28,354 --> 01:44:29,856
+Neyi bilmiyor?
+
+1242
+01:44:43,953 --> 01:44:45,496
+AC�L FREN
+
+1243
+01:44:57,925 --> 01:45:00,386
+Onu kurtarmaya �al���yorlar galiba.
+
+1244
+01:45:15,276 --> 01:45:17,028
+Ka��k yok.
+
+1245
+01:45:46,641 --> 01:45:48,768
+Onlar� bulup, yok edin.
+
+1246
+01:45:50,436 --> 01:45:51,354
+Sald�r� alt�nday�z.
+
+1247
+01:46:26,306 --> 01:46:27,140
+�mdat!
+
+1248
+01:46:49,162 --> 01:46:50,330
+Sadece insan.
+
+1249
+01:46:51,456 --> 01:46:52,373
+Al bakal�m.
+
+1250
+01:47:05,637 --> 01:47:07,180
+- Bunu nas�l yapt�n?
+- Neyi?
+
+1251
+01:47:07,555 --> 01:47:11,434
+Onlar gibi hareket ettin. Kimsenin bu
+kadar h�zl� hareket etti�ini g�rmedim.
+
+1252
+01:47:12,602 --> 01:47:13,978
+Yeterince h�zl� de�ildi.
+
+1253
+01:47:16,731 --> 01:47:17,982
+Bunu u�urabilir misin?
+
+1254
+01:47:19,359 --> 01:47:20,193
+Hen�z de�il.
+
+1255
+01:47:23,655 --> 01:47:24,489
+Santral.
+
+1256
+01:47:24,697 --> 01:47:27,867
+<i>B- 212 helikopteri i�in
+pilot program� gerekiyor.</i>
+
+1257
+01:47:28,326 --> 01:47:29,577
+<i>�abuk.</i>
+
+1258
+01:47:37,543 --> 01:47:39,170
+Gidelim.
+
+1259
+01:47:54,268 --> 01:47:55,311
+Hay�r.
+
+1260
+01:48:46,946 --> 01:48:48,489
+Morpheus, kalk.
+
+1261
+01:48:48,740 --> 01:48:49,574
+Kalk. Kalk.
+
+1262
+01:49:27,612 --> 01:49:28,613
+Ba�aramayacak.
+
+1263
+01:49:38,456 --> 01:49:39,457
+Yakalad�m.
+
+1264
+01:51:28,358 --> 01:51:29,776
+Biliyordum.
+
+1265
+01:51:30,610 --> 01:51:31,611
+Se�kin ki�i O.
+
+1266
+01:51:47,585 --> 01:51:49,796
+Buna inan�yor musun art�k?
+
+1267
+01:51:55,718 --> 01:51:56,594
+Kahin.
+
+1268
+01:51:57,845 --> 01:52:00,223
+Bana demi�ti ki...
+
+1269
+01:52:00,598 --> 01:52:02,183
+...duyman gerekenleri s�yledi.
+
+1270
+01:52:02,475 --> 01:52:03,810
+O kadar.
+
+1271
+01:52:04,852 --> 01:52:07,814
+Neo, er ya da ge� bunu fark
+edeceksin. T�pk� benim gibi.
+
+1272
+01:52:08,147 --> 01:52:10,441
+Yolu bilmekle, yolda gitmek aras�nda...
+
+1273
+01:52:11,192 --> 01:52:12,485
+...bir fark vard�r.
+
+1274
+01:52:15,530 --> 01:52:16,739
+Operat�r.
+
+1275
+01:52:17,657 --> 01:52:20,201
+<i>- Sesini duymak �ok g�zel.
+- ��k�� bulmal�y�z.</i>
+
+1276
+01:52:20,451 --> 01:52:23,246
+Bir tane buldum. Metro istasyonu.
+State ve Balboa.
+
+1277
+01:52:36,301 --> 01:52:37,260
+Lanet olsun.
+
+1278
+01:52:37,510 --> 01:52:38,720
+�zleme tamamland�.
+
+1279
+01:52:38,970 --> 01:52:39,887
+Yerlerini bulduk.
+
+1280
+01:52:40,305 --> 01:52:42,557
+Sentineller bekliyor.
+
+1281
+01:52:44,267 --> 01:52:45,768
+Sald�rs�nlar.
+
+1282
+01:52:52,317 --> 01:52:53,443
+Hen�z ��kmad�lar.
+
+1283
+01:53:05,496 --> 01:53:06,831
+�nce sen, Morpheus.
+
+1284
+01:53:27,518 --> 01:53:29,812
+Neo, sana bir�ey s�ylemeliyim...
+
+1285
+01:53:33,066 --> 01:53:37,028
+...ama s�ylersem,
+neler olaca��n� bilmiyorum.
+
+1286
+01:53:40,615 --> 01:53:43,910
+Kahin'in s�yledi�i her�ey ��kt�.
+
+1287
+01:53:46,663 --> 01:53:48,206
+Bir �ey d���nda.
+
+1288
+01:53:49,916 --> 01:53:50,750
+Nedir?
+
+1289
+01:54:17,068 --> 01:54:18,695
+- Neler oldu?
+- Bir ajan.
+
+1290
+01:54:18,945 --> 01:54:19,779
+Beni geri yolla.
+
+1291
+01:54:20,029 --> 01:54:20,905
+Yapamam.
+
+1292
+01:54:22,907 --> 01:54:24,909
+Bay Anderson.
+
+1293
+01:54:27,078 --> 01:54:28,454
+Ka� Neo, ka�.
+
+1294
+01:54:33,751 --> 01:54:35,378
+Ne yap�yor?
+
+1295
+01:54:35,628 --> 01:54:36,879
+�nanmaya ba�l�yor.
+
+1296
+01:55:03,865 --> 01:55:04,615
+Kur�unlar�n bitti.
+
+1297
+01:55:04,615 --> 01:55:05,241
+Kur�unlar�n bitti.
+
+1298
+01:55:05,825 --> 01:55:07,118
+Senin de.
+
+1299
+01:55:40,276 --> 01:55:43,279
+�lmenizi zevkle izleyece�im...
+
+1300
+01:55:44,405 --> 01:55:45,448
+...Bay Anderson.
+
+1301
+01:56:26,406 --> 01:56:28,491
+Onu �ld�r�yor.
+
+1302
+01:57:54,661 --> 01:57:56,788
+Duydun mu Bay Anderson?
+
+1303
+01:57:57,538 --> 01:58:00,541
+Bu ka��n�lmaz olan�n sesi.
+
+1304
+01:58:03,127 --> 01:58:06,464
+Bu da �l�m�n�n sesi.
+
+1305
+01:58:07,382 --> 01:58:09,717
+Elveda Bay Anderson.
+
+1306
+01:58:09,968 --> 01:58:11,594
+Ad�m...
+
+1307
+01:58:14,597 --> 01:58:16,641
+...Neo.
+
+1308
+01:58:48,881 --> 01:58:51,009
+- Ne oldu?
+- Bilmiyorum, Onu kaybettim.
+
+1309
+01:58:51,259 --> 01:58:52,802
+YAKINLIK UYARISI
+
+1310
+01:58:53,594 --> 01:58:54,637
+Lanet olsun.
+
+1311
+01:59:07,025 --> 01:59:08,484
+Sentineller.
+
+1312
+01:59:09,235 --> 01:59:11,487
+- Ne kadar?
+- 5, belki 6 dakika.
+
+1313
+01:59:13,531 --> 01:59:15,700
+Tank, EMD'yi y�kle.
+
+1314
+01:59:15,950 --> 01:59:18,995
+- ��kana kadar kullanamay�z.
+- Biliyorum Trinity. Merak etme.
+
+1315
+01:59:20,371 --> 01:59:21,247
+Ba�aracak.
+
+1316
+01:59:21,497 --> 01:59:23,374
+D�z m�? Topuklu mu?
+
+1317
+01:59:23,625 --> 01:59:26,502
+Neler oluyor? O benim telefonum.
+
+1318
+01:59:26,919 --> 01:59:28,504
+Herif telefonumu ald�.
+
+1319
+01:59:30,882 --> 01:59:31,716
+Yerini buldum.
+
+1320
+01:59:31,966 --> 01:59:33,176
+Ka��yor.
+
+1321
+01:59:33,426 --> 01:59:34,260
+<i>Bay B�y�c�...</i>
+
+1322
+01:59:34,719 --> 01:59:36,095
+...��kar beni buradan.
+
+1323
+01:59:36,346 --> 01:59:38,222
+<i>Eski bir ��k��� buldu.
+Wabash ve Lake.</i>
+
+1324
+01:59:42,268 --> 01:59:43,102
+Lanet olsun.
+
+1325
+02:00:04,749 --> 02:00:06,751
+�mdat. Yard�ma ihtiyac�m var.
+
+1326
+02:00:08,378 --> 02:00:09,587
+<i>Kap�.</i>
+
+1327
+02:00:25,561 --> 02:00:27,063
+<i>Solundaki kap�.</i>
+
+1328
+02:00:27,981 --> 02:00:29,232
+<i>Di�er solun.</i>
+
+1329
+02:00:35,947 --> 02:00:37,198
+<i>Arka kap�.</i>
+
+1330
+02:00:56,426 --> 02:00:57,510
+KIRMIZI ALARM
+
+1331
+02:01:00,763 --> 02:01:02,265
+Geliyorlar.
+
+1332
+02:01:31,044 --> 02:01:32,295
+Ba�aracak.
+
+1333
+02:01:42,513 --> 02:01:45,642
+<i>303 numaral� odan�n
+sonundaki yang�n ��k���. �abuk.</i>
+
+1334
+02:02:18,132 --> 02:02:19,467
+KA�AK YOLCU
+
+1335
+02:02:20,969 --> 02:02:21,844
+��erdeler.
+
+1336
+02:02:24,389 --> 02:02:25,223
+�abuk Neo.
+
+1337
+02:03:21,571 --> 02:03:22,572
+Bu olamaz.
+
+1338
+02:03:30,371 --> 02:03:31,748
+Kontrol et.
+
+1339
+02:03:35,752 --> 02:03:37,295
+�ld�.
+
+1340
+02:03:44,010 --> 02:03:46,429
+Elveda, Bay Anderson.
+
+1341
+02:03:56,522 --> 02:03:58,483
+Art�k korkmuyorum.
+
+1342
+02:04:00,109 --> 02:04:01,361
+Kahine g�re...
+
+1343
+02:04:03,529 --> 02:04:07,033
+...a��k olaca��m. Se�kin
+ki�i de, sevdi�im adamm��.
+
+1344
+02:04:10,161 --> 02:04:12,121
+G�rd���n gibi...
+
+1345
+02:04:12,830 --> 02:04:14,832
+...�lm�� olamazs�n.
+
+1346
+02:04:16,417 --> 02:04:18,252
+Olamazs�n...
+
+1347
+02:04:19,796 --> 02:04:21,965
+...��nk� seni seviyorum.
+
+1348
+02:04:23,800 --> 02:04:25,510
+Duydun mu?
+
+1349
+02:04:26,636 --> 02:04:28,304
+Seni seviyorum.
+
+1350
+02:04:52,245 --> 02:04:53,329
+�imdi kalk.
+
+1351
+02:05:02,338 --> 02:05:03,172
+Hay�r.
+
+1352
+02:05:30,116 --> 02:05:30,950
+Nas�l?
+
+1353
+02:05:31,826 --> 02:05:32,869
+O, se�kin ki�i.
+
+1354
+02:07:57,347 --> 02:07:59,057
+<i>Orada oldu�unuzu biliyorum.</i>
+
+1355
+02:07:59,307 --> 02:08:01,142
+<i>Sizi hissediyorum.</i>
+
+1356
+02:08:01,559 --> 02:08:03,353
+<i>Korktu�unuzu biliyorum.</i>
+
+1357
+02:08:03,603 --> 02:08:05,188
+<i>Bizden korkuyorsunuz.</i>
+
+1358
+02:08:05,521 --> 02:08:07,357
+<i>De�i�imden.</i>
+
+1359
+02:08:07,607 --> 02:08:10,068
+<i>- S�STEM HATASI
+- Gelece�i bilmiyorum.</i>
+
+1360
+02:08:10,318 --> 02:08:12,904
+<i>Nas�l sona erece�ini
+s�ylemeye gelmedim.</i>
+
+1361
+02:08:13,154 --> 02:08:16,115
+<i>Nas�l ba�layaca��n� s�ylemeye geldim.</i>
+
+1362
+02:08:17,075 --> 02:08:18,660
+<i>Bu telefonu kapat�p, d��ar� ��kaca��m.</i>
+
+1363
+02:08:18,910 --> 02:08:21,996
+<i>Sonra da insanlara, g�rmelerini
+istemedi�iniz �eyi g�sterece�im.</i>
+
+1364
+02:08:22,246 --> 02:08:24,123
+<i>Onlara sizsiz bir d�nyay�...</i>
+
+1365
+02:08:24,374 --> 02:08:26,125
+<i>... g�sterece�im.</i>
+
+1366
+02:08:26,417 --> 02:08:30,046
+<i>Kural ve kontrol�n olmad���,
+s�n�rs�z ve engelsiz bir d�nya.</i>
+
+1367
+02:08:30,296 --> 02:08:34,008
+<i>Her�eyin m�mk�n oldu�u bir d�nya.</i>
+
+1368
+02:08:36,636 --> 02:08:37,971
+<i>Bundan sonra ne yapaca��m�z...</i>
+
+1369
+02:08:38,221 --> 02:08:40,181
+<i>... tamamen size ba�l�.</i>
+
+1370
+02:16:12,550 --> 02:16:13,593
+<i>Turkish Subtitles Adapted by
+Adaptasyon: GELULA & CO., INC.</i>
+
+1371
+02:16:14,305 --> 02:16:20,887
+www.OpenSubtitles.org adresinden t�m reklamlar� 
+kald�rmak i�in bizi destekleyin ve VIP �ye olun.

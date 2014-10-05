@@ -11,10 +11,15 @@ var parseTorrent = require('parse-torrent')
 var rangeParser = require('range-parser');
 var mime = require('mime');
 var pump = require('pump');
+var chardet = require('chardet');
+var encoding = require("encoding");
+var jsdiff = require('diff');
 var translate = require('yandex-translate');
 var yandexKey = "trnsl.1.1.20140928T084357Z.e68643d2e599cc5d.921754f6ad7384549c890fb0d45d89bf50c4382f";
 var Bing = require('node-bing-api')({ accKey: "19IufVLhOTxSR3Xu99I4v2PaxEalAkj+izHD1uMlgOg" });
 
+var opensubtitles = require('opensubtitles-client');
+var srt2vtt = require('srt2vtt');
 
 var minutes = 30;
 setInterval(function(){
@@ -41,6 +46,39 @@ var engine = [];
 var strip = function(text){
     return text.replace(/[^a-zA-Z0-9]/g,'');
 }
+
+var getStringDistance = function(a, b){
+    if(a.length == 0) return b.length; 
+    if(b.length == 0) return a.length; 
+
+    var matrix = [];
+
+    // increment along the first column of each row
+    var i;
+    for(i = 0; i <= b.length; i++){
+        matrix[i] = [i];
+    }
+
+    // increment each column in the first row
+    var j;
+    for(j = 0; j <= a.length; j++){
+        matrix[0][j] = j;
+    }
+
+    // Fill in the rest of the matrix
+    for(i = 1; i <= b.length; i++){
+        for(j = 1; j <= a.length; j++){
+            if(b.charAt(i-1) == a.charAt(j-1)){
+                matrix[i][j] = matrix[i-1][j-1];
+            } else {
+                matrix[i][j] = Math.min(matrix[i-1][j-1] + 1, // substitution
+                                Math.min(matrix[i][j-1] + 1, // insertion
+                                         matrix[i-1][j] + 1)); // deletion
+            }
+        }
+    }
+    return matrix[b.length][a.length];
+};
 
 var escapeHtml = function(text) {
   var map = {
@@ -104,7 +142,7 @@ var searchMedia = function(query, callback){
               return 0;
             }
             results.sort(compare);
-            
+
             for(i=0;i<results.length;i++){
                 if(results[i].seeds < 10) return cb();
                 //TODO: REMOVE files == 1 and allow dosiers 
@@ -157,6 +195,8 @@ var searchMedia = function(query, callback){
 
 var downloadMedia = function(title, filename, callback){
 
+    console.log('downloading torrent: '+title);
+
     var torrentStream = require('torrent-stream');
     var opts = {
         connections: 100,
@@ -175,6 +215,7 @@ var downloadMedia = function(title, filename, callback){
     var piecesCounter = 1;
     var invalid = 0;
     var fileCount = 0;
+    var didCallback = false;
 
     engine[stripedTitle].files.forEach(function(file) {
         if(getExtension(file.name)){
@@ -185,7 +226,7 @@ var downloadMedia = function(title, filename, callback){
 
     engine[stripedTitle].on('ready', function() {
         console.log('engine ready');
-        callback(true, fileCount);
+        callback(true, fileCount); //moved to => download listener
     });
 
     engine[stripedTitle].on('error', function() {
@@ -199,6 +240,11 @@ var downloadMedia = function(title, filename, callback){
     });
 
     engine[stripedTitle].on('download', function(index){
+        // if(!didCallback){
+        //     console.log('engine started downloading');
+        //     callback(true, fileCount);
+        //     didCallback = true;
+        // }
         console.log(piecesCounter+': '+piecesLen+"/"+index);
         if(piecesLen == piecesCounter) finished();
         else
@@ -213,6 +259,94 @@ var downloadMedia = function(title, filename, callback){
     }
 }
 
+var getSubtitle = function(opts, callback){
+
+    var srtFilePath, strUrl, fileName, files = engine[strip(opts.title)].files;
+    for(i=0;i<files.length;i++){
+        if(getExtension(files[i].name)){
+            fileName = files[i].name.substr(0, files[i].name.lastIndexOf("."));
+            strUrl = "/public/downloads/files/"+files[i].path.substr(0, files[i].path.lastIndexOf(".")) + "_" + opts.lang + ".srt";
+            srtFilePath = __dirname+strUrl
+            break;
+        }
+    }
+
+    console.log('strUrl',strUrl);
+    console.log('srtFilePath',srtFilePath);
+
+    fs.exists(srtFilePath, function(exists) {
+        if (exists) {
+            console.log(".srt file already exists for "+ opts.lang);
+            callback(strUrl);
+        }else if(srtFilePath){
+            console.log("OPEN SUBTITLES LOGING IN..");
+            opensubtitles.api.login().done(function(token){
+                console.log("OPEN SUBTITLES PARAMS: "+ token, opts.lang, opts.title);
+                // opensubtitles.api.searchForFile(token, opts.lang, srtFilename).done(function(results){
+                    opensubtitles.api.search(token, opts.lang, opts.title).done(function(results){
+                    console.log('Subs results len: ' + results.length);
+                    if(results.length < 1) return callback(false);
+                    var suitableSubs = [];
+                    var minDiffLen = 1000000;
+                    var minDiffResult;
+                    for(i=0;i<results.length;i++){
+                        if(results[i].MovieReleaseName){
+                            var diffLen = getStringDistance(results[i].MovieReleaseName, fileName);
+                            if(diffLen < 3){
+                                suitableSubs.push(results[i]);
+                                console.log("Best match found: " + results[i].MovieReleaseName + " : " + fileName);
+                                break;
+                            }else{
+                                if(diffLen < minDiffLen){
+                                    minDiffLen = diffLen;
+                                    minDiffResult = results[i];
+                                }
+                            }
+                        }
+                    }
+                    // console.log(suitableSubs);
+                    if(suitableSubs.length < 1) suitableSubs.push(minDiffResult);
+                    console.log('Subtitle downloading..');
+                    opensubtitles.downloader.download(suitableSubs, 1, srtFilePath, null);
+                    opensubtitles.api.logout(token);
+                });
+            });
+
+            opensubtitles.downloader.on("downloaded", function(info){
+                console.log("Subtitle downloaded");
+                if(info.file){
+                    console.log(info.file);
+                    var strCharset = chardet.detectFileSync(info.file);
+                    console.log("Subtitle Charset: "+ strCharset);
+                    if(strCharset != "utf-8" && strCharset != "UTF-8"){
+                        console.log('Converting subtitle charset to utf-8');
+                        var srtData = fs.readFileSync(info.file);
+                        var srtUtf8 = encoding.convert(srtData, "utf-8", strCharset); // ERROR HERE!!
+                        fs.writeFileSync(info.file, srtUtf8);
+                    }
+                    callback(strUrl);
+
+                    // srt2vtt(srtData, function(err, vttData) {
+                    //     if (err) callback(false);
+                    //     var vttpath = info.file.substr(0, info.file.lastIndexOf(".")) + "_" + opts.lang + ".vtt";
+                    //     var vttUrl = fileUrl.substr(0, fileUrl.lastIndexOf(".")) + "_" + opts.lang + ".vtt";
+                    //     fs.writeFileSync(vttpath, vttData);
+                    //     callback(vttUrl);
+                    // });
+                }else{
+                    callback(false);
+                }
+                
+            });
+
+        }else{
+            callback(false);
+        }
+    });
+
+
+}
+
 function getExtension(url) {
     url = url.toLowerCase();            
     var ext = (url.substr(1 + url.lastIndexOf("/")).split('?')[0]).substr(url.lastIndexOf("."))
@@ -220,12 +354,20 @@ function getExtension(url) {
     else return false
 }
 
-// searchMedia("Pharrell Williams - G I R L", function(filename, title, category){
+// searchMedia("matrix", function(filename, title, category){
 //             if(filename == false){
 //                 console.log("FALSE");
 //                 return;
 //             }
 //             downloadMedia(title, filename, function(status){
+                
+//                 if(category == "Movies" || category == "TV"){
+//                     var lang = "eng";
+//                     getSubtitle({'title': title, 'lang': lang}, function(vttpath){
+//                         console.log(vttpath);
+//                     })
+//                 }
+
 //                 if(status){
 //                     var file = {};
 //                     file.category = category;
@@ -376,13 +518,27 @@ io.on('connection', function(socket){
                 return;
             }
             downloadMedia(title, filename, function(status,fileCount){
+
                 if(status){
+
                     var file = {};
                     file.count = fileCount;
                     file.category = category;
                     file.title = title;
-                    io.to(socket.id).emit('play', file);
-                    if(data.notifications) sendSystemMessage(data, data.nick + " is playing " + title);
+                    var sendMedia = function(){
+                        io.to(socket.id).emit('play', file);
+                        if(data.notifications) sendSystemMessage(data, data.nick + " is playing " + title);
+                    }
+
+                    if(data.subLang || category == "Movies" || category == "TV"){
+                        getSubtitle({'title': title, 'lang': data.subLang}, function(vttpath){
+                            file.subPath = vttpath;
+                            file.subLang = data.subLang;
+                            sendMedia();
+                        })
+                    }else{
+                        sendMedia();
+                    }
                 }else{
                     io.to(socket.id).emit('play', false);
                 }
