@@ -429,11 +429,9 @@ var s = server.listen(port, function() {
     console.log('Splash Chat app %d', server.address().port);
 });
 
-//socket.io
-var sokcetId;
-io.on('connection', function(socket){
 
-    socketId = socket.id;
+//socket.io
+io.on('connection', function(socket){
 
     console.log('socket.io connection open');
 
