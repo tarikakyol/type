@@ -41,6 +41,13 @@
       return s;
     }
 
+    App.getInput = function(){
+        return $('.chatInput').val();
+    }
+    App.setInput = function(text){
+        return $('.chatInput').val(text);
+    }
+
     App.checkCommands = function(v) {
         var words = v.split(" "),
             flag = true,
@@ -108,7 +115,8 @@
         if(flag && words[0].indexOf("/") == 0){
             flag = false;
             $('.chat').prepend("<p class='cline warning'>Invalid Command. Type /help to see available commands and features.</p>");
-            $("input").val("");
+            this.setInput("");
+            this.setInput("");
         }
 
         return flag;
@@ -139,7 +147,7 @@
     }
 
     App.post = function() {
-        var inputValue = $("input").val();
+        var inputValue = this.getInput();
 
         if (!inputValue || !(inputValue.replace(/\s/g, "").length) )
           return false;
@@ -151,7 +159,7 @@
             text: inputValue,
             channel: App.channel
         });
-        $("input").val("");
+        this.setInput("");
     }
 
     App.setNotifications = function(val){
@@ -165,12 +173,12 @@
             App.error();
         }
         localStorage.settings = JSON.stringify(this.settings);
-        $("input").val("");
+        this.setInput("");
     }
 
     App.clear = function(){
         $('.chat').empty();
-        $("input").val("");
+        this.setInput("");
     }
 
     App.printCommands = function(){
@@ -180,7 +188,7 @@
             $('.chat').prepend("<p class='cline grey'>"+App.HtmlEncode(arr[i]["usage"])+" <span class='lightgreen'>"+App.HtmlEncode(arr[i]["example"])+"</span></p>");
         }
         $('.chat').prepend("<p class='cline warning'>Available Commands:</p>");
-        $("input").val("");
+        this.setInput("");
     }
 
     App.print = function(data) {
@@ -205,7 +213,7 @@
                 nick: App.getNickName(),
                 color: color
             });
-            $("input").val("");
+            this.setInput("");
         }else{
             App.error();
         }
@@ -219,12 +227,12 @@
                 newNick: nick,
                 channel: App.channel
             });
-            $("input").val("");
+            this.setInput("");
             localStorage["nick"] = nick;
         } else if (typeof localStorage["nick"] == "undefined") {
             localStorage["nick"] = "user_" + Date.now();
         }else{
-            $("input").val("");
+            this.setInput("");
         }
         $(".nickName").html(App.getNickName());
     }
@@ -357,7 +365,7 @@
     App.retrieveMedia = function(query){
         if(query){
             $(".chat").prepend("<p class='cline green'>Loading: " + query + "</p>");
-            $("input").val("");
+            this.setInput("");
 
             if(query.indexOf("subs:") != -1){
                 var subLang = query.split('subs:')[1];
@@ -439,7 +447,7 @@
         if(this.media.binary){
             this.media.data.where = this.media.data.where < this.media.data.count ? this.media.data.where + 1 : 1
             App.playMedia(this.media.data);
-            $("input").val("");
+            this.setInput("");
         }else{
             App.error();
         }
@@ -448,7 +456,7 @@
         if(this.media.binary){
             this.media.data.where = this.media.data.where > 1 ? this.media.data.where-1 : this.media.data.count
             App.playMedia(this.media.data);
-            $("input").val("");
+            this.setInput("");
         }else{
             App.error();
         }
@@ -456,7 +464,7 @@
     App.resume = function(){
         if(this.media.binary){
             this.media.binary.play();
-            $("input").val("");
+            this.setInput("");
             $(".chat").prepend("<p class='cline green'>Playing: " + this.media.data.title + "</p>");
         }else{
             App.error();
@@ -465,7 +473,7 @@
     App.pause = function(){
         if(this.media.binary){
             $(".chat").prepend("<p class='cline green'>Paused</p>");
-            $("input").val("");
+            this.setInput("");
             this.media.binary.pause();
         }else{
             App.error();
@@ -474,7 +482,7 @@
 
     App.addHistory = function(){
         if(this.history.length == 0 && localStorage.chathistory) this.history = JSON.parse(localStorage.chathistory);
-        this.history.push($("input").val());
+        this.history.push(this.getInput());
         this.historyNo = this.history.length;
         localStorage.chathistory = JSON.stringify(this.history);
     }
@@ -492,7 +500,7 @@
     App.translate = function(lang, text){
         if(lang && text){
             $(".chat").prepend("<p class='cline green'>Translating: " + text + "</p>");
-            $("input").val("");
+            this.setInput("");
             App.sendSocketMessage('translate', {
                 lang: lang,
                 text: text,
@@ -512,7 +520,7 @@
     App.search = function(query){
         if(query){
             $(".chat").prepend("<p class='cline green'>Searching: " + query + "</p>");
-            $("input").val("");
+            this.setInput("");
             App.sendSocketMessage('search', {
                 query: query,
                 channel: App.channel,
@@ -575,7 +583,7 @@
 
     App.error = function(message){
         $(".chat").prepend("<p class='cline warning'>Errör: Could not get that!</p>");
-        $("input").val("");
+        this.setInput("");
     }
 
     App.init = function() {
