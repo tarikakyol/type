@@ -106,6 +106,24 @@ var setColor = function(nick, color) {
 }
 
 var sendMessage = function(io, data) {
+
+    if(!data.nick || !data.channel) return;
+    var channel = data.channel, nick = data.nick;
+
+    if (typeof online[channel] == "undefined")
+        online[channel] = [];
+
+    if (online[channel].indexOf(nick) == -1)
+        online[channel].push(nick);
+
+    if (typeof chat[channel] == "undefined") {
+        chat[channel] = [];
+        mc.get(channel, function(err, val){
+            if (val)
+                chat[channel] = JSON.parse(val.toString());
+        });
+    }
+
     if (typeof chat[data.channel] != "undefined"){
         chat[data.channel].push([processText(data.nick), processText(data.text), colors[data.nick]]);
         mc.set(data.channel, JSON.stringify(chat[data.channel]));
@@ -124,6 +142,7 @@ var sendSystemMessage = function(io, data, message){
 }
 
 var sendSocket = function(io, data){
+
     var chatArray = chat[data.channel];
     var chatLen = chatArray.length;
     chatArray = chatArray.slice(Math.max(chat[data.channel].length - 100, 0)); // get the last 100 lines of chat
