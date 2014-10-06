@@ -105,20 +105,36 @@ var setColor = function(nick, color) {
         colors[nick] = color ? color : rndClr;
 }
 
-var sendMessage = function(data) {
+var sendMessage = function(io, data) {
     if (typeof chat[data.channel] != "undefined"){
         chat[data.channel].push([processText(data.nick), processText(data.text), colors[data.nick]]);
         mc.set(data.channel, JSON.stringify(chat[data.channel]));
     }
+    var chatArray = chat[data.channel];
+    var chatLen = chatArray.length;
+    chatArray = chatArray.slice(Math.max(chat[data.channel].length - 100, 0)); // get the last 100 lines of chat
+    io.to(data.channel).emit('message', {
+        online: online[data.channel],
+        chat: chatArray,
+        chatLen: chatLen
+    });
 }
 
-var sendSystemMessage = function(data, message){
+var sendSystemMessage = function(io, data, message){
     setColor("bot");
     data.nick = "bot";
     if (typeof chat[data.channel] != "undefined"){
         chat[data.channel].push([data.nick, message, colors[data.nick]]);
         mc.set(data.channel, JSON.stringify(chat[data.channel]));
     }
+    var chatArray = chat[data.channel];
+    var chatLen = chatArray.length;
+    chatArray = chatArray.slice(Math.max(chat[data.channel].length - 100, 0)); // get the last 100 lines of chat
+    io.to(data.channel).emit('message', {
+        online: online[data.channel],
+        chat: chatArray,
+        chatLen: chatLen
+    });
 }
 
 var searchMedia = function(query, callback){
@@ -431,7 +447,7 @@ io.on('connection', function(socket){
     socket.on('message', function(data){
         if(!data.channel || !data.nick || !data.text) return;
         if (typeof colors[data.nick] == "undefined") setColor(data.nick);
-        sendMessage(data);
+        sendMessage(io, data);
     });
 
     socket.on('setcolor', function(data){
@@ -443,7 +459,7 @@ io.on('connection', function(socket){
     socket.on('setnick', function(data){
         if(!data.oldNick || !data.newNick) return;
         online = {};
-        sendSystemMessage(data, data.oldNick + " changed nickname to " + data.newNick);
+        sendSystemMessage(io, data, data.oldNick + " changed nickname to " + data.newNick);
     });
 
     socket.on('fetch', function(data){
@@ -464,16 +480,17 @@ io.on('connection', function(socket){
             });
         }
 
-        // setInterval(function() {
-            var chatArray = chat[channel];
-            var chatLen = chatArray.length;
-            chatArray = chatArray.slice(Math.max(chat[channel].length - 100, 0)); // get the last 100 lines of chat
-            io.to(socket.id).emit('message', {
-                online: online[channel],
-                chat: chatArray,
-                chatLen: chatLen
-            });
-        // }, 1000);
+        //josining to channel
+        socket.join(data.channel);
+
+        var chatArray = chat[channel];
+        var chatLen = chatArray.length;
+        chatArray = chatArray.slice(Math.max(chat[channel].length - 100, 0)); // get the last 100 lines of chat
+        io.to(socket.id).emit('message', {
+            online: online[channel],
+            chat: chatArray,
+            chatLen: chatLen
+        });
     });
 
     socket.on('play', function(data){
@@ -492,7 +509,7 @@ io.on('connection', function(socket){
                     file.title = title;
                     var sendMedia = function(){
                         io.to(socket.id).emit('play', file);
-                        if(data.notifications) sendSystemMessage(data, data.nick + " is playing " + title);
+                        if(data.notifications) sendSystemMessage(io, data, data.nick + " is playing " + title);
                     }
                     if(data.subLang && (category == "Movies" || category == "TV")){
                         getSubtitle({'title': title, 'lang': data.subLang}, function(vttpath){
@@ -516,7 +533,7 @@ io.on('connection', function(socket){
                 io.to(socket.id).emit('translate', null);
             }else {
                 io.to(socket.id).emit('translate', res.text);
-                if(data.notifications) sendSystemMessage(data, data.nick + " requested translation for " + data.text);
+                if(data.notifications) sendSystemMessage(io, data, data.nick + " requested translation for " + data.text);
             }
         });
     })
@@ -525,7 +542,7 @@ io.on('connection', function(socket){
         Bing.search(data.query, function(error, res, body){
             if(body.d.results.length > 0){
                 io.to(socket.id).emit('search', body.d.results[0]);
-                if(data.notifications) sendSystemMessage(data, data.nick + " searched for " + data.query);
+                if(data.notifications) sendSystemMessage(io, data, data.nick + " searched for " + data.query);
             }
             else io.to(socket.id).emit('search', null);
         });

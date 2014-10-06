@@ -192,6 +192,7 @@
     }
 
     App.print = function(data) {
+        console.log(data);
         if(App.chatLen == 0 && App.channel == "default")  App.chatLen = data.chatLen; // prevent chat history on default channel
         var dif = data.chatLen - App.chatLen;
         if(dif != 0){
@@ -559,12 +560,12 @@
         App.socket.on('connect',function() {
             App.socketOpened();
             // TODO: move setInterval in nodeJS server-side HARD TO DO BECAUSE ONLINE LIST
-            setInterval(function() {
+            // setInterval(function() {
                 App.sendSocketMessage('fetch', {
                     channel: App.channel,
                     nick: App.getNickName()
                 });
-            }, 1000);
+            // }, 1000);
         });
         App.socket.on('disconnect',function() {
             console.log("WebSocket closed, restarting..");
