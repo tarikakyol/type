@@ -401,7 +401,7 @@
             $(this.media.binary).append(source);
 
             // add subtitle
-            if(data.subLang){
+            if(data.subPath){
                 $(track).attr('src', data.subPath);
                 $(track).attr('kind', 'subtitles');
                 $(track).attr('label', data.subLang);
