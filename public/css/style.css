@@ -31,10 +31,7 @@ a {
 }
 
 .logo {
-    font-family: "Arial Black", Gadget, sans-serif;
-    font-weight: 900;
-    font-size: 40px;
-    margin-bottom: 5px;
+    margin-bottom: 7px;
 }
 .logo .last{
     opacity: 0.2;
@@ -48,7 +45,7 @@ a {
     font-size: 7px;
     transition: all 600ms linear;
     display: inline-block;
-    margin-right: -17px;
+    margin-right: -11px;
     margin-top: -5px;
 }
 
