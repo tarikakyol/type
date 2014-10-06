@@ -106,24 +106,6 @@ var setColor = function(nick, color) {
 }
 
 var sendMessage = function(io, data) {
-
-    if(!data.nick || !data.channel) return;
-    var channel = data.channel, nick = data.nick;
-
-    if (typeof online[channel] == "undefined")
-        online[channel] = [];
-
-    if (online[channel].indexOf(nick) == -1)
-        online[channel].push(nick);
-
-    if (typeof chat[channel] == "undefined") {
-        chat[channel] = [];
-        mc.get(channel, function(err, val){
-            if (val)
-                chat[channel] = JSON.parse(val.toString());
-        });
-    }
-
     if (typeof chat[data.channel] != "undefined"){
         chat[data.channel].push([processText(data.nick), processText(data.text), colors[data.nick]]);
         mc.set(data.channel, JSON.stringify(chat[data.channel]));
@@ -486,19 +468,24 @@ io.on('connection', function(socket){
         if(!data.nick || !data.channel) return;
         var channel = data.channel, nick = data.nick;
 
-        if (typeof online[channel] == "undefined")
-            online[channel] = [];
+        if (typeof online[channel] == "undefined"){
+             online[channel] = [];
+             console.log("UNDEFINED ONLINE LIST");
+        }
 
         if (online[channel].indexOf(nick) == -1)
             online[channel].push(nick);
 
         if (typeof chat[channel] == "undefined") {
+            console.log("UNDEFINED CHANNEL CHAT");
             chat[channel] = [];
             mc.get(channel, function(err, val){
                 if (val)
                     chat[channel] = JSON.parse(val.toString());
             });
         }
+
+        console.log(channel, nick);
 
         //josining to channel
         socket.join(data.channel);
