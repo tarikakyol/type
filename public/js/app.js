@@ -20,7 +20,7 @@
             {id: 4, name: "/name", alias:'/n', usage: "/name <nick name>", example: "to change nick name type e.g. /name neo"},
             {id: 5, name: "/color", alias:'/c', usage: "/color <color name>", example: "to change color type e.g. /color pink or /color #454545"},
             {id: 6, name: "/channel", alias:'/ch', usage: "/channel <channel name>", example: "to open or change channel type e.g. /channel zion"},
-            {id: 7, name: "/play", alias:'/p', usage: "/play <song or movie name>", example: "to play a song or movie type e.g. /play matrix"},
+            {id: 7, name: "/play", alias:'/p', usage: "/play <song or movie name> subs:<language>(optional)", example: "to play a song or movie type e.g. /play matrix To add subtitles type e.g. /play matrix subs:eng or subs:tur"},
             {id: 8, name: "/pause", alias:'/pa', usage: "/pause", example: "to pause playing media type /pause"},
             {id: 9, name: "/continue", alias:'/con', usage: "/continue", example: "to continue paused media type /continue"},
             {id: 10, name: "/next", alias:'/ne', usage: "/next", example: "to pass a song in album type /next"},
@@ -410,7 +410,7 @@
             }
 
             $(".chat").prepend(this.media.binary);
-            $('video').mediaelementplayer({
+            $(this.media.binary).mediaelementplayer({
                 videoWidth: 640,
                 videoHeight: 264
             });
