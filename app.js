@@ -13,6 +13,7 @@ var mime = require('mime');
 var pump = require('pump');
 var chardet = require('chardet');
 var encoding = require("encoding");
+var turkishencoding = require('turkish-char-encoding');
 var jsdiff = require('diff');
 var translate = require('yandex-translate');
 var yandexKey = "trnsl.1.1.20140928T084357Z.e68643d2e599cc5d.921754f6ad7384549c890fb0d45d89bf50c4382f";
@@ -319,9 +320,14 @@ var getSubtitle = function(opts, callback){
                     var strCharset = chardet.detectFileSync(info.file);
                     console.log("Subtitle Charset: "+ strCharset);
                     if(strCharset != "utf-8" && strCharset != "UTF-8"){
-                        console.log('Converting subtitle charset to utf-8');
-                        var srtData = fs.readFileSync(info.file);
-                        var srtUtf8 = encoding.convert(srtData, "utf-8", strCharset); // ERROR HERE!!
+                        console.log('Converting subtitle charset '+strCharset+' to utf-8');
+                        var srtUtf8, srtData = fs.readFileSync(info.file);
+                        // if turkish encoding
+                        if(strCharset == 'win-1254' || strCharset == 'WIN-1254' || strCharset == 'ISO-8859-9' || strCharset == 'iso-8859-9'){
+                            srtUtf8 = turkishencoding(strCharset).toUTF8(srtData);
+                        }else{
+                            srtUtf8 = encoding.convert(srtData, "utf-8", strCharset);
+                        }
                         fs.writeFileSync(info.file, srtUtf8);
                     }
                     callback(strUrl);
@@ -343,9 +349,8 @@ var getSubtitle = function(opts, callback){
             callback(false);
         }
     });
-
-
 }
+
 
 function getExtension(url) {
     url = url.toLowerCase();            
@@ -529,8 +534,7 @@ io.on('connection', function(socket){
                         io.to(socket.id).emit('play', file);
                         if(data.notifications) sendSystemMessage(data, data.nick + " is playing " + title);
                     }
-
-                    if(data.subLang || category == "Movies" || category == "TV"){
+                    if(data.subLang && (category == "Movies" || category == "TV")){
                         getSubtitle({'title': title, 'lang': data.subLang}, function(vttpath){
                             file.subPath = vttpath;
                             file.subLang = data.subLang;

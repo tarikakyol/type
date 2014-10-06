@@ -7,7 +7,6 @@
     "diff": "^1.0.8",
     "encoding": "^0.1.8",
     "express": "~3.10.4",
-    "iconv-lite": "^0.4.4",
     "mime": "^1.2.11",
     "node-bing-api": "^0.1.2",
     "opensubtitles-client": "^1.1.4",
@@ -18,6 +17,7 @@
     "socket.io": "^1.1.0",
     "srt2vtt": "^1.0.0",
     "torget": "0.0.5",
+    "turkish-char-encoding": "0.0.5",
     "yandex-translate": "^1.0.1"
   },
   "description": "Splash chat",

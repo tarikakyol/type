@@ -377,7 +377,6 @@
     }
 
     App.playMedia = function(data){
-        console.log(data);
         if(data == false){
             App.error();
             return;
@@ -405,7 +404,6 @@
             if(data.subLang){
                 $(track).attr('src', data.subPath);
                 $(track).attr('kind', 'subtitles');
-                $(track).attr('srclang', data.subLang);
                 $(track).attr('label', data.subLang);
                 $(track).attr('default', '');
                 $(this.media.binary).append(track);
