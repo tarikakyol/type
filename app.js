@@ -438,9 +438,9 @@ io.on('connection', function(socket){
 
     socket.on('disconnect', function(){
         console.log('socket.io connection close');
-        online[socket.channel].splice(online[socket.channel].indexOf(socket.nick),1);
+        if(online[socket.channel]) online[socket.channel].splice(online[socket.channel].indexOf(socket.nick),1);
         var data = {nick:socket.nick, channel:socket.channel};
-        sendSystemMessage(io, data, socket.nick + " has joined the room");
+        sendSystemMessage(io, data, socket.nick + " has left the room");
     });
 
     socket.on('message', function(data){
