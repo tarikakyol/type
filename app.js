@@ -110,14 +110,7 @@ var sendMessage = function(io, data) {
         chat[data.channel].push([processText(data.nick), processText(data.text), colors[data.nick]]);
         mc.set(data.channel, JSON.stringify(chat[data.channel]));
     }
-    var chatArray = chat[data.channel];
-    var chatLen = chatArray.length;
-    chatArray = chatArray.slice(Math.max(chat[data.channel].length - 100, 0)); // get the last 100 lines of chat
-    io.to(data.channel).emit('message', {
-        online: online[data.channel],
-        chat: chatArray,
-        chatLen: chatLen
-    });
+    sendSocket(io, data);
 }
 
 var sendSystemMessage = function(io, data, message){
@@ -127,9 +120,14 @@ var sendSystemMessage = function(io, data, message){
         chat[data.channel].push([data.nick, message, colors[data.nick]]);
         mc.set(data.channel, JSON.stringify(chat[data.channel]));
     }
+    sendSocket(io, data);
+}
+
+var sendSocket = function(io, data){
     var chatArray = chat[data.channel];
     var chatLen = chatArray.length;
     chatArray = chatArray.slice(Math.max(chat[data.channel].length - 100, 0)); // get the last 100 lines of chat
+    if (typeof online[data.channel] == "undefined") online[data.channel] = [];
     io.to(data.channel).emit('message', {
         online: online[data.channel],
         chat: chatArray,
@@ -421,7 +419,6 @@ app.get("/clear", function(req, res) {
 
 // hands back a report about the last sync attempt
 app.get("/", function(req, res) {
-    online = {};
     res.sendfile('index.html');
 });
 
@@ -441,7 +438,9 @@ io.on('connection', function(socket){
 
     socket.on('disconnect', function(){
         console.log('socket.io connection close');
-        online = {};
+        online[socket.channel].splice(online[socket.channel].indexOf(socket.nick),1);
+        var data = {nick:socket.nick, channel:socket.channel};
+        sendSystemMessage(io, data, socket.nick + " has joined the room");
     });
 
     socket.on('message', function(data){
@@ -458,7 +457,9 @@ io.on('connection', function(socket){
 
     socket.on('setnick', function(data){
         if(!data.oldNick || !data.newNick) return;
-        online = {};
+        socket.nick = data.newNick;
+        delete online[data.channel][data.oldNick]
+        online[data.channel].push(socket.nick);
         sendSystemMessage(io, data, data.oldNick + " changed nickname to " + data.newNick);
     });
 
@@ -482,15 +483,9 @@ io.on('connection', function(socket){
 
         //josining to channel
         socket.join(data.channel);
-
-        var chatArray = chat[channel];
-        var chatLen = chatArray.length;
-        chatArray = chatArray.slice(Math.max(chat[channel].length - 100, 0)); // get the last 100 lines of chat
-        io.to(socket.id).emit('message', {
-            online: online[channel],
-            chat: chatArray,
-            chatLen: chatLen
-        });
+        socket.nick = data.nick;
+        socket.channel = data.channel;
+        sendSystemMessage(io, data, data.nick + " has joined the room");
     });
 
     socket.on('play', function(data){
