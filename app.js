@@ -216,7 +216,6 @@ var downloadMedia = function(title, filename, callback){
     var piecesCounter = 1;
     var invalid = 0;
     var fileCount = 0;
-    var didCallback = false;
 
     engine[stripedTitle].files.forEach(function(file) {
         if(getExtension(file.name)){
@@ -241,11 +240,6 @@ var downloadMedia = function(title, filename, callback){
     });
 
     engine[stripedTitle].on('download', function(index){
-        // if(!didCallback){
-        //     console.log('engine started downloading');
-        //     callback(true, fileCount);
-        //     didCallback = true;
-        // }
         console.log(piecesCounter+': '+piecesLen+"/"+index);
         if(piecesLen == piecesCounter) finished();
         else
@@ -330,14 +324,6 @@ var getSubtitle = function(opts, callback){
                         fs.writeFileSync(info.file, srtUtf8);
                     }
                     callback(strUrl);
-
-                    // srt2vtt(srtData, function(err, vttData) {
-                    //     if (err) callback(false);
-                    //     var vttpath = info.file.substr(0, info.file.lastIndexOf(".")) + "_" + opts.lang + ".vtt";
-                    //     var vttUrl = fileUrl.substr(0, fileUrl.lastIndexOf(".")) + "_" + opts.lang + ".vtt";
-                    //     fs.writeFileSync(vttpath, vttData);
-                    //     callback(vttUrl);
-                    // });
                 }else{
                     callback(false);
                 }
@@ -357,31 +343,6 @@ function getExtension(url) {
     if(ext == ".mp4" || ext == ".mp3" || ext == ".m4a") return true
     else return false
 }
-
-// searchMedia("matrix", function(filename, title, category){
-//             if(filename == false){
-//                 console.log("FALSE");
-//                 return;
-//             }
-//             downloadMedia(title, filename, function(status){
-                
-//                 if(category == "Movies" || category == "TV"){
-//                     var lang = "eng";
-//                     getSubtitle({'title': title, 'lang': lang}, function(vttpath){
-//                         console.log(vttpath);
-//                     })
-//                 }
-
-//                 if(status){
-//                     var file = {};
-//                     file.category = category;
-//                     file.title = title;
-//                     console.log(strip(title));
-//                 }else{
-//                     console.log("FALSE!");
-//                 }
-//             })
-//         })
 
 
 app.get('/*', function(req, res, next) {
