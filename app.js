@@ -170,6 +170,7 @@ var searchMedia = function(query, callback){
             if(i == torrents.length) return callback(false);
             console.log('analysing '+(i+1)+'. torrent..');
             torrents[i].filename = __dirname+"/public/downloads/torrents/" + torrents[i].title.replace(/ /g, '_') + '.torrent';
+            console.log(torrents[i].filename);
             torget.download(torrents[i],{p:torrents[i].filename}, function(err, filename){
                if(filename){
                     var files = parseTorrent(fs.readFileSync(filename)).files;
