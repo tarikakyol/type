@@ -620,9 +620,11 @@
 
         $("input").on("keyup", function(e) {
             if (e.keyCode == 13) {
-                App.addHistory();
-                App.post();
-                App.setTitle();
+                if(!e.shiftKey){
+                    App.addHistory();
+                    App.post();
+                    App.setTitle();
+                }
             }else if(e.keyCode == 38){
                 App.getHistory(1);
             }else if(e.keyCode == 40){
