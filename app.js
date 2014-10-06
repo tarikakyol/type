@@ -458,7 +458,7 @@ io.on('connection', function(socket){
     socket.on('setnick', function(data){
         if(!data.oldNick || !data.newNick) return;
         socket.nick = data.newNick;
-        delete online[data.channel][data.oldNick]
+        if(online[socket.channel]) online[data.channel].splice(online[data.channel].indexOf(data.oldNick),1);
         online[data.channel].push(socket.nick);
         sendSystemMessage(io, data, data.oldNick + " changed nickname to " + data.newNick);
     });
