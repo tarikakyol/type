@@ -266,7 +266,7 @@ var getSubtitle = function(opts, callback){
     for(i=0;i<files.length;i++){
         if(getExtension(files[i].name)){
             fileName = files[i].name.substr(0, files[i].name.lastIndexOf("."));
-            strUrl = "/public/downloads/files/"+files[i].path.substr(0, files[i].path.lastIndexOf(".")) + "_" + opts.lang + ".srt";
+            strUrl = "/public/downloads/subtitles/" + fileName + "_" + opts.lang + ".srt";
             srtFilePath = __dirname+strUrl
             break;
         }
@@ -307,16 +307,15 @@ var getSubtitle = function(opts, callback){
                     }
                     // console.log(suitableSubs);
                     if(suitableSubs.length < 1) suitableSubs.push(minDiffResult);
-                    console.log('Subtitle downloading..');
+                    console.log('Downloading subtitle..');
                     opensubtitles.downloader.download(suitableSubs, 1, srtFilePath, null);
                     opensubtitles.api.logout(token);
                 });
             });
 
             opensubtitles.downloader.on("downloaded", function(info){
-                console.log("Subtitle downloaded");
+                console.log("Subtitle downloaded: "+ info.file);
                 if(info.file){
-                    console.log(info.file);
                     var strCharset = chardet.detectFileSync(info.file);
                     console.log("Subtitle Charset: "+ strCharset);
                     if(strCharset != "utf-8" && strCharset != "UTF-8"){

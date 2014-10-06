@@ -409,8 +409,8 @@
                 $(this.media.binary).append(track);
             }
 
-            $(".chat").prepend(this.media.binary);
-            $(this.media.binary).mediaelementplayer({
+            $(".player").html(this.media.binary);
+            $("video").mediaelementplayer({
                 videoWidth: 640,
                 videoHeight: 264
             });
