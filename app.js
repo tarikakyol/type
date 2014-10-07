@@ -125,6 +125,8 @@ var sendSystemMessage = function(io, data, message){
 
 var sendSocket = function(io, data){
 
+    console.log(chat);
+
     var chatArray = chat[data.channel];
     var chatLen = chatArray.length;
     chatArray = chatArray.slice(Math.max(chat[data.channel].length - 100, 0)); // get the last 100 lines of chat
