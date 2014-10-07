@@ -111,6 +111,7 @@ var sendMessage = function(io, data) {
         mc.set(data.channel, JSON.stringify(chat[data.channel]));
     }
     sendSocket(io, data);
+    console.log('Sending user message..');
 }
 
 var sendSystemMessage = function(io, data, message){
@@ -120,12 +121,13 @@ var sendSystemMessage = function(io, data, message){
         chat[data.channel].push([data.nick, message, colors[data.nick]]);
         mc.set(data.channel, JSON.stringify(chat[data.channel]));
     }
+    console.log('Sending system message..');
     sendSocket(io, data);
 }
 
 var sendSocket = function(io, data){
 
-    console.log(chat);
+    console.log(data);
 
     var chatArray = chat[data.channel];
     var chatLen = chatArray.length;
