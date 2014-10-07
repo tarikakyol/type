@@ -132,7 +132,6 @@ var sendSocket = function(io, data){
     var chatArray = chat[data.channel];
     var chatLen = chatArray.length;
     chatArray = chatArray.slice(Math.max(chat[data.channel].length - 100, 0)); // get the last 100 lines of chat
-    chat[data.channel] = chatArray;
     if (typeof online[data.channel] == "undefined") online[data.channel] = [];
     io.to(data.channel).emit('message', {
         online: online[data.channel],
