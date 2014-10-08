@@ -115,6 +115,7 @@ var sendMessage = function(io, data) {
 }
 
 var sendSystemMessage = function(io, data, message){
+    if(!data.channel) return;
     setColor("bot");
     data.nick = "bot";
     if (typeof chat[data.channel] != "undefined"){
