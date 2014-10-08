@@ -149,6 +149,11 @@
     App.post = function() {
         var inputValue = this.getInput();
 
+        if(inputValue.length > 500){
+            App.error("Message is too long");
+            return false;
+        }
+
         if (!inputValue || !(inputValue.replace(/\s/g, "").length) )
           return false;
         if (App.checkCommands(inputValue) == false)
@@ -579,7 +584,10 @@
     }
 
     App.error = function(message){
-        $(".chat").prepend("<p class='cline warning'>Errör: Could not get that!</p>");
+        if(message)
+            $(".chat").prepend("<p class='cline warning'>Errör: "+message+"</p>");
+        else
+            $(".chat").prepend("<p class='cline warning'>Errör: Could not get that!</p>");
         this.setInput("");
     }
 

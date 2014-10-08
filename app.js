@@ -106,22 +106,18 @@ var setColor = function(nick, color) {
 }
 
 var sendMessage = function(io, data) {
-    if (typeof chat[data.channel] != "undefined"){
-        chat[data.channel].push([processText(data.nick), processText(data.text), colors[data.nick]]);
-        mc.set(data.channel, JSON.stringify(chat[data.channel]));
-    }
-    sendSocket(io, data);
     console.log('Sending user message..');
+    if(data.text.length < 500)
+        sendSystemMessage(io, data, socket.nick + " sent a message that is too long to display. sorry");
+    else
+        sendSocket(io, data);
 }
 
 var sendSystemMessage = function(io, data, message){
     if(!data.channel) return;
     setColor("bot");
     data.nick = "bot";
-    if (typeof chat[data.channel] != "undefined"){
-        chat[data.channel].push([data.nick, message, colors[data.nick]]);
-        mc.set(data.channel, JSON.stringify(chat[data.channel]));
-    }
+    data.text = message;
     console.log('Sending system message..');
     sendSocket(io, data);
 }
@@ -130,15 +126,34 @@ var sendSocket = function(io, data){
 
     console.log(data);
 
-    var chatArray = chat[data.channel];
-    var chatLen = chatArray.length;
-    chatArray = chatArray.slice(Math.max(chat[data.channel].length - 100, 0)); // get the last 100 lines of chat
-    if (typeof online[data.channel] == "undefined") online[data.channel] = [];
-    io.to(data.channel).emit('message', {
-        online: online[data.channel],
-        chat: chatArray,
-        chatLen: chatLen
-    });
+    if (typeof chat[channel] == "undefined") {
+        console.log("UNEXPECTED UNDEFINED CHANNEL CHAT");
+        chat[channel] = [];
+        mc.get(channel, function(err, val){
+            if (val){
+                chat[channel] = JSON.parse(val.toString());
+                chat[data.channel].push([processText(data.nick), processText(data.text), colors[data.nick]]);
+                mc.set(data.channel, JSON.stringify(chat[data.channel]));
+            }else{
+                chat[data.channel].push([processText(data.nick), processText(data.text), colors[data.nick]]);
+                mc.set(data.channel, JSON.stringify(chat[data.channel]));
+            }
+        });
+    }else{
+        finish();
+    }
+
+    function finish(){
+        var chatArray = chat[data.channel];
+        var chatLen = chatArray.length;
+        chatArray = chatArray.slice(Math.max(chat[data.channel].length - 100, 0)); // get the last 100 lines of chat
+        if (typeof online[data.channel] == "undefined") online[data.channel] = [];
+        io.to(data.channel).emit('message', {
+            online: online[data.channel],
+            chat: chatArray,
+            chatLen: chatLen
+        });
+    }
 }
 
 var searchMedia = function(query, callback){
