@@ -441,7 +441,6 @@ app.get("/clear", function(req, res) {
 // hands back a report about the last sync attempt
 app.get("/", function(req, res) {
     res.sendfile('index.html');
-    res.end();
 });
 
 // start the Node.js server listening on port 3000
