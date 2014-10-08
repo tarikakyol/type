@@ -425,7 +425,8 @@
             $(".player").html(this.media.binary);
             $("video").mediaelementplayer({
                 videoWidth: 640,
-                videoHeight: 264
+                videoHeight: 264,
+                enableKeyboard: false
             });
 
         }else{
