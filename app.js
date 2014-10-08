@@ -107,8 +107,8 @@ var setColor = function(nick, color) {
 
 var sendMessage = function(io, data) {
     console.log('Sending user message..');
-    if(data.text.length < 500)
-        sendSystemMessage(io, data, socket.nick + " sent a message that is too long to display. sorry");
+    if(data.text.length > 500)
+        sendSystemMessage(io, data, data.nick + " sent a message that is too long to display. sorry");
     else
         sendSocket(io, data);
 }
