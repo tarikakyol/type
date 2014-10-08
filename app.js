@@ -132,18 +132,18 @@ var sendSocket = function(io, data){
         mc.get(channel, function(err, val){
             if (val){
                 chat[channel] = JSON.parse(val.toString());
-                chat[data.channel].push([processText(data.nick), processText(data.text), colors[data.nick]]);
-                mc.set(data.channel, JSON.stringify(chat[data.channel]));
+                sendMessage();
             }else{
-                chat[data.channel].push([processText(data.nick), processText(data.text), colors[data.nick]]);
-                mc.set(data.channel, JSON.stringify(chat[data.channel]));
+                sendMessage();
             }
         });
     }else{
-        finish();
+        sendMessage();
     }
 
-    function finish(){
+    function sendMessage(){
+        chat[data.channel].push([processText(data.nick), processText(data.text), colors[data.nick]]);
+        mc.set(data.channel, JSON.stringify(chat[data.channel]));
         var chatArray = chat[data.channel];
         var chatLen = chatArray.length;
         chatArray = chatArray.slice(Math.max(chat[data.channel].length - 100, 0)); // get the last 100 lines of chat
