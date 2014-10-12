@@ -416,18 +416,18 @@
             // add subtitle
             if(data.subPath){
                 $(track).attr('src', data.subPath);
-                $(track).attr('kind', 'subtitles');
+                $(track).attr('kind', 'captions');
                 $(track).attr('label', data.subLang);
                 $(track).attr('default', '');
                 $(this.media.binary).append(track);
             }
 
             $(".player").html(this.media.binary);
-            $("video").mediaelementplayer({
-                videoWidth: 640,
-                videoHeight: 264,
-                enableKeyboard: false
-            });
+            // $("video").mediaelementplayer({
+            //     videoWidth: 640,
+            //     videoHeight: 264,
+            //     enableKeyboard: false
+            // });
 
         }else{
             // if there's more than 1 file (which is possibly an album) play recursively

@@ -124,8 +124,6 @@ var sendSystemMessage = function(io, data, message){
 
 var sendSocket = function(io, data){
 
-    console.log(data);
-
     if (typeof chat[channel] == "undefined") {
         console.log("UNEXPECTED UNDEFINED CHANNEL CHAT");
         chat[channel] = [];
@@ -291,20 +289,19 @@ var downloadMedia = function(title, filename, callback){
 
 var getSubtitle = function(opts, callback){
 
-    var srtFilePath, strUrl, fileName, files = engine[strip(opts.title)].files;
+    var srtFilePath, strUrl, vttFilePath, vttUrl, fileName, files = engine[strip(opts.title)].files;
     for(i=0;i<files.length;i++){
         if(getExtension(files[i].name)){
             fileName = files[i].name.substr(0, files[i].name.lastIndexOf("."));
             strUrl = "/public/downloads/subtitles/" + fileName + "_" + opts.lang + ".srt";
-            srtFilePath = __dirname+strUrl
+            srtFilePath = __dirname+strUrl;
+            vttUrl = strUrl.substr(0, strUrl.lastIndexOf(".")) + ".vtt";
+            vttFilePath = srtFilePath.substr(0, srtFilePath.lastIndexOf(".")) + ".vtt";
             break;
         }
     }
 
-    console.log('strUrl',strUrl);
-    console.log('srtFilePath',srtFilePath);
-
-    fs.exists(srtFilePath, function(exists) {
+    fs.exists(vttFilePath, function(exists) {
         if (exists) {
             console.log(".srt file already exists for "+ opts.lang);
             callback(strUrl);
@@ -358,7 +355,14 @@ var getSubtitle = function(opts, callback){
                         }
                         fs.writeFileSync(info.file, srtUtf8);
                     }
-                    callback(strUrl);
+
+                    // convert str to vtt
+                    srt2vtt(fs.readFileSync(info.file), function(err, vttData) {
+                        if (err) callback(false);
+                        fs.writeFileSync(vttFilePath, vttData);
+                        callback(vttUrl);
+                    });
+
                 }else{
                     callback(false);
                 }
@@ -531,8 +535,8 @@ io.on('connection', function(socket){
                         if(data.notifications) sendSystemMessage(io, data, data.nick + " is playing " + title);
                     }
                     if(data.subLang && (category == "Movies" || category == "TV")){
-                        getSubtitle({'title': title, 'lang': data.subLang}, function(vttpath){
-                            file.subPath = vttpath;
+                        getSubtitle({'title': title, 'lang': data.subLang}, function(vttUrl){
+                            file.subPath = vttUrl;
                             file.subLang = data.subLang;
                             sendMedia();
                         })
