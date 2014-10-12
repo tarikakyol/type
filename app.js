@@ -204,7 +204,9 @@ var searchMedia = function(query, callback){
             console.log('analysing '+(i+1)+'. torrent..');
             torrents[i].filename = __dirname+"/public/downloads/torrents/" + torrents[i].title.replace(/ /g, '_') + '.torrent';
             torget.download(torrents[i],{p:torrents[i].filename}, function(err, filename){
+               if(err) console.log(err);
                if(filename){
+                    console.log("torrent file downloaded looking inside.. "+filename);
                     var files = parseTorrent(fs.readFileSync(filename)).files;
                     var extFound = false;
                     for(f=0;f<files.length;f++){
