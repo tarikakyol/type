@@ -418,6 +418,8 @@
                 $(track).attr('src', data.subPath);
                 $(track).attr('kind', 'captions');
                 $(track).attr('label', data.subLang);
+                // $(track).attr('srclang', data.subLang);
+                $(track).attr('type', 'text/vtt');
                 $(track).attr('default', '');
                 $(this.media.binary).append(track);
             }
