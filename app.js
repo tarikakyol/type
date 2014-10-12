@@ -209,12 +209,12 @@ var searchMedia = function(query, callback){
                     console.log("torrent file downloaded looking inside.. "+filename);
                     var files = parseTorrent(fs.readFileSync(filename)).files;
                     var extFound = false;
+                    for(f=0;f<files.length;f++){
                         if(getExtension(files[f].name)){
                             extFound = true;
                             callback(filename, torrents[i].title, torrents[i].category);
                             return;
                         }
-                    for(f=0;f<files.length;f++){
                     }
                     if(!extFound) findBest(++i);
                 }else{
@@ -308,9 +308,8 @@ var getSubtitle = function(opts, callback){
             console.log(".srt file already exists for "+ opts.lang);
             callback(strUrl);
         }else if(srtFilePath){
-
+            
             try {
-
                 console.log("OPEN SUBTITLES LOGING IN..");
                 opensubtitles.api.login().done(function(token){
                     console.log("OPEN SUBTITLES PARAMS: "+ token, opts.lang, opts.title);
