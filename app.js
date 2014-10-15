@@ -308,45 +308,39 @@ var getSubtitle = function(opts, callback){
             console.log(".srt file already exists for "+ opts.lang);
             callback(strUrl);
         }else if(srtFilePath){
-            
-            try {
-                console.log("OPEN SUBTITLES LOGING IN..");
-                opensubtitles.api.login().done(function(token){
-                    console.log("OPEN SUBTITLES PARAMS: "+ token, opts.lang, opts.title);
-                    // opensubtitles.api.searchForFile(token, opts.lang, srtFilename).done(function(results){
-                        opensubtitles.api.search(token, opts.lang, opts.title).done(function(results){
-                        console.log('Subs results len: ' + results.length);
-                        if(results.length < 1) return callback(false);
-                        var suitableSubs = [];
-                        var minDiffLen = 1000000;
-                        var minDiffResult;
-                        for(i=0;i<results.length;i++){
-                            if(results[i].MovieReleaseName){
-                                var diffLen = getStringDistance(results[i].MovieReleaseName, fileName);
-                                if(diffLen < 3){
-                                    suitableSubs.push(results[i]);
-                                    console.log("Best match found: " + results[i].MovieReleaseName + " : " + fileName);
-                                    break;
-                                }else{
-                                    if(diffLen < minDiffLen){
-                                        minDiffLen = diffLen;
-                                        minDiffResult = results[i];
-                                    }
+
+            console.log("OPEN SUBTITLES LOGGING IN..");
+            opensubtitles.api.login().done(function(token){
+                console.log("OPEN SUBTITLES PARAMS: "+ token, opts.lang, opts.title);
+                // opensubtitles.api.searchForFile(token, opts.lang, srtFilename).done(function(results){
+                    opensubtitles.api.search(token, opts.lang, opts.title).done(function(results){
+                    console.log('Subs results len: ' + results.length);
+                    if(results.length < 1) return callback(false);
+                    var suitableSubs = [];
+                    var minDiffLen = 1000000;
+                    var minDiffResult;
+                    for(i=0;i<results.length;i++){
+                        if(results[i].MovieReleaseName){
+                            var diffLen = getStringDistance(results[i].MovieReleaseName, fileName);
+                            if(diffLen < 3){
+                                suitableSubs.push(results[i]);
+                                console.log("Best match found: " + results[i].MovieReleaseName + " : " + fileName);
+                                break;
+                            }else{
+                                if(diffLen < minDiffLen){
+                                    minDiffLen = diffLen;
+                                    minDiffResult = results[i];
                                 }
                             }
                         }
-                        // console.log(suitableSubs);
-                        if(suitableSubs.length < 1) suitableSubs.push(minDiffResult);
-                        console.log('Downloading subtitle..');
-                        opensubtitles.downloader.download(suitableSubs, 1, srtFilePath, null);
-                        opensubtitles.api.logout(token);
-                    });
+                    }
+                    // console.log(suitableSubs);
+                    if(suitableSubs.length < 1) suitableSubs.push(minDiffResult);
+                    console.log('Downloading subtitle..');
+                    opensubtitles.downloader.download(suitableSubs, 1, srtFilePath, null);
+                    opensubtitles.api.logout(token);
                 });
-
-          } catch (ex) {
-            console.log("Error getting subs from opensubtitles");
-            callback(false);
-          }
+            });
 
             opensubtitles.downloader.on("downloaded", function(info){
                 console.log("Subtitle downloaded: "+ info.file);

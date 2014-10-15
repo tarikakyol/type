@@ -402,9 +402,12 @@
 
             $(".chat").prepend("<p class='cline green'>Playing: " + this.media.data.title + "</p>");
 
+            var videoWith = $(window).width > 640 ? 640 : $(window).width();
+            var videoHeight = Math.floor((videoWith * 9) / 16);
+
             this.media.binary = document.createElement('video');
-            $(this.media.binary).attr('width', '640');
-            $(this.media.binary).attr('data-height', '264');
+            $(this.media.binary).attr('width', videoWith);
+            $(this.media.binary).attr('data-height', videoHeight);
             $(this.media.binary).attr('controls', ' ');
             $(this.media.binary).attr('autoplay', ' ');
             source = document.createElement('source');
