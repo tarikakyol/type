@@ -184,6 +184,8 @@
     App.clear = function(){
         $('.chat').empty();
         this.setInput("");
+        app.media = null;
+        $('video').remove();
     }
 
     App.printCommands = function(){
@@ -402,7 +404,7 @@
 
             $(".chat").prepend("<p class='cline green'>Playing: " + this.media.data.title + "</p>");
 
-            var videoWith = $(window).width > 640 ? 640 : $(window).width();
+            var videoWith = $(window).width() > 640 ? 640 : $(window).width();
             var videoHeight = Math.floor((videoWith * 9) / 16);
 
             this.media.binary = document.createElement('video');

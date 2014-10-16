@@ -1,3 +1,4 @@
 .DS_Store
 public/downloads/files/*
 public/downloads/torrents/*
+*.zip
