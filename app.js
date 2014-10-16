@@ -21,10 +21,10 @@ var Bing = require('node-bing-api')({ accKey: "19IufVLhOTxSR3Xu99I4v2PaxEalAkj+i
 var opensubtitles = require('opensubtitles-client');
 var srt2vtt = require('srt2vtt');
 
-var minutes = 30;
-setInterval(function(){
-   request.get("http://splashchat.herokuapp.com/ping");
-}, minutes * 60 * 1000);
+// var minutes = 30;
+// setInterval(function(){
+//    request.get("http://splashchat.herokuapp.com/ping");
+// }, minutes * 60 * 1000);
 
 // Memcachier init.
 // var memjs = require('memjs');
