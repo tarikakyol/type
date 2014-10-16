@@ -405,7 +405,7 @@
             $(".chat").prepend("<p class='cline green'>Playing: " + this.media.data.title + "</p>");
 
             var videoWith = $(window).width(); //$(window).width() > 640 ? 640 : $(window).width();
-            var videoHeight = Math.floor((width * App.videoFormat[1]) / App.videoFormat[0]);
+            var videoHeight = Math.floor((videoWith * App.videoFormat[1]) / App.videoFormat[0]);
 
             this.media.binary = document.createElement('video');
             $(this.media.binary).attr('width', videoWith);
