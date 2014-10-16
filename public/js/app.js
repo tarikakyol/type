@@ -3,6 +3,7 @@
     var App = {
         audio: new Audio("public/misc/audio.wav"),
         media: {},
+        videoFormat: [16,9],
         chat: [],
         chatLen: 0,
         channel: null,
@@ -404,7 +405,7 @@
             $(".chat").prepend("<p class='cline green'>Playing: " + this.media.data.title + "</p>");
 
             var videoWith = $(window).width(); //$(window).width() > 640 ? 640 : $(window).width();
-            var videoHeight = Math.floor((videoWith * 9) / 16);
+            var videoHeight = Math.floor((width * App.videoFormat[1]) / App.videoFormat[0]);
 
             this.media.binary = document.createElement('video');
             $(this.media.binary).attr('width', videoWith);
@@ -642,6 +643,12 @@
             }else if(e.keyCode == 40){
                 App.getHistory(0);
             }
+        });
+
+        $(window).resize(function() {
+            var width = $(window).width();
+            $('video').attr("width", width);
+            $('video').attr("height", Math.floor((width * App.videoFormat[1]) / App.videoFormat[0]));
         });
 
     });
