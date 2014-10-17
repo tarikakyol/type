@@ -126,7 +126,7 @@
     App.setLogo = function() {
         var initColors = ["#e74c3c","#e67e22","#019fde",  "#dd77d3"]; // t y p e
         function _set(initial) {
-            $('.logo pre').not('.last').each(function(i) {
+            $('.logo pre').each(function(i) {
                 var rnd = Math.random();
                 $(this).css({
                     "color"            : initial ? initColors[i] : 'hsla(' + Math.floor(rnd * 360) + ',' + (Math.floor(rnd * 50) + 50) + '%,50%,1)'//+ (rnd + 0.3) +')',
@@ -605,7 +605,7 @@
         // set channel
         this.setChannel();
         // LOGO animation
-        this.setLogo();
+        //this.setLogo();
         // Settings
         this.setSettings();
         // handling socket.io

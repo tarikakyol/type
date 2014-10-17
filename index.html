@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 10]><html class="lt-ie10"><![endif]-->
-<!--[if gte IE 10]><!--> <html lang="en"> <!--<![endif]-->
+<html lang="en">
   <head>
       <meta charset="utf-8">
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -14,16 +13,8 @@
       <link rel="shortcut icon" type="image/x-icon" href="public/misc/favicon.ico">
       <title>type</title>
       <link rel="stylesheet" href="public/css/style.css" />
-      <!-- <link rel="stylesheet" href="public/css/mediaelementplayer.css" /> -->
   </head>
-
   <body>
-
-    <div class="online">
-        <div class="title">Online</div>
-        <div class="onlineList"></div>
-    </div>
-
     <div class="logo">
         <pre>
 
@@ -55,11 +46,14 @@
  \____)
        </pre>
     </div>
-
     <div class="hello">
       <span class="lightred nodisplay">Hello <span class="nickName"></span>, you're on <span class="channelName white"></span> channel.</span>
       <p class="lightergreen">Welcome to <span style="color:#e74c3c">t</span><span style="color:#e67e22">y</span><span style="color:#019fde">p</span><span style="color:#dd77d3">e</span> command line app. It's so simple!</p>
       <p class="white">For now you can chat and do a few more useful things, type /help to see all commands and features.</p>
+    </div>
+    <div class="online">
+        <div class="title">Online</div>
+        <div class="onlineList"></div>
     </div>
     <div class="player"></div>
     <div class="hr"></div>
@@ -68,7 +62,6 @@
     <script type="text/javascript" src="public/js/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="public/js/app.js"></script>
-    <!--<script src="public/js/mediaelement-and-player.min.js"></script>-->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -78,5 +71,4 @@
       ga('send', 'pageview');
     </script>
   </body>
-
 </html>

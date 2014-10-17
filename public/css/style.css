@@ -42,11 +42,12 @@ a {
     transition: all 600ms linear;
 }
 .logo pre {
-    font-size: 7px;
+    font-size: 10px;
     transition: all 600ms linear;
     display: inline-block;
-    margin-right: -11px;
+    margin-right: -14px;
     margin-top: -5px;
+    color: rgba(255, 255, 255, 1);
 }
 
 .warning {
@@ -105,12 +106,7 @@ a {
 }
 
 .online {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 200px;
-    border: 1px dashed #444;
-    margin: 10px;
+    margin-bottom: 7px;
 }
 
 .online .title {
@@ -122,4 +118,8 @@ a {
 .online .onlineList {
     padding: 5px;
     color: #C4956C;
+    height: 12px;
+    overflow: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
