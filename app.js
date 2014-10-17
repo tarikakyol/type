@@ -123,34 +123,34 @@ var sendSystemMessage = function(io, data, message){
 
 var sendSocket = function(io, data){
 
-    if (typeof chat[channel] == "undefined") {
+    if (typeof chat[data.channel] == "undefined") {
         console.log("UNEXPECTED UNDEFINED CHANNEL CHAT");
-        chat[channel] = [];
-        mc.get(channel, function(err, val){
+        chat[data.channel] = [];
+        mc.get(data.channel, function(err, val){
             if (val){
-                chat[channel] = JSON.parse(val.toString());
-                sendMessage();
+                chat[data.channel] = JSON.parse(val.toString());
+                doSendMessage(io, data);
             }else{
-                sendMessage();
+                doSendMessage(io, data);
             }
         });
     }else{
-        sendMessage();
+        doSendMessage(io, data);
     }
+}
 
-    function sendMessage(){
-        chat[data.channel].push([processText(data.nick), processText(data.text), colors[data.nick]]);
-        mc.set(data.channel, JSON.stringify(chat[data.channel]));
-        var chatArray = chat[data.channel];
-        var chatLen = chatArray.length;
-        chatArray = chatArray.slice(Math.max(chat[data.channel].length - 100, 0)); // get the last 100 lines of chat
-        if (typeof online[data.channel] == "undefined") online[data.channel] = [];
-        io.to(data.channel).emit('message', {
-            online: online[data.channel],
-            chat: chatArray,
-            chatLen: chatLen
-        });
-    }
+var doSendMessage = function(io, data){
+    chat[data.channel].push([processText(data.nick), processText(data.text), colors[data.nick]]);
+    mc.set(data.channel, JSON.stringify(chat[data.channel]));
+    var chatArray = chat[data.channel];
+    var chatLen = chatArray.length;
+    chatArray = chatArray.slice(Math.max(chat[data.channel].length - 100, 0)); // get the last 100 lines of chat
+    if (typeof online[data.channel] == "undefined") online[data.channel] = [];
+    io.to(data.channel).emit('message', {
+        online: online[data.channel],
+        chat: chatArray,
+        chatLen: chatLen
+    });
 }
 
 var searchMedia = function(query, callback){
