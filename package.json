@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "chardet": "0.0.8",
-    "diff": "^1.0.8",
     "encoding": "^0.1.8",
     "express": "~3.10.4",
     "mime": "^1.2.11",

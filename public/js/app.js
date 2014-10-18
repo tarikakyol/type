@@ -297,10 +297,11 @@
     }
 
     App.handleNewMessage = function(chat) {
-        document.hidden && App.notify(chat[chat.length-1][0] + ": " + chat[chat.length-1][1]);
+        if(document.hidden){
+            App.setTitle("(1) type");
+            App.notify(chat[chat.length-1][0] + ": " + chat[chat.length-1][1]);
+        }
         App.audio.play();
-
-        App.setTitle("(1) type");
     }
 
     App.redirectToChannel = function(channelName) {
@@ -623,7 +624,6 @@
 
         // set Listeners
         $("html").on("click", function(e) {
-            $("input").focus();
             App.setTitle();
         });
 
@@ -631,7 +631,9 @@
             App.setTitle();
         })
 
-        $("input").on("keyup", function(e) {
+        $("html").on("keydown", function(e) {
+            if(e.ctrlKey || e.metaKey) return;
+            $("input").focus(); 
             if (e.keyCode == 13) {
                 if(!e.shiftKey){
                     App.addHistory();
@@ -655,5 +657,7 @@
 
     // for debugging
     window.app = App;
+    console.log("congratz! you just proved how geek you are.");
+    console.log("If you're looking to work on projects like this drop us a line on #jobs channel.");
 
 })();
