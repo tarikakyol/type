@@ -2,3 +2,4 @@
 public/downloads/files/*
 public/downloads/torrents/*
 *.zip
+.elasticbeanstalk/
