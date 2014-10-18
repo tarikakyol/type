@@ -345,15 +345,27 @@ var getSubtitle = function(opts, callback){
                 if(info.file){
                     var strCharset = chardet.detectFileSync(info.file);
                     console.log("Subtitle Charset: "+ strCharset);
+                    /*
                     if(strCharset != "utf-8" && strCharset != "UTF-8"){
                         console.log('Converting subtitle charset '+strCharset+' to utf-8');
                         var srtUtf8, srtData = fs.readFileSync(info.file);
                         // if turkish encoding
-                        if(strCharset == 'win-1254' || strCharset == 'WIN-1254' || strCharset == 'ISO-8859-9' || strCharset == 'iso-8859-9'){
+                        if(strCharset == 'windows-1254' || strCharset == 'WINDOWS-1254' || strCharset == 'win-1254' || strCharset == 'WIN-1254' || strCharset == 'ISO-8859-9' || strCharset == 'iso-8859-9'){
+                            console.log('Converting Turkish..');
                             srtUtf8 = turkishencoding(strCharset).toUTF8(srtData);
                         }else{
+                            console.log('Converting Others..');
                             srtUtf8 = encoding.convert(srtData, "utf-8", strCharset);
                         }
+                        fs.writeFileSync(info.file, srtUtf8);
+                    }
+                    */
+
+                    if(strCharset == 'windows-1254' || strCharset == 'WINDOWS-1254' || strCharset == 'win-1254' || strCharset == 'WIN-1254' || strCharset == 'ISO-8859-9' || strCharset == 'iso-8859-9'){
+                        console.log('Converting Turkish charset to UTF-8..');
+                        if(strCharset == 'windows-1254' || strCharset == 'WINDOWS-1254') strCharset = 'win-1254'; //workaround to fix charset name for turkishencoding module.
+                        var srtUtf8, srtData = fs.readFileSync(info.file);
+                        srtUtf8 = turkishencoding(strCharset).toUTF8(srtData);
                         fs.writeFileSync(info.file, srtUtf8);
                     }
 
@@ -462,7 +474,8 @@ io.on('connection', function(socket){
 
     socket.on('disconnect', function(){
         console.log('socket.io connection close');
-        if(online[socket.channel]) online[socket.channel].splice(online[socket.channel].indexOf(socket.nick),1);
+        var index = online[socket.channel].indexOf(socket.nick);
+        if(online[socket.channel] && index != -1) online[socket.channel].splice(index,1);
         var data = {nick:socket.nick, channel:socket.channel};
         sendSystemMessage(io, data, socket.nick + " has left the room");
     });
@@ -482,7 +495,8 @@ io.on('connection', function(socket){
     socket.on('setnick', function(data){
         if(!data.oldNick || !data.newNick) return;
         socket.nick = data.newNick;
-        if(online[socket.channel]) online[data.channel].splice(online[data.channel].indexOf(data.oldNick),1);
+        var index = online[data.channel].indexOf(data.oldNick);
+        if(online[socket.channel] && index != -1) online[data.channel].splice(index,1);
         online[data.channel].push(socket.nick);
         sendSystemMessage(io, data, data.oldNick + " changed nickname to " + data.newNick);
     });
