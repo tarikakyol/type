@@ -474,7 +474,7 @@ io.on('connection', function(socket){
 
     socket.on('disconnect', function(){
         console.log('socket.io connection close');
-        var index = online[socket.channel].indexOf(socket.nick);
+        var index = online[socket.channel] ? online[socket.channel].indexOf(socket.nick) : -1;
         if(online[socket.channel] && index != -1) online[socket.channel].splice(index,1);
         var data = {nick:socket.nick, channel:socket.channel};
         sendSystemMessage(io, data, socket.nick + " has left the room");
