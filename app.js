@@ -230,8 +230,6 @@ var searchMedia = function(query, callback){
 
 var downloadMedia = function(title, filename, callback){
 
-    console.log('downloading torrent: '+title);
-
     var opts = {
         connections: 100,
         port: 3005,
@@ -242,6 +240,20 @@ var downloadMedia = function(title, filename, callback){
     }
 
     var stripedTitle = strip(title);
+
+    // check if file is already in engine.
+    if(engine[stripedTitle]){
+        console.log('torrent already downloaded: '+title);
+        engine[stripedTitle].files.forEach(function(file) {
+            if(getExtension(file.name)){
+                fileCount++;
+            }
+        });
+        callback(true, fileCount);
+        return;
+    }
+
+    console.log('downloading torrent: '+title);
 
     engine[stripedTitle] = torrentStream(fs.readFileSync(filename),opts);
 
