@@ -291,6 +291,10 @@ var downloadMedia = function(title, filename, callback){
             piecesCounter++;
     })
 
+    engine[stripedTitle].on('upload', function(index){
+        console.log("uploaded: "+index);
+    })
+
     var finished = function(){
         console.log('finishing..');
         engine[stripedTitle].remove(true, function(){
