@@ -7,7 +7,45 @@ body {
     padding: 0;
 }
 
-input[type=text] {
+.ui {
+    display: none;
+    margin: 0 auto;
+    text-align: center;
+}
+.uiInput {
+    font-family: 'Menlo Regular', 'Lucida Console', Monaco, monospace, 'Courier New', Fixed;
+    width: 60%;
+    height: 35px;
+    border: 1px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 1);
+    line-height: 25px;
+    text-align: center;
+    font-size: 25px;
+    outline: none;
+    color: black;
+    display: inline-block;
+}
+.uiButton, .uiSelect {
+   font-family: 'Menlo Regular', 'Lucida Console', Monaco, monospace, 'Courier New', Fixed;
+    display: inline-block;
+    width: 19%;
+    height: 38px;
+    border-radius: 5px;
+    border: 1px dashed;
+    vertical-align: top;
+    line-height: 25px;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    background: black;
+    outline: none;
+}
+.uiButton:hover{
+    background: white;
+    color: black;
+}
+.chatInput {
     font-family: 'Menlo Regular', 'Lucida Console', Monaco, monospace, 'Courier New', Fixed;
     font-size: 12px;
     color:white;
@@ -23,6 +61,10 @@ a {
 }
 
 .player{
+    overflow: hidden;
+}
+.uiPlayer{
+    margin-top: 10px;
     overflow: hidden;
 }
 

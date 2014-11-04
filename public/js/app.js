@@ -10,6 +10,8 @@
         online: [],
         history: [],
         historyNo: 0,
+        inputClass: '.chatInput',
+        playerClass: '.player',
         settings:{
             notifications: true,
             systemMessages: true
@@ -43,10 +45,10 @@
     }
 
     App.getInput = function(){
-        return $('.chatInput').val();
+        return $(this.inputClass).val();
     }
     App.setInput = function(text){
-        return $('.chatInput').val(text);
+        return $(this.inputClass).val(text);
     }
 
     App.checkCommands = function(v) {
@@ -124,7 +126,7 @@
     }
 
     App.setLogo = function() {
-        var initColors = ["#e74c3c","#e67e22","#019fde",  "#dd77d3"]; // t y p e
+        var initColors = ["#fff"]; //"#e74c3c","#e67e22","#019fde",  "#dd77d3"]; // t y p e
         function _set(initial) {
             $('.logo pre').each(function(i) {
                 var rnd = Math.random();
@@ -255,7 +257,6 @@
             App.channel = App.getUrlParam("c");
         else
             App.channel = "default";
-
         $(".channelName").html("#" + App.channel);
     }
 
@@ -430,12 +431,7 @@
                 $(this.media.binary).append(track);
             }
 
-            $(".player").html(this.media.binary);
-            // $("video").mediaelementplayer({
-            //     videoWidth: 640,
-            //     videoHeight: 264,
-            //     enableKeyboard: false
-            // });
+            $(this.playerClass).html(this.media.binary);
 
         }else{
             // if there's more than 1 file (which is possibly an album) play recursively
@@ -505,10 +501,10 @@
         if(n == 1){
             if(this.historyNo == 0) this.historyNo = this.history.length;
             this.historyNo>0 && this.historyNo--
-            $("input").val(this.history[this.historyNo]);
+            $(this.inputClass).val(this.history[this.historyNo]);
         }else if(n == 0){
             this.historyNo<this.history.length && this.historyNo++
-            $("input").val(this.history[this.historyNo]);
+            $(this.inputClass).val(this.history[this.historyNo]);
         }
     }
     App.translate = function(lang, text){
@@ -584,8 +580,8 @@
     }
 
     App.socketOpened = function() {
-        $('input').val("");
-        $('input').removeAttr("readonly");
+        $(this.inputClass).val("");
+        $(this.inputClass).removeAttr("readonly");
     }
 
     App.sendSocketMessage = function(message, params){
@@ -606,7 +602,7 @@
         // set channel
         this.setChannel();
         // LOGO animation
-        //this.setLogo();
+        this.setLogo();
         // Settings
         this.setSettings();
         // handling socket.io
@@ -633,7 +629,7 @@
 
         $("html").on("keydown", function(e) {
             if(e.ctrlKey || e.metaKey) return;
-            $("input").focus(); 
+            $(App.inputClass).focus(); 
             if (e.keyCode == 13) {
                 if(!e.shiftKey){
                     App.addHistory();
@@ -646,6 +642,22 @@
                 App.getHistory(0);
             }
         });
+
+        // UI exceptions START
+        if(App.channel == "ui"){
+            App.playerClass = '.uiPlayer';
+            App.inputClass = '.uiInput';
+            $('.ui').show();
+            $('.body').hide();
+            $('.uiButton').on("click", function(e) {
+                $(App.playerClass).html("Loading..");
+                var sub = $('.uiSelect').val();
+                if(sub == "none") App.retrieveMedia($(App.inputClass).val());
+                else App.retrieveMedia($(App.inputClass).val() + " subs:" + sub);
+            });
+            $('html').off("keydown");
+        }
+        // UI exceptions END
 
         $(window).resize(function() {
             var width = $(window).width();

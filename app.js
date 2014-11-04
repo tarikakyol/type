@@ -154,11 +154,18 @@ var doSendMessage = function(io, data){
 }
 
 var searchMedia = function(query, callback){
-
     var torrents = [];
     var getFeasibleTorrents = function(page, cb){
         torget.search(query+'&page='+page, function(err, results) {
-            if(err) return cb();
+
+            if(err){
+                console.log('Error searching torrents');
+                console.log(err);
+                setTimeout(function(){
+                    console.log('retrying..');
+                    getFeasibleTorrents(page, cb);
+                }, 5000);
+            }
 
             if(!results || results.length < 1){
                 console.log('not found');
@@ -191,6 +198,7 @@ var searchMedia = function(query, callback){
 
     getFeasibleTorrents(1, function(){
         if(torrents.length < 1){
+            console.log('could not find any suitable torrents');
             callback(false);
             return;
         }
@@ -231,6 +239,7 @@ var searchMedia = function(query, callback){
 var downloadMedia = function(title, filename, callback){
 
     var opts = {
+        uploads: false,
         connections: 100,
         port: 3005,
         filesDir: '/public/downloads/files',
@@ -293,6 +302,11 @@ var downloadMedia = function(title, filename, callback){
 
     engine[stripedTitle].on('upload', function(index){
         console.log("uploaded: "+index);
+    })
+
+    engine[stripedTitle].on('verify', function(index){
+        console.log("verified: "+piecesLen+'/'+index);
+        if((piecesLen-1) == index) finished();
     })
 
     var finished = function(){
@@ -472,7 +486,7 @@ app.get("/clear", function(req, res) {
 });
 
 // hands back a report about the last sync attempt
-app.get("/", function(req, res) {
+app.get("*", function(req, res) {
     res.sendfile('index.html');
 });
 
@@ -548,6 +562,7 @@ io.on('connection', function(socket){
     });
 
     socket.on('play', function(data){
+        console.log(data);
         searchMedia(data.query, function(filename, title, category){
             if(filename == false){
                 io.to(socket.id).emit('play', false);
