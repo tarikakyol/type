@@ -40,6 +40,9 @@ body {
     color: white;
     background: black;
     outline: none;
+    -webkit-appearance: none;
+    appearance:none;
+    -moz-appearance:none;
 }
 .uiButton:hover{
     background: white;
