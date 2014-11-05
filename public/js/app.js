@@ -420,6 +420,10 @@
             track = document.createElement('track');
             $(this.media.binary).append(source);
 
+            $(this.media.binary).on('play', function (e) {
+                console.log("PLAYING");
+            });
+
             // add subtitle
             if(data.subPath){
                 $(track).attr('src', data.subPath);
