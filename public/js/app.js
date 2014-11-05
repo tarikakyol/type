@@ -420,10 +420,6 @@
             track = document.createElement('track');
             $(this.media.binary).append(source);
 
-            $(this.media.binary).on('play', function (e) {
-                console.log("PLAYING");
-            });
-
             // add subtitle
             if(data.subPath){
                 $(track).attr('src', data.subPath);
@@ -435,7 +431,10 @@
                 $(this.media.binary).append(track);
             }
 
-            $(this.playerClass).html(this.media.binary);
+            $(this.media.binary).on('play', function() {
+                console.log('Video started..');
+                $(App.playerClass).html(App.media.binary);
+            });
 
         }else{
             // if there's more than 1 file (which is possibly an album) play recursively
