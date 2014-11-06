@@ -562,7 +562,6 @@ io.on('connection', function(socket){
     });
 
     socket.on('play', function(data){
-        console.log(data);
         searchMedia(data.query, function(filename, title, category){
             if(filename == false){
                 io.to(socket.id).emit('play', false);
@@ -578,7 +577,7 @@ io.on('connection', function(socket){
                     file.title = title;
                     var sendMedia = function(){
                         io.to(socket.id).emit('play', file);
-                        if(data.notifications) sendSystemMessage(io, data, data.nick + " is playing " + title);
+                        if(data.notifications) sendSystemMessage(io, data, data.nick + " is playing " + data.query);
                     }
                     if(data.subLang && (category == "Movies" || category == "TV")){
                         getSubtitle({'title': title, 'lang': data.subLang}, function(vttUrl){

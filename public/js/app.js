@@ -131,7 +131,7 @@
             $('.logo pre').each(function(i) {
                 var rnd = Math.random();
                 $(this).css({
-                    "color"            : initial ? initColors[i] : 'hsla(' + Math.floor(rnd * 360) + ',' + (Math.floor(rnd * 50) + 50) + '%,50%,1)'//+ (rnd + 0.3) +')',
+                    "color"            : initial ? initColors[i] : 'hsla(' + Math.floor(rnd * 360) + ',' + (Math.floor(rnd * 50) + 50) + '%,80%,1)'//+ (rnd + 0.3) +')',
                     // "letter-spacing"   : initial ? "-20px" : -(Math.floor(rnd * 30) + 15)
                 })
             });
@@ -404,8 +404,6 @@
 
         if(this.media.data.category == "Movies" || this.media.data.category == "TV"){
 
-            $(".chat").prepend("<p class='cline green'>Playing: " + this.media.data.title + "</p>");
-
             var videoWith = $(window).width(); //$(window).width() > 640 ? 640 : $(window).width();
             var videoHeight = Math.floor((videoWith * App.videoFormat[1]) / App.videoFormat[0]);
 
@@ -432,8 +430,8 @@
             }
 
             $(this.media.binary).on('play', function() {
-                console.log('Video started..');
                 $(App.playerClass).html(App.media.binary);
+                $(".chat").prepend("<p class='cline green'>Playing: " + App.media.data.title + "</p>");
             });
 
         }else{
