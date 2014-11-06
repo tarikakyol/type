@@ -656,8 +656,16 @@
                 if(sub == "none") App.retrieveMedia($(App.inputClass).val());
                 else App.retrieveMedia($(App.inputClass).val() + " subs:" + sub);
             });
+            $("html").on("keydown", function(e) {
+                $(App.inputClass).focus(); 
+                if (e.keyCode == 13) {
+                    $(App.playerClass).html("Loading..");
+                    var sub = $('.uiSelect').val();
+                    if(sub == "none") App.retrieveMedia($(App.inputClass).val());
+                    else App.retrieveMedia($(App.inputClass).val() + " subs:" + sub);
+                }
+            });
             $(App.inputClass).focus();
-            $('html').off("keydown");
         }
         // UI exceptions END
 
