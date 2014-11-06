@@ -10,11 +10,10 @@ body {
 .ui {
     display: none;
     margin: 0 auto;
-    text-align: center;
 }
 .uiInput {
     font-family: 'Menlo Regular', 'Lucida Console', Monaco, monospace, 'Courier New', Fixed;
-    width: 60%;
+    width: 30%;
     height: 35px;
     border: 1px;
     border-radius: 5px;
