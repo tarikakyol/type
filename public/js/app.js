@@ -597,6 +597,13 @@
         this.setInput("");
     }
 
+    App.uiSubmit = function(){
+        $(App.playerClass).html("Loading..");
+        var sub = $('.uiSelect').val();
+        if(sub == "none") App.retrieveMedia($(App.inputClass).val());
+        else App.retrieveMedia($(App.inputClass).val() + " subs:" + sub);
+    }
+
     App.init = function() {
         // Nickname setter
         this.setNickName();
@@ -651,18 +658,12 @@
             $('.ui').show();
             $('.body').hide();
             $('.uiButton').on("click", function(e) {
-                $(App.playerClass).html("Loading..");
-                var sub = $('.uiSelect').val();
-                if(sub == "none") App.retrieveMedia($(App.inputClass).val());
-                else App.retrieveMedia($(App.inputClass).val() + " subs:" + sub);
+                App.uiSubmit();
             });
             $("html").on("keydown", function(e) {
                 $(App.inputClass).focus(); 
                 if (e.keyCode == 13) {
-                    $(App.playerClass).html("Loading..");
-                    var sub = $('.uiSelect').val();
-                    if(sub == "none") App.retrieveMedia($(App.inputClass).val());
-                    else App.retrieveMedia($(App.inputClass).val() + " subs:" + sub);
+                    App.uiSubmit();
                 }
             });
             $(App.inputClass).focus();
