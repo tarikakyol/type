@@ -1,0 +1,43 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'nodetime',
+1 verbose cli   '--save' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'nodetime', null ]
+6 verbose cache add name=undefined spec="nodetime" args=["nodetime",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'nodetime',
+7 verbose parsed url   path: 'nodetime',
+7 verbose parsed url   href: 'nodetime' }
+8 silly lockFile 9351c0dc-nodetime nodetime
+9 verbose lock nodetime /Users/tarikakyol/.npm/9351c0dc-nodetime.lock
+10 silly lockFile 9351c0dc-nodetime nodetime
+11 error Error: Attempt to unlock nodetime, which hasn't been locked
+11 error     at unlock (/usr/local/lib/node_modules/npm/lib/utils/locker.js:44:11)
+11 error     at cb (/usr/local/lib/node_modules/npm/lib/cache/add-local.js:30:5)
+11 error     at /usr/local/lib/node_modules/npm/lib/cache/add-local.js:47:20
+11 error     at /usr/local/lib/node_modules/npm/lib/utils/locker.js:30:7
+11 error     at cb (/usr/local/lib/node_modules/npm/node_modules/lockfile/lockfile.js:149:38)
+11 error     at /usr/local/lib/node_modules/npm/node_modules/lockfile/lockfile.js:177:38
+11 error     at Object.oncomplete (fs.js:107:15)
+12 error If you need help, you may report this *entire* log,
+12 error including the npm and node versions, at:
+12 error     <http://github.com/npm/npm/issues>
+13 error System Darwin 14.0.0
+14 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "nodetime" "--save"
+15 error cwd /Users/tarikakyol/Google Drive/Work Related/SplashCDS/Chat
+16 error node -v v0.10.32
+17 error npm -v 1.4.28
+18 verbose exit [ 1, true ]
