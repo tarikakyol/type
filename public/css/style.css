@@ -20,6 +20,7 @@ body {
     outline: none;
     color: white;
     border-bottom: 1px white solid;
+    border-radius: 0;
     width: 100%;
     margin: 0;
     padding: 0;
