@@ -13,29 +13,20 @@ body {
 }
 .uiInput {
     font-family: 'Menlo Regular', 'Lucida Console', Monaco, monospace, 'Courier New', Fixed;
-    width: 30%;
-    height: 35px;
-    border: 1px;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 1);
-    line-height: 25px;
-    text-align: center;
-    font-size: 25px;
+    border: none;
+    background: black;
+    font-size: 15px;
     outline: none;
-    color: black;
+    color: white;
     display: inline-block;
+    border-bottom: 1px white solid;
 }
 .uiButton, .uiSelect {
-   font-family: 'Menlo Regular', 'Lucida Console', Monaco, monospace, 'Courier New', Fixed;
+    font-family: 'Menlo Regular', 'Lucida Console', Monaco, monospace, 'Courier New', Fixed;
     display: inline-block;
-    width: 19%;
-    height: 38px;
-    border-radius: 5px;
-    border: 1px dashed;
-    vertical-align: top;
-    line-height: 25px;
+    border: none;
     text-align: center;
-    font-size: 24px;
+    font-size: 15px;
     color: white;
     background: black;
     outline: none;
