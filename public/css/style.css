@@ -18,14 +18,13 @@ body {
     font-size: 15px;
     outline: none;
     color: white;
-    display: inline-block;
     border-bottom: 1px white solid;
+    width: 100%;
+    margin-bottom: 10px;
 }
 .uiButton, .uiSelect {
     font-family: 'Menlo Regular', 'Lucida Console', Monaco, monospace, 'Courier New', Fixed;
-    display: inline-block;
     border: none;
-    text-align: center;
     font-size: 15px;
     color: white;
     background: black;
