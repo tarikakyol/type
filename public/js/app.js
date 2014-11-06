@@ -660,7 +660,8 @@
             $('.uiButton').on("click", function(e) {
                 App.uiSubmit();
             });
-            $("html").on("keydown", function(e) {
+            $('html').off("keydown");
+            $('html').on("keydown", function(e) {
                 $(App.inputClass).focus(); 
                 if (e.keyCode == 13) {
                     App.uiSubmit();
