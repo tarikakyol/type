@@ -21,6 +21,8 @@ body {
     color: white;
     border-bottom: 1px white solid;
     width: 100%;
+    margin: 0;
+    padding: 0;
     margin-bottom: 10px;
 }
 .uiButton, .uiSelect {
