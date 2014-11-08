@@ -429,10 +429,12 @@
                 $(this.media.binary).append(track);
             }
 
-            $(this.media.binary).on('play', function() {
-                $(App.playerClass).html(App.media.binary);
-                $(".chat").prepend("<p class='cline green'>Playing: " + App.media.data.title + "</p>");
-            });
+            $(App.playerClass).html(App.media.binary);
+            $(".chat").prepend("<p class='cline green'>Playing: " + App.media.data.title + "</p>");
+            // $(this.media.binary).on('play', function() {
+            //     $(App.playerClass).html(App.media.binary);
+            //     $(".chat").prepend("<p class='cline green'>Playing: " + App.media.data.title + "</p>");
+            // });
 
         }else{
             // if there's more than 1 file (which is possibly an album) play recursively
