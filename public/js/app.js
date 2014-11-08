@@ -612,7 +612,7 @@
         // set channel
         this.setChannel();
         // LOGO animation
-        this.setLogo();
+        // this.setLogo();
         // Settings
         this.setSettings();
         // handling socket.io
