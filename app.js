@@ -205,7 +205,9 @@ var searchMedia = function(query, callback){
     getFeasibleTorrents(1, function(){
         if(torrents.length < 1){
             console.log('could not find any suitable torrents');
-            callback(false);
+            callback({
+                error: 'Could not find any suitable torrents'
+            });
             return;
         }
 
@@ -213,7 +215,11 @@ var searchMedia = function(query, callback){
         console.log("================================");
 
         var findBest = function(i){
-            if(i == torrents.length) return callback(false);
+            if(i == torrents.length)
+                return  callback({
+                    error: 'Could not find any suitable torrents'
+                });
+
             console.log('analysing '+(i+1)+'. torrent..');
             torrents[i].filename = __dirname+"/public/downloads/torrents/" + torrents[i].title.replace(/ /g, '_') + '.torrent';
             torget.download(torrents[i],{p:torrents[i].filename}, function(err, filename){
@@ -251,7 +257,7 @@ var downloadMedia = function(title, filename, callback){
         filesDir: '/public/downloads/files',
         tmp: __dirname+"/public/downloads",
         name: 'torrents',
-        path: __dirname+"/public/downloads/files",
+        path: __dirname+"/public/downloads/files"
     }
 
     var stripedTitle = strip(title);
@@ -291,7 +297,9 @@ var downloadMedia = function(title, filename, callback){
 
     engine[stripedTitle].on('error', function() {
         console.log('engine error');
-        callback(false);
+        return  callback({
+            error: 'Engine Error'
+        });
     });
 
     engine[stripedTitle].on('invalid-piece', function() {
@@ -569,14 +577,15 @@ io.on('connection', function(socket){
 
     socket.on('play', function(data){
         searchMedia(data.query, function(filename, title, category){
-            if(filename == false){
-                io.to(socket.id).emit('play', false);
+            if(filename.error){
+                io.to(socket.id).emit('play', {error: filename.error});
                 return;
             }
             downloadMedia(title, filename, function(status,fileCount){
 
-                if(status){
-
+                if(status.error){
+                    io.to(socket.id).emit('play', {error: status.error});
+                }else{
                     var file = {};
                     file.count = fileCount;
                     file.category = category;
@@ -594,8 +603,6 @@ io.on('connection', function(socket){
                     }else{
                         sendMedia();
                     }
-                }else{
-                    io.to(socket.id).emit('play', false);
                 }
             })
         })

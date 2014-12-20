@@ -394,8 +394,8 @@
     }
 
     App.playMedia = function(data){
-        if(data == false){
-            App.error();
+        if(data.error){
+            App.error(data.error);
             return;
         }
         this.media.data = data;
