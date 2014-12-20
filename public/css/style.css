@@ -9,7 +9,7 @@ body {
 }
 
 video {
-    background:transparent url('/public/misc/poster.png') no-repeat 0 0;
+    background-image: url('/public/misc/poster.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
