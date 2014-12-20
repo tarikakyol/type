@@ -250,11 +250,13 @@
         return localStorage["nick"];
     }
 
-    App.setChannel = function() {
+    App.setChannel = function(channel) {
         if (App.getUrlParam("channel"))
             App.channel = App.getUrlParam("channel");
         else if (App.getUrlParam("c"))
             App.channel = App.getUrlParam("c");
+        else if (channel)
+            App.channel = channel;
         else
             App.channel = "default";
         $(".channelName").html("#" + App.channel);
@@ -610,7 +612,7 @@
         // Nickname setter
         this.setNickName();
         // set channel
-        this.setChannel();
+        this.setChannel('ui'); // remove UI to show default CLI
         // LOGO animation
         // this.setLogo();
         // Settings
