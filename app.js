@@ -206,7 +206,7 @@ var searchMedia = function(query, callback){
         if(torrents.length < 1){
             console.log('could not find any suitable torrents');
             callback({
-                error: 'Could not find any suitable torrents'
+                error: 'Search failure, could not find any content.'
             });
             return;
         }
@@ -217,7 +217,7 @@ var searchMedia = function(query, callback){
         var findBest = function(i){
             if(i == torrents.length)
                 return  callback({
-                    error: 'Could not find any suitable torrents'
+                    error: 'Found some content but not suitable for web formats.'
                 });
 
             console.log('analysing '+(i+1)+'. torrent..');
