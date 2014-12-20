@@ -397,7 +397,7 @@
 
     App.playMedia = function(data){
         if(data.error){
-            App.channel === "ui" ? App.UIerror(data.error) : App.error(data.error);
+            App.channel === "ui" ? App.uiError(data.error) : App.error(data.error);
             return;
         }
         this.media.data = data;
@@ -601,7 +601,7 @@
         this.setInput("");
     },
 
-    App.UIerror = function(message){
+    App.uiError = function(message){
         if(message)
             $(".uiPlayer").html("<p class='cline warning'>Errör: "+message+"</p>");
         else
@@ -609,6 +609,7 @@
     },
 
     App.uiSubmit = function(){
+        if(!$(App.inputClass).val()) return;
         $(App.playerClass).html("Loading..");
         var sub = $('.uiSelect').val();
         if(sub == "none") App.retrieveMedia($(App.inputClass).val());

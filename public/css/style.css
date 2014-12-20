@@ -36,6 +36,7 @@ body {
     -webkit-appearance: none;
     appearance:none;
     -moz-appearance:none;
+    cursor: pointer;
 }
 .uiButton:hover{
     background: white;
@@ -62,6 +63,9 @@ a {
 .uiPlayer{
     margin-top: 10px;
     overflow: hidden;
+    font-family: 'Menlo Regular', 'Lucida Console', Monaco, monospace, 'Courier New', Fixed;
+    font-size: 15px;
+    text-align: center;
 }
 
 .nodisplay {
