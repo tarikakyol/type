@@ -201,7 +201,7 @@
     }
 
     App.print = function(data) {
-        if(App.chatLen == 0 && App.channel == "default")  App.chatLen = data.chatLen; // prevent chat history on default channel
+        if(App.chatLen == 0 && App.channel === "default")  App.chatLen = data.chatLen; // prevent chat history on default channel
         var dif = data.chatLen - App.chatLen;
         if(dif != 0){
             var start = data.chat.length-dif < 0 ? 0 : data.chat.length-dif;
@@ -397,7 +397,7 @@
 
     App.playMedia = function(data){
         if(data.error){
-            App.channel === "UI" ? App.UIerror(data.error) : App.error(data.error);
+            App.channel === "ui" ? App.UIerror(data.error) : App.error(data.error);
             return;
         }
         this.media.data = data;
@@ -663,7 +663,7 @@
         });
 
         // UI exceptions START
-        if(App.channel == "ui"){
+        if(App.channel === "ui"){
             App.playerClass = '.uiPlayer';
             App.inputClass = '.uiInput';
 
