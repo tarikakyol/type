@@ -397,7 +397,7 @@
 
     App.playMedia = function(data){
         if(data.error){
-            App.error(data.error);
+            App.channel === "UI" ? App.UIerror(data.error) : App.error(data.error);
             return;
         }
         this.media.data = data;
@@ -599,7 +599,14 @@
         else
             $(".chat").prepend("<p class='cline warning'>Errör: Could not get that!</p>");
         this.setInput("");
-    }
+    },
+
+    App.UIerror = function(message){
+        if(message)
+            $(".uiPlayer").html("<p class='cline warning'>Errör: "+message+"</p>");
+        else
+            $(".uiPlayer").html("<p class='cline warning'>Errör: Could not get that!</p>");
+    },
 
     App.uiSubmit = function(){
         $(App.playerClass).html("Loading..");
@@ -659,6 +666,7 @@
         if(App.channel == "ui"){
             App.playerClass = '.uiPlayer';
             App.inputClass = '.uiInput';
+
             $('.ui').show();
             $('.body').hide();
             $('.uiButton').on("click", function(e) {
