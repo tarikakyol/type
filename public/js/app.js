@@ -4,7 +4,6 @@
         audio: new Audio("public/misc/audio.wav"),
         media: {},
         videoFormat: [16,9],
-        videoPoster: 'public/misc/poster.png',
         chat: [],
         chatLen: 0,
         channel: null,
@@ -411,7 +410,6 @@
             var videoHeight = Math.floor((videoWith * App.videoFormat[1]) / App.videoFormat[0]);
 
             this.media.binary = document.createElement('video');
-            $(this.media.binary).attr('poster', App.videoPoster);
             $(this.media.binary).attr('width', videoWith);
             $(this.media.binary).attr('data-height', videoHeight);
             $(this.media.binary).attr('controls', ' ');

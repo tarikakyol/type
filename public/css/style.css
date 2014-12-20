@@ -8,6 +8,13 @@ body {
     margin: 0;
 }
 
+video {
+    background:transparent url('/public/misc/poster.png') no-repeat 0 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
 .ui {
     display: none;
     margin: 0 auto;
