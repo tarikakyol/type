@@ -13,6 +13,7 @@ video {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    background-size: 128px 128px;
 }
 
 .ui {
