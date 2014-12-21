@@ -579,8 +579,8 @@
             });
         });
         App.socket.on('disconnect',function() {
-            console.log("WebSocket closed, restarting..");
-            window.location.reload();
+            console.log("WebSocket closed, onting..");
+            //window.location.reload();
         });
     }
 
