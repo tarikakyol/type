@@ -579,7 +579,7 @@
             });
         });
         App.socket.on('disconnect',function() {
-            console.log("WebSocket closed, onting..");
+            console.log("WebSocket closed, reloading..");
             //window.location.reload();
         });
     }
