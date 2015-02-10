@@ -414,6 +414,7 @@
             $(this.media.binary).attr('data-height', videoHeight);
             $(this.media.binary).attr('controls', ' ');
             $(this.media.binary).attr('autoplay', ' ');
+            $(this.media.binary).attr('onclick', 'this.play()');
             source = document.createElement('source');
             $(source).attr('type', 'video/mp4');
             $(source).attr('src', '/stream?title='+App.strip(this.media.data.title));
@@ -432,7 +433,11 @@
             }
 
             $(App.playerClass).html(App.media.binary);
-            $(".chat").prepend("<p class='cline green'>Playing: " + App.media.data.title + "</p>");
+
+            if(App.channel === "ui")
+                $(this.inputClass).val(App.media.data.title);
+            else
+                $(".chat").prepend("<p class='cline green'>Playing: " + App.media.data.title + "</p>");
             // $(this.media.binary).on('play', function() {
             //     $(App.playerClass).html(App.media.binary);
             //     $(".chat").prepend("<p class='cline green'>Playing: " + App.media.data.title + "</p>");
