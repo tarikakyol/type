@@ -406,7 +406,7 @@
 
         if(this.media.data.category == "Movies" || this.media.data.category == "TV"){
 
-            var videoWith = $(window).width(); //$(window).width() > 640 ? 640 : $(window).width();
+            var videoWith = $(window).width()/2; //$(window).width() > 640 ? 640 : $(window).width();
             var videoHeight = Math.floor((videoWith * App.videoFormat[1]) / App.videoFormat[0]);
 
             this.media.binary = document.createElement('video');
@@ -684,11 +684,11 @@
         }
         // UI exceptions END
 
-        $(window).resize(function() {
-            var width = $(window).width();
-            $('video').attr("width", width);
-            $('video').attr("height", Math.floor((width * App.videoFormat[1]) / App.videoFormat[0]));
-        });
+        //$(window).resize(function() {
+        //    var width = $(window).width();
+        //    $('video').attr("width", width);
+        //    $('video').attr("height", Math.floor((width * App.videoFormat[1]) / App.videoFormat[0]));
+        //});
 
     });
 

@@ -161,16 +161,19 @@ var doSendMessage = function(io, data){
 
 var searchMedia = function(query, callback){
     var torrents = [];
+    var retry = true;
     var getFeasibleTorrents = function(page, cb){
         torget.search(query+'&page='+page, function(err, results) {
 
             if(err){
                 console.log('Error searching torrents');
                 console.log(err);
-                setTimeout(function(){
-                    console.log('retrying..');
-                    getFeasibleTorrents(page, cb);
-                }, 5000);
+                if(retry)
+                    setTimeout(function(){
+                        retry = false;
+                        console.log('retrying..');
+                        getFeasibleTorrents(page, cb);
+                    }, 5000);
             }
 
             if(!results || results.length < 1){

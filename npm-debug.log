@@ -1,43 +1,139 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node',
-1 verbose cli   '/usr/local/bin/npm',
-1 verbose cli   'install',
-1 verbose cli   'nodetime',
-1 verbose cli   '--save' ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'git', '-g' ]
 2 info using npm@1.4.28
-3 info using node@v0.10.32
-4 verbose readDependencies using package.json deps
-5 verbose cache add [ 'nodetime', null ]
-6 verbose cache add name=undefined spec="nodetime" args=["nodetime",null]
-7 verbose parsed url { protocol: null,
-7 verbose parsed url   slashes: null,
-7 verbose parsed url   auth: null,
-7 verbose parsed url   host: null,
-7 verbose parsed url   port: null,
-7 verbose parsed url   hostname: null,
-7 verbose parsed url   hash: null,
-7 verbose parsed url   search: null,
-7 verbose parsed url   query: null,
-7 verbose parsed url   pathname: 'nodetime',
-7 verbose parsed url   path: 'nodetime',
-7 verbose parsed url   href: 'nodetime' }
-8 silly lockFile 9351c0dc-nodetime nodetime
-9 verbose lock nodetime /Users/tarikakyol/.npm/9351c0dc-nodetime.lock
-10 silly lockFile 9351c0dc-nodetime nodetime
-11 error Error: Attempt to unlock nodetime, which hasn't been locked
-11 error     at unlock (/usr/local/lib/node_modules/npm/lib/utils/locker.js:44:11)
-11 error     at cb (/usr/local/lib/node_modules/npm/lib/cache/add-local.js:30:5)
-11 error     at /usr/local/lib/node_modules/npm/lib/cache/add-local.js:47:20
-11 error     at /usr/local/lib/node_modules/npm/lib/utils/locker.js:30:7
-11 error     at cb (/usr/local/lib/node_modules/npm/node_modules/lockfile/lockfile.js:149:38)
-11 error     at /usr/local/lib/node_modules/npm/node_modules/lockfile/lockfile.js:177:38
-11 error     at Object.oncomplete (fs.js:107:15)
-12 error If you need help, you may report this *entire* log,
-12 error including the npm and node versions, at:
-12 error     <http://github.com/npm/npm/issues>
-13 error System Darwin 14.0.0
-14 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "nodetime" "--save"
-15 error cwd /Users/tarikakyol/Google Drive/Work Related/SplashCDS/Chat
-16 error node -v v0.10.32
-17 error npm -v 1.4.28
-18 verbose exit [ 1, true ]
+3 info using node@v0.10.33
+4 verbose cache add [ 'git', null ]
+5 verbose cache add name=undefined spec="git" args=["git",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'git',
+6 verbose parsed url   path: 'git',
+6 verbose parsed url   href: 'git' }
+7 silly lockFile 46f1a0bd-git git
+8 verbose lock git /Users/tarikakyol/.npm/46f1a0bd-git.lock
+9 silly lockFile 46f1a0bd-git git
+10 silly lockFile 46f1a0bd-git git
+11 verbose addNamed [ 'git', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile c6f8daad-git git@
+14 verbose lock git@ /Users/tarikakyol/.npm/c6f8daad-git.lock
+15 silly addNameRange { name: 'git', range: '*', hasData: false }
+16 verbose request where is /git
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id fb965bb262c70b57
+19 verbose url raw /git
+20 verbose url resolving [ 'https://registry.npmjs.org/', './git' ]
+21 verbose url resolved https://registry.npmjs.org/git
+22 verbose request where is https://registry.npmjs.org/git
+23 info trying registry request attempt 1 at 20:55:24
+24 http GET https://registry.npmjs.org/git
+25 http 200 https://registry.npmjs.org/git
+26 silly registry.get cb [ 200,
+26 silly registry.get   { date: 'Sun, 01 Feb 2015 18:55:25 GMT',
+26 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 silly registry.get     etag: '"D291C9PY04THQBH7UTXYXKS5W"',
+26 silly registry.get     'content-type': 'application/json',
+26 silly registry.get     'cache-control': 'max-age=60',
+26 silly registry.get     'content-length': '10501',
+26 silly registry.get     'accept-ranges': 'bytes',
+26 silly registry.get     via: '1.1 varnish',
+26 silly registry.get     age: '0',
+26 silly registry.get     'x-served-by': 'cache-ams4132-AMS',
+26 silly registry.get     'x-cache': 'MISS',
+26 silly registry.get     'x-cache-hits': '0',
+26 silly registry.get     'x-timer': 'S1422816925.080530,VS0,VE94',
+26 silly registry.get     vary: 'Accept',
+26 silly registry.get     'keep-alive': 'timeout=10, max=50',
+26 silly registry.get     connection: 'Keep-Alive' } ]
+27 silly addNameRange number 2 { name: 'git', range: '*', hasData: true }
+28 silly addNameRange versions [ 'git',
+28 silly addNameRange   [ '0.1.0', '0.1.1', '0.1.2', '0.1.3', '0.1.4', '0.1.5' ] ]
+29 verbose addNamed [ 'git', '0.1.5' ]
+30 verbose addNamed [ '0.1.5', '0.1.5' ]
+31 silly lockFile c881c5ba-git-0-1-5 git@0.1.5
+32 verbose lock git@0.1.5 /Users/tarikakyol/.npm/c881c5ba-git-0-1-5.lock
+33 silly lockFile d1e8bfe8-stry-npmjs-org-git-git-0-1-5-tgz https://registry.npmjs.org/git/-/git-0.1.5.tgz
+34 verbose lock https://registry.npmjs.org/git/-/git-0.1.5.tgz /Users/tarikakyol/.npm/d1e8bfe8-stry-npmjs-org-git-git-0-1-5-tgz.lock
+35 verbose addRemoteTarball [ 'https://registry.npmjs.org/git/-/git-0.1.5.tgz',
+35 verbose addRemoteTarball   '9ef62df93f851c27542143bf52d1c68b1017ca15' ]
+36 info retry fetch attempt 1 at 20:55:26
+37 verbose fetch to= /var/folders/cg/5kx4gc5j3f7dww3g24h02pqw0000gn/T/npm-57038-kfdkctVF/registry.npmjs.org/git/-/git-0.1.5.tgz
+38 http GET https://registry.npmjs.org/git/-/git-0.1.5.tgz
+39 http 200 https://registry.npmjs.org/git/-/git-0.1.5.tgz
+40 silly lockFile d1e8bfe8-stry-npmjs-org-git-git-0-1-5-tgz https://registry.npmjs.org/git/-/git-0.1.5.tgz
+41 silly lockFile d1e8bfe8-stry-npmjs-org-git-git-0-1-5-tgz https://registry.npmjs.org/git/-/git-0.1.5.tgz
+42 silly lockFile c881c5ba-git-0-1-5 git@0.1.5
+43 silly lockFile c881c5ba-git-0-1-5 git@0.1.5
+44 silly lockFile c6f8daad-git git@
+45 silly lockFile c6f8daad-git git@
+46 silly resolved [ { name: 'git',
+46 silly resolved     description: 'A node.js library for git',
+46 silly resolved     version: '0.1.5',
+46 silly resolved     author: { name: 'Christian Amor Kvalheim', email: 'christkv@gmail.com' },
+46 silly resolved     contributors: [ [Object] ],
+46 silly resolved     repository: { type: 'git', url: 'git@github.com:christkv/node-git.git' },
+46 silly resolved     bugs: { url: 'http://groups.google.com/group/nodegit' },
+46 silly resolved     main: './lib/git/index',
+46 silly resolved     directories: { lib: './lib/git' },
+46 silly resolved     engines: { node: '>=0.4.0' },
+46 silly resolved     dependencies: { mime: '1.2.9' },
+46 silly resolved     devDependencies: { nodeunit: '>=0.5.1' },
+46 silly resolved     licenses: [ [Object] ],
+46 silly resolved     scripts: { test: './node_modules/.bin/nodeunit test' },
+46 silly resolved     readme: '[![build status](https://secure.travis-ci.org/christkv/node-git.png)](http://travis-ci.org/christkv/node-git)\n\n# Introduction\n\nThis is a library for Git written in Node.js. It\'s as close a port of grit http://github.com/mojombo/grit.\n\nThe idea is to allow for manipulation of git repositories by the node.js application. Not everything is\nimplemented directly in node-git. Some of the stuff is using the native git command line instead of\ndirect javascript code. Also it\'s fairly synchronous right now but that will hopefully change a little\nby little over time as it gets more stable and I start using it in real life scenarios.\n\n## Github information\n\nThe source code is available at http://github.com/christkv/node-git.\nYou can either clone the repository or download a tarball of the latest release.\n\nOnce you have the source you can test the driver by running\n\n\t$ make test\n\nOn windows:\n\n\tPS > node.exe .\\node_modules\\nodeunit\\bin\\nodeunit .\\test\n\t\n## Examples\n\nFor simple examples of usage look at the tests included in the repository.\n\n## Notes\n\nThe current version is basic git support, don\'t expect everything to work as you expect it\noff the bat.\n\n## License\n\n\tCopyright 2009 - 2010 Christian Amor Kvalheim.\n\n\t  Licensed under the Apache License, Version 2.0 (the "License");\n\t  you may not use this file except in compliance with the License.\n\t  You may obtain a copy of the License at\n\n\t      http://www.apache.org/licenses/LICENSE-2.0\n\n\t  Unless required by applicable law or agreed to in writing, software\n\t  distributed under the License is distributed on an "AS IS" BASIS,\n\t  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\t  See the License for the specific language governing permissions and\n\t  limitations under the License.\n',
+46 silly resolved     readmeFilename: 'README.md',
+46 silly resolved     _id: 'git@0.1.5',
+46 silly resolved     dist:
+46 silly resolved      { shasum: '9ef62df93f851c27542143bf52d1c68b1017ca15',
+46 silly resolved        tarball: 'http://registry.npmjs.org/git/-/git-0.1.5.tgz' },
+46 silly resolved     _from: 'git@',
+46 silly resolved     _npmVersion: '1.2.23',
+46 silly resolved     _npmUser: { name: 'christkv', email: 'christkv@gmail.com' },
+46 silly resolved     maintainers: [ [Object] ],
+46 silly resolved     _shasum: '9ef62df93f851c27542143bf52d1c68b1017ca15',
+46 silly resolved     _resolved: 'https://registry.npmjs.org/git/-/git-0.1.5.tgz' } ]
+47 info install git@0.1.5 into /usr/local/lib
+48 info installOne git@0.1.5
+49 verbose lib/node_modules/git unbuild
+50 verbose tar unpack /Users/tarikakyol/.npm/git/0.1.5/package.tgz
+51 silly lockFile 53b5b7ad-r-usr-local-lib-node-modules-git tar:///usr/local/lib/node_modules/git
+52 verbose lock tar:///usr/local/lib/node_modules/git /Users/tarikakyol/.npm/53b5b7ad-r-usr-local-lib-node-modules-git.lock
+53 silly lockFile 559bec6e-kakyol-npm-git-0-1-5-package-tgz tar:///Users/tarikakyol/.npm/git/0.1.5/package.tgz
+54 verbose lock tar:///Users/tarikakyol/.npm/git/0.1.5/package.tgz /Users/tarikakyol/.npm/559bec6e-kakyol-npm-git-0-1-5-package-tgz.lock
+55 silly gunzTarPerm modes [ '755', '644' ]
+56 error Error: EACCES, mkdir '/usr/local/lib/node_modules/git'
+56 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/git']
+56 error   errno: 3,
+56 error   code: 'EACCES',
+56 error   path: '/usr/local/lib/node_modules/git',
+56 error   fstream_type: 'Directory',
+56 error   fstream_path: '/usr/local/lib/node_modules/git',
+56 error   fstream_class: 'DirWriter',
+56 error   fstream_stack:
+56 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+56 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+56 error      'Object.oncomplete (fs.js:107:15)' ] }
+57 error Please try running this command again as root/Administrator.
+58 error System Darwin 14.0.0
+59 error command "node" "/usr/local/bin/npm" "install" "git" "-g"
+60 error cwd /Users/tarikakyol/Work/type/Code/splashchat
+61 error node -v v0.10.33
+62 error npm -v 1.4.28
+63 error path /usr/local/lib/node_modules/git
+64 error fstream_path /usr/local/lib/node_modules/git
+65 error fstream_type Directory
+66 error fstream_class DirWriter
+67 error code EACCES
+68 error errno 3
+69 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/git'
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+70 error fstream_stack Object.oncomplete (fs.js:107:15)
+71 verbose exit [ 3, true ]
