@@ -193,7 +193,7 @@ var searchMedia = function(query, callback){
             results.sort(compare);
 
             for(i=0;i<results.length;i++){
-                if(results[i].seeds < 10) return cb();
+                if(results[i].seeds < 5) return cb();
                 //TODO: REMOVE files == 1 and allow dosiers 
                 if((results[i].category == "Music" || results[i].category == "Movies" || results[i].category == "TV")) torrents.push(results[i])
             }
