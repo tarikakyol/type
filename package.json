@@ -8,6 +8,7 @@
     "express": "~3.10.4",
     "mime": "^1.2.11",
     "node-bing-api": "^0.1.2",
+    "nodetime": "^0.8.15",
     "opensubtitles-client": "^1.1.4",
     "parse-torrent": "^2.1.2",
     "pump": "^0.3.5",
