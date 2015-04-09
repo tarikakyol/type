@@ -18,6 +18,7 @@
     "srt2vtt": "^1.0.0",
     "torget": "0.0.5",
     "turkish-char-encoding": "0.0.5",
+    "torrent-stream": "0.15.0",
     "yandex-translate": "^1.0.1"
   },
   "engine": "node >= 0.4.1",
