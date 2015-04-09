@@ -1,6 +1,7 @@
 .DS_Store
 public/downloads/files/*
 public/downloads/torrents/*
+node_modules/
 *.zip
 .elasticbeanstalk/
 .idea

@@ -20,6 +20,7 @@
     "turkish-char-encoding": "0.0.5",
     "yandex-translate": "^1.0.1"
   },
+  "engine": "node >= 0.4.1",
   "description": "Splash chat",
   "main": "app.js",
   "devDependencies": {},
