@@ -20,7 +20,9 @@
     "torrent-stream": "0.15.0",
     "yandex-translate": "^1.0.1"
   },
-  "engine": "node >= 0.4.1",
+  "engines": {
+    "node": "0.10.35"
+  },
   "description": "Splash chat",
   "main": "app.js",
   "devDependencies": {},
