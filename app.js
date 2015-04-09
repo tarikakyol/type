@@ -1,9 +1,9 @@
-//if(process.env.NODETIME_ACCOUNT_KEY) {
-//  require('nodetime').profile({
-//    accountKey: process.env.NODETIME_ACCOUNT_KEY,
-//    appName: 'type' // optional
-//  });
-//}
+if(process.env.NODETIME_ACCOUNT_KEY) {
+  require('nodetime').profile({
+    accountKey: process.env.NODETIME_ACCOUNT_KEY,
+    appName: 'type' // optional
+  });
+}
 var fs = require('fs');
 var express = require('express');
 var http = require('http');
