@@ -35,9 +35,7 @@
     "url": "git@heroku.com:splashchat.git"
   },
   "keywords": [
-    "Elvis",
-    "Connector",
-    "CloudCMS"
+    "type"
   ],
   "author": "tarik@splashinc.co.uk",
   "license": "ISC",
