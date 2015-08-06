@@ -1,6 +1,6 @@
 # type
 
-## installation
+### installation
 
 
 npm install
