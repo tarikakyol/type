@@ -2,6 +2,7 @@
 public/downloads/files/*
 public/downloads/torrents/*
 node_modules/
+npm-debug.log
 *.zip
 .elasticbeanstalk/
 .idea
