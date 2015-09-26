@@ -238,12 +238,12 @@ var searchMedia = function(query, callback){
                if(filename){
                     console.log("torrent file downloaded looking inside.. "+filename);
                     var torrent = parseTorrent(fs.readFileSync(filename));
-                   console.log('torrent', torrent);
                     var files = torrent.files;
                     var extFound = false;
                     for(f=0;f<files.length;f++){
-                        if(getExtension(files[f].name)){
-                            console.log('files[f]', files[f]);
+                        if(checkExtension(files[f].name)){
+                            // console.log('files[f]', files[f]);
+                            // TODO: check file is main file and mp4 and big enough not to be trailer
                             extFound = true;
                             callback(filename, torrents[i].title, torrents[i].category);
                             return;
@@ -281,7 +281,7 @@ var downloadMedia = function(title, filename, callback){
     if(engine[stripedTitle]){
         console.log('torrent already downloaded: '+title);
         engine[stripedTitle].files.forEach(function(file) {
-            if(getExtension(file.name)){
+            if(checkExtension(file.name)){
                 fileCount++;
             }
         });
@@ -297,7 +297,7 @@ var downloadMedia = function(title, filename, callback){
     var fileCount = 0;
 
     engine[stripedTitle].files.forEach(function(file) {
-        if(getExtension(file.name)){
+        if(checkExtension(file.name)){
             file.select();
             fileCount++;
         }
@@ -347,7 +347,7 @@ var getSubtitle = function(opts, callback){
 
     var srtFilePath, strUrl, vttFilePath, vttUrl, fileName, files = engine[strip(opts.title)].files;
     for(i=0;i<files.length;i++){
-        if(getExtension(files[i].name)){
+        if(checkExtension(files[i].name)){
             fileName = files[i].name.substr(0, files[i].name.lastIndexOf("."));
             strUrl = "/public/downloads/subtitles/" + fileName + "_" + opts.lang + ".srt";
             srtFilePath = __dirname+strUrl;
@@ -451,11 +451,11 @@ var getSubtitle = function(opts, callback){
 }
 
 
-function getExtension(url) {
+function checkExtension(url) {
     url = url.toLowerCase();            
     var ext = (url.substr(1 + url.lastIndexOf("/")).split('?')[0]).substr(url.lastIndexOf("."));
 
-    if(ext == ".mp4" || ext == ".mp3" || ext == ".m4a")
+    if(ext == ".mp4" || ext == ".mp3" || ext == ".m4a" || ext == ".webm" || ext == ".ogg")
         return true;
     else
         return false;
@@ -486,7 +486,7 @@ app.get("/stream", function(req,res){
     // get file randomly
     var suitableFiles = [];
     eng.files.map(function(e) {
-        if(getExtension(e.name))
+        if(checkExtension(e.name))
             suitableFiles.push(e);
     });
     var number = req.query.number ? req.query.number-1 : Math.floor(Math.random() * suitableFiles.length);
