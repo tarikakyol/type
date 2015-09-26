@@ -37,6 +37,20 @@ var mc = {
     set: function(a,b){}
 }
 
+// create dirs if not exists
+if (!fs.existsSync(__dirname+"/public/downloads")){
+    fs.mkdirSync(__dirname+"/public/downloads");
+}
+if (!fs.existsSync(__dirname+"/public/downloads/files")){
+    fs.mkdirSync(__dirname+"/public/downloads/files");
+}
+if (!fs.existsSync(__dirname+"/public/downloads/subtitles")){
+    fs.mkdirSync(__dirname+"/public/downloads/subtitles");
+}
+if (!fs.existsSync(__dirname+"/public/downloads/torrents")){
+    fs.mkdirSync(__dirname+"/public/downloads/torrents");
+}
+
 var chat = [];
 var channel = 'default';
 var colors = [];
