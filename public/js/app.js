@@ -624,8 +624,13 @@
     App.init = function() {
         // Nickname setter
         this.setNickName();
-        // set channel
-        this.setChannel('ui'); // remove UI to show default CLI
+
+        // set channel to ui if mobile
+        if(typeof window.orientation !== 'undefined')
+            this.setChannel('ui');
+        else
+            this.setChannel();
+
         // LOGO animation
         // this.setLogo();
         // Settings
