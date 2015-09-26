@@ -1,16 +1,9 @@
-if(process.env.NODETIME_ACCOUNT_KEY) {
-  require('nodetime').profile({
-    accountKey: process.env.NODETIME_ACCOUNT_KEY,
-    appName: 'type' // optional
-  });
-}
 var fs = require('fs');
 var express = require('express');
 var http = require('http');
 var app = express();
 var server = http.createServer(app);
 var io = require('socket.io')(server);
-var request = require('request');
 var torget = require('torget');
 var torrentStream = require('torrent-stream');
 var parseTorrent = require('parse-torrent');
@@ -28,6 +21,7 @@ var opensubtitles = require('opensubtitles-client');
 var srt2vtt = require('srt2vtt');
 
 // var minutes = 30;
+//var request = require('request');
 // setInterval(function(){
 //    request.get("http://splashchat.herokuapp.com/ping");
 // }, minutes * 60 * 1000);
