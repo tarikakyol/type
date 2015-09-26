@@ -138,7 +138,7 @@ var sendSystemMessage = function(io, data, message){
 var sendSocket = function(io, data){
 
     if (typeof chat[data.channel] == "undefined") {
-        console.log("UNEXPECTED UNDEFINED CHANNEL CHAT");
+        console.warn("UNEXPECTED UNDEFINED CHANNEL CHAT");
         chat[data.channel] = [];
         mc.get(data.channel, function(err, val){
             if (val){
@@ -174,8 +174,8 @@ var searchMedia = function(query, callback){
         torget.search(query+'&page='+page, function(err, results) {
 
             if(err){
-                console.log('Error searching torrents');
-                console.log(err);
+                console.error('Error searching torrents');
+                console.error(err);
                 if(retry)
                     setTimeout(function(){
                         retry = false;
@@ -185,7 +185,7 @@ var searchMedia = function(query, callback){
             }
 
             if(!results || results.length < 1){
-                console.log('not found');
+                console.warn('not found');
                 return cb();
             }
             console.log(results.length + ' results found.');
@@ -215,7 +215,7 @@ var searchMedia = function(query, callback){
 
     getFeasibleTorrents(1, function(){
         if(torrents.length < 1){
-            console.log('could not find any suitable torrents');
+            console.warn('could not find any suitable torrents');
             callback({
                 error: 'Search failure, could not find any content.'
             });
@@ -306,14 +306,14 @@ var downloadMedia = function(title, filename, callback){
     });
 
     engine[stripedTitle].on('error', function() {
-        console.log('engine error');
+        console.error('engine error');
         return  callback({
             error: 'Engine Error'
         });
     });
 
     engine[stripedTitle].on('invalid-piece', function(index) {
-        console.log(index + '. INVALID');
+        console.error(index + '. INVALID');
     });
 
     engine[stripedTitle].on('download', function(index){
