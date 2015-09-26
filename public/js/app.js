@@ -167,7 +167,7 @@
             text: inputValue,
             channel: App.channel
         });
-        this.setInput("");
+        //this.setInput("");
     }
 
     App.setNotifications = function(val){
