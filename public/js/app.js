@@ -166,7 +166,7 @@
             text: inputValue,
             channel: App.channel
         });
-        
+
         if(App.channel !== "ui")
             this.setInput("");
     }
