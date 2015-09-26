@@ -1,7 +1,7 @@
 {
-  "name": "splash-chat",
+  "name": "type",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "dependencies": {
     "chardet": "0.0.8",
     "encoding": "^0.1.8",
@@ -24,20 +24,17 @@
   "engines": {
     "node": "0.10.35"
   },
-  "description": "Splash chat",
+  "description": "Type app",
   "main": "app.js",
   "devDependencies": {},
-  "scripts": {
-    "test": "test"
-  },
   "repository": {
     "type": "git",
-    "url": "git@heroku.com:splashchat.git"
+    "url": "git@heroku.com:type-app.git"
   },
   "keywords": [
     "type"
   ],
-  "author": "tarik@splashinc.co.uk",
+  "author": "akyoltarik@gmail.com",
   "license": "ISC",
   "bugs": {
     "url": ""
