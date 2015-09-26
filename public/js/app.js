@@ -706,6 +706,6 @@
     // for debugging
     window.app = App;
     console.log("congratz! you just proved how geek you are.");
-    console.log("If you're looking to work on projects like this drop us a line on #jobs channel.");
+    console.log("If you're looking to work on projects like this drop me a line by opening an issue on https://github.com/tarikakyol/type");
 
 })();
