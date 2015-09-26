@@ -313,11 +313,11 @@ var downloadMedia = function(title, filename, callback){
     });
 
     engine[stripedTitle].on('invalid-piece', function(index) {
-        console.error(index + '. INVALID');
+        console.error("INVALID: "+piecesLen+'/'+index);
     });
 
     engine[stripedTitle].on('download', function(index){
-        console.log(piecesLen+"/"+index);
+        console.log("downloaded: "+piecesLen+'/'+index);
         if((piecesLen-1) == index)
             finished();
     });
@@ -327,7 +327,7 @@ var downloadMedia = function(title, filename, callback){
     });
 
     engine[stripedTitle].on('verify', function(index){
-        console.log("verified: "+piecesLen+'/'+index);
+        //console.log("verified: "+piecesLen+'/'+index);
         if((piecesLen-1) == index)
             finished();
     });
