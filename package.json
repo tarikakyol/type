@@ -29,7 +29,7 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git@heroku.com:type-app.git"
+    "url": "git@github.com:tarikakyol/type.git"
   },
   "keywords": [
     "type"
