@@ -119,7 +119,6 @@
             flag = false;
             $('.chat').prepend("<p class='cline warning'>Invalid Command. Type /help to see available commands and features.</p>");
             this.setInput("");
-            this.setInput("");
         }
 
         return flag;
@@ -167,7 +166,9 @@
             text: inputValue,
             channel: App.channel
         });
-        //this.setInput("");
+        
+        if(App.channel !== "ui")
+            this.setInput("");
     }
 
     App.setNotifications = function(val){
