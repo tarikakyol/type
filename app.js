@@ -246,7 +246,8 @@ var searchMedia = function(query, callback){
                             return;
                         }
                     }
-                    if(!extFound) findBest(++i);
+                    if(!extFound)
+                        findBest(++i);
                 }else{
                     findBest(++i);
                 }
@@ -290,8 +291,6 @@ var downloadMedia = function(title, filename, callback){
     engine[stripedTitle] = torrentStream(fs.readFileSync(filename),opts);
 
     var piecesLen = engine[stripedTitle].torrent.pieces.length;
-    var piecesCounter = 1;
-    var invalid = 0;
     var fileCount = 0;
 
     engine[stripedTitle].files.forEach(function(file) {
@@ -313,26 +312,25 @@ var downloadMedia = function(title, filename, callback){
         });
     });
 
-    engine[stripedTitle].on('invalid-piece', function() {
-        invalid++;
-        console.log(invalid + '. INVALID');
+    engine[stripedTitle].on('invalid-piece', function(index) {
+        console.log(index + '. INVALID');
     });
 
     engine[stripedTitle].on('download', function(index){
-        console.log(piecesCounter+': '+piecesLen+"/"+index);
-        if(piecesLen == piecesCounter) finished();
-        else
-            piecesCounter++;
-    })
+        console.log(piecesLen+"/"+index);
+        if((piecesLen-1) == index)
+            finished();
+    });
 
     engine[stripedTitle].on('upload', function(index){
         console.log("uploaded: "+index);
-    })
+    });
 
     engine[stripedTitle].on('verify', function(index){
         console.log("verified: "+piecesLen+'/'+index);
-        if((piecesLen-1) == index) finished();
-    })
+        if((piecesLen-1) == index)
+            finished();
+    });
 
     var finished = function(){
         console.log('finishing..');
@@ -366,9 +364,12 @@ var getSubtitle = function(opts, callback){
             opensubtitles.api.login().done(function(token){
                 console.log("OPEN SUBTITLES PARAMS: "+ token, opts.lang, opts.title);
                 // opensubtitles.api.searchForFile(token, opts.lang, srtFilename).done(function(results){
-                    opensubtitles.api.search(token, opts.lang, opts.title).done(function(results){
+                opensubtitles.api.search(token, opts.lang, opts.title).done(function(results){
                     console.log('Subs results len: ' + results.length);
-                    if(results.length < 1) return callback(false);
+
+                    if(results.length < 1)
+                        return callback(false);
+
                     var suitableSubs = [];
                     var minDiffLen = 1000000;
                     var minDiffResult;
@@ -388,8 +389,11 @@ var getSubtitle = function(opts, callback){
                         }
                     }
                     // console.log(suitableSubs);
-                    if(suitableSubs.length < 1) suitableSubs.push(minDiffResult);
+                    if(suitableSubs.length < 1)
+                        suitableSubs.push(minDiffResult);
+
                     console.log('Downloading subtitle..');
+
                     opensubtitles.downloader.download(suitableSubs, 1, srtFilePath, null);
                     opensubtitles.api.logout(token);
                 });
@@ -446,9 +450,12 @@ var getSubtitle = function(opts, callback){
 
 function getExtension(url) {
     url = url.toLowerCase();            
-    var ext = (url.substr(1 + url.lastIndexOf("/")).split('?')[0]).substr(url.lastIndexOf("."))
-    if(ext == ".mp4" || ext == ".mp3" || ext == ".m4a") return true
-    else return false
+    var ext = (url.substr(1 + url.lastIndexOf("/")).split('?')[0]).substr(url.lastIndexOf("."));
+
+    if(ext == ".mp4" || ext == ".mp3" || ext == ".m4a")
+        return true;
+    else
+        return false;
 }
 
 
@@ -464,7 +471,8 @@ app.get("/stream", function(req,res){
 
     // console.log("/STREAMING: " + req.query.title);
 
-    if(!engine[req.query.title]) return res.send();
+    if(!engine[req.query.title])
+        return res.send();
 
     var eng = engine[req.query.title];
     // get the biggest file (which is possibly mp3 or mp4);
@@ -475,7 +483,8 @@ app.get("/stream", function(req,res){
     // get file randomly
     var suitableFiles = [];
     eng.files.map(function(e) {
-        if(getExtension(e.name)) suitableFiles.push(e);
+        if(getExtension(e.name))
+            suitableFiles.push(e);
     });
     var number = req.query.number ? req.query.number-1 : Math.floor(Math.random() * suitableFiles.length);
     var file = suitableFiles[number];
@@ -530,34 +539,46 @@ io.on('connection', function(socket){
     socket.on('disconnect', function(){
         console.log('socket.io connection close');
         var index = online[socket.channel] ? online[socket.channel].indexOf(socket.nick) : -1;
-        if(online[socket.channel] && index != -1) online[socket.channel].splice(index,1);
+        if(online[socket.channel] && index != -1)
+            online[socket.channel].splice(index,1);
         var data = {nick:socket.nick, channel:socket.channel};
         sendSystemMessage(io, data, socket.nick + " has left the room");
     });
 
     socket.on('message', function(data){
-        if(!data.channel || !data.nick || !data.text) return;
+        if(!data.channel || !data.nick || !data.text)
+            return;
+
         if (typeof colors[data.nick] == "undefined") setColor(data.nick);
         sendMessage(io, data);
     });
 
     socket.on('setcolor', function(data){
-        if(!data.color || !data.nick) return;
+        if(!data.color || !data.nick)
+            return;
+
         data.color = data.color.replace('hash','#');
         setColor(data.nick, data.color);
     });
 
     socket.on('setnick', function(data){
-        if(!data.oldNick || !data.newNick) return;
+        if(!data.oldNick || !data.newNick)
+            return;
+
         socket.nick = data.newNick;
         var index = online[data.channel].indexOf(data.oldNick);
-        if(online[socket.channel] && index != -1) online[data.channel].splice(index,1);
+
+        if(online[socket.channel] && index != -1)
+            online[data.channel].splice(index,1);
+
         online[data.channel].push(socket.nick);
         sendSystemMessage(io, data, data.oldNick + " changed nickname to " + data.newNick);
     });
 
     socket.on('fetch', function(data){
-        if(!data.nick || !data.channel) return;
+        if(!data.nick || !data.channel)
+            return;
+
         var channel = data.channel, nick = data.nick;
 
         if (typeof online[channel] == "undefined"){
@@ -625,7 +646,8 @@ io.on('connection', function(socket){
                 io.to(socket.id).emit('translate', null);
             }else {
                 io.to(socket.id).emit('translate', res.text);
-                if(data.notifications) sendSystemMessage(io, data, data.nick + " requested translation for " + data.text);
+                if(data.notifications)
+                    sendSystemMessage(io, data, data.nick + " requested translation for " + data.text);
             }
         });
     })
@@ -634,9 +656,11 @@ io.on('connection', function(socket){
         Bing.search(data.query, function(error, res, body){
             if(body.d.results.length > 0){
                 io.to(socket.id).emit('search', body.d.results[0]);
-                if(data.notifications) sendSystemMessage(io, data, data.nick + " searched for " + data.query);
+                if(data.notifications)
+                    sendSystemMessage(io, data, data.nick + " searched for " + data.query);
             }
-            else io.to(socket.id).emit('search', null);
+            else
+                io.to(socket.id).emit('search', null);
         });
     });
 
