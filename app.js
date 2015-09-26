@@ -237,10 +237,13 @@ var searchMedia = function(query, callback){
                if(err) console.log(err);
                if(filename){
                     console.log("torrent file downloaded looking inside.. "+filename);
-                    var files = parseTorrent(fs.readFileSync(filename)).files;
+                    var torrent = parseTorrent(fs.readFileSync(filename));
+                   console.log('torrent', torrent);
+                    var files = torrent.files;
                     var extFound = false;
                     for(f=0;f<files.length;f++){
                         if(getExtension(files[f].name)){
+                            console.log('files[f]', files[f]);
                             extFound = true;
                             callback(filename, torrents[i].title, torrents[i].category);
                             return;
