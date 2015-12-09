@@ -3,9 +3,8 @@ body {
     font-size: 12px;
     background: black;
     color: white;
-    margin: 5px;
+    margin: 0 0 0 10px;
     padding: 0;
-    margin: 0;
 }
 
 video {
