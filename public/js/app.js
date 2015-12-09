@@ -18,16 +18,16 @@
         },
         commands: [
             {id: 1, name: "/help", alias:'/h', usage: "/help", example: "to get command list and features type /help"},
-            {id: 2, name: "/notifications", alias: '/nots', usage: "/notifications <on/off>", example: "to prevent bot to notify people about your actions type /notifications off"},
-            {id: 3, name: "/clear", alias:'/cl', usage: '/clear', example: 'to clean out chat window type /clear'},
-            {id: 4, name: "/name", alias:'/n', usage: "/name <nick name>", example: "to change nick name type e.g. /name neo"},
-            {id: 5, name: "/color", alias:'/c', usage: "/color <color name>", example: "to change color type e.g. /color pink or /color #454545"},
-            {id: 6, name: "/channel", alias:'/ch', usage: "/channel <channel name>", example: "to open or change channel type e.g. /channel zion"},
             {id: 7, name: "/play", alias:'/p', usage: "/play <song or movie name> subs:<language>(optional)", example: "to play a song or movie type e.g. /play matrix To add subtitles type e.g. /play matrix subs:eng or subs:tur"},
             {id: 8, name: "/pause", alias:'/pa', usage: "/pause", example: "to pause playing media type /pause"},
             {id: 9, name: "/continue", alias:'/con', usage: "/continue", example: "to continue paused media type /continue"},
             {id: 10, name: "/next", alias:'/ne', usage: "/next", example: "to pass a song in album type /next"},
             {id: 11, name: "/previous", alias:'/prev', usage: "/prev", example: "to go one song back in album type /prev"},
+            {id: 2, name: "/notifications", alias: '/nots', usage: "/notifications <on/off>", example: "to prevent bot to notify people about your actions type /notifications off"},
+            {id: 3, name: "/clear", alias:'/cl', usage: '/clear', example: 'to clean out chat window type /clear'},
+            {id: 4, name: "/name", alias:'/n', usage: "/name <nick name>", example: "to change nick name type e.g. /name neo"},
+            {id: 5, name: "/color", alias:'/c', usage: "/color <color name>", example: "to change color type e.g. /color pink or /color #454545"},
+            {id: 6, name: "/channel", alias:'/ch', usage: "/channel <channel name>", example: "to open or change channel type e.g. /channel zion"},
             {id: 12, name: "/translate", alias:'/tr', usage: "/translate <language> <text>", example: "to translate words or sentences into another language type e.g. /translate german hello"},
             {id: 13, name: "/get", alias:'/search', usage: "/get <query>", example: "to search and get the most appropriate result over internet type e.g. /get wimbledon"}
         ]
