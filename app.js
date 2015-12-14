@@ -69,19 +69,19 @@ var getStringDistance = function(a, b){
 
     // increment along the first column of each row
     var i;
-    for(i = 0; i <= b.length; i++){
+    for(var i = 0; i <= b.length; i++){
         matrix[i] = [i];
     }
 
     // increment each column in the first row
     var j;
-    for(j = 0; j <= a.length; j++){
+    for(var j = 0; j <= a.length; j++){
         matrix[0][j] = j;
     }
 
     // Fill in the rest of the matrix
-    for(i = 1; i <= b.length; i++){
-        for(j = 1; j <= a.length; j++){
+    for(var i = 1; i <= b.length; i++){
+        for(var j = 1; j <= a.length; j++){
             if(b.charAt(i-1) == a.charAt(j-1)){
                 matrix[i][j] = matrix[i-1][j-1];
             } else {
@@ -200,7 +200,7 @@ var searchMedia = function(query, callback){
             }
             results.sort(compare);
 
-            for(i=0;i<results.length;i++){
+            for(var i=0;i<results.length;i++){
                 if(results[i].seeds < 5) return cb();
                 //TODO: REMOVE files == 1 and allow dosiers 
                 if((results[i].category == "Music" || results[i].category == "Movies" || results[i].category == "TV")) torrents.push(results[i])
@@ -240,14 +240,14 @@ var searchMedia = function(query, callback){
                     var torrent = parseTorrent(fs.readFileSync(filename));
                     var files = torrent.files;
                     var extFound = false;
-                    for(f=0;f<files.length;f++){
-                        if(checkExtension(files[f].name)){
-                            console.log(files[f].name, files[f].length);
-                            // console.log('files[f]', files[f]);
-                            // TODO: check file is main file and mp4 and big enough not to be trailer
-                            extFound = true;
-                            callback(filename, torrents[i].title, torrents[i].category);
-                            return;
+                    for(var f=0;f<files.length;f++){
+                        if(checkExtension(files[f].name)) {
+                            // if Movie or TV expect file be larger than 10mb (to ignore trailers etc.)
+                            if(!(torrents[i].category == "Movies" || torrents[i].category == "TV") || files[f].length > 10000000) {
+                                extFound = true;
+                                callback(filename, torrents[i].title, torrents[i].category);
+                                return;
+                            }
                         }
                     }
                     if(!extFound)
@@ -347,7 +347,7 @@ var downloadMedia = function(title, filename, callback){
 var getSubtitle = function(opts, callback){
 
     var srtFilePath, strUrl, vttFilePath, vttUrl, fileName, files = engine[strip(opts.title)].files;
-    for(i=0;i<files.length;i++){
+    for(var i=0;i<files.length;i++){
         if(checkExtension(files[i].name)){
             fileName = files[i].name.substr(0, files[i].name.lastIndexOf("."));
             strUrl = "/public/downloads/subtitles/" + fileName + "_" + opts.lang + ".srt";
@@ -377,7 +377,7 @@ var getSubtitle = function(opts, callback){
                     var suitableSubs = [];
                     var minDiffLen = 1000000;
                     var minDiffResult;
-                    for(i=0;i<results.length;i++){
+                    for(var i=0;i<results.length;i++){
                         if(results[i].MovieReleaseName){
                             var diffLen = getStringDistance(results[i].MovieReleaseName, fileName);
                             if(diffLen < 3){
