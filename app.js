@@ -242,6 +242,7 @@ var searchMedia = function(query, callback){
                     var extFound = false;
                     for(f=0;f<files.length;f++){
                         if(checkExtension(files[f].name)){
+                            console.log(files[f].name, files[f].length);
                             // console.log('files[f]', files[f]);
                             // TODO: check file is main file and mp4 and big enough not to be trailer
                             extFound = true;
