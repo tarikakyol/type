@@ -238,7 +238,7 @@ var searchMedia = function(query, callback){
                if(filename){
                     console.log("torrent file downloaded looking inside.. "+filename);
                     var torrent = parseTorrent(fs.readFileSync(filename));
-                    var files = torrent.files;
+                    var files = torrent && torrent.files ? torrent.files : [];
                     var extFound = false;
                     for(var f=0;f<files.length;f++){
                         if(checkExtension(files[f].name)) {
